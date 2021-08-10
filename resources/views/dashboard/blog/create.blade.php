@@ -11,6 +11,11 @@
         <div class="form-group mb-3">
           <label for="judul" class="form-control-label">Judul Blog</label>
           <input type="text" class="form-control form-control-alternative" placeholder="Judul Blog yang dibuat" id="judul" name="judul">
+          @error('judul')
+          <div class="form-text text-danger">
+            {{ $message }}
+          </div>
+          @enderror
         </div>
       </div>
       <div class="col-md-6">
@@ -26,6 +31,11 @@
             </option>
             @endforeach
           </select>
+          @error('category')
+          <div class="form-text text-danger">
+            {{ $message }}
+          </div>
+          @enderror
         </div>
       </div>
       <div class="col-md-6">
@@ -41,6 +51,11 @@
             </option>
             @endforeach
           </select>
+          @error('category')
+          <div class="form-text text-danger">
+            {{ $message }}
+          </div>
+          @enderror
         </div>
       </div>
       <div class="col-md-12">
@@ -51,8 +66,13 @@
       </div>
       <div class="col-md-12">
         <div class="form-group">
-          <label for="content" class="form-control-label">Example textarea</label>
-          <textarea class="form-control" id="content" rows="4" name="content"></textarea>
+          <label for="content" class="form-control-label">Content</label>
+          <textarea class="form-control" id="editor" rows="4" name="content"></textarea>
+          @error('content')
+          <div class="form-text text-danger">
+            {{ $message }}
+          </div>
+          @enderror
         </div>
       </div>
       <div class="col-md-12">

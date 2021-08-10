@@ -3,11 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use RealRashid\SweetAlert\Facades\Alert;
 use App\Models\Blog;
-use App\Models\Category;
 
-class BlogController extends Controller
+class BerandaController extends Controller
 {
   /**
   * Display a listing of the resource.
@@ -15,9 +13,8 @@ class BlogController extends Controller
   * @return \Illuminate\Http\Response
   */
   public function index() {
-    $blogs = Blog::paginate(10);
-    $categories = Category::all();
-    return view('dashboard.blog.index', compact('blogs', 'categories'));
+    $blogs = Blog::all();
+    return view("beranda.index", compact('blogs'));
   }
 
   /**
@@ -26,8 +23,7 @@ class BlogController extends Controller
   * @return \Illuminate\Http\Response
   */
   public function create() {
-    $categories = Category::all();
-    return view('dashboard.blog.create', compact('categories'));
+    //
   }
 
   /**
@@ -37,24 +33,7 @@ class BlogController extends Controller
   * @return \Illuminate\Http\Response
   */
   public function store(Request $request) {
-    $request->validate([
-      "judul" => "required",
-      'content' => "required",
-      'category' => "required"
-    ]);
-
-
-    $thumbnail = time().".".$request->thumbnail->extension();
-    $request->file('thumbnail')->storeAs('public', $thumbnail);
-    Blog::create([
-      'judul' => $request->judul,
-      'category_id' => $request->category,
-      'content' => $request->content,
-      'thumbnail' => $thumbnail
-    ]);
-
-    Alert::success('Berhasil Diupload', 'Blog baru telah ditamba,hkan');
-    return redirect(route('blog.index'));
+    //
   }
 
   /**
@@ -64,7 +43,8 @@ class BlogController extends Controller
   * @return \Illuminate\Http\Response
   */
   public function show($id) {
-    //
+    $blog = Blog::find($id);
+    return view('beranda.show', compact('blog'));
   }
 
   /**

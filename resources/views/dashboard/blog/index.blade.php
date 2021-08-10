@@ -7,7 +7,7 @@
   <div class="card p-2">
     <div class="row">
       <div class="col-sm-3 d-flex align-items-center">
-        <img src="{{asset('storage/default.jpg')}}" width="100%" class="rounded">
+        <img src="{{asset('storage/'.$blog->thumbnail )}}" width="100%" class="rounded">
       </div>
       <div class="col-sm-9 p-3 pb-5 position-relative">
         <h4 class="my-0 text-uppercase d-inline">
@@ -28,6 +28,8 @@
           <p class="text-muted mt-0 mb-3">
             Direspon Pada : <i>Belum Direspon</i>
           </p>
+          <p>
+          </p>
         </div>
         <div class="position-absolute end-0 start-0 bottom-0 d-flex align-items-center justify-content-between px-3">
           <a href="" class="btn btn-info">
@@ -46,5 +48,6 @@
     </div>
   </div>
   @endforeach
+  {{$blogs->links()}}
 </div>
 @endsection

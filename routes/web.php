@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\BerandaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +23,5 @@ Route::get('/', function () {
 Route::get('/dashboard', [DashboardController::class, "index"])->name('dashboard.main');
 
 route::resource('/dashboard/blog', BlogController::class);
+
+route::resource('/beranda', BerandaController::class);

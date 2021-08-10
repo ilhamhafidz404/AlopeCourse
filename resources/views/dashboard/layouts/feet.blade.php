@@ -10,4 +10,13 @@
 <script src="{{asset('template')}}/assets/vendor/chart.js/dist/Chart.extension.js"></script>
 <!-- Argon JS -->
 <script src="{{asset('template')}}/assets/js/argon.js?v=1.2.0"></script>
+<!-- CKEditor -->
+<script src="https://cdn.ckeditor.com/ckeditor5/29.1.0/classic/ckeditor.js"></script>
+<script>
+  ClassicEditor
+  .create(document.querySelector('#editord'))
+  .catch(error => {
+    console.error(error);
+  });
+</script>
 @include('sweetalert::alert')
