@@ -12,7 +12,8 @@ class Blog extends Model
   protected $fillable = ['judul',
     'category_id',
     'content',
-    'thumbnail'];
+    'thumbnail',
+    'slug'];
 
   public function Category() {
     return $this->belongsTo(Category::class);

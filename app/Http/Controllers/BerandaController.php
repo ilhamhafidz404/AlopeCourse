@@ -13,7 +13,7 @@ class BerandaController extends Controller
   * @return \Illuminate\Http\Response
   */
   public function index() {
-    $blogs = Blog::all();
+    $blogs = Blog::orderBy('id', 'DESC')->get();
     return view("beranda.index", compact('blogs'));
   }
 
@@ -44,7 +44,8 @@ class BerandaController extends Controller
   */
   public function show($id) {
     $blog = Blog::find($id);
-    return view('beranda.show', compact('blog'));
+    $blogs = Blog::orderBy('id', 'DESC')->take(2)->get();
+    return view('beranda.show', compact('blog', 'blogs'));
   }
 
   /**

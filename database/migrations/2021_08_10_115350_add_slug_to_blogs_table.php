@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCategoriesTable extends Migration
+class AddSlugToBlogsTable extends Migration
 {
   /**
   * Run the migrations.
@@ -12,13 +12,8 @@ class CreateCategoriesTable extends Migration
   * @return void
   */
   public function up() {
-    Schema::create('categories', function (Blueprint $table) {
-      $table->id();
-      $table->string('nama');
-      $table->string('slug');
-      $table->text('keterangan');
-      $table->string('badge');
-      $table->timestamps();
+    Schema::table('blogs', function (Blueprint $table) {
+      $table->string('slug')->after('judul');
     });
   }
 
@@ -28,6 +23,8 @@ class CreateCategoriesTable extends Migration
   * @return void
   */
   public function down() {
-    Schema::dropIfExists('categories');
+    Schema::table('blogs', function (Blueprint $table) {
+      //
+    });
   }
 }

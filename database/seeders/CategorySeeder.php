@@ -13,9 +13,9 @@ class CategorySeeder extends Seeder
   */
   public function run() {
     \App\Models\Category::insert([
-      ['nama' => 'Web Programming', "slug" => "web-programming"],
-      ['nama' => 'Web Framework', "slug" => "web-framework"],
-      ['nama' => 'Android Programming', "slug" => "android-programming"],
+      ['nama' => 'HTML Dasar', "slug" => "html-dasar", 'keterangan' => "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, voluptate sapiente amet accusamus,", 'badge' => '#e34c26'],
+      ['nama' => 'CSS Dasar', "slug" => "css-dasar", 'keterangan' => "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, voluptate sapiente amet accusamus,", 'badge' => '#264de4'],
+      ['nama' => 'CSS Layouting', "slug" => "css-layouting", 'keterangan' => "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, voluptate sapiente amet accusamus,", 'badge' => '#264de4'],
     ]);
   }
 }

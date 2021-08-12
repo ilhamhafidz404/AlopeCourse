@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Models\Blog;
 use App\Models\Category;
+use Illuminate\Support\Str;
 
 class BlogController extends Controller
 {
@@ -15,7 +16,7 @@ class BlogController extends Controller
   * @return \Illuminate\Http\Response
   */
   public function index() {
-    $blogs = Blog::paginate(10);
+    $blogs = Blog::orderBy('id', 'DESC')->paginate(10);
     $categories = Category::all();
     return view('dashboard.blog.index', compact('blogs', 'categories'));
   }
@@ -48,6 +49,7 @@ class BlogController extends Controller
     $request->file('thumbnail')->storeAs('public', $thumbnail);
     Blog::create([
       'judul' => $request->judul,
+      'slug' => Str::slug($request->judul),
       'category_id' => $request->category,
       'content' => $request->content,
       'thumbnail' => $thumbnail
