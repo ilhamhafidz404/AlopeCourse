@@ -17,6 +17,8 @@
   <style>
     body {
       font-family: 'Poppins', Sans-Serif;
+      overflow-x: hidden;
+      background-color: #f1f5f9;
     }
     a {
       text-decoration: none !important;
@@ -24,9 +26,20 @@
     .container-fluid {
       width: 90% !important;
     }
+    ul{
+      list-style: none;
+    }
+    .card-img-rounded{
+      border-radius: 10px
+    }
+    section.header{
+      background-image: url('{{asset('image/header.svg')}}');
+      background-size: cover;
+      background-position: center;
+    }
   </style>
 
-  <title>Hello, world!</title>
+  <title>Beranda</title>
 </head>
 <body>
   <x-navbar-component></x-navbar-component>
