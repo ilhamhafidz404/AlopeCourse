@@ -11,7 +11,9 @@
           <a href="{{route('beranda.show', $blog->id)}}">
             <div class="card shadow-sm">
               <img src="{{asset('storage/'.$blog->thumbnail)}}" alt="">
-
+              @foreach($blog->tag as $tag)
+              {{$tag->nama}}
+              @endforeach
               <div class="card-body">
                 <h4 class="card-title mb-0 text-dark">
                   {{$blog->judul}}

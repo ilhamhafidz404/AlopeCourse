@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Database\Seeders\CategorySeeder;
+use Database\Seeders\TagSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,6 +14,6 @@ class DatabaseSeeder extends Seeder
   * @return void
   */
   public function run() {
-    return $this->call(CategorySeeder::class);
+    return $this->call(TagSeeder::class);
   }
 }
