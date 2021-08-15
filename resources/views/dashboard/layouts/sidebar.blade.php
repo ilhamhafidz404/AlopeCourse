@@ -24,6 +24,12 @@
             </a>
           </li>
           <li class="nav-item">
+            <a class="nav-link {{request()->is('dashboard/blog')?'active':''}}" href="{{route('blog.index')}}">
+              <i class="ni ni-tv-2 text-primary"></i>
+              <span class="nav-link-text">List Blog draff</span>
+            </a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="examples/icons.html">
               <i class="ni ni-planet text-orange"></i>
               <span class="nav-link-text">Icons</span>

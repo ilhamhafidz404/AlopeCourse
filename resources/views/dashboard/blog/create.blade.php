@@ -10,9 +10,9 @@
       <div class="col-md-12">
         <div class="form-group mb-3">
           <label for="judul" class="form-control-label">Judul Blog</label>
-          <input type="text" class="form-control form-control-alternative" placeholder="Judul Blog yang dibuat" id="judul" name="judul">
+          <input type="text" class="form-control form-control-alternative @error('judul') is-invalid @enderror" placeholder="Judul Blog yang dibuat" id="judul" name="judul" value='{{old("judul")}}'>
           @error('judul')
-          <div class="form-text text-danger">
+          <div class="form-text invalid-feedback text-danger">
             {{ $message }}
           </div>
           @enderror
@@ -77,8 +77,11 @@
       </div>
       <div class="col-md-12">
         <div class="form-group mt-3">
-          <button class="btn btn-primary">
+          <button class="btn btn-primary" name="status" value="upload">
             Upload Blog
+          </button>
+          <button class="btn btn-warning" name="status" value="draff">
+            Simpan sebagai Draff
           </button>
         </div>
       </div>

@@ -17,6 +17,9 @@
               @if(request()->is('dashboard/blog'))
               <li class="breadcrumb-item" aria-current="page">Blog</li>
               <li class="breadcrumb-item active" aria-current="page">List Blog</li>
+              @elseif(request()->is('dashboard/blog/create'))
+              <li class="breadcrumb-item" aria-current="page">Blog</li>
+              <li class="breadcrumb-item active" aria-current="page">Tambah Blog</li>
               @endif
             </ol>
           </nav>
@@ -29,16 +32,13 @@
               Filter Blog
             </button>
             <ul class="dropdown-menu">
-              @foreach($categories as $category)
+              @foreach($tags as $tag)
               <li>
-                <a class="dropdown-item" href="#">{{$category->nama}}</a>
+                <a class="dropdown-item" href="">{{$tag->nama}}</a>
               </li>
               @endforeach
             </ul>
           </div>
-          @else
-          <a href="#" class="btn btn-sm btn-neutral">New</a>
-          <a href="#" class="btn btn-sm btn-neutral">Filters</a>
           @endif
         </div>
       </div>

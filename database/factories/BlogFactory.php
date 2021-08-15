@@ -26,6 +26,7 @@ class BlogFactory extends Factory
       'slug' => Str::slug($this->faker->name(), "-"),
       'thumbnail' => 'default.jpg',
       'category_id' => rand(1, 3),
+      'status' => "draff",
       'content' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati minima error nihil eveniet tempore voluptatibus rem commodi amet quod, quia deserunt deleniti aperiam neque, aut nesciunt ut? Sequi, laudantium, ut.',
     ];
   }

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\BerandaController;
+use App\Http\Controllers\FilterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +21,7 @@ Route::get('/', function () {
   return view('welcome');
 });
 
-Route::get('/dashboard', [DashboardController::class, "index"])->name('dashboard.main');
+Route::get('/dashboard', DashboardController::class)->name('dashboard.main');
 
 route::resource('/dashboard/blog', BlogController::class);
 

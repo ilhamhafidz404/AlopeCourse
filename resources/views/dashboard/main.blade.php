@@ -8,7 +8,7 @@
       <div class="row">
         <div class="col">
           <h5 class="card-title text-uppercase text-muted mb-0">Total traffic</h5>
-          <span class="h2 font-weight-bold mb-0">350,897</span>
+          <span class="h2 font-weight-bold mb-0">{{$draffBlogCount}}</span>
         </div>
         <div class="col-auto">
           <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
@@ -108,4 +108,7 @@
     </div>
   </div>
 </div>
+@foreach($draffBlogList as $blog)
+{{$blog->judul}}
+@endforeach
 @endsection

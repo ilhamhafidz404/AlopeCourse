@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Models\Blog;
 use App\Models\Category;
+use App\Models\Tag;
 use Illuminate\Support\Str;
 
 class BlogController extends Controller
@@ -16,9 +17,11 @@ class BlogController extends Controller
   * @return \Illuminate\Http\Response
   */
   public function index() {
-    $blogs = Blog::orderBy('id', 'DESC')->paginate(10);
+    $blogs = Blog::where('status', 'upload')->orderBy('id', 'DESC')->paginate(10);
     $categories = Category::all();
-    return view('dashboard.blog.index', compact('blogs', 'categories'));
+    $tags = Tag::all();
+    $draffBlog = Blog::where("status", "draff")->get();
+    return view('dashboard.blog.index', compact('blogs', 'categories', 'tags', "draffBlog"));
   }
 
   /**
@@ -41,13 +44,16 @@ class BlogController extends Controller
     $request->validate([
       "judul" => "required",
       'content' => "required",
-      'category' => "required"
+      'category' => "required",
+      'status' => "required",
+      "thumbnail" => "required"
     ]);
 
 
     $thumbnail = time().".".$request->thumbnail->extension();
     $request->file('thumbnail')->storeAs('public', $thumbnail);
     Blog::create([
+      'status' => $request->status,
       'judul' => $request->judul,
       'slug' => Str::slug($request->judul),
       'category_id' => $request->category,
@@ -55,6 +61,10 @@ class BlogController extends Controller
       'thumbnail' => $thumbnail
     ]);
 
+    if ($request->status == "draff") {
+      Alert::info('Draff', 'Blog baru telah ditamba,hkan');
+      return redirect(route('blog.index'));
+    }
     Alert::success('Berhasil Diupload', 'Blog baru telah ditamba,hkan');
     return redirect(route('blog.index'));
   }
@@ -65,8 +75,9 @@ class BlogController extends Controller
   * @param  int  $id
   * @return \Illuminate\Http\Response
   */
-  public function show($id) {
-    //
+  public function show($slug) {
+    $blog = Blog::whereSlug($slug)->first();
+    return view('dashboard.blog.show', compact('blog'));
   }
 
   /**
@@ -87,7 +98,13 @@ class BlogController extends Controller
   * @return \Illuminate\Http\Response
   */
   public function update(Request $request, $id) {
-    //
+    Blog::find($id)->update([
+      "judul" => $request->judul,
+      "category_id" => $request->category,
+      "content" => $request->content,
+      "thumbnail" => $request->thumbnail,
+      "status" => $request->status
+    ]);
   }
 
   /**

@@ -14,6 +14,7 @@ class Blog extends Model
     'category_id',
     'content',
     'thumbnail',
+    'status',
     'slug'];
 
   public function Category() {
