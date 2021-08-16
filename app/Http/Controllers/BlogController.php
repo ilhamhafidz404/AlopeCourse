@@ -86,8 +86,10 @@ class BlogController extends Controller
   * @param  int  $id
   * @return \Illuminate\Http\Response
   */
-  public function edit($id) {
-    //
+  public function edit($slug) {
+    $blog = Blog::where("slug", $slug)->first();
+    $categories = Category::all();
+    return view("dashboard.blog.edit", compact("blog", "categories"));
   }
 
   /**
@@ -105,6 +107,8 @@ class BlogController extends Controller
       "thumbnail" => $request->thumbnail,
       "status" => $request->status
     ]);
+    Alert::success('Berhasil diedit', 'Blog baru telah ditamba,hkan');
+    return redirect(route('blog.show'));
   }
 
   /**
