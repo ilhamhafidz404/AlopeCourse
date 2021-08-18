@@ -18,6 +18,7 @@ class CreateBlogsTable extends Migration
       $table->string('judul');
       $table->foreignId('category_id');
       $table->longText('content');
+      $table->string("status")->default("upload");
       $table->timestamps();
     });
   }

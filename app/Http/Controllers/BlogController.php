@@ -107,8 +107,8 @@ class BlogController extends Controller
       "thumbnail" => $request->thumbnail,
       "status" => $request->status
     ]);
-    Alert::success('Berhasil diedit', 'Blog baru telah ditamba,hkan');
-    return redirect(route('blog.show'));
+    Alert::success('Berhasil diedit', '');
+    return redirect(route('blog.index'));
   }
 
   /**
