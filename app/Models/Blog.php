@@ -17,6 +17,14 @@ class Blog extends Model
     'status',
     'slug'];
 
+  public function scopeFilter($query, array $filter) {
+    $query->when($filter["serie"] ?? false, function($query, $filter) {
+      $query->whereHas("Category", function($query) use($filter) {
+        return  $query->where('slug', $filter);
+      });
+    });
+  }
+
   public function Category() {
     return $this->belongsTo(Category::class);
   }

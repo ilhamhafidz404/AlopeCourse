@@ -6,6 +6,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\FilterController;
 use App\Http\Controllers\TrashController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +25,7 @@ Route::get('/', function () {
 
 Route::get('/dashboard', DashboardController::class)->name('dashboard.main');
 route::resource('/dashboard/blog', BlogController::class);
+route::resource('/dashboard/series', CategoryController::class);
 route::get("/dashboard/trash", [TrashController::class, "index"]);
 route::delete("/dashboard/trash", [TrashController::class, 'destroy'])->name("trash.destroy");
 

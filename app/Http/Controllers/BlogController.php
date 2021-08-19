@@ -17,7 +17,11 @@ class BlogController extends Controller
   * @return \Illuminate\Http\Response
   */
   public function index() {
-    $blogs = Blog::where('status', 'upload')->orderBy('id', 'DESC')->paginate(10);
+    if (request("serie")) {
+      $blogs = Blog::filter(request(["serie"]))->orderBy('id', 'DESC')->paginate(10);
+    } else {
+      $blogs = Blog::where('status', 'upload')->filter(request(["serie"]))->orderBy('id', 'DESC')->paginate(10);
+    }
     $categories = Category::all();
     $tags = Tag::all();
     $draffBlog = Blog::where("status", "draff")->get();

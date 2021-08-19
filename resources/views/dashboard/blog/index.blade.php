@@ -16,6 +16,9 @@
         <small class="text-muted ms-2">
           {{$blog->category->nama}}
         </small>
+        <span class="badge bg-warning">
+          {{$blog->status}}
+        </span>
         <ul class="d-flex p-0">
           @foreach ($blog->tag as $tag)
           <li class="me-2">
@@ -28,6 +31,7 @@
           @endforeach
         </ul>
         <div class="d-flex justify-content-end">
+          @if($blog->status === "upload")
           <form action="{{route('blog.update', $blog->id)}}" method="POST">
             @csrf
             @method("PUT")
@@ -39,6 +43,7 @@
               <i class="fas fa-exclamation-triangle"></i>
             </button>
           </form>
+          @endif
           <a href="{{route('blog.show', $blog->slug)}}" class="btn btn-sm btn-primary ms-2">
             <i class="fas fa-eye"></i>
           </a>
@@ -49,6 +54,7 @@
 </div>
 @endforeach
 {{$blogs->links()}}
+@if(!request("serie"))
 <h3>List Draff Blog</h3>
 @foreach($draffBlog as $blog)
 <div class="col-md-6">
@@ -88,4 +94,5 @@
   </div>
 </div>
 @endforeach
+@endif
 @endsection
