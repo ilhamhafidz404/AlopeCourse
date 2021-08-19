@@ -59,7 +59,7 @@ class BlogController extends Controller
       'category_id' => $request->category,
       'content' => $request->content,
       'thumbnail' => $thumbnail
-    ]);
+    ])->tag()->attach($request->tags);
 
     if ($request->status == "draff") {
       Alert::info('Draff', 'Blog baru telah ditamba,hkan');

@@ -19,7 +19,7 @@
         <ul class="d-flex p-0">
           @foreach ($blog->tag as $tag)
           <li class="me-2">
-            <a href="">
+            <a href="" class="text-white me-2">
               <span class="badge bg-primary">
                 {{$tag->nama}}
               </span>
