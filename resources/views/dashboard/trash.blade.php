@@ -1,4 +1,6 @@
 @extends("dashboard.master")
+
+@section('title', 'Blog Trash')
 @section("content")
 @foreach($blogs as $blog)
 <div class="card">

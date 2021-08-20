@@ -26,7 +26,7 @@ Route::get('/', function () {
 Route::get('/dashboard', DashboardController::class)->name('dashboard.main');
 route::resource('/dashboard/blog', BlogController::class);
 route::resource('/dashboard/series', CategoryController::class);
-route::get("/dashboard/trash", [TrashController::class, "index"]);
+route::get("/dashboard/trash", [TrashController::class, "index"])->name('trash.index');
 route::delete("/dashboard/trash", [TrashController::class, 'destroy'])->name("trash.destroy");
 
 route::resource('/beranda', BerandaController::class);

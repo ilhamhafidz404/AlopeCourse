@@ -13,13 +13,35 @@
                   <i class="fas fa-home"></i>
                 </a>
               </li>
-              <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+              <li class="breadcrumb-item"><a href="{{route('dashboard.main')}}">Dashboard</a></li>
+
+              {{-- index blog --}}
               @if(request()->is('dashboard/blog'))
-              <li class="breadcrumb-item" aria-current="page">Blog</li>
+              <li class="breadcrumb-item" aria-current="page">
+                <a href="{{route('blog.index')}}">Blog</a>
+              </li>
               <li class="breadcrumb-item active" aria-current="page">List Blog</li>
+
+              {{-- create blog --}}
               @elseif(request()->is('dashboard/blog/create'))
-              <li class="breadcrumb-item" aria-current="page">Blog</li>
+              <li class="breadcrumb-item" aria-current="page">
+                <a href="{{route('blog.index')}}">Blog</a>
+              </li>
               <li class="breadcrumb-item active" aria-current="page">Tambah Blog</li>
+
+              {{-- Serie blog --}}
+              @elseif(request()->is('dashboard/series'))
+              <li class="breadcrumb-item" aria-current="page">
+                <a href="{{route('blog.index')}}">Blog</a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">Blog Series</li>
+              
+              {{-- Trash blog --}}
+              @elseif(request()->is('dashboard/trash'))
+              <li class="breadcrumb-item" aria-current="page">
+                <a href="{{route('blog.index')}}">Blog</a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">Blog Trash</li>
               @endif
             </ol>
           </nav>

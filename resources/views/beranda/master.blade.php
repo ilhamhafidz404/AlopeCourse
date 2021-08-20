@@ -37,6 +37,79 @@
       background-size: cover;
       background-position: center;
     }
+    .circle-container {
+      padding-top: 120px;
+      position: relative;
+    }
+    .circle {
+      border: 1px solid rgba(0,0,0,0.1);
+    }
+    .circle1 {
+      width: 100px;
+      height: 100px;
+      z-index: 3;
+    }
+    .circle2 {
+      width: 200px;
+      height: 200px;
+      z-index: 2;
+    }
+    .circle3 {
+      height: 300px;
+      width: 300px;
+      z-index: 1;
+    }
+    .circle span {
+      background-color: #fff;
+      padding: 5px;
+      width: 25px;
+      height: 25px;
+    }
+    .circle span.html {
+      top: 0;
+      left: 5px;
+      color: #e34c26;
+    }
+    .circle span.css {
+      bottom: 0;
+      right: 5px;
+      color: #264de4;
+    }
+    .circle span.js {
+      top: -10px;
+      left: 55%;
+      color: #f0db4f;
+    }
+    .circle span.php {
+      bottom: 45px;
+      left: 0;
+      color: #8993be;
+    }
+    .circle span.sass {
+      bottom: 90px;
+      right: -13px;
+      color: #cc6699;
+    }
+    .circle span.laravel {
+      top: 30px;
+      left: 33px;
+      color: #fb503b;
+    }
+    .circle span.vue {
+      bottom: 20px;
+      right: 43px;
+      color: #42b883;
+    }
+    .circle span.react {
+      top: 60px;
+      right: 8px;
+      color: #61DBFB;
+    }
+    .circle span.node {
+      bottom: 3px;
+      left: 70px;
+      color: #68A063;
+    }
   </style>
 
   <title>Beranda</title>
@@ -53,6 +126,8 @@
   <!-- Option 1: Bootstrap Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   <script src="{{asset('dist/js/prism.js')}}"></script>
+  <!-- Font Awesome  -->
+<script src="https://kit.fontawesome.com/bfdfedea1a.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
   <script>
     var typed3 = new Typed('#typed', {
@@ -62,6 +137,12 @@
       smartBackspace: true, // this is a default
       loop: true
     });
+    
+  var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+  var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl)
+  })
+  console.log(tooltipTriggerList)
   </script>
 
 </body>
