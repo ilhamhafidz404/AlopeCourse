@@ -16,8 +16,10 @@
   <!-- Page plugins -->
   <!-- Argon CSS -->
   <link rel="stylesheet" href="{{asset('template')}}/assets/css/argon.css?v=1.2.0" type="text/css">
+
+  <link rel="stylesheet" href="{{asset('dist/css/prism.css')}}">
   <style>
-    ul{
+    ul {
       list-style: none
     }
   </style>

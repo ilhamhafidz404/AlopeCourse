@@ -3,7 +3,7 @@
 
 @section('content')
 <div class="container">
-  
+
 </div>
 
 
@@ -46,9 +46,9 @@
           </p>
           <ul class="p-0">
             @foreach ($blog->tag as $tag)
-                <li>
-                  <a href="">{{$tag->nama}}</a>
-                </li>
+            <li>
+              <a href="">{{$tag->nama}}</a>
+            </li>
             @endforeach
           </ul>
         </div>
@@ -60,11 +60,12 @@
           </code>
         </p>
         <div class="blog-text">
-          {{$blog->content}}
+          {!!$blog->content!!}
         </div>
 
+
         <div class="article-footer">
-          
+
         </div>
       </article>
     </div>
@@ -82,41 +83,41 @@
       </div>
     </div>
   </div>
-  
+
 </main>
 <div class="container mt-5">
   <h3 class="mb-3 text-uppercase ms-3">Tutorial Menarik Lainnya</h3>
   <div class="row">
-  @foreach($blogs as $blog)
-  <div class="col-sm-12 col-md-6 col-lg-4">
-    <a href="{{route('beranda.show', $blog->slug)}}">
-      <div class="card border-0 bg-white shadow-sm rounded m-auto mb-4" style="width: 90% !important;">
-        <img src="{{asset('storage/'.$blog->thumbnail)}}" width="100%">
-        <div class="card-body">
-          <ul class="p-0 d-flex my-0">
+    @foreach($blogs as $blog)
+    <div class="col-sm-12 col-md-6 col-lg-4">
+      <a href="{{route('beranda.show', $blog->slug)}}">
+        <div class="card border-0 bg-white shadow-sm rounded m-auto mb-4" style="width: 90% !important;">
+          <img src="{{asset('storage/'.$blog->thumbnail)}}" width="100%">
+          <div class="card-body">
+            <ul class="p-0 d-flex my-0">
               @foreach($blog->tag as $tag)
-                <li class="me-2">
-                  <a href=""><small>{{$tag->nama}}</small></a>
-                </li>
+              <li class="me-2">
+                <a href=""><small>{{$tag->nama}}</small></a>
+              </li>
               @endforeach
-          </ul>
-          <h4 class="card-title mb-2 text-dark">
-            {{$blog->judul}}
-          </h4>
-          <div class="card-text d-flex justify-content-between">
-            <span class="badge" style="background-color:{{$blog->category->badge}}">
-              {{$blog->category->nama}}
-            </span>
-            <small class="text-muted">
-              {{$blog->created_at->diffForHumans()}}
-            </small>
+            </ul>
+            <h4 class="card-title mb-2 text-dark">
+              {{$blog->judul}}
+            </h4>
+            <div class="card-text d-flex justify-content-between">
+              <span class="badge" style="background-color:{{$blog->category->badge}}">
+                {{$blog->category->nama}}
+              </span>
+              <small class="text-muted">
+                {{$blog->created_at->diffForHumans()}}
+              </small>
+            </div>
           </div>
         </div>
-      </div>
-    </a>
+      </a>
+    </div>
+    @endforeach
   </div>
-  @endforeach
-</div>
 </div>
 
 @endsection

@@ -18,7 +18,7 @@
       </option>
       @endforeach
     </select>
-    <textarea class="form-control" id="editor" rows="4" name="content">
+    <textarea class="form-control" id="editodr" rows="4" name="content">
       {{$blog->content}}
     </textarea>
     <button class="btn btn-primary" name="status" value="upload">
