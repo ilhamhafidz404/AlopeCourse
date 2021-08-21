@@ -7,13 +7,40 @@
     <div class="row">
       @foreach($categories as $category)
       <div class="col-md-4">
-        <div class="card bg-dark text-white">
-          <img src="{{asset('storage/default.jpg')}}" class="card-img" alt="...">
+        <div class="card bg-dark text-white" style="height: 100px">
+          <img src="{{asset('storage/'.$category->thumbnail)}}" class="card-img w-100" alt="...">
           <div class="card-img-overlay">
             <button name="serie" value="{{$category->slug}}">{{$category->nama}}</button>
             <h5 class="card-title">Card title</h5>
-            <p class="card-text">{{$category->keterangan}}</p>
-            <p class="card-text">Last updated 3 mins ago</p>
+            <p class="card-text">
+              {{$category->description}}
+            </p>
+            <p class="card-text">
+              Last updated 3 mins ago
+            </p>
+          </div>
+        </div>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#{{$category->slug}}">
+          Launch demo modal
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="{{$category->slug}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                {{$category->nama}}
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>

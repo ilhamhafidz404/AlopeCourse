@@ -14,6 +14,7 @@ class DatabaseSeeder extends Seeder
   * @return void
   */
   public function run() {
-    return $this->call(CategorySeeder::class);
+    $this->call(CategorySeeder::class);
+    $this->call(TagSeeder::class);
   }
 }

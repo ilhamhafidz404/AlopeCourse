@@ -18,14 +18,17 @@ class BlogController extends Controller
   */
   public function index() {
     if (request("serie")) {
-      $blogs = Blog::filter(request(["serie"]))->orderBy('id', 'DESC')->paginate(10);
+      $blogs = Blog::filter(request(["serie"]))->latest()->paginate(10);
     } else {
-      $blogs = Blog::where('status', 'upload')->filter(request(["serie"]))->orderBy('id', 'DESC')->paginate(10);
+      $blogs = Blog::where('status', 'upload')->filter(request(["serie"]))->latest()->paginate(10);
     }
     $categories = Category::all();
     $tags = Tag::all();
     $draffBlog = Blog::where("status", "draff")->get();
-    return view('dashboard.blog.index', compact('blogs', 'categories', 'tags', "draffBlog"));
+
+    $blogCount = Blog::count();
+    $blogDraffCount = Blog::where("status", "draff")->count();
+    return view('dashboard.blog.index', compact('blogs', 'categories', 'tags', "draffBlog", 'blogCount', 'blogDraffCount'));
   }
 
   /**

@@ -42,6 +42,13 @@
               </li>
               <li class="breadcrumb-item active" aria-current="page">Blog Series</li>
 
+              {{-- Serie blog --}}
+              @elseif(request()->is('dashboard/series/create'))
+              <li class="breadcrumb-item" aria-current="page">
+                <a href="{{route('blog.index')}}">Blog</a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">Add Blog Series</li>
+
               {{-- Trash blog --}}
               @elseif(request()->is('dashboard/trash'))
               <li class="breadcrumb-item" aria-current="page">
@@ -54,19 +61,33 @@
         </div>
         <div class="col-lg-6 col-5 text-right">
           @if(request()->is('dashboard/blog'))
-          <a href="{{route('blog.create')}}" class="btn btn-sm btn-neutral">Tambah Blog</a>
           <div class="btn-group">
+            <a href="{{route('blog.create')}}" class="btn btn-sm btn-neutral me-2">Tambah Blog</a>
             <button type="button" class="btn btn-neutral btn-sm dropdown-toggle" data-bs-toggle="dropdown">
               Filter Blog
             </button>
             <ul class="dropdown-menu">
-              @foreach($tags as $tag)
+              @foreach($draffBlog as $blog)
               <li>
-                <a class="dropdown-item" href="">{{$tag->nama}}</a>
+                <a class="dropdown-item" href="">{{$blog->judul}}</a>
               </li>
               @endforeach
             </ul>
           </div>
+          @elseif(request()->is('dashboard/series'))
+          <div class="btn-group">
+            <a href="{{route('series.create')}}" class="btn btn-sm btn-neutral me-2">
+              Tambah Serie
+            </a>
+            <button type="button" class="btn btn-neutral btn-sm dropdown-toggle" data-bs-toggle="dropdown">
+              Filter Blog
+            </button>
+          </div>
+
+          @elseif(request()->is('dashboard/series/create'))
+          <a href="{{route('series.index')}}" class="btn btn-sm btn-danger">
+            kembali
+          </a>
           @endif
         </div>
       </div>

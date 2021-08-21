@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Category;
+use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Str;
 
 class CategoryController extends Controller
 {
@@ -23,7 +25,7 @@ class CategoryController extends Controller
   * @return \Illuminate\Http\Response
   */
   public function create() {
-    //
+    return view("dashboard.category.create");
   }
 
   /**
@@ -33,7 +35,17 @@ class CategoryController extends Controller
   * @return \Illuminate\Http\Response
   */
   public function store(Request $request) {
-    //
+    $thumbnail = time().".".$request->thumbnail->extension();
+    $request->file('thumbnail')->storeAs('public', $thumbnail);
+    Category::create([
+      'nama' => $request->nama,
+      'slug' => Str::slug($request->nama),
+      'badge' => $request->badge,
+      'description' => $request->description,
+      'thumbnail' => $thumbnail
+    ]);
+    Alert::success('Berhasil Diupload', 'gg');
+    return redirect(route('series.index'));
   }
 
   /**

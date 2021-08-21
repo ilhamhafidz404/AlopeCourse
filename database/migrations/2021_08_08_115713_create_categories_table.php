@@ -14,20 +14,21 @@ class CreateCategoriesTable extends Migration
   public function up() {
     Schema::create('categories', function (Blueprint $table) {
       $table->id();
-      $table->string('nama');
-      $table->string('slug');
-      $table->text('keterangan');
-      $table->string('badge');
-      $table->timestamps();
-    });
-  }
+      $table->string('thumbnail')->default('default.jpg');
+        $table->string('nama');
+        $table->string('slug');
+        $table->text('description');
+        $table->string('badge');
+        $table->timestamps();
+      });
+    }
 
-  /**
-  * Reverse the migrations.
-  *
-  * @return void
-  */
-  public function down() {
-    Schema::dropIfExists('categories');
+    /**
+    * Reverse the migrations.
+    *
+    * @return void
+    */
+    public function down() {
+      Schema::dropIfExists('categories');
+    }
   }
-}

@@ -2,6 +2,8 @@
 
 @section('title', 'List Blog')
 @section('content')
+
+@if(!$blogCount == 0)
 @foreach ($blogs as $blog)
 <div class="col-md-6">
   <div class="card p-3">
@@ -53,9 +55,15 @@
   </div>
 </div>
 @endforeach
+@else
+<div class="card p-3">
+  <h4 class="text-center">Belum ada blog yang diupload</h4>
+</div>
+@endif
+
 {{$blogs->links()}}
-@if(!request("serie"))
-<h3>List Draff Blog</h3>
+@if($blogDraffCount!=0 OR !request("blog"))
+<h3>List Draff Blog {{$blogDraffCount}}</h3>
 @foreach($draffBlog as $blog)
 <div class="col-md-6">
   <div class="card p-3">
