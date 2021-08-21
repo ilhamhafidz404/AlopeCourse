@@ -94,7 +94,8 @@ class BlogController extends Controller
   public function edit($slug) {
     $blog = Blog::where("slug", $slug)->first();
     $categories = Category::all();
-    return view("dashboard.blog.edit", compact("blog", "categories"));
+    $tags = Tag::all();
+    return view("dashboard.blog.edit", compact("blog", "categories", "tags"));
   }
 
   /**

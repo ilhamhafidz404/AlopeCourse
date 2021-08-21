@@ -4,7 +4,7 @@
 @section('content')
 <div class="card p-3">
   <h3 class="text-uppercase card-title">Tambah Pembelajaran Blog Alope Book</h3>
-  <form action="{{route('blog.store')}}" class="mt-3 dropzone" method="POST" enctype="multipart/form-data" id="dropzone">
+  <form action="{{route('blog.store')}}" class="mt-3" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="row">
       <div class="col-md-12">

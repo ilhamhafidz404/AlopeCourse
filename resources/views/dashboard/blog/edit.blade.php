@@ -7,7 +7,7 @@
     {{$blog->judul}}
     <input type="text" class="form-control" value="{{$blog->judul}}" name="judul">
     <input type="text" class="form-control" value="{{$blog->slug}}" name="slug" readonly>
-    <input type="text" name="thumbnail" value="{{$blog->thumbnail}}">
+    <input type="file" id="thumbnail" class="dropify" data-height="500" accept="image/*" name="thumbnail" />
     <select name="category" id="">
       <option value="{{$blog->category->id}}" hidden selected>
         {{$blog->category->nama}}
@@ -17,23 +17,24 @@
         {{$category->nama}}
       </option>
       @endforeach
-    </select>
-    <multi-input>
-      <input list="tag" name="tags[]">
-      <datalist id="tag">
-        <option value="Banquo"></option>
-        <option value="Celia"></option>
-      </datalist>
-    </multi-input>
 
-    <textarea class="form-control" id="editodr" rows="4" name="content">
-      {{$blog->content}}
-    </textarea>
-    <button class="btn btn-primary" name="status" value="upload">
-      Upload
-    </button>
-    <button class="btn btn-primary" value="draff">Simpan sebagai Draff</button>
-  </form>
-</div>
+      <select multiple id="tag" name="tags[]">
+        <option hidden selected>Pilih Tag</option>
+        @foreach($tags as $tag)
+        <option value="{{$tag->id}}">
+          {{$tag->nama}}
+        </option>
+        @endforeach
+      </select>
 
-@endsection
+      <textarea class="form-control" id="editor" rows="4" name="content">
+        {{$blog->content}}
+      </textarea>
+      <button class="btn btn-primary" name="status" value="upload">
+        Upload
+      </button>
+      <button class="btn btn-primary" value="draff">Simpan sebagai Draff</button>
+    </form>
+  </div>
+
+  @endsection

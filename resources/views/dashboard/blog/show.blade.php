@@ -255,7 +255,7 @@
     </nav>
     <!-- Header -->
     <!-- Header -->
-    <div class="header pb-6 d-flex align-items-center" style="min-height: 500px; background-image: url({{asset('storage/default.jpg')}}); background-size: cover; background-position: center;">
+    <div class="header pb-6 d-flex align-items-center" style="min-height: 500px; background-image: url({{asset('storage/'.$blog->thumbnail)}}); background-size: cover; background-position: center;">
       <!-- Mask -->
       <span class="mask bg-gradient-default opacity-8"></span>
       <!-- Header container -->
@@ -274,7 +274,8 @@
               </li>
               @endforeach
             </ul>
-            <a href="" class="btn btn-neutral">Edit profile</a>
+            <a href="{{route('blog.edit', $blog->slug)}}" class="btn btn-neutral">Edit Blog</a>
+            <a href="{{route('blog.index')}}" class="btn btn-danger">kembali</a>
           </div>
         </div>
       </div>
