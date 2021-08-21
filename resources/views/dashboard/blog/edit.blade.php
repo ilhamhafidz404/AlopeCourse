@@ -18,6 +18,14 @@
       </option>
       @endforeach
     </select>
+    <multi-input>
+      <input list="tag" name="tags[]">
+      <datalist id="tag">
+        <option value="Banquo"></option>
+        <option value="Celia"></option>
+      </datalist>
+    </multi-input>
+
     <textarea class="form-control" id="editodr" rows="4" name="content">
       {{$blog->content}}
     </textarea>

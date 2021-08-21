@@ -22,12 +22,18 @@
               </li>
               <li class="breadcrumb-item active" aria-current="page">List Blog</li>
 
-              {{-- create blog --}}
-              @elseif(request()->is('dashboard/blog/create'))
+              @elseif(request()->is('dashboard/trash'))
               <li class="breadcrumb-item" aria-current="page">
                 <a href="{{route('blog.index')}}">Blog</a>
               </li>
-              <li class="breadcrumb-item active" aria-current="page">Tambah Blog</li>
+              <li class="breadcrumb-item active" aria-current="page">Blog Trash</li>
+
+              {{-- create blog --}}
+              @elseif(request()->is('edit'))
+              <li class="breadcrumb-item" aria-current="page">
+                <a href="{{route('blog.index')}}">Blog</a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">Edit Blog</li>
 
               {{-- Serie blog --}}
               @elseif(request()->is('dashboard/series'))
@@ -35,7 +41,7 @@
                 <a href="{{route('blog.index')}}">Blog</a>
               </li>
               <li class="breadcrumb-item active" aria-current="page">Blog Series</li>
-              
+
               {{-- Trash blog --}}
               @elseif(request()->is('dashboard/trash'))
               <li class="breadcrumb-item" aria-current="page">

@@ -14,11 +14,54 @@
 <script src="https://cdn.ckeditor.com/ckeditor5/29.1.0/classic/ckeditor.js"></script>
 
 <script src="{{asset('dist/js/prism.js')}}"></script>
+<script src="{{asset('dist/js/multi-input.js')}}"></script>
+<script src="{{asset('dist/js/dropify.min.js')}}"></script>
 <script>
-  ClassicEditor
-  .create(document.querySelector('#editor'))
-  .catch(error => {
-    console.error(error);
-  });
-</script>
-@include('sweetalert::alert')
+  $(document).ready(function() {
+    // Basic
+    $('.dropify').dropify();
+
+    // Translated
+    $('.dropify-fr').dropify({
+      messages: {
+        default: 'Glissez-déposez un fichier ici ou cliquez',
+          replace: 'Glissez-déposez un fichier ou cliquez pour remplacer',
+          remove: 'Supprimer',
+          error: 'Désolé, le fichier trop volumineux'
+        }
+      });
+
+      // Used events
+      var drEvent = $('#input-file-events').dropify();
+
+      drEvent.on('dropify.beforeClear', function(event, element) {
+        return confirm("Do you really want to delete\"" + element.file.name + "\" ?");
+      });
+
+      drEvent.on('dropify.afterClear', function(event, element) {
+        alert('File deleted');
+      });
+
+      drEvent.on('dropify.errors', function(event, element) {
+        console.log('Has Errors');
+      });
+
+      var drDestroy = $('#input-file-to-destroy').dropify();
+      drDestroy = drDestroy.data('dropify')
+      $('#toggleDropify').on('click', function(e) {
+        e.preventDefault();
+        if (drDestroy.isDropified()) {
+          drDestroy.destroy();
+        } else {
+          drDestroy.init();
+        }
+      })
+    });
+    //var myDropzone = new Dropzone(div#dropzone);
+    ClassicEditor
+    .create(document.querySelector('#editor'))
+    .catch(error => {
+      console.error(error);
+    });
+  </script>
+  @include('sweetalert::alert')

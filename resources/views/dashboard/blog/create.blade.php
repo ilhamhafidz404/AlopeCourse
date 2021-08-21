@@ -4,7 +4,7 @@
 @section('content')
 <div class="card p-3">
   <h3 class="text-uppercase card-title">Tambah Pembelajaran Blog Alope Book</h3>
-  <form action="{{route('blog.store')}}" class="mt-3" method="POST" enctype="multipart/form-data">
+  <form action="{{route('blog.store')}}" class="mt-3 dropzone" method="POST" enctype="multipart/form-data" id="dropzone">
     @csrf
     <div class="row">
       <div class="col-md-12">
@@ -45,9 +45,9 @@
           </label>
           <select multiple class="form-control" id="tag" name="tags[]">
             <option hidden selected>Pilih Tag</option>
-            @foreach($categories as $category)
-            <option value="{{$category->id}}">
-              {{$category->nama}}
+            @foreach($tags as $tag)
+            <option value="{{$tag->id}}">
+              {{$tag->nama}}
             </option>
             @endforeach
           </select>
@@ -60,8 +60,7 @@
       </div>
       <div class="col-md-12">
         <div class="custom-file mb-3">
-          <input type="file" class="custom-file-input" id="thumbnail" accept="image/*" name="thumbnail">
-          <label class="custom-file-label" for="thumbnail">Pilih File</label>
+          <input type="file" id="thumbnail" class="dropify" data-height="500" accept="image/*" name="thumbnail" />
         </div>
       </div>
       <div class="col-md-12">

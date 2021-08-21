@@ -35,7 +35,8 @@ class BlogController extends Controller
   */
   public function create() {
     $categories = Category::all();
-    return view('dashboard.blog.create', compact('categories'));
+    $tags = Tag::all();
+    return view('dashboard.blog.create', compact('categories', 'tags'));
   }
 
   /**
