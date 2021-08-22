@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Database\Seeders\CategorySeeder;
 use Database\Seeders\TagSeeder;
+use App\Models\Blog;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,5 +17,7 @@ class DatabaseSeeder extends Seeder
   public function run() {
     $this->call(CategorySeeder::class);
     $this->call(TagSeeder::class);
+
+    Blog::factory()->count(10)->create();
   }
 }

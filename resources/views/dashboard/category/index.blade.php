@@ -11,6 +11,13 @@
           <img src="{{asset('storage/'.$category->thumbnail)}}" class="card-img w-100" alt="...">
           <div class="card-img-overlay">
             <button name="serie" value="{{$category->slug}}">{{$category->nama}}</button>
+            <form action="{{route('series.destroy', $category->id)}}" method="POST" class="ms-2">
+              @csrf
+              @method('DELETE')
+              <button class="btn btn-danger btn-sm" type="submit">
+                <i class="fas fa-trash"></i>
+              </button>
+            </form>
             <h5 class="card-title">Card title</h5>
             <p class="card-text">
               {{$category->description}}
@@ -38,7 +45,7 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <a href="{{route('series.edit', $category->slug)}}" class="btn btn-primary">Edit</a>
               </div>
             </div>
           </div>

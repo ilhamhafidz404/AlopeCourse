@@ -22,12 +22,12 @@ class BlogFactory extends Factory
   */
   public function definition() {
     return [
-      'judul' => $this->faker->name(),
-      'slug' => Str::slug($this->faker->name(), "-"),
+      'judul' => $this->faker->sentence(rand(2, 3)),
+      'slug' => Str::slug($this->faker->sentence(rand(2, 3)), "-"),
       'thumbnail' => 'default.jpg',
       'category_id' => rand(1, 3),
-      'status' => "draff",
-      'content' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati minima error nihil eveniet tempore voluptatibus rem commodi amet quod, quia deserunt deleniti aperiam neque, aut nesciunt ut? Sequi, laudantium, ut.',
+      'status' => "upload",
+      'content' => $this->faker->paragraph(5),
     ];
   }
 }

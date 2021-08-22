@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Models\Blog;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Str;
 
@@ -86,6 +87,9 @@ class CategoryController extends Controller
   * @return \Illuminate\Http\Response
   */
   public function destroy($id) {
-    //
+    Category::find($id)->delete();
+    Blog::whereCategory_id($id)->delete();
+
+    return back();
   }
 }

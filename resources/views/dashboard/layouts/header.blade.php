@@ -64,12 +64,28 @@
           <div class="btn-group">
             <a href="{{route('blog.create')}}" class="btn btn-sm btn-neutral me-2">Tambah Blog</a>
             <button type="button" class="btn btn-neutral btn-sm dropdown-toggle" data-bs-toggle="dropdown">
-              Filter Blog
+              Draff Blog
             </button>
             <ul class="dropdown-menu">
+              @if($blogDraffCount == 0)
+              <li>
+                <span class="dropdown-item" href="">
+                  Bog
+                </span>
+              </li>
+              @endif
               @foreach($draffBlog as $blog)
               <li>
-                <a class="dropdown-item" href="">{{$blog->judul}}</a>
+                <a class="dropdown-item" href="">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <img src="{{asset('storage/'.$blog->thumbnail)}}" alt="" width="80px">
+                    </div>
+                    <div class="col-md-12">
+                      {{$blog->judul}}
+                    </div>
+                  </div>
+                </a>
               </li>
               @endforeach
             </ul>

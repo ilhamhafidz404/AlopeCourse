@@ -16,11 +16,23 @@
           {{$blog->judul}}
         </h4>
         <small class="text-muted ms-2">
-          {{$blog->category->nama}}
+          <a tabindex="0" role="button" data-bs-toggle="popover" data-bs-trigger="focus" title="{{$blog->category->nama}}" data-bs-content="{{$blog->category->description}}">
+            {{$blog->category->nama}}
+          </a>
         </small>
+        @if($blog->status == 'upload')
+        <span class="badge bg-success">
+          {{$blog->status}}
+        </span>
+        @elseif($blog->status == 'draff')
         <span class="badge bg-warning">
           {{$blog->status}}
         </span>
+        @elseif($blog->status == 'banned')
+        <span class="badge bg-danger">
+          {{$blog->status}}
+        </span>
+        @endif
         <ul class="d-flex p-0">
           @foreach ($blog->tag as $tag)
           <li class="me-2">
