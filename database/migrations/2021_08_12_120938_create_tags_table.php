@@ -16,7 +16,9 @@ class CreateTagsTable extends Migration
       $table->id();
       $table->string("nama");
       $table->string("slug");
-      $table->text("keterangan");
+      $table->text("description");
+      $table->text("badge");
+      $table->text("icon");
       $table->timestamps();
     });
   }

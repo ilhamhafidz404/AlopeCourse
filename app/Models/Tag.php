@@ -10,6 +10,11 @@ class Tag extends Model
 {
   use HasFactory;
 
+  protected $fillable = ['nama',
+    'slug',
+    'icon',
+    'badge',
+    'description'];
 
   public function Blog() {
     return $this->belogsToMany(Blog::class);

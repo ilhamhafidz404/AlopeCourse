@@ -34,6 +34,12 @@
             </a>
           </li>
           <li class="nav-item">
+            <a class="nav-link {{request()->is('dashboard/tag')?'active':''}}" href="{{route('tag.index')}}">
+              <i class="fas fa-tag text-success"></i>
+              <span class="nav-link-text">Blog Tag</span>
+            </a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link {{request()->is('dashboard/trash')?'active':''}}" href="{{route('trash.index')}}">
               <i class="fas fa-trash-alt text-danger"></i>
               <span class="nav-link-text">Blog Trash</span>
@@ -118,12 +124,6 @@
             <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/plugins/charts.html" target="_blank">
               <i class="ni ni-chart-pie-35"></i>
               <span class="nav-link-text">Plugins</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active active-pro" href="examples/upgrade.html">
-              <i class="ni ni-send text-dark"></i>
-              <span class="nav-link-text">Upgrade to PRO</span>
             </a>
           </li>
         </ul>

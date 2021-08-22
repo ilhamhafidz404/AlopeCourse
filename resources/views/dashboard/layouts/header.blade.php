@@ -49,6 +49,14 @@
               </li>
               <li class="breadcrumb-item active" aria-current="page">Add Blog Series</li>
 
+
+              {{-- tag blog --}}
+              @elseif(request()->is('dashboard/tag'))
+              <li class="breadcrumb-item" aria-current="page">
+                <a href="{{route('blog.index')}}">Blog</a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">Blog Tag</li>
+
               {{-- Trash blog --}}
               @elseif(request()->is('dashboard/trash'))
               <li class="breadcrumb-item" aria-current="page">
@@ -104,6 +112,16 @@
           <a href="{{route('series.index')}}" class="btn btn-sm btn-danger">
             kembali
           </a>
+
+          @elseif(request()->is('dashboard/tag'))
+          <div class="btn-group">
+            <a href="{{route('tag.create')}}" class="btn btn-sm btn-neutral me-2">
+              Tambah Tag
+            </a>
+            <button type="button" class="btn btn-neutral btn-sm dropdown-toggle" data-bs-toggle="dropdown">
+              Filter Blog
+            </button>
+          </div>
           @endif
         </div>
       </div>
