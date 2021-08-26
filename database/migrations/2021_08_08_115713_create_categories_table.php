@@ -18,7 +18,6 @@ class CreateCategoriesTable extends Migration
         $table->string('nama');
         $table->string('slug');
         $table->text('description');
-        $table->string('badge');
         $table->timestamps();
       });
     }

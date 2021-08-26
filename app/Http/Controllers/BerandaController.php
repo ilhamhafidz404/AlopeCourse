@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Blog;
+use App\Models\Category;
 
 class BerandaController extends Controller
 {
@@ -14,7 +15,8 @@ class BerandaController extends Controller
   */
   public function index() {
     $blogs = Blog::orderBy('id', 'DESC')->get();
-    return view("beranda.index", compact('blogs'));
+    $series = Category::latest()->get();
+    return view("beranda.index", compact('blogs', 'series'));
   }
 
   /**

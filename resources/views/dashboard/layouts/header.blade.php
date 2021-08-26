@@ -29,7 +29,7 @@
               <li class="breadcrumb-item active" aria-current="page">Blog Trash</li>
 
               {{-- create blog --}}
-              @elseif(request()->is('edit'))
+              @elseif(request()->is('dashboard/blog/create'))
               <li class="breadcrumb-item" aria-current="page">
                 <a href="{{route('blog.index')}}">Blog</a>
               </li>
@@ -78,7 +78,7 @@
               @if($blogDraffCount == 0)
               <li>
                 <span class="dropdown-item" href="">
-                  Bog
+                  Belum ada Blog di draff
                 </span>
               </li>
               @endif

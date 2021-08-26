@@ -26,14 +26,13 @@
     .container-fluid {
       width: 90% !important;
     }
-    ul{
+    ul {
       list-style: none;
     }
-    .card-img-rounded{
+    .card-img-rounded {
       border-radius: 10px
     }
-    section.header{
-      background-image: url('{{asset('image/header.svg')}}');
+    section.header {
       background-size: cover;
       background-position: center;
     }
@@ -121,13 +120,12 @@
   @endif
   @yield('content')
   <x-footer-component></x-footer-component>
-  <pre><code class="language-css">p { color: red }</code></pre>
 
   <!-- Option 1: Bootstrap Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   <script src="{{asset('dist/js/prism.js')}}"></script>
   <!-- Font Awesome  -->
-<script src="https://kit.fontawesome.com/bfdfedea1a.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/bfdfedea1a.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
   <script>
     var typed3 = new Typed('#typed', {
@@ -137,12 +135,12 @@
       smartBackspace: true, // this is a default
       loop: true
     });
-    
-  var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-  var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-    return new bootstrap.Tooltip(tooltipTriggerEl)
-  })
-  console.log(tooltipTriggerList)
+
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+      return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+    console.log(tooltipTriggerList)
   </script>
 
 </body>

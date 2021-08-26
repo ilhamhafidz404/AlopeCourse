@@ -74,7 +74,14 @@ class TagController extends Controller
   * @return \Illuminate\Http\Response
   */
   public function update(Request $request, $id) {
-    //
+    Tag::find($id)->update([
+      "nama" => $request->nama,
+      "description" => $request->description,
+      "icon" => $request->icon,
+      "badge" => $request->badge,
+    ]);
+    Alert::success('Berhasil diedit', '');
+    return back();
   }
 
   /**

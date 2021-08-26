@@ -10,6 +10,9 @@
         <div class="card bg-dark text-white" style="height: 100px">
           <img src="{{asset('storage/'.$category->thumbnail)}}" class="card-img w-100" alt="...">
           <div class="card-img-overlay">
+            @foreach($category->tag as $tag)
+            {{$tag->nama}}
+            @endforeach
             <button name="serie" value="{{$category->slug}}">{{$category->nama}}</button>
             <form action="{{route('series.destroy', $category->id)}}" method="POST" class="ms-2">
               @csrf

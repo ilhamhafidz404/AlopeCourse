@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Blog;
+use App\Models\Category;
 
 class Tag extends Model
 {
@@ -18,5 +19,9 @@ class Tag extends Model
 
   public function Blog() {
     return $this->belogsToMany(Blog::class);
+  }
+
+  public function Category() {
+    return $this->belogsToMany(Category::class);
   }
 }

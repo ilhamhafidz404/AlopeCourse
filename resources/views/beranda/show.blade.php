@@ -52,13 +52,6 @@
             @endforeach
           </ul>
         </div>
-        <p>
-          <code class="language-css">
-            p{
-            list-style: none;
-            }
-          </code>
-        </p>
         <div class="blog-text">
           {!!$blog->content!!}
         </div>

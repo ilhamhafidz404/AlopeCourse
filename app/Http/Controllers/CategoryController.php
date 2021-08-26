@@ -41,7 +41,6 @@ class CategoryController extends Controller
     Category::create([
       'nama' => $request->nama,
       'slug' => Str::slug($request->nama),
-      'badge' => $request->badge,
       'description' => $request->description,
       'thumbnail' => $thumbnail
     ]);
@@ -65,8 +64,9 @@ class CategoryController extends Controller
   * @param  int  $id
   * @return \Illuminate\Http\Response
   */
-  public function edit($id) {
-    //
+  public function edit($slug) {
+    $category = Category::where("slug", $slug)->first();
+    return view("dashboard.category.edit", compact("category"));
   }
 
   /**
@@ -77,7 +77,13 @@ class CategoryController extends Controller
   * @return \Illuminate\Http\Response
   */
   public function update(Request $request, $id) {
-    //
+    Category::find($id)->update([
+      "nama" => $request->nama,
+      "description" => $request->description,
+      "thumbnail" => $request->thumbnail
+    ]);
+    Alert::success('Berhasil diedit', '');
+    return redirect(route('series.index'));
   }
 
   /**
