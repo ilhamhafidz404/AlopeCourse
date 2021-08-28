@@ -1,6 +1,15 @@
 @extends('dashboard.master')
 
 @section('title', 'Tambah Blog')
+
+@section('breadcrumb')
+<li class="breadcrumb-item" aria-current="page">
+  <a href="{{route('blog.index')}}">Blog</a>
+</li>
+<li class="breadcrumb-item active" aria-current="page">Tambah Blog</li>
+
+@endsection
+
 @section('content')
 <div class="card p-3">
   <h3 class="text-uppercase card-title">Tambah Pembelajaran Blog Alope Book</h3>
@@ -18,7 +27,7 @@
           @enderror
         </div>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-12">
         <div class="form-group">
           <label for="category" class="form-control-label">
             Kategori Blog
@@ -28,26 +37,6 @@
             @foreach($categories as $category)
             <option value="{{$category->id}}">
               {{$category->nama}}
-            </option>
-            @endforeach
-          </select>
-          @error('category')
-          <div class="form-text text-danger">
-            {{ $message }}
-          </div>
-          @enderror
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="form-group">
-          <label for="tag" class="form-control-label">
-            Tag Blog
-          </label>
-          <select multiple class="form-control" id="tag" name="tags[]">
-            <option hidden selected>Pilih Tag</option>
-            @foreach($tags as $tag)
-            <option value="{{$tag->id}}">
-              {{$tag->nama}}
             </option>
             @endforeach
           </select>
@@ -74,13 +63,18 @@
           @enderror
         </div>
       </div>
-      <div class="col-md-12">
+      <div class="col-md-6">
+        <a href="{{route('blog.index')}}" class="btn btn-danger">
+          <i class="fas fa-door-open me-2"></i> Kembali
+        </a>
+      </div>
+      <div class="col-md-6 text-end">
         <div class="form-group mt-3">
           <button class="btn btn-primary" name="status" value="upload">
-            Upload Blog
+            <i class="fas fa-upload me-2"></i>  Upload Blog
           </button>
           <button class="btn btn-warning" name="status" value="draff">
-            Simpan sebagai Draff
+            <i class="fas fa-clipboard me-2"></i>  Simpan sebagai Draff
           </button>
         </div>
       </div>

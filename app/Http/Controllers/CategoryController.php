@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Blog;
+use App\Models\Tag;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Str;
 
@@ -26,7 +27,8 @@ class CategoryController extends Controller
   * @return \Illuminate\Http\Response
   */
   public function create() {
-    return view("dashboard.category.create");
+    $tags = Tag::all();
+    return view("dashboard.category.create", compact('tags'));
   }
 
   /**
@@ -43,7 +45,7 @@ class CategoryController extends Controller
       'slug' => Str::slug($request->nama),
       'description' => $request->description,
       'thumbnail' => $thumbnail
-    ]);
+    ])->tag()->attach($request->tags);
     Alert::success('Berhasil Diupload', 'gg');
     return redirect(route('series.index'));
   }

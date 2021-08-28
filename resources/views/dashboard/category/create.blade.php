@@ -1,6 +1,14 @@
 @extends('dashboard.master')
 
 @section('title', 'Tambah Series')
+
+@section('breadcrumb')
+<li class="breadcrumb-item" aria-current="page">
+  <a href="{{route('blog.index')}}">Blog</a>
+</li>
+<li class="breadcrumb-item active" aria-current="page">Add Blog Series</li>
+@endsection
+
 @section('content')
 <div class="card p-3">
   <h3 class="text-uppercase card-title">Tambah Serie/Kategori</h3>
@@ -12,12 +20,33 @@
           <input type="file" id="thumbnail" class="dropify" data-height="500" accept="image/*" name="thumbnail" />
         </div>
       </div>
-      <div class="col-md-12">
+      <div class="col-md-6">
         <div class="form-group mb-3">
           <label for="nama" class="form-control-label">Nama Series</label>
           <input type="text" class="form-control form-control-alternative @error('judul') is-invalid @enderror" placeholder="Nama series baru" id="nama" name="nama" value='{{old("nama")}}'>
           @error('nama')
           <div class="form-text invalid-feedback text-danger">
+            {{ $message }}
+          </div>
+          @enderror
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="tag" class="form-control-label">
+            Tag Blog
+          </label>
+          <select multiple class="form-control" id="tag" name="tags[]">
+            <option hidden selected>Pilih Tag</option>
+            @foreach($tags as $tag)
+            <option value="{{$tag->id}}">
+              {{$tag->nama}}
+            </option>
+            @endforeach
+          </select>
+          @error('category')
+          <div class="form-text text-danger">
             {{ $message }}
           </div>
           @enderror
@@ -36,8 +65,11 @@
       </div>
       <div class="col-md-12">
         <div class="form-group mt-3">
+          <a href="{{route('series.index')}}" class="btn btn-danger">
+            <i class="fas fa-door-open me-2"></i> Kembali
+          </a>
           <button class="btn btn-primary">
-            tagg
+            <i class="fas fa-save me-2"></i> Tambahkan Serie
           </button>
         </div>
       </div>

@@ -11,13 +11,6 @@
             <div class="card border-0 bg-transparent m-auto mb-4" style="width: 90% !important;">
               <img src="{{asset('storage/'.$blog->thumbnail)}}" class="card-img-rounded" width="100%">
               <div class="card-body">
-                <ul class="p-0 d-flex my-0">
-                  @foreach($blog->tag as $tag)
-                  <li class="me-2">
-                    <a href=""><small>{{$tag->nama}}</small></a>
-                  </li>
-                  @endforeach
-                </ul>
                 <h4 class="card-title mb-2 text-dark">
                   {{$blog->judul}}
                 </h4>

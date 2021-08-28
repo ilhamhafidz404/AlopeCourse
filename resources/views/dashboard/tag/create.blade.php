@@ -1,13 +1,21 @@
 @extends('dashboard.master')
 
-@section('title', 'Tambah Series')
+@section('title', 'Tambah Tag')
+
+@section('breadcrumb')
+<li class="breadcrumb-item" aria-current="page">
+  <a href="{{route('blog.index')}}">Blog</a>
+</li>
+<li class="breadcrumb-item active" aria-current="page">Tambah Blog Tag</li>
+@endsection
+
 @section('content')
 <div class="card p-3">
   <h3 class="text-uppercase card-title">Tambah Tag</h3>
   <form action="{{route('tag.store')}}" class="mt-3" method="POST">
     @csrf
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-12">
         <div class="form-group mb-3">
           <label for="nama" class="form-control-label">Nama Tag</label>
           <input type="text" class="form-control form-control-alternative @error('judul') is-invalid @enderror" placeholder="Nama series baru" id="nama" name="nama" value='{{old("nama")}}'>
@@ -49,10 +57,15 @@
           @enderror
         </div>
       </div>
-      <div class="col-md-12">
+      <div class="col-md-12 ">
         <div class="form-group mt-3">
+          <a href="{{route('tag.index')}}" class="btn btn-danger me-3">
+            <i class="fas fa-door-open me-2"></i>
+            Kembali
+          </a>
           <button class="btn btn-primary">
-            tagg
+            <i class="fas fa-upload me-2"></i>
+            Tambah Tag
           </button>
         </div>
       </div>

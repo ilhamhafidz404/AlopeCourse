@@ -19,14 +19,16 @@ class BlogController extends Controller
   public function index() {
     if (request("serie")) {
       $blogs = Blog::filter(request(["serie"]))->latest()->paginate(10);
+    } elseif (request('status')) {
+      $blogs = Blog::filter(request(["status"]))->latest()->paginate(10);
     } else {
-      $blogs = Blog::where('status', 'upload')->filter(request(["serie"]))->latest()->paginate(10);
+      $blogs = Blog::latest()->paginate(10);
     }
     $categories = Category::all();
     $tags = Tag::all();
     $draffBlog = Blog::where("status", "draff")->get();
 
-    $blogCount = Blog::count();
+    $blogCount = $blogs->count();
     $blogDraffCount = Blog::where("status", "draff")->count();
     return view('dashboard.blog.index', compact('blogs', 'categories', 'tags', "draffBlog", 'blogCount', 'blogDraffCount'));
   }
@@ -67,7 +69,7 @@ class BlogController extends Controller
       'category_id' => $request->category,
       'content' => $request->content,
       'thumbnail' => $thumbnail
-    ])->tag()->attach($request->tags);
+    ]);
 
     if ($request->status == "draff") {
       Alert::info('Draff', 'Blog baru telah ditamba,hkan');

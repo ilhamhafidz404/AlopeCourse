@@ -17,6 +17,14 @@ class Category extends Model
     'badge',
     'description'];
 
+  public function scopeFilter($query, array $filter) {
+    $query->when($filter["tag"] ?? false, function($query, $filter) {
+      $query->whereHas("Tag", function($query) use($filter) {
+        return  $query->where('slug', $filter);
+      });
+    });
+  }
+
   public function Blog() {
     return $this->hasMany(Blog::class);
   }

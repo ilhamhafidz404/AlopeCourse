@@ -23,7 +23,7 @@
         <ul class="navbar-nav">
           <li class="nav-item">
             <a class="nav-link {{request()->is('dashboard/blog')?'active':''}}" href="{{route('blog.index')}}">
-              <i class="ni ni-tv-2 text-primary"></i>
+              <i class="ni ni-book-bookmark text-primary"></i>
               <span class="nav-link-text">List Blog</span>
             </a>
           </li>
@@ -35,7 +35,7 @@
           </li>
           <li class="nav-item">
             <a class="nav-link {{request()->is('dashboard/tag')?'active':''}}" href="{{route('tag.index')}}">
-              <i class="fas fa-tag text-success"></i>
+              <i class="ni ni-tag text-success"></i>
               <span class="nav-link-text">Blog Tag</span>
             </a>
           </li>

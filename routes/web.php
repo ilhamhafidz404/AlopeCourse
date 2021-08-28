@@ -8,7 +8,7 @@ use App\Http\Controllers\FilterController;
 use App\Http\Controllers\TrashController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\TagController;
-use App\Http\Controllers\PathController;
+use App\Http\Controllers\TopicController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,4 +33,14 @@ route::get("/dashboard/trash", [TrashController::class, "index"])->name('trash.i
 route::delete("/dashboard/trash", [TrashController::class, 'destroy'])->name("trash.destroy");
 
 route::resource('/beranda', BerandaController::class);
-route::get('/path', PathController::class);
+route::get('/topic', TopicController::class)->name('path');
+
+
+
+Route::get('/login', function () {
+  return view('auth.login');
+});
+
+Route::get('/register', function () {
+  return view('auth.register');
+});

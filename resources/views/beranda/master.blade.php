@@ -39,6 +39,7 @@
     .circle-container {
       padding-top: 120px;
       position: relative;
+      height: 300px;
     }
     .circle {
       border: 1px solid rgba(0,0,0,0.1);

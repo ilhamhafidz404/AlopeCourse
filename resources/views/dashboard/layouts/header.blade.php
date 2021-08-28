@@ -15,48 +15,13 @@
               </li>
               <li class="breadcrumb-item"><a href="{{route('dashboard.main')}}">Dashboard</a></li>
 
-              {{-- index blog --}}
-              @if(request()->is('dashboard/blog'))
-              <li class="breadcrumb-item" aria-current="page">
-                <a href="{{route('blog.index')}}">Blog</a>
-              </li>
-              <li class="breadcrumb-item active" aria-current="page">List Blog</li>
+              @yield('breadcrumb')
 
-              @elseif(request()->is('dashboard/trash'))
+              @if(request()->is('dashboard/trash'))
               <li class="breadcrumb-item" aria-current="page">
                 <a href="{{route('blog.index')}}">Blog</a>
               </li>
               <li class="breadcrumb-item active" aria-current="page">Blog Trash</li>
-
-              {{-- create blog --}}
-              @elseif(request()->is('dashboard/blog/create'))
-              <li class="breadcrumb-item" aria-current="page">
-                <a href="{{route('blog.index')}}">Blog</a>
-              </li>
-              <li class="breadcrumb-item active" aria-current="page">Edit Blog</li>
-
-              {{-- Serie blog --}}
-              @elseif(request()->is('dashboard/series'))
-              <li class="breadcrumb-item" aria-current="page">
-                <a href="{{route('blog.index')}}">Blog</a>
-              </li>
-              <li class="breadcrumb-item active" aria-current="page">Blog Series</li>
-
-              {{-- Serie blog --}}
-              @elseif(request()->is('dashboard/series/create'))
-              <li class="breadcrumb-item" aria-current="page">
-                <a href="{{route('blog.index')}}">Blog</a>
-              </li>
-              <li class="breadcrumb-item active" aria-current="page">Add Blog Series</li>
-
-
-              {{-- tag blog --}}
-              @elseif(request()->is('dashboard/tag'))
-              <li class="breadcrumb-item" aria-current="page">
-                <a href="{{route('blog.index')}}">Blog</a>
-              </li>
-              <li class="breadcrumb-item active" aria-current="page">Blog Tag</li>
-
               {{-- Trash blog --}}
               @elseif(request()->is('dashboard/trash'))
               <li class="breadcrumb-item" aria-current="page">
@@ -68,37 +33,8 @@
           </nav>
         </div>
         <div class="col-lg-6 col-5 text-right">
-          @if(request()->is('dashboard/blog'))
-          <div class="btn-group">
-            <a href="{{route('blog.create')}}" class="btn btn-sm btn-neutral me-2">Tambah Blog</a>
-            <button type="button" class="btn btn-neutral btn-sm dropdown-toggle" data-bs-toggle="dropdown">
-              Draff Blog
-            </button>
-            <ul class="dropdown-menu">
-              @if($blogDraffCount == 0)
-              <li>
-                <span class="dropdown-item" href="">
-                  Belum ada Blog di draff
-                </span>
-              </li>
-              @endif
-              @foreach($draffBlog as $blog)
-              <li>
-                <a class="dropdown-item" href="">
-                  <div class="row">
-                    <div class="col-md-12">
-                      <img src="{{asset('storage/'.$blog->thumbnail)}}" alt="" width="80px">
-                    </div>
-                    <div class="col-md-12">
-                      {{$blog->judul}}
-                    </div>
-                  </div>
-                </a>
-              </li>
-              @endforeach
-            </ul>
-          </div>
-          @elseif(request()->is('dashboard/series'))
+          @yield('header-button')
+          @if(request()->is('dashboard/series'))
           <div class="btn-group">
             <a href="{{route('series.create')}}" class="btn btn-sm btn-neutral me-2">
               Tambah Serie
@@ -107,12 +43,6 @@
               Filter Blog
             </button>
           </div>
-
-          @elseif(request()->is('dashboard/series/create'))
-          <a href="{{route('series.index')}}" class="btn btn-sm btn-danger">
-            kembali
-          </a>
-
           @elseif(request()->is('dashboard/tag'))
           <div class="btn-group">
             <a href="{{route('tag.create')}}" class="btn btn-sm btn-neutral me-2">

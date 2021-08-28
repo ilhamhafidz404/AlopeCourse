@@ -7,12 +7,12 @@
     <div class="card-body">
       <div class="row">
         <div class="col">
-          <h5 class="card-title text-uppercase text-muted mb-0">Total traffic</h5>
-          <span class="h2 font-weight-bold mb-0">{{$draffBlogCount}}</span>
+          <h5 class="card-title text-uppercase text-muted mb-0">Total Blog Terupload</h5>
+          <span class="h2 font-weight-bold mb-0">{{$blogCount}}</span>
         </div>
         <div class="col-auto">
-          <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
-            <i class="ni ni-active-40"></i>
+          <div class="icon icon-shape bg-gradient-primary text-white rounded-circle shadow">
+            <i class="ni ni-book-bookmark"></i>
           </div>
         </div>
       </div>
@@ -29,12 +29,12 @@
     <div class="card-body">
       <div class="row">
         <div class="col">
-          <h5 class="card-title text-uppercase text-muted mb-0">New users</h5>
-          <span class="h2 font-weight-bold mb-0">2,356</span>
+          <h5 class="card-title text-uppercase text-muted mb-0">Total Blog Serie</h5>
+          <span class="h2 font-weight-bold mb-0">{{$serieCount}}</span>
         </div>
         <div class="col-auto">
           <div class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow">
-            <i class="ni ni-chart-pie-35"></i>
+            <i class="ni ni-folder-17"></i>
           </div>
         </div>
       </div>
@@ -51,12 +51,12 @@
     <div class="card-body">
       <div class="row">
         <div class="col">
-          <h5 class="card-title text-uppercase text-muted mb-0">Sales</h5>
-          <span class="h2 font-weight-bold mb-0">924</span>
+          <h5 class="card-title text-uppercase text-muted mb-0">Total Topic Blog</h5>
+          <span class="h2 font-weight-bold mb-0">{{$serieCount}}</span>
         </div>
         <div class="col-auto">
           <div class="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
-            <i class="ni ni-money-coins"></i>
+            <i class="ni ni-tag"></i>
           </div>
         </div>
       </div>
@@ -89,7 +89,51 @@
     </div>
   </div>
 </div>
-
+<div class="col-md-12">
+  <div class="card">
+    <!-- Card header -->
+    <div class="card-header border-0">
+      <div class="d-flex justify-content-between">
+        <h3 class="mb-0">List Blog Draff</h3>
+        <div class="badge bg-gradient-danger text-white shadow">
+          <span class="fs-6 fw-bold">{{$draffBlogCount}}</span>
+        </div>
+      </div>
+    </div>
+    <!-- Light table -->
+    <div class="table-responsive">
+      <table class="table align-items-center table-flush">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col" class="sort" data-sort="judul">Blog</th>
+            <th scope="col" class="sort" data-sort="category">Category</th>
+            <th scope="col" class="sort" data-sort="created_at">Dibuat Pada</th>
+          </tr>
+        </thead>
+        <tbody class="list">
+          @foreach($draffBlogList as $draffBlog)
+          <tr>
+            <th scope="row">
+              <div class="media align-items-center">
+                <img alt="{{$draffBlog->slug}} Image" src="{{asset('storage/'.$draffBlog->thumbnail)}}" width="120px" class="img-thumbnail me-3">
+                <div class="media-body">
+                  <span class="name mb-0 text-sm">{{$draffBlog->judul}}</span>
+                </div>
+              </div>
+            </th>
+            <td>
+              {{$draffBlog->category->nama}}
+            </td>
+            <td>
+              {{$draffBlog->created_at}}
+            </td>
+          </tr>
+          @endforeach
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
 <div class="col-xl-4">
   <div class="card">
     <div class="card-header bg-transparent">
@@ -108,7 +152,4 @@
     </div>
   </div>
 </div>
-@foreach($draffBlogList as $blog)
-{{$blog->judul}}
-@endforeach
 @endsection

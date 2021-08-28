@@ -1,8 +1,8 @@
 <section class="py-5 text-start header bg-primary text-white">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-lg-6 col-md-8">
-        <h1 class="fw-light text-uppercase">Alope</h1>
+      <div class="col-lg-6">
+        <h1 class="fw-light text-uppercase mt-5">Alope</h1>
 
         <span id="typed"></span><br>
 

@@ -23,6 +23,10 @@ class Blog extends Model
         return  $query->where('slug', $filter);
       });
     });
+
+    $query->when($filter["status"] ?? false, function($query, $filter) {
+      return  $query->where('status', $filter);
+    });
   }
 
   public function Category() {
