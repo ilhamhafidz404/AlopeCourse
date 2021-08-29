@@ -48,9 +48,21 @@
         </ul>
         <hr class="my-3">
         <h6 class="navbar-heading p-0 text-muted">
-          <span class="docs-normal">Blog Post</span>
+          <span class="docs-normal">Video Tutorial</span>
         </h6>
         <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link {{request()->is('dashboard/video')?'active':''}}" href="{{route('video.index')}}">
+              <i class="fab fa-youtube text-danger"></i>
+              <span class="nav-link-text">Video</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="examples/map.html">
+              <i class="ni ni-pin-3 text-primary"></i>
+              <span class="nav-link-text">Google</span>
+            </a>
+          </li>
           <li class="nav-item">
             <a class="nav-link" href="examples/icons.html">
               <i class="ni ni-planet text-orange"></i>

@@ -34,16 +34,8 @@
         </div>
         <div class="col-lg-6 col-5 text-right">
           @yield('header-button')
-          @if(request()->is('dashboard/series'))
-          <div class="btn-group">
-            <a href="{{route('series.create')}}" class="btn btn-sm btn-neutral me-2">
-              Tambah Serie
-            </a>
-            <button type="button" class="btn btn-neutral btn-sm dropdown-toggle" data-bs-toggle="dropdown">
-              Filter Blog
-            </button>
-          </div>
-          @elseif(request()->is('dashboard/tag'))
+
+          @if(request()->is('dashboard/tag'))
           <div class="btn-group">
             <a href="{{route('tag.create')}}" class="btn btn-sm btn-neutral me-2">
               Tambah Tag

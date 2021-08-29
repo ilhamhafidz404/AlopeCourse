@@ -74,20 +74,20 @@
             <input type="hidden" name="category" value="{{$blog->category->id}}">
             <input type="hidden" name="content" value="{{$blog->content}}">
             <input type="hidden" name="thumbnail" value="{{$blog->thumbnail}}">
-            <button class="btn btn-warning btn-sm" name="status" value="banned">
+            <button class="btn btn-warning btn-sm" name="status" value="banned" data-bs-toggle="tooltip" data-bs-placement="top" title="Banned">
               <i class="fas fa-ban"></i>
             </button>
           </form>
           @elseif($blog->status === 'draff')
-          <a href="{{route('blog.edit', $blog->slug)}}" class="btn btn-sm  btn-info">
+          <a href="{{route('blog.edit', $blog->slug)}}" class="btn btn-sm  btn-info" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit">
             <i class="fas fa-pencil-alt"></i>
           </a>
           @elseif($blog->status === 'banned')
-          <a href="" class="btn btn-sm  btn-danger">
+          <a href="" class="btn btn-sm  btn-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus">
             <i class="fas fa-trash-alt"></i>
           </a>
           @endif
-          <a href="{{route('blog.show', $blog->slug)}}" class="btn btn-sm btn-primary ms-2">
+          <a href="{{route('blog.show', $blog->slug)}}" class="btn btn-sm btn-primary ms-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Detail">
             <i class="fas fa-eye"></i>
           </a>
         </div>

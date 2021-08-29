@@ -7,6 +7,7 @@ use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\FilterController;
 use App\Http\Controllers\TrashController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\VideoController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\TopicController;
 
@@ -29,11 +30,13 @@ Route::get('/dashboard', DashboardController::class)->name('dashboard.main');
 route::resource('/dashboard/blog', BlogController::class);
 route::resource('/dashboard/series', CategoryController::class);
 route::resource('/dashboard/tag', TagController::class);
+route::resource('/dashboard/video', VideoController::class);
 route::get("/dashboard/trash", [TrashController::class, "index"])->name('trash.index');
 route::delete("/dashboard/trash", [TrashController::class, 'destroy'])->name("trash.destroy");
 
-route::resource('/beranda', BerandaController::class);
-route::get('/topic', TopicController::class)->name('path');
+route::get('/beranda', BerandaController::class);
+route::get('/topic', [TopicController::class, 'index'])->name('topic');
+route::get('/topic/{slug}', [TopicController::class, 'show'])->name('topic.show');
 
 
 

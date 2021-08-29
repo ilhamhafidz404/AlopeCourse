@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use \App\Models\Blog;
 use \App\Models\Tag;
+use \App\Models\Video;
 
 class Category extends Model
 {
@@ -27,6 +28,10 @@ class Category extends Model
 
   public function Blog() {
     return $this->hasMany(Blog::class);
+  }
+
+  public function Video() {
+    return $this->hasMany(Video::class);
   }
 
   public function Tag() {

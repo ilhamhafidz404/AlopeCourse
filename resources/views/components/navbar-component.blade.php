@@ -10,7 +10,7 @@
           <a class="nav-link active" aria-current="page" href="#">Beranda</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" class="{{request()->is('path')? 'active' : ''}}" href="{{route('path')}}">Path</a>
+          <a class="nav-link" class="{{request()->is('path')? 'active' : ''}}" href="{{route('topic')}}">Path</a>
         </li>
       </ul>
     </div>

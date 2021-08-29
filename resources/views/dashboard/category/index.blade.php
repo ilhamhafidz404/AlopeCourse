@@ -7,7 +7,17 @@
   <a href="{{route('blog.index')}}">Blog</a>
 </li>
 <li class="breadcrumb-item active" aria-current="page">Blog Series</li>
+@endsection
 
+@section('header-button')
+<div class="btn-group">
+  <a href="{{route('series.create')}}" class="btn btn-sm btn-neutral me-2">
+    Tambah Serie
+  </a>
+  <button type="button" class="btn btn-neutral btn-sm dropdown-toggle" data-bs-toggle="dropdown">
+    Filter Blog
+  </button>
+</div>
 @endsection
 
 @section("content")
@@ -17,12 +27,25 @@
       @foreach($categories as $category)
       <div class="col-md-4">
         <div class="card bg-dark text-white" style="max-height: 150px; overflow: hidden">
+          @if($category->status == 'complete')
+          <span class="badge bg-success position-absolute start-0">
+            {{$category->status}}
+          </span>
+          @elseif($category->status == 'development')
+          <span class="badge bg-warning position-absolute start-0">
+            {{$category->status}}
+          </span>
+          @elseif($category->status == 'stuck')
+          <span class="badge bg-danger position-absolute start-0">
+            {{$category->status}}
+          </span>
+          @endif
           <img src="{{asset('storage/'.$category->thumbnail)}}" class="card-img w-100" alt="thumbnail-kategori{{$category->slug}}">
           <div class="card-img-overlay">
             <div class="position-absolute bottom-0 end-0 start-0 d-flex justify-content-between p-2">
               <div>
                 <form action="{{route('blog.index')}}">
-                  <button name="serie" class="btn btn-success text-white btn-sm" value="{{$category->slug}}">
+                  <button name="serie" class="btn btn-success text-white btn-sm" value="{{$category->slug}}" data-bs-toggle="tooltip" data-bs-placement="top" title="Filter">
                     <i class="fas fa-filter"></i>
                   </button>
                 </form>
@@ -31,7 +54,7 @@
                 <form action="{{route('series.destroy', $category->id)}}" method="POST" class="ms-2">
                   @csrf
                   @method('DELETE')
-                  <button class="btn btn-danger btn-sm" type="submit">
+                  <button class="btn btn-danger btn-sm" type="submit" data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus">
                     <i class="fas fa-trash"></i>
                   </button>
                 </form>

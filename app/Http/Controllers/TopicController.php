@@ -9,7 +9,7 @@ use App\Models\Tag;
 
 class TopicController extends Controller
 {
-  public function __invoke() {
+  public function index() {
     if (request('tag')) {
       $series = Category::filter(request(['tag']))->latest()->paginate(10);
     } else {
@@ -17,5 +17,10 @@ class TopicController extends Controller
     }
     $tags = Tag::all();
     return view('beranda.more.topic', compact('series', 'tags'));
+  }
+
+  public function show($slug) {
+    $series = Category::all();
+    return view('beranda.more.show', compact('series'));
   }
 }

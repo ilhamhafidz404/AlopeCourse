@@ -6,6 +6,7 @@ use Illuminate\Database\Seeder;
 use Database\Seeders\CategorySeeder;
 use Database\Seeders\TagSeeder;
 use App\Models\Blog;
+use App\Models\Video;
 
 class DatabaseSeeder extends Seeder
 {
@@ -19,5 +20,6 @@ class DatabaseSeeder extends Seeder
     $this->call(TagSeeder::class);
 
     Blog::factory()->count(10)->create();
+    Video::factory()->count(10)->create();
   }
 }

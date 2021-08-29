@@ -17,6 +17,17 @@
       background: linear-gradient(totopleft,#013470, #0F182A);
       !important;
     }
+    body {
+      font-family: 'Poppins', Sans-Serif;
+      overflow-x: hidden;
+      background-color: #f1f5f9;
+    }
+    a {
+      text-decoration: none !important;
+    }
+    .container-fluid {
+      width: 90% !important;
+    }
     nav a {
       color: #ffffff !important;
     }
@@ -104,7 +115,7 @@
             <ul class="d-flex p-0">
               @foreach($tags as $tag)
               <li class="me-2">
-                <button class="btn btn-transparent btn-lg d-flex align-items-center justify-content-center" value="{{$tag->slug}}" style="border-color: {{$tag->badge}} !important;" name="tag">
+                <button class="btn btn-transparent btn-lg d-flex align-items-center justify-content-center" value="{{$tag->slug}}" style="@if(request('tag') === $tag->slug) border-color: {{$tag->badge}} !important; @endif" name="tag">
                   <i class="fab fa-{{$tag->icon}}"></i>
                 </button>
               </li>
@@ -116,33 +127,27 @@
     </div>
   </div>
 
-  <div class="container mt-5">
+  <div class="container-fluid mt-5">
     <div class="row">
       @foreach($series as $serie)
       <div class="col-sm-12 col-md-6 col-lg-4">
-        <a href="{{route('beranda.show', $serie->slug)}}">
+        <a href="{{route('topic.show', $serie->slug)}}">
           <div class="card border-0 bg-transparent m-auto mb-4" style="width: 90% !important;">
             <img src="{{asset('storage/'.$serie->thumbnail)}}" class="card-img-rounded" width="100%">
             <div class="card-body">
-              <ul class="p-0 d-flex my-0">
-                @foreach($serie->tag as $tag)
-                <li class="me-2">
-                  <a href=""><small>{{$tag->nama}}</small></a>
-                </li>
-                @endforeach
-              </ul>
-              <h4 class="card-title mb-2 text-dark">
+              @foreach($serie->tag as $tag)
+              <span class="badge" style="background-color:{{$tag->badge}}">
+                {{$tag->nama}}
+              </span>
+              @endforeach
+              <h4 class="card-title my-2 text-dark">
                 {{$serie->nama}}
               </h4>
               <div class="card-text d-flex justify-content-between">
-                @foreach($serie->tag as $tag)
-                <span class="badge" style="background-color:{{$tag->badge}}">
-                  {{$tag->nama}}
-                </span>
-                @endforeach
                 <small class="text-muted">
-                  {{-- {{$serie->created_at->diffForHumans()}} --}}
+                  {{$serie->created_at->diffForHumans()}}
                 </small>
+                <small class="text-secondary">Serie <Span class="text-success fw-bold">Complete</Span></small>
               </div>
             </div>
           </div>

@@ -5,22 +5,25 @@
   <div class="album py-5 bg-light">
     <div class="container-fluid">
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-        @foreach($blogs as $blog)
+        @foreach($series as $serie)
         <div class="col-sm-12 col-md-6 col-lg-4">
-          <a href="{{route('beranda.show', $blog->slug)}}">
+          <a href="{{route('topic.show', $serie->slug)}}">
             <div class="card border-0 bg-transparent m-auto mb-4" style="width: 90% !important;">
-              <img src="{{asset('storage/'.$blog->thumbnail)}}" class="card-img-rounded" width="100%">
+              <img src="{{asset('storage/'.$serie->thumbnail)}}" class="card-img-rounded" width="100%">
               <div class="card-body">
-                <h4 class="card-title mb-2 text-dark">
-                  {{$blog->judul}}
+                @foreach($serie->tag as $tag)
+                <span class="badge" style="background-color:{{$tag->badge}}">
+                  {{$tag->nama}}
+                </span>
+                @endforeach
+                <h4 class="card-title my-2 text-dark">
+                  {{$serie->nama}}
                 </h4>
                 <div class="card-text d-flex justify-content-between">
-                  <span class="badge" style="background-color:{{$blog->category->badge}}">
-                    {{$blog->category->nama}}
-                  </span>
                   <small class="text-muted">
-                    {{$blog->created_at->diffForHumans()}}
+                    {{$serie->created_at->diffForHumans()}}
                   </small>
+                  <small class="text-secondary">Serie <Span class="text-success fw-bold">Complete</Span></small>
                 </div>
               </div>
             </div>

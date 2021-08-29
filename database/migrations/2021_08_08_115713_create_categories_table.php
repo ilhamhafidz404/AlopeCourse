@@ -18,16 +18,17 @@ class CreateCategoriesTable extends Migration
         $table->string('nama');
         $table->string('slug');
         $table->text('description');
-        $table->timestamps();
-      });
+        $table->enum('status', ['complete', 'development', 'stuck'])->default('development');
+          $table->timestamps();
+        });
     }
 
-    /**
-    * Reverse the migrations.
-    *
-    * @return void
-    */
-    public function down() {
-      Schema::dropIfExists('categories');
+      /**
+      * Reverse the migrations.
+      *
+      * @return void
+      */
+      public function down() {
+        Schema::dropIfExists('categories');
+      }
     }
-  }
