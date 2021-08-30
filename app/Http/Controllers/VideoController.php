@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 use App\Models\Video;
 use App\Models\Category;
 use Illuminate\Support\Str;
@@ -36,12 +37,15 @@ class VideoController extends Controller
   * @return \Illuminate\Http\Response
   */
   public function store(Request $request) {
+    $thumbnail = time().".".$request->thumbnail->extension();
+    $request->file('thumbnail')->storeAs('public', $thumbnail);
     Video::create([
       'title' => $request->title,
       'slug' => Str::slug($request->title),
       'category_id' => $request->category,
       'link' => $request->link,
       'description' => $request->description,
+      'thumbnail' => $thumbnail
     ]);
 
     return back();
@@ -53,8 +57,9 @@ class VideoController extends Controller
   * @param  int  $id
   * @return \Illuminate\Http\Response
   */
-  public function show($id) {
-    //
+  public function show($slug) {
+    $video = Video::whereSlug($slug)->first();
+    return view('dashboard.video.show', compact('video'));
   }
 
   /**
@@ -63,8 +68,10 @@ class VideoController extends Controller
   * @param  int  $id
   * @return \Illuminate\Http\Response
   */
-  public function edit($id) {
-    //
+  public function edit($slug) {
+    $video = Video::whereSlug($slug)->first();
+    $categories = Category::all();
+    return view('dashboard.video.edit', compact('video', 'categories'));
   }
 
   /**
@@ -75,7 +82,16 @@ class VideoController extends Controller
   * @return \Illuminate\Http\Response
   */
   public function update(Request $request, $id) {
-    //
+    Video::find($id)->update([
+      "title" => $request->title,
+      'slug' => Str::slug($request->title),
+      "category_id" => $request->category,
+      "description" => $request->description,
+      "link" => $request->link,
+      "thumbnail" => $request->thumbnail,
+    ]);
+    Alert::success('Berhasil diedit', '');
+    return redirect(route('video.index'));
   }
 
   /**

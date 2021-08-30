@@ -13,10 +13,10 @@
 <div class="card">
   <div class="card-header bg-transparent">
     <div class="row">
-      <div class="col-md-7">
+      <div class="col-md-5">
         <h3 class="mb-0">Tag List</h3>
       </div>
-      <div class="col-md-5">
+      <div class="col-md-7">
         <h3 class="mb-0">Detail Tag</h3>
       </div>
     </div>
@@ -24,7 +24,7 @@
   <div class="card-body">
     <div class="row">
       @foreach($tags as $tag)
-      <div class="col-md-7">
+      <div class="col-md-5">
         <p>
           <button class="btn-icon-clipboard d-flex justify-content-between" type="button" data-bs-toggle="collapse" data-bs-target="#{{$tag->slug}}" aria-expanded="false" aria-controls="collapseExample">
             <div>
@@ -36,7 +36,7 @@
         </p>
       </div>
 
-      <div class="col-md-5">
+      <div class="col-md-7">
         <div class="collapse" id="{{$tag->slug}}">
           <div class="card">
             <div class="card-header py-2 d-flex justify-content-between">

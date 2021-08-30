@@ -40,11 +40,11 @@
 <div class="col-md-6">
   <div class="card p-3">
     <div class="row">
-      <div class="col-sm-4 d-flex align-items-center">
+      <div class="col-sm-5 d-flex align-items-center">
         <img src="{{asset('storage/'.$blog->thumbnail )}}" width="100%" class="rounded">
       </div>
-      <div class="col-sm-8 p-3 position-relative">
-        <h4 class="my-0 text-uppercase d-inline">
+      <div class="col-sm-7 p-3 position-relative">
+        <h4 class="my-0 text-uppercase">
           {{$blog->judul}}
         </h4>
         <small class="text-muted ms-2">

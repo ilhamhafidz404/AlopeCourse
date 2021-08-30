@@ -5,7 +5,7 @@
 
 @section('breadcrumb')
 <li class="breadcrumb-item" aria-current="page">
-  <a href="{{route('blog.index')}}">Video</a>
+  <a href="{{route('video.index')}}">Video</a>
 </li>
 <li class="breadcrumb-item active" aria-current="page">List Video</li>
 @endsection
@@ -42,33 +42,20 @@
   @foreach($videos as $video)
   <div class="col-md-6">
     <div class="card overflow-hidden">
-      <iframe width="100%" src="{{$video->link}}"></iframe>
+      <div class="card-image" style="height: 200px; width: 100%; background-image: url({{asset('storage/'.$video->thumbnail)}}); background-position: center; background-size: cover;">
+      </div>
       <div class="card-body d-flex justify-content-between">
         <div>
           <h4 class="mb-0">{{$video->title}}</h4>
           <small class="text-muted">{{$video->category->nama}}</small>
         </div>
         <div>
-          <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#{{$video->slug}}">
-            <i class="fas fa-eye"></i>
+          <a href="{{route('video.edit', $video->slug)}}" class="btn btn-primary btn-sm">
+            <i class="fas fa-pen"></i>
           </button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="modal fade" id="{{$video->slug}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-fullscreen">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">{{$video->title}}</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <iframe width="100%"height="300px" src="{{$video->link}}"></iframe>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <a href="{{route('video.show', $video->slug)}}" class="btn btn-sm px-3 btn-danger">
+            <i class="fas fa-play"></i>
+          </a>
         </div>
       </div>
     </div>
@@ -84,9 +71,14 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="{{route('video.store')}}" class="mt-3" method="POST">
+        <form action="{{route('video.store')}}" class="mt-3" method="POST" enctype="multipart/form-data">
           @csrf
           <div class="row">
+            <div class="col-md-12">
+              <div class="custom-file mb-3">
+                <input type="file" id="thumbnail" class="dropify" data-height="500" accept="image/*" name="thumbnail" />
+              </div>
+            </div>
             <div class="col-md-12">
               <div class="form-group mb-3">
                 <label for="title" class="form-control-label">Judul Video</label>
