@@ -23,10 +23,10 @@ use App\Http\Controllers\TopicController;
 */
 
 Route::get('/', function () {
-  return view('auth/register');
+  return view('welcome');
 });
 
-Route::get('/dashboard', DashboardController::class)->name('dashboard.main');
+Route::middleware('role:admin')->get('/dashboard', DashboardController::class)->name('dashboard.main');
 route::resource('/dashboard/blog', BlogController::class);
 route::resource('/dashboard/series', CategoryController::class);
 route::resource('/dashboard/tag', TagController::class);
@@ -34,7 +34,7 @@ route::resource('/dashboard/video', VideoController::class);
 route::get("/dashboard/trash", [TrashController::class, "index"])->name('trash.index');
 route::delete("/dashboard/trash", [TrashController::class, 'destroy'])->name("trash.destroy");
 
-route::get('/beranda', BerandaController::class);
+route::get('/beranda', BerandaController::class)->name('beranda');
 route::get('/topic', [TopicController::class, 'index'])->name('topic');
 route::get('/topic/{slug}', [TopicController::class, 'show'])->name('topic.show');
 
@@ -47,3 +47,6 @@ Route::get('/login', function () {
 Route::get('/register', function () {
   return view('auth.register');
 });
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
