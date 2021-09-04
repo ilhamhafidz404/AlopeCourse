@@ -26,27 +26,29 @@ Route::get('/', function () {
   return view('welcome');
 });
 
-Route::middleware('role:admin')->get('/dashboard', DashboardController::class)->name('dashboard.main');
-route::resource('/dashboard/blog', BlogController::class);
-route::resource('/dashboard/series', CategoryController::class);
-route::resource('/dashboard/tag', TagController::class);
-route::resource('/dashboard/video', VideoController::class);
-route::get("/dashboard/trash", [TrashController::class, "index"])->name('trash.index');
-route::delete("/dashboard/trash", [TrashController::class, 'destroy'])->name("trash.destroy");
-
-route::get('/beranda', BerandaController::class)->name('beranda');
-route::get('/topic', [TopicController::class, 'index'])->name('topic');
-route::get('/topic/{slug}', [TopicController::class, 'show'])->name('topic.show');
-
-
-
-Route::get('/login', function () {
-  return view('auth.login');
+Route::middleware(['role:admin', 'auth'])->group(function () {
+  Route::get('/dashboard', DashboardController::class)->name('dashboard.main');
+  route::resource('/dashboard/blog', BlogController::class);
+  route::resource('/dashboard/series', CategoryController::class);
+  route::resource('/dashboard/tag', TagController::class);
+  route::resource('/dashboard/video', VideoController::class);
+  route::get("/dashboard/trash", [TrashController::class, "index"])->name('trash.index');
+  route::delete("/dashboard/trash", [TrashController::class, 'destroy'])->name("trash.destroy");
 });
 
-Route::get('/register', function () {
-  return view('auth.register');
+Route::middleware(['auth'])->group(function () {
+  route::get('/beranda', BerandaController::class)->name('beranda');
+  route::get('/topic', [TopicController::class, 'index'])->name('topic');
+  route::get('/topic/{slug}', [TopicController::class, 'show'])->name('topic.show');
 });
+
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+//Route::get('/login', function () {
+//  return view('auth.login');
+//});
+//Route::get('/register', function () {
+//  return view('auth.register');
+//});
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
