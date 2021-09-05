@@ -42,7 +42,8 @@ class TagController extends Controller
       'description' => $request->description,
       'icon' => $request->icon,
     ]);
-    Alert::success('Berhasil Diupload', 'gg');
+
+    Alert::success('Tag Berhasil Ditambahkan', 'Sekarang tag ini bisa dipakai pada serie anda');
     return redirect(route('tag.index'));
   }
 
@@ -80,7 +81,8 @@ class TagController extends Controller
       "icon" => $request->icon,
       "badge" => $request->badge,
     ]);
-    Alert::success('Berhasil diedit', '');
+
+    Alert::success('Tag Berhasil Diedit', 'Data tag sekarang sudah berubah');
     return back();
   }
 

@@ -14,8 +14,11 @@
   <title>Hello, world!</title>
 
   <style>
+    a {
+      text-decoration: none;
+    }
     body {
-      color: #1e205a;
+      color: #1e205a !important;
       font-family: 'Poppins', sans-serif;
     }
     .faq {
@@ -51,6 +54,10 @@
     }
     .fas.fa-arrow-right {
       transition: 0.3s;
+    }
+
+    .card-title, .card-time {
+      color: #1e205a;
     }
 
 @media only screen and (max-width: 991px) {
@@ -180,11 +187,11 @@
               <div class="card mb-3 border-0 px-3 py-4 rounded shadow-sm ">
                 <h4 class="text-uppercase mb-3"> Categories</h4>
                 <ul class="list-group list-group-flush">
-                  <li class="list-group-item pt-3">An iftem</li>
-                  <li class="list-group-item pt-3">A second item</li>
-                  <li class="list-group-item pt-3">A third item</li>
-                  <li class="list-group-item pt-3">A fourth item</li>
-                  <li class="list-group-item pt-3">And a fifth one</li>
+                  @foreach($categories as $category)
+                  <li class="list-group-item pt-3">
+                    {{$category->nama}}
+                  </li>
+                  @endforeach
                 </ul>
               </div>
             </div>
@@ -249,222 +256,30 @@
       <div class="col-lg-9 blogList">
         <br>  <br>
         <div class="row">
+          @foreach($blogs as $blog)
           <div class="col-md-4 col-sm-6">
-            <div class="card w-100 mb-3">
-              <div class="blogThumb" style="width:100%; height: 220px; background-image: url(https://images.unsplash.com/photo-1606787366850-de6330128bfc?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80); background-size: cover; background-position: center;"></div>
-              <div class="card-body pt-1">
-                <div class="d-flex justify-content-between align-items-center">
-                  <ul style="list-style: none" class="p-0 mb-1">
-                    <li>
-                      <span class="badge bg-primary">LARAVEL</span>
-                    </li>
-                  </ul>
-                  <small class="mb-2" style="font-size: 12px"> 1 Jam yang Lalu</small>
+            <a href="{{route('blog.show', $blog->slug)}}">
+              <div class="card w-100 mb-3">
+                <div class="blogThumb" style="width:100%; height: 220px; background-image: url({{asset('storage/'.$blog->thumbnail)}}); background-size: cover; background-position: center;"></div>
+                <div class="card-body pt-1">
+                  <div class="d-flex justify-content-between align-items-center">
+                    @foreach($blog->category->tag as $tag)
+                    <span class="badge me-1" style="background-color: {{$tag->badge}}">
+                      {{$tag->nama}}
+                    </span>
+                    @endforeach
+                    <small class="mb-2 card-time" style="font-size: 12px">{{$blog->created_at->diffForHumans()}}</small>
+                  </div>
+                  <h4 class="card-title my-1">{{$blog->judul}}</h4>
+                  <h6 class="card-subtitle text-muted d-inline">{{$blog->category->nama}}</h6>
+                  <small class="card-text mt-2 text-secondary d-block">
+                    {{$blog->category->description}}
+                  </small>
                 </div>
-                <h4 class="card-title my-1">Card title</h4>
-                <h6 class="card-subtitle text-muted d-inline">Series Blog</h6>
-                <small class="card-text mt-2 text-secondary d-block">Penjelasan Serie Some quick example text to build on the card title and make up the bulk of the card's content.</small>
               </div>
-            </div>
+            </a>
           </div>
-          <div class="col-md-4 col-sm-6">
-            <div class="card w-100 mb-3">
-              <div class="blogThumb" style="width:100%; height: 220px; background-image: url(https://images.unsplash.com/photo-1630345099947-271d4936bba8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80); background-size: cover; background-position: center;"></div>
-              <div class="card-body pt-1">
-                <div class="d-flex justify-content-between align-items-center">
-                  <ul style="list-style: none" class="p-0 mb-1">
-                    <li>
-                      <span class="badge bg-primary">LARAVEL</span>
-                    </li>
-                  </ul>
-                  <small class="mb-2" style="font-size: 12px"> 1 Jam yang Lalu</small>
-                </div>
-                <h4 class="card-title my-1">Card title</h4>
-                <h6 class="card-subtitle text-muted d-inline">Series Blog</h6>
-                <small class="card-text mt-2 text-secondary d-block">Penjelasan Serie Some quick example text to build on the card title and make up the bulk of the card's content.</small>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6">
-            <div class="card w-100 mb-3">
-              <div class="blogThumb" style="width:100%; height: 220px; background-image: url(https://images.unsplash.com/photo-1606787366850-de6330128bfc?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80); background-size: cover; background-position: center;"></div>
-              <div class="card-body pt-1">
-                <div class="d-flex justify-content-between align-items-center">
-                  <ul style="list-style: none" class="p-0 mb-1">
-                    <li>
-                      <span class="badge bg-primary">LARAVEL</span>
-                    </li>
-                  </ul>
-                  <small class="mb-2" style="font-size: 12px"> 1 Jam yang Lalu</small>
-                </div>
-                <h4 class="card-title my-1">Card title</h4>
-                <h6 class="card-subtitle text-muted d-inline">Series Blog</h6>
-                <small class="card-text mt-2 text-secondary d-block">Penjelasan Serie Some quick example text to build on the card title and make up the bulk of the card's content.</small>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6">
-            <div class="card w-100 mb-3">
-              <div class="blogThumb" style="width:100%; height: 220px; background-image: url(https://images.unsplash.com/photo-1630247777164-89ee698b704f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1053&q=80); background-size: cover; background-position: center;"></div>
-              <div class="card-body pt-1">
-                <div class="d-flex justify-content-between align-items-center">
-                  <ul style="list-style: none" class="p-0 mb-1">
-                    <li>
-                      <span class="badge bg-primary">LARAVEL</span>
-                    </li>
-                  </ul>
-                  <small class="mb-2" style="font-size: 12px"> 1 Jam yang Lalu</small>
-                </div>
-                <h4 class="card-title my-1">Card title</h4>
-                <h6 class="card-subtitle text-muted d-inline">Series Blog</h6>
-                <small class="card-text mt-2 text-secondary d-block">Penjelasan Serie Some quick example text to build on the card title and make up the bulk of the card's content.</small>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6">
-            <div class="card w-100 mb-3">
-              <div class="blogThumb" style="width:100%; height: 220px; background-image: url(https://images.unsplash.com/photo-1630329801002-fced325cbee1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80); background-size: cover; background-position: center;"></div>
-              <div class="card-body pt-1">
-                <div class="d-flex justify-content-between align-items-center">
-                  <ul style="list-style: none" class="p-0 mb-1">
-                    <li>
-                      <span class="badge bg-primary">LARAVEL</span>
-                    </li>
-                  </ul>
-                  <small class="mb-2" style="font-size: 12px"> 1 Jam yang Lalu</small>
-                </div>
-                <h4 class="card-title my-1">Card title</h4>
-                <h6 class="card-subtitle text-muted d-inline">Series Blog</h6>
-                <small class="card-text mt-2 text-secondary d-block">Penjelasan Serie Some quick example text to build on the card title and make up the bulk of the card's content.</small>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6">
-            <div class="card w-100 mb-3">
-              <div class="blogThumb" style="width:100%; height: 220px; background-image: url(https://images.unsplash.com/photo-1593642634524-b40b5baae6bb?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80); background-size: cover; background-position: center;"></div>
-              <div class="card-body pt-1">
-                <div class="d-flex justify-content-between align-items-center">
-                  <ul style="list-style: none" class="p-0 mb-1">
-                    <li>
-                      <span class="badge bg-primary">LARAVEL</span>
-                    </li>
-                  </ul>
-                  <small class="mb-2" style="font-size: 12px"> 1 Jam yang Lalu</small>
-                </div>
-                <h4 class="card-title my-1">Card title</h4>
-                <h6 class="card-subtitle text-muted d-inline">Series Blog</h6>
-                <small class="card-text mt-2 text-secondary d-block">Penjelasan Serie Some quick example text to build on the card title and make up the bulk of the card's content.</small>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6">
-            <div class="card w-100 mb-3">
-              <div class="blogThumb" style="width:100%; height: 220px; background-image: url(https://images.unsplash.com/photo-1606787366850-de6330128bfc?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80); background-size: cover; background-position: center;"></div>
-              <div class="card-body pt-1">
-                <div class="d-flex justify-content-between align-items-center">
-                  <ul style="list-style: none" class="p-0 mb-1">
-                    <li>
-                      <span class="badge bg-primary">LARAVEL</span>
-                    </li>
-                  </ul>
-                  <small class="mb-2" style="font-size: 12px"> 1 Jam yang Lalu</small>
-                </div>
-                <h4 class="card-title my-1">Card title</h4>
-                <h6 class="card-subtitle text-muted d-inline">Series Blog</h6>
-                <small class="card-text mt-2 text-secondary d-block">Penjelasan Serie Some quick example text to build on the card title and make up the bulk of the card's content.</small>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6">
-            <div class="card w-100 mb-3">
-              <div class="blogThumb" style="width:100%; height: 220px; background-image: url(https://images.unsplash.com/photo-1630345099947-271d4936bba8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80); background-size: cover; background-position: center;"></div>
-              <div class="card-body pt-1">
-                <div class="d-flex justify-content-between align-items-center">
-                  <ul style="list-style: none" class="p-0 mb-1">
-                    <li>
-                      <span class="badge bg-primary">LARAVEL</span>
-                    </li>
-                  </ul>
-                  <small class="mb-2" style="font-size: 12px"> 1 Jam yang Lalu</small>
-                </div>
-                <h4 class="card-title my-1">Card title</h4>
-                <h6 class="card-subtitle text-muted d-inline">Series Blog</h6>
-                <small class="card-text mt-2 text-secondary d-block">Penjelasan Serie Some quick example text to build on the card title and make up the bulk of the card's content.</small>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6">
-            <div class="card w-100 mb-3">
-              <div class="blogThumb" style="width:100%; height: 220px; background-image: url(https://images.unsplash.com/photo-1606787366850-de6330128bfc?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80); background-size: cover; background-position: center;"></div>
-              <div class="card-body pt-1">
-                <div class="d-flex justify-content-between align-items-center">
-                  <ul style="list-style: none" class="p-0 mb-1">
-                    <li>
-                      <span class="badge bg-primary">LARAVEL</span>
-                    </li>
-                  </ul>
-                  <small class="mb-2" style="font-size: 12px"> 1 Jam yang Lalu</small>
-                </div>
-                <h4 class="card-title my-1">Card title</h4>
-                <h6 class="card-subtitle text-muted d-inline">Series Blog</h6>
-                <small class="card-text mt-2 text-secondary d-block">Penjelasan Serie Some quick example text to build on the card title and make up the bulk of the card's content.</small>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6">
-            <div class="card w-100 mb-3">
-              <div class="blogThumb" style="width:100%; height: 220px; background-image: url(https://images.unsplash.com/photo-1630247777164-89ee698b704f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1053&q=80); background-size: cover; background-position: center;"></div>
-              <div class="card-body pt-1">
-                <div class="d-flex justify-content-between align-items-center">
-                  <ul style="list-style: none" class="p-0 mb-1">
-                    <li>
-                      <span class="badge bg-primary">LARAVEL</span>
-                    </li>
-                  </ul>
-                  <small class="mb-2" style="font-size: 12px"> 1 Jam yang Lalu</small>
-                </div>
-                <h4 class="card-title my-1">Card title</h4>
-                <h6 class="card-subtitle text-muted d-inline">Series Blog</h6>
-                <small class="card-text mt-2 text-secondary d-block">Penjelasan Serie Some quick example text to build on the card title and make up the bulk of the card's content.</small>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6">
-            <div class="card w-100 mb-3">
-              <div class="blogThumb" style="width:100%; height: 220px; background-image: url(https://images.unsplash.com/photo-1630329801002-fced325cbee1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80); background-size: cover; background-position: center;"></div>
-              <div class="card-body pt-1">
-                <div class="d-flex justify-content-between align-items-center">
-                  <ul style="list-style: none" class="p-0 mb-1">
-                    <li>
-                      <span class="badge bg-primary">LARAVEL</span>
-                    </li>
-                  </ul>
-                  <small class="mb-2" style="font-size: 12px"> 1 Jam yang Lalu</small>
-                </div>
-                <h4 class="card-title my-1">Card title</h4>
-                <h6 class="card-subtitle text-muted d-inline">Series Blog</h6>
-                <small class="card-text mt-2 text-secondary d-block">Penjelasan Serie Some quick example text to build on the card title and make up the bulk of the card's content.</small>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6">
-            <div class="card w-100 mb-3">
-              <div class="blogThumb" style="width:100%; height: 220px; background-image: url(https://images.unsplash.com/photo-1593642634524-b40b5baae6bb?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80); background-size: cover; background-position: center;"></div>
-              <div class="card-body pt-1">
-                <div class="d-flex justify-content-between align-items-center">
-                  <ul style="list-style: none" class="p-0 mb-1">
-                    <li>
-                      <span class="badge bg-primary">LARAVEL</span>
-                    </li>
-                  </ul>
-                  <small class="mb-2" style="font-size: 12px"> 1 Jam yang Lalu</small>
-                </div>
-                <h4 class="card-title my-1">Card title</h4>
-                <h6 class="card-subtitle text-muted d-inline">Series Blog</h6>
-                <small class="card-text mt-2 text-secondary d-block">Penjelasan Serie Some quick example text to build on the card title and make up the bulk of the card's content.</small>
-              </div>
-            </div>
-          </div>
+          @endforeach
         </div>
       </div>
     </div>
@@ -474,39 +289,25 @@
   <div class="container-fluid mt-5">
     <h3>Video Tutorial</h3>
     <div class="row mt-4" style="overflow-x">
+      @foreach($videos as $video)
       <div class="col-lg-4 col-md-6">
         <div class="position-relative">
-          <div class="rounded" style="width: 100%; height: 300px; background-image: url(https://images.unsplash.com/photo-1630329801002-fced325cbee1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80); background-size: cover; background-position: center"></div>
+          <div class="rounded" style="width: 100%; height: 300px; background-image: url({{asset('storage/'.$video->thumbnail)}}); background-size: cover; background-position: center"></div>
           <div class="card start-50 position-absolute p-3 border-0 shadow-sm" style="width: 90%; bottom:-100px; transform: translateX(-50%)">
-            <h3 class="card-title"> Card Title</h3>
-            <small class="card-text text-muted"> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam quidem amet corporis neque architecto consequuntur recusandae quia fugit dolorem sed. Voluptatum suscipit optio amet quod doloremque. Eius quis sint temporibus. </small>
-            <small class="mt-3">  <a href="">Lihat Video Youtube <i class="fas fa-arrow-right ms-2"> </i></a></small>
+            <h3 class="card-title">{{$video->title}}</h3>
+            <small class="card-text text-muted">
+              {{$video->description}}
+            </small>
+            <small class="mt-3">
+              <a href="{{$video->link}}" target="_blank">
+                Lihat Video Youtube <i class="fas fa-arrow-right ms-2"> </i>
+              </a>
+            </small>
           </div>
         </div>
         <br> <br>  <br>  <br>  <br>
       </div>
-      <div class="col-lg-4 col-md-6">
-        <div class="position-relative">
-          <div class="rounded border-0 shadow-sm " style="width: 100%; height: 300px; background-image: url(https://images.unsplash.com/photo-1630329801002-fced325cbee1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80); background-size: cover; background-position: center"></div>
-          <div class="card start-50 position-absolute p-3" style="width: 90%; bottom:-100px; transform: translateX(-50%)">
-            <h3 class="card-title"> Card Title</h3>
-            <small class="card-text text-muted"> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam quidem amet corporis neque architecto consequuntur recusandae quia fugit dolorem sed. Voluptatum suscipit optio amet quod doloremque. Eius quis sint temporibus. </small>
-            <small class="mt-3">  <a href="">Lihat Video Youtube <i class="fas fa-arrow-right ms-2"> </i></a></small>
-          </div>
-        </div>
-        <br> <br>  <br>  <br>  <br>
-      </div>
-      <div class="col-lg-4 col-md-6">
-        <div class="position-relative">
-          <div class="rounded" style="width: 100%; height: 300px; background-image: url(https://images.unsplash.com/photo-1630329801002-fced325cbee1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80); background-size: cover; background-position: center"></div>
-          <div class="card border-0 shadow-sm start-50 position-absolute p-3" style="width: 90%; bottom:-100px; transform: translateX(-50%)">
-            <h3 class="card-title"> Card Title</h3>
-            <small class="card-text text-secondary"> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam quidem amet corporis neque architecto consequuntur recusandae quia fugit dolorem sed. Voluptatum suscipit optio amet quod doloremque. Eius quis sint temporibus. </small>
-            <small class="mt-3">  <a href="">Lihat Video Youtube <i class="fas fa-arrow-right ms-2"> </i></a></small>
-          </div>
-        </div>
-        <br> <br>  <br>  <br>  <br>
-      </div>
+      @endforeach
     </div>
   </div>
 

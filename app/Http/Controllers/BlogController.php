@@ -72,10 +72,10 @@ class BlogController extends Controller
     ]);
 
     if ($request->status == "draff") {
-      Alert::info('Draff', 'Blog baru telah ditamba,hkan');
+      Alert::info('Disimpan Sebagai Draff', 'Blog disimpan untuk diperbaiki');
       return redirect(route('blog.index'));
     }
-    Alert::success('Berhasil Diupload', 'Blog baru telah ditamba,hkan');
+    Alert::success('Berhasil Diupload', 'Blog baru telah ditambahkan');
     return redirect(route('blog.index'));
   }
 
@@ -100,6 +100,7 @@ class BlogController extends Controller
     $blog = Blog::where("slug", $slug)->first();
     $categories = Category::all();
     $tags = Tag::all();
+
     return view("dashboard.blog.edit", compact("blog", "categories", "tags"));
   }
 
@@ -111,14 +112,20 @@ class BlogController extends Controller
   * @return \Illuminate\Http\Response
   */
   public function update(Request $request, $id) {
+    $thumbnail = time().".".$request->thumbnail->extension();
+    $request->file('thumbnail')->storeAs('public', $thumbnail);
     Blog::find($id)->update([
       "judul" => $request->judul,
       "category_id" => $request->category,
       "content" => $request->content,
-      "thumbnail" => $request->thumbnail,
+      "thumbnail" => $thumbnail,
       "status" => $request->status
     ]);
-    Alert::success('Berhasil diedit', '');
+    if ($request->status == 'banned') {
+      Alert::warning('Blog Di Banned', 'Blog tidak akan terlihat oleh user');
+    } else {
+      Alert::success('Berhasil Diedit', 'Blog menglami perubahan');
+    }
     return redirect(route('blog.index'));
   }
 

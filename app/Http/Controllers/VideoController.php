@@ -48,6 +48,7 @@ class VideoController extends Controller
       'thumbnail' => $thumbnail
     ]);
 
+    Alert::success('Video Tutorial Baru Berhasil Ditambahkan', 'User bisa melihat video baru ini');
     return back();
   }
 
@@ -82,15 +83,19 @@ class VideoController extends Controller
   * @return \Illuminate\Http\Response
   */
   public function update(Request $request, $id) {
+    $thumbnail = time().".".$request->thumbnail->extension();
+    $request->file('thumbnail')->storeAs('public', $thumbnail);
+
     Video::find($id)->update([
       "title" => $request->title,
       'slug' => Str::slug($request->title),
       "category_id" => $request->category,
       "description" => $request->description,
       "link" => $request->link,
-      "thumbnail" => $request->thumbnail,
+      "thumbnail" => $thumbnail,
     ]);
-    Alert::success('Berhasil diedit', '');
+
+    Alert::success('Vide berhasil Diedit', 'Data video berhasil diubah');
     return redirect(route('video.index'));
   }
 

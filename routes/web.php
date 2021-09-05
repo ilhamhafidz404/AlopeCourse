@@ -10,6 +10,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\VideoController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\TopicController;
+use App\Http\Controllers\WelcomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,9 +23,7 @@ use App\Http\Controllers\TopicController;
 |
 */
 
-Route::get('/', function () {
-  return view('welcome');
-});
+Route::get('/', WelcomeController::class);
 
 Route::middleware(['role:admin', 'auth'])->group(function () {
   Route::get('/dashboard', DashboardController::class)->name('dashboard.main');

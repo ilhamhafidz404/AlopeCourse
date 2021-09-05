@@ -46,7 +46,8 @@ class CategoryController extends Controller
       'description' => $request->description,
       'thumbnail' => $thumbnail
     ])->tag()->attach($request->tags);
-    Alert::success('Berhasil Diupload', 'gg');
+
+    Alert::success('Berhasil Menambah Serie', 'Sekarang serie ini bisa dipakai');
     return redirect(route('series.index'));
   }
 
@@ -79,12 +80,15 @@ class CategoryController extends Controller
   * @return \Illuminate\Http\Response
   */
   public function update(Request $request, $id) {
+    $thumbnail = time().".".$request->thumbnail->extension();
+    $request->file('thumbnail')->storeAs('public', $thumbnail);
     Category::find($id)->update([
       "nama" => $request->nama,
       "description" => $request->description,
-      "thumbnail" => $request->thumbnail
+      "thumbnail" => $thumbnail
     ]);
-    Alert::success('Berhasil diedit', '');
+
+    Alert::success('Serie berhasil diupdate');
     return redirect(route('series.index'));
   }
 
