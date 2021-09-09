@@ -27,8 +27,8 @@ Route::get('/', WelcomeController::class);
 
 Route::middleware(['role:admin', 'auth'])->group(function () {
   Route::get('/dashboard', DashboardController::class)->name('dashboard.main');
-  route::resource('/dashboard/blog', BlogController::class);
   route::resource('/dashboard/series', CategoryController::class);
+  route::resource('/dashboard/blog', BlogController::class);
   route::resource('/dashboard/tag', TagController::class);
   route::resource('/dashboard/video', VideoController::class);
   route::get("/dashboard/trash", [TrashController::class, "index"])->name('trash.index');

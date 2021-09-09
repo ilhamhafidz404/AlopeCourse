@@ -17,18 +17,19 @@ class CreateBlogsTable extends Migration
       $table->string('thumbnail');
       $table->string('judul');
       $table->foreignId('category_id');
-      $table->longText('content');
-      $table->string("status")->default("upload");
-      $table->timestamps();
-    });
-  }
+      $table->foreignId('user_id')->default(1);
+        $table->longText('content');
+        $table->string("status")->default("upload");
+          $table->timestamps();
+        });
+    }
 
-  /**
-  * Reverse the migrations.
-  *
-  * @return void
-  */
-  public function down() {
-    Schema::dropIfExists('blogs');
-  }
-}
+      /**
+      * Reverse the migrations.
+      *
+      * @return void
+      */
+      public function down() {
+        Schema::dropIfExists('blogs');
+      }
+    }

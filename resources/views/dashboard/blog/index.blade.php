@@ -87,8 +87,8 @@
             @method('DELETE')
             @csrf
             <button class="btn btn-sm  btn-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus" onclick="return confirm('Yakin ingin menghapus Blog ini secara permanent?')" type="submit">
-            <i class="fas fa-trash-alt"></i>
-          </button>
+              <i class="fas fa-trash-alt"></i>
+            </button>
           </form>
           @endif
           <a href="{{route('blog.show', $blog->slug)}}" class="btn btn-sm btn-primary ms-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Detail">

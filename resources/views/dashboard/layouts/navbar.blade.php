@@ -231,15 +231,15 @@
               <i class="ni ni-support-16"></i>
               <span>Support</span>
             </a>
-            <div class="dropdown-divider"></div>
-            <a href="#!" class="dropdown-item">
-              <i class="ni ni-user-run"></i>
-              <span>Logout</span>
+            <a href="{{route('beranda')}}" class="dropdown-item">
+              <i class="ni ni-support-16"></i>
+              <span>Beranda</span>
             </a>
             <a class="dropdown-item" href="{{ route('logout') }}"
               onclick="event.preventDefault();
               document.getElementById('logout-form').submit();">
-              {{ __('Logout') }}
+              <i class="ni ni-user-run"></i>
+              <span>Logout</span>
             </a>
 
             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use \App\Models\Category;
+use \App\Models\User;
 use App\Models\Tag;
 
 class Blog extends Model
@@ -15,7 +16,8 @@ class Blog extends Model
     'content',
     'thumbnail',
     'status',
-    'slug'];
+    'slug',
+    'user_id'];
 
   public function scopeFilter($query, array $filter) {
     $query->when($filter["serie"] ?? false, function($query, $filter) {
@@ -31,6 +33,10 @@ class Blog extends Model
 
   public function Category() {
     return $this->belongsTo(Category::class);
+  }
+
+  public function User() {
+    return $this->belongsTo(User::class);
   }
 
   public function Tag() {

@@ -60,7 +60,8 @@ class BlogController extends Controller
       'slug' => Str::slug($request->judul),
       'category_id' => $request->category,
       'content' => $request->content,
-      'thumbnail' => $thumbnail
+      'thumbnail' => $thumbnail,
+      'user_id' => auth()->user()->id
     ]);
 
     if ($request->status == "draff") {
@@ -136,7 +137,7 @@ class BlogController extends Controller
   */
   public function destroy($id) {
     Blog::find($id)->delete();
-    
+
     Alert::success('Berhasil Dihapus', 'Blog Sekarang dihapus');
     return back();
   }
