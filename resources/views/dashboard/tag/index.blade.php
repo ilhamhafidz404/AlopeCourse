@@ -59,7 +59,7 @@
               <form action="{{route('tag.destroy', $tag->id)}}" method="POST" class="d-inline">
                 @csrf
                 @method('DELETE')
-                <button class="btn btn-sm btn-danger">
+                <button class="btn btn-sm btn-danger" onclick="return confirm('Yakin?')">
                   <i class="fas fa-trash-alt"></i>
                 </button>
               </form>

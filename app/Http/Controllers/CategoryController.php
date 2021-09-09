@@ -102,6 +102,7 @@ class CategoryController extends Controller
     Category::find($id)->delete();
     Blog::whereCategory_id($id)->delete();
 
+    Alert::success('Serie berhasil dihapus');
     return back();
   }
 }

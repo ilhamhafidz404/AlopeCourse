@@ -95,6 +95,7 @@ class TagController extends Controller
   public function destroy($id) {
     Tag::find($id)->delete();
 
+    Alert::success('Tag Berhasil Dihapus');
     return back();
   }
 }

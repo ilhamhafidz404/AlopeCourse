@@ -83,9 +83,13 @@
             <i class="fas fa-pencil-alt"></i>
           </a>
           @elseif($blog->status === 'banned')
-          <a href="" class="btn btn-sm  btn-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus">
+          <form action="{{route('blog.destroy', $blog->id)}}" method="POST">
+            @method('DELETE')
+            @csrf
+            <button class="btn btn-sm  btn-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus" onclick="return confirm('Yakin ingin menghapus Blog ini secara permanent?')" type="submit">
             <i class="fas fa-trash-alt"></i>
-          </a>
+          </button>
+          </form>
           @endif
           <a href="{{route('blog.show', $blog->slug)}}" class="btn btn-sm btn-primary ms-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Detail">
             <i class="fas fa-eye"></i>

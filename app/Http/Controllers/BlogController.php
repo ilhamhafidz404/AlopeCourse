@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\BlogRequest;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Models\Blog;
 use App\Models\Category;
@@ -50,16 +51,7 @@ class BlogController extends Controller
   * @param  \Illuminate\Http\Request  $request
   * @return \Illuminate\Http\Response
   */
-  public function store(Request $request) {
-    $request->validate([
-      "judul" => "required",
-      'content' => "required",
-      'category' => "required",
-      'status' => "required",
-      "thumbnail" => "required"
-    ]);
-
-
+  public function store(BlogRequest $request) {
     $thumbnail = time().".".$request->thumbnail->extension();
     $request->file('thumbnail')->storeAs('public', $thumbnail);
     Blog::create([
@@ -85,8 +77,8 @@ class BlogController extends Controller
   * @param  int  $id
   * @return \Illuminate\Http\Response
   */
-  public function show($slug) {
-    $blog = Blog::whereSlug($slug)->first();
+  public function show(Blog $blog) {
+    //$blog = Blog::whereSlug($slug)->first();
     return view('dashboard.blog.show', compact('blog'));
   }
 
@@ -96,8 +88,8 @@ class BlogController extends Controller
   * @param  int  $id
   * @return \Illuminate\Http\Response
   */
-  public function edit($slug) {
-    $blog = Blog::where("slug", $slug)->first();
+  public function edit(Blog $blog) {
+    //$blog = Blog::where("slug", $slug)->first();
     $categories = Category::all();
     $tags = Tag::all();
 
@@ -111,19 +103,26 @@ class BlogController extends Controller
   * @param  int  $id
   * @return \Illuminate\Http\Response
   */
-  public function update(Request $request, $id) {
-    $thumbnail = time().".".$request->thumbnail->extension();
-    $request->file('thumbnail')->storeAs('public', $thumbnail);
-    Blog::find($id)->update([
-      "judul" => $request->judul,
-      "category_id" => $request->category,
-      "content" => $request->content,
-      "thumbnail" => $thumbnail,
-      "status" => $request->status
-    ]);
+  public function update(BlogRequest $request, $id) {
     if ($request->status == 'banned') {
+      Blog::find($id)->update([
+        "judul" => $request->judul,
+        "category_id" => $request->category,
+        "content" => $request->content,
+        "thumbnail" => $request->thumbnail,
+        "status" => $request->status
+      ]);
       Alert::warning('Blog Di Banned', 'Blog tidak akan terlihat oleh user');
     } else {
+      $thumbnail = time().".".$request->thumbnail->extension();
+      $request->file('thumbnail')->storeAs('public', $thumbnail);
+      Blog::find($id)->update([
+        "judul" => $request->judul,
+        "category_id" => $request->category,
+        "content" => $request->content,
+        "thumbnail" => $thumbnail,
+        "status" => $request->status
+      ]);
       Alert::success('Berhasil Diedit', 'Blog menglami perubahan');
     }
     return redirect(route('blog.index'));
@@ -136,6 +135,9 @@ class BlogController extends Controller
   * @return \Illuminate\Http\Response
   */
   public function destroy($id) {
-    //
+    Blog::find($id)->delete();
+    
+    Alert::success('Berhasil Dihapus', 'Blog Sekarang dihapus');
+    return back();
   }
 }

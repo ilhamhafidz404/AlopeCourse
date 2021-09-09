@@ -54,7 +54,7 @@
                 <form action="{{route('series.destroy', $category->id)}}" method="POST" class="ms-2">
                   @csrf
                   @method('DELETE')
-                  <button class="btn btn-danger btn-sm" type="submit" data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus">
+                  <button class="btn btn-danger btn-sm" type="submit" data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus" onclick="return confirm('Yakin? menghapus serie akan membuat blog dengan serie tersebut ikut terhapus')">
                     <i class="fas fa-trash"></i>
                   </button>
                 </form>

@@ -36,4 +36,9 @@ class Blog extends Model
   public function Tag() {
     return $this->belongsToMany(Tag::class);
   }
+
+
+  public function getRouteKeyName() {
+    return 'slug';
+  }
 }
