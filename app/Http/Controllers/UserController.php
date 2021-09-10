@@ -67,14 +67,19 @@ class UserController extends Controller
   */
   public function update(Request $request, $id) {
     if ($request->status == 'banned') {
-      $user = User::find($id)->update([
+      User::find($id)->update([
         'status' => $request->status
       ]);
 
       User::find($id)->syncRoles('banned');
-      //User::find($id)->assignRole('banned');
-
       Alert::error('User Di Banned', 'User sekarang tidak bisa login');
+    } else if ($request->status == "active") {
+      User::find($id)->update([
+        'status' => $request->status
+      ]);
+
+      User::find($id)->syncRoles('user');
+      Alert::error('User Diaktifkan', 'User sekarang bisa login kembali');
     }
 
     return back();

@@ -21,12 +21,28 @@ class UserSeeder extends Seeder
 
     $admin->assignRole('admin');
 
-    $user = User::create([
-      'name' => "user",
-      'email' => 'user@user.com',
-      'password' => bcrypt('user')
+    $active = User::create([
+      'name' => "active",
+      'email' => 'active@user.com',
+      'password' => bcrypt('active')
     ]);
 
-    $user->assignRole('user');
+    $active->assignRole('active');
+
+    $premium = User::create([
+      'name' => "premium",
+      'email' => 'premium@user.com',
+      'password' => bcrypt('premium')
+    ]);
+
+    $premium->assignRole('premium');
+
+    $banned = User::create([
+      'name' => "banned",
+      'email' => 'banned@user.com',
+      'password' => bcrypt('banned')
+    ]);
+
+    $banned->assignRole('banned');
   }
 }

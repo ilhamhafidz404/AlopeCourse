@@ -9,11 +9,11 @@
           <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
             <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
               <li class="breadcrumb-item">
-                <a href="{{route('dashboard.main')}}">
+                <a href="{{route('dashboard.admin')}}">
                   <i class="fas fa-home"></i>
                 </a>
               </li>
-              <li class="breadcrumb-item"><a href="{{route('dashboard.main')}}">Dashboard</a></li>
+              <li class="breadcrumb-item"><a href="{{route('dashboard.admin')}}">Dashboard</a></li>
 
               @yield('breadcrumb')
 

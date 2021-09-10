@@ -27,7 +27,7 @@ use App\Http\Controllers\UserController;
 Route::get('/', WelcomeController::class);
 
 Route::middleware(['role:admin', 'auth'])->group(function () {
-  Route::get('/admin/dashboard', DashboardController::class)->name('dashboard.main');
+  Route::get('/admin/dashboard', DashboardController::class)->name('dashboard.admin');
   route::resource('/admin/series', CategoryController::class);
   route::resource('/admin/users', UserController::class);
   route::resource('/admin/blog', BlogController::class);
@@ -41,7 +41,9 @@ Route::middleware(['role:admin', 'auth'])->group(function () {
 
 Route::view('/user/banned', 'beranda.more.user_banned')->name('user.banned')->middleware(['role:banned', 'auth']);
 
-Route::middleware(['role:user|premium|admin', 'auth'])->group(function () {
+Route::view('/premium/dashboard', 'beranda.premium.dashboard')->name('dashboard.premium')->middleware(['role:premium', 'auth']);
+
+Route::middleware(['role:active|premium|admin', 'auth'])->group(function () {
   route::get('/beranda', BerandaController::class)->name('beranda');
   route::get('/topic', [TopicController::class, 'index'])->name('topic');
   route::get('/topic/{slug}', [TopicController::class, 'show'])->name('topic.show');

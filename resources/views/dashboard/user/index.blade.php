@@ -35,7 +35,7 @@
 @endsection
 
 @section('content')
-<div class="card">
+<div class="card p-3">
   <!-- Light table -->
   <div class="table-responsive">
     <table class="table align-items-center table-flush" id="myTable">
@@ -66,13 +66,23 @@
             @endif
           </td>
           <td>
+            @if($user->status == "active")
             <form action="{{route('users.update', $user->id)}}" method="POST">
               @csrf
               @method('PUT')
-              <button class="btn btn-danger" value="banned" name="status">
+              <button class="btn btn-sm btn-danger" value="banned" name="status">
                 <i class="fas fa-ban"></i>
               </button>
             </form>
+            @else
+            <form action="{{route('users.update', $user->id)}}" method="POST">
+              @csrf
+              @method('PUT')
+              <button class="btn btn-sm btn-success" value="active" name="status">
+                <i class="fas fa-check"></i>
+              </button>
+            </form>
+            @endif
           </td>
         </tr>
         @endforeach

@@ -38,16 +38,13 @@ class LoginController extends Controller
     $this->middleware('guest')->except('logout');
   }
   protected function authenticated(Request $request, $user) {
-    if ($user->status == 'banned') {
+    if ($user->hasRole('banned')) {
       return redirect()->route('user.banned');
     } else {
       if ($user->hasRole('admin')) {
-        return redirect()->route('dashboard.main');
-      } else if ($user->hasRole('premium')) {
-        return 'hello';
+        return redirect()->route('dashboard.admin');
       }
       return redirect()->route('beranda');
     }
-
   }
 }

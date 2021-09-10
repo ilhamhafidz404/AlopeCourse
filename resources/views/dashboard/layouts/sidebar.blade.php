@@ -10,7 +10,7 @@
       <div class="collapse navbar-collapse" id="sidenav-collapse-main">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link {{request()->is('admin/dashboard')?'active':''}}" href="{{route('dashboard.main')}}">
+            <a class="nav-link {{request()->is('admin/dashboard')?'active':''}}" href="{{route('dashboard.admin')}}">
               <i class="ni ni-tv-2 text-primary"></i>
               <span class="nav-link-text">Dashboard</span>
             </a>

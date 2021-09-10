@@ -16,7 +16,7 @@ class RoleSeeder extends Seeder
     Role::insert([
       ['name' => "admin",
         'guard_name' => "web"],
-      ['name' => "user",
+      ['name' => "active",
         'guard_name' => "web"],
       ['name' => "banned",
         'guard_name' => "web"],
