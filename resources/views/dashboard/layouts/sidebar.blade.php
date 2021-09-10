@@ -16,7 +16,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link {{request()->is('users*')?'active':''}}" href="{{route('users.index')}}">
+            <a class="nav-link {{request()->is('admin/users*')?'active':''}}" href="{{route('users.index')}}">
               <i class="ni ni-single-02 text-yellow"></i>
               <span class="nav-link-text">Management User</span>
             </a>

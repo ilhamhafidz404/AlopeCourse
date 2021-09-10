@@ -33,11 +33,15 @@ Route::middleware(['role:admin', 'auth'])->group(function () {
   route::resource('/admin/blog', BlogController::class);
   route::resource('/admin/tag', TagController::class);
   route::resource('/admin/video', VideoController::class);
+
+
   route::get("/admin/trash", [TrashController::class, "index"])->name('trash.index');
   route::delete("/admin/trash", [TrashController::class, 'destroy'])->name("trash.destroy");
 });
 
-Route::middleware(['auth'])->group(function () {
+Route::view('/user/banned', 'beranda.more.user_banned')->name('user.banned')->middleware(['role:banned', 'auth']);
+
+Route::middleware(['role:user|premium|admin', 'auth'])->group(function () {
   route::get('/beranda', BerandaController::class)->name('beranda');
   route::get('/topic', [TopicController::class, 'index'])->name('topic');
   route::get('/topic/{slug}', [TopicController::class, 'show'])->name('topic.show');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class UserController extends Controller
 {
@@ -65,7 +66,18 @@ class UserController extends Controller
   * @return \Illuminate\Http\Response
   */
   public function update(Request $request, $id) {
-    //
+    if ($request->status == 'banned') {
+      $user = User::find($id)->update([
+        'status' => $request->status
+      ]);
+
+      User::find($id)->syncRoles('banned');
+      //User::find($id)->assignRole('banned');
+
+      Alert::error('User Di Banned', 'User sekarang tidak bisa login');
+    }
+
+    return back();
   }
 
   /**

@@ -16,7 +16,14 @@
 <script src="{{asset('dist/js/prism.js')}}"></script>
 <script src="{{asset('dist/js/multi-input.js')}}"></script>
 <script src="{{asset('dist/js/dropify.min.js')}}"></script>
+
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs5/dt-1.11.2/datatables.min.js"></script>
+
 <script>
+  $(document).ready(function () {
+    $('#myTable').DataTable();
+  });
+
   $(document).ready(function() {
     // Basic
     $('.dropify').dropify();
