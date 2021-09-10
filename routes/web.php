@@ -11,6 +11,7 @@ use App\Http\Controllers\VideoController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\TopicController;
 use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,13 +27,14 @@ use App\Http\Controllers\WelcomeController;
 Route::get('/', WelcomeController::class);
 
 Route::middleware(['role:admin', 'auth'])->group(function () {
-  Route::get('/dashboard', DashboardController::class)->name('dashboard.main');
-  route::resource('/dashboard/series', CategoryController::class);
-  route::resource('/dashboard/blog', BlogController::class);
-  route::resource('/dashboard/tag', TagController::class);
-  route::resource('/dashboard/video', VideoController::class);
-  route::get("/dashboard/trash", [TrashController::class, "index"])->name('trash.index');
-  route::delete("/dashboard/trash", [TrashController::class, 'destroy'])->name("trash.destroy");
+  Route::get('/admin/dashboard', DashboardController::class)->name('dashboard.main');
+  route::resource('/admin/series', CategoryController::class);
+  route::resource('/admin/users', UserController::class);
+  route::resource('/admin/blog', BlogController::class);
+  route::resource('/admin/tag', TagController::class);
+  route::resource('/admin/video', VideoController::class);
+  route::get("/admin/trash", [TrashController::class, "index"])->name('trash.index');
+  route::delete("/admin/trash", [TrashController::class, 'destroy'])->name("trash.destroy");
 });
 
 Route::middleware(['auth'])->group(function () {

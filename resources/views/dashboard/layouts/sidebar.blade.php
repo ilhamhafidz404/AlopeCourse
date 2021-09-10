@@ -10,9 +10,15 @@
       <div class="collapse navbar-collapse" id="sidenav-collapse-main">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link {{request()->is('dashboard')?'active':''}}" href="{{route('dashboard.main')}}">
+            <a class="nav-link {{request()->is('admin/dashboard')?'active':''}}" href="{{route('dashboard.main')}}">
               <i class="ni ni-tv-2 text-primary"></i>
               <span class="nav-link-text">Dashboard</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {{request()->is('users*')?'active':''}}" href="{{route('users.index')}}">
+              <i class="ni ni-single-02 text-yellow"></i>
+              <span class="nav-link-text">Management User</span>
             </a>
           </li>
         </ul>
@@ -22,19 +28,19 @@
         </h6>
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link {{request()->is('dashboard/blog*')?'active':''}}" href="{{route('blog.index')}}">
+            <a class="nav-link {{request()->is('admin/blog*')?'active':''}}" href="{{route('blog.index')}}">
               <i class="ni ni-book-bookmark text-primary"></i>
               <span class="nav-link-text">Blog Post</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link {{request()->is('dashboard/series*')?'active':''}}" href="{{route('series.index')}}">
+            <a class="nav-link {{request()->is('admin/series*')?'active':''}}" href="{{route('series.index')}}">
               <i class="ni ni-folder-17 text-yellow"></i>
               <span class="nav-link-text">Blog Serie</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link {{request()->is('dashboard/tag*')?'active':''}}" href="{{route('tag.index')}}">
+            <a class="nav-link {{request()->is('admin/tag*')?'active':''}}" href="{{route('tag.index')}}">
               <i class="ni ni-tag text-success"></i>
               <span class="nav-link-text">Blog Tag</span>
             </a>
