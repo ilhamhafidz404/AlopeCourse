@@ -90,6 +90,7 @@
   </div>
 </div>
 <div class="col-md-12">
+  @if($draffBlogCount >0)
   <div class="card">
     <!-- Card header -->
     <div class="card-header border-0">
@@ -133,6 +134,7 @@
       </table>
     </div>
   </div>
+  @endif
 </div>
 <div class="col-md-12">
   <div class="card p-3">

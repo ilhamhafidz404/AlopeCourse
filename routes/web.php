@@ -12,6 +12,9 @@ use App\Http\Controllers\TagController;
 use App\Http\Controllers\TopicController;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PostController;
+//use App\Models\Post;
+use App\Http\Controllers\AdminPostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +36,11 @@ Route::middleware(['role:admin', 'auth'])->group(function () {
   route::resource('/admin/blog', BlogController::class);
   route::resource('/admin/tag', TagController::class);
   route::resource('/admin/video', VideoController::class);
+  route::resource('/admin/posts', AdminPostController::class);
+  //Route::get('/admin/posts', function() {
+  //    $posts = Post::all();
+  //  return view('dashboard.post.index', compact('posts'));
+  //})->name('admin.post');
 
 
   route::get("/admin/trash", [TrashController::class, "index"])->name('trash.index');
@@ -41,8 +49,11 @@ Route::middleware(['role:admin', 'auth'])->group(function () {
 
 Route::view('/user/banned', 'beranda.more.user_banned')->name('user.banned')->middleware(['role:banned', 'auth']);
 
-Route::view('/premium/dashboard', 'beranda.premium.dashboard')->name('dashboard.premium')->middleware(['role:premium', 'auth']);
 
+Route::middleware(['role:premium', 'auth'])->group(function () {
+  Route::view('/premium/dashboard', 'beranda.premium.dashboard')->name('dashboard.premium');
+  route::resource('/premium/post', PostController::class);
+});
 Route::middleware(['role:active|premium|admin', 'auth'])->group(function () {
   route::get('/beranda', BerandaController::class)->name('beranda');
   route::get('/topic', [TopicController::class, 'index'])->name('topic');

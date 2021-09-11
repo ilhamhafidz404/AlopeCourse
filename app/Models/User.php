@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
 use \App\Models\Blog;
+use \App\Models\Post;
 
 class User extends Authenticatable
 {
@@ -48,5 +49,9 @@ class User extends Authenticatable
 
   public function Blog() {
     return $this->hasMany(Blog::class);
+  }
+
+  public function Post() {
+    return $this->hasMany(Post::class);
   }
 }

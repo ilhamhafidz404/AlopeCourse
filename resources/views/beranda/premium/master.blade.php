@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
   <meta name="author" content="Creative Tim">
-  <title>Argon Dashboard - Free Dashboard for Bootstrap 4</title>
+  <title>@yield('title')</title>
   <!-- Favicon -->
   <link rel="icon" href="{{asset('template')}}/assets/img/brand/favicon.png" type="image/png">
   <!-- Fonts -->
@@ -17,6 +17,9 @@
   <!-- Page plugins -->
   <!-- Argon CSS -->
   <link rel="stylesheet" href="{{asset('template')}}/assets/css/argon.css?v=1.2.0" type="text/css">
+  <link rel="stylesheet" href="{{asset('dist/css/dropify.min.css')}}">
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/dt-1.11.2/datatables.min.css" />
 </head>
 
 <body>
@@ -35,15 +38,15 @@
           <!-- Nav items -->
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link active" href="dashboard.html">
+              <a class="nav-link {{request()->is('premium/dashboard') ? 'active' : ''}}" href="dashboard.html">
                 <i class="ni ni-tv-2 text-primary"></i>
                 <span class="nav-link-text">Dashboard</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="icons.html">
+              <a class="nav-link {{request()->is('premium/post*')? 'active' : ''}}" href="{{route('post.index')}}">
                 <i class="ni ni-planet text-orange"></i>
-                <span class="nav-link-text">Icons</span>
+                <span class="nav-link-text">Post</span>
               </a>
             </li>
           </ul>
@@ -105,23 +108,6 @@
                   <i class="ni ni-single-02"></i>
                   <span>My profile</span>
                 </a>
-                <a href="#!" class="dropdown-item">
-                  <i class="ni ni-settings-gear-65"></i>
-                  <span>Settings</span>
-                </a>
-                <a href="#!" class="dropdown-item">
-                  <i class="ni ni-calendar-grid-58"></i>
-                  <span>Activity</span>
-                </a>
-                <a href="#!" class="dropdown-item">
-                  <i class="ni ni-support-16"></i>
-                  <span>Support</span>
-                </a>
-                <div class="dropdown-divider"></div>
-                <a href="#!" class="dropdown-item">
-                  <i class="ni ni-user-run"></i>
-                  <span>Logout</span>
-                </a>
                 <a class="dropdown-item" href="{{ route('logout') }}"
                   onclick="event.preventDefault();
                   document.getElementById('logout-form').submit();">
@@ -144,25 +130,26 @@
         <div class="header-body">
           <div class="row align-items-center py-4">
             <div class="col-lg-6 col-7">
-              <h6 class="h2 text-white d-inline-block mb-0">Default</h6>
+              <h6 class="h2 text-white d-inline-block mb-0">@yield('title')</h6>
               <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                 <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-                  <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
-                  <li class="breadcrumb-item"><a href="#">Dashboards</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Default</li>
+                  <li class="breadcrumb-item">
+                    <a href="{{route('dashboard.premium')}}"><i class="fas fa-home"></i></a>
+                  </li>
+                  <li class="breadcrumb-item"><a href="#">Premium</a></li>
+                  @yield('breadcrumb')
                 </ol>
               </nav>
             </div>
             <div class="col-lg-6 col-5 text-right">
-              <a href="#" class="btn btn-sm btn-neutral">New</a>
-              <a href="#" class="btn btn-sm btn-neutral">Filters</a>
+              @yield('header_button')
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="card p-3 mt--5 mx-3">
+    <div class="row mt--5 mx-3">
       @yield('content')
     </div>
     <!-- Footer -->
@@ -205,6 +192,80 @@
 <script src="{{asset('template')}}/assets/vendor/chart.js/dist/Chart.extension.js"></script>
 <!-- Argon JS -->
 <script src="{{asset('template')}}/assets/js/argon.js?v=1.2.0"></script>
-</body>
 
+<script src="{{asset('dist/js/dropify.min.js')}}"></script>
+
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs5/dt-1.11.2/datatables.min.js"></script>
+
+<script>
+  $(document).ready(function () {
+    $('#myTable').DataTable();
+  });
+
+  $(document).ready(function() {
+    // Basic
+    $('.dropify').dropify();
+
+    // Translated
+    $('.dropify-fr').dropify({
+      messages: {
+        default: 'Glissez-déposez un fichier ici ou cliquez',
+          replace: 'Glissez-déposez un fichier ou cliquez pour remplacer',
+          remove: 'Supprimer',
+          error: 'Désolé, le fichier trop volumineux'
+        }
+      });
+
+      // Used events
+      var drEvent = $('#input-file-events').dropify();
+
+      drEvent.on('dropify.beforeClear', function(event, element) {
+        return confirm("Do you really want to delete\"" + element.file.name + "\" ?");
+      });
+
+      drEvent.on('dropify.afterClear', function(event, element) {
+        alert('File deleted');
+      });
+
+      drEvent.on('dropify.errors', function(event, element) {
+        console.log('Has Errors');
+      });
+      var myModal = document.getElementById('myModal')
+      var myInput = document.getElementById('myInput')
+
+      myModal.addEventListener('shown.bs.modal', function () {
+        myInput.focus()
+      })
+
+      var drDestroy = $('#input-file-to-destroy').dropify();
+      drDestroy = drDestroy.data('dropify')
+      $('#toggleDropify').on('click', function(e) {
+        e.preventDefault();
+        if (drDestroy.isDropified()) {
+          drDestroy.destroy();
+        } else {
+          drDestroy.init();
+        }
+      })
+    });
+    //var myDropzone = new Dropzone(div#dropzone);
+    ClassicEditor
+    .create(document.querySelector('#editor'))
+    .catch(error => {
+      console.error(error);
+    });
+
+    var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+      return new bootstrap.Popover(popoverTriggerEl)
+    })
+
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+      return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+  </script>
+
+  @include('sweetalert::alert')
+</body>
 </html>
