@@ -12,13 +12,28 @@
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
+  <!-- prism -->
   <link rel="stylesheet" href="{{asset('dist/css/prism.css')}}">
+
+  <!-- glider -->
+  <link rel="stylesheet" href="{{asset('dist/css/glider.min.css')}}">
 
   <style>
     body {
       font-family: 'Poppins', Sans-Serif;
       overflow-x: hidden;
       background-color: #f1f5f9;
+    }
+    .navbar {
+      transition: 0.5s;
+    }
+    .navbar.sticky {
+      background-color: white !important;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+      padding: 5px 30px !important;
+    }
+    .navbar.sticky a {
+      color: #333 !important;
     }
     a {
       text-decoration: none !important;
@@ -28,6 +43,8 @@
     }
     ul {
       list-style: none;
+      padding: 0;
+      margin: 0;
     }
     .card-img-rounded {
       border-radius: 10px
@@ -35,11 +52,25 @@
     section.header {
       background-size: cover;
       background-position: center;
+      background: linear-gradient(-45deg, #821FC8, #23ADD1 );
+    }
+    .header-path {
+      background-color: #5D4A8E;
+      bottom: -35px;
+    }
+    .header-hot {
+      background-color: rgba(0,0,0, 0.3);
+      max-width: 400px;
+      border-radius: 20px;
+    }
+    .header-hot span.badge {
+      border-radius: 20px;
     }
     .circle-container {
       padding-top: 120px;
       position: relative;
       height: 300px;
+      margin-top: 50px;
     }
     .circle {
       border: 1px solid rgba(0,0,0,0.1);
@@ -110,13 +141,37 @@
       left: 70px;
       color: #68A063;
     }
+
+    .latest-blog-title {
+      max-width: 400px;
+      margin-top: -35px !important;
+      background-color: #5D4A8E;
+    }
+    .latest-blog {
+      background: linear-gradient(45deg, #594DD4, #7749CB);
+    }
+
+    .premium {
+      background: linear-gradient(-20deg, #9A5FE3, #64C0EA);
+      margin-top: 150px !important;
+      margin-bottom: -230px !important;
+      max-width: 500px;
+    }
+    .btn-premium {
+      border-radius: 25px;
+    }
+
+    footer {
+      background-color: #36275D;
+      margin-top: -10px;
+    }
   </style>
 
   <title>Beranda</title>
 </head>
 <body>
   <x-navbar-component></x-navbar-component>
-  @if(request()->is('beranda'))
+  @if(request()->is('/'))
   <x-header-component></x-header-component>
   @endif
   @yield('content')
@@ -124,9 +179,16 @@
 
   <!-- Option 1: Bootstrap Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+  <!-- Prism  -->
   <script src="{{asset('dist/js/prism.js')}}"></script>
+
   <!-- Font Awesome  -->
   <script src="https://kit.fontawesome.com/bfdfedea1a.js" crossorigin="anonymous"></script>
+
+  <!-- Glider  -->
+  <script src="{{asset('dist/js/glider.min.js')}}"></script>
+
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
   <script>
     var typed3 = new Typed('#typed', {
@@ -142,6 +204,25 @@
       return new bootstrap.Tooltip(tooltipTriggerEl)
     })
     console.log(tooltipTriggerList)
+
+    // glider
+    window.addEventListener('load', function () {
+      window.glides = new Glider(document.getElementById('blog-series'), {
+        slidesToShow: 3,
+        slidesToScroll: 5,
+        draggable: true,
+        dots: '#dots2',
+        arrows: {
+          prev: '#glider-prev-2',
+          next: '#glider-next-2'
+        }
+      })
+    });
+
+    const navbar = document.querySelector('.navbar')
+    window.addEventListener('scroll', function() {
+      navbar.classList.toggle('sticky', window.scrollY > 0);
+    });
   </script>
 
 </body>

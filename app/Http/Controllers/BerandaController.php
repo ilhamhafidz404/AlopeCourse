@@ -14,7 +14,7 @@ class BerandaController extends Controller
   * @return \Illuminate\Http\Response
   */
   public function __invoke() {
-    $blogs = Blog::orderBy('id', 'DESC')->get();
+    $blogs = Blog::latest()->take(7)->get();
     $series = Category::latest()->get();
     return view("beranda.index", compact('blogs', 'series'));
   }

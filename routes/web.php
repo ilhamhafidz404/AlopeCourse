@@ -27,7 +27,7 @@ use App\Http\Controllers\AdminPostController;
 |
 */
 
-Route::get('/', WelcomeController::class);
+//Route::get('/', WelcomeController::class);
 
 Route::middleware(['role:admin', 'auth'])->group(function () {
   Route::get('/admin/dashboard', DashboardController::class)->name('dashboard.admin');
@@ -54,8 +54,8 @@ Route::middleware(['role:premium', 'auth'])->group(function () {
   Route::view('/premium/dashboard', 'beranda.premium.dashboard')->name('dashboard.premium');
   route::resource('/premium/post', PostController::class);
 });
+route::get('/', BerandaController::class)->name('beranda');
 Route::middleware(['role:active|premium|admin', 'auth'])->group(function () {
-  route::get('/beranda', BerandaController::class)->name('beranda');
   route::get('/topic', [TopicController::class, 'index'])->name('topic');
   route::get('/topic/{slug}', [TopicController::class, 'show'])->name('topic.show');
 });

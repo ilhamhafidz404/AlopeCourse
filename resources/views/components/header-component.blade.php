@@ -1,17 +1,41 @@
-<section class="py-5 text-start header bg-primary text-white">
+<section class="py-5 text-start header text-white position-relative">
   <div class="container-fluid">
     <div class="row">
       <div class="col-lg-6">
-        <h1 class="fw-light text-uppercase mt-5">Alope</h1>
+        <br>
+        <a class="py-1 px-3 mt-5 header-hot d-flex justify-content-between align-items-center text-white">
+          <div>
+            <span class="badge bg-danger me-2">
+              <i class="fas fa-fire me-1"></i> HOT
+            </span>
+            <small>
+              Berbagi Cerita di Alope Journey
+            </small>
+          </div>
+          <i class="fas fa-chevron-right"></i>
+        </a>
 
-        <span id="typed"></span><br>
+        <h1 class="fw-light text-uppercase mt-3">
+          Tempat Belajar <b>Programming </b> yang Menyenangkan
+          <span id="typed" class="fs-6"></span>
+        </h1>
 
-        <small class="lead text-white">
+        <small class="lead text-white mt-4">
           Belajar pemrograman web, web design & mobile app lengkap dari dasar untuk pemula sampai mahir, tersedia tutorial dengan studi kasus.
         </small>
-        <p>
-          <a href="#" class="btn btn-primary my-2">Mulai Belajar</a>
-        </p>
+
+        <div class="header-path p-3 position-absolute start-0 end-0 mx-5 rounded shadow">
+          <ul class="d-flex align-items-center justify-content-center">
+            @foreach($tags as $tag)
+            <li class="ms-3">
+              <a href="" class="badge" style="background-color: {{$tag->badge}}">
+                <i class="fab fa-{{$tag->icon}} me-2"></i>
+                {{$tag->nama}}
+              </a>
+            </li>
+            @endforeach
+          </ul>
+        </div>
       </div>
       <div class="col-lg-6 circle-container">
         <div class="d-flex align-items-center justify-content-center">

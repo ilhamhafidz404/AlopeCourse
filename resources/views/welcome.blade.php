@@ -34,7 +34,6 @@
       background-color: white !important;
       box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
       padding: 5px 30px !important;
-
     }
     .navbar.sticky a {
       color: #333 !important;
