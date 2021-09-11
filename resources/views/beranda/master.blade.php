@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
   <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/app.css">
 
   <!-- prism -->
   <link rel="stylesheet" href="{{asset('dist/css/prism.css')}}">
@@ -178,7 +178,7 @@
   <x-footer-component></x-footer-component>
 
   <!-- Option 1: Bootstrap Bundle with Popper -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <script src="/js/app.js"></script>
 
   <!-- Prism  -->
   <script src="{{asset('dist/js/prism.js')}}"></script>
@@ -190,40 +190,7 @@
   <script src="{{asset('dist/js/glider.min.js')}}"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-  <script>
-    var typed3 = new Typed('#typed', {
-      strings: ['Web Programming', 'Web Design', 'Mobile App'],
-      typeSpeed: 50,
-      backSpeed: 50,
-      smartBackspace: true, // this is a default
-      loop: true
-    });
-
-    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-      return new bootstrap.Tooltip(tooltipTriggerEl)
-    })
-    console.log(tooltipTriggerList)
-
-    // glider
-    window.addEventListener('load', function () {
-      window.glides = new Glider(document.getElementById('blog-series'), {
-        slidesToShow: 3,
-        slidesToScroll: 5,
-        draggable: true,
-        dots: '#dots2',
-        arrows: {
-          prev: '#glider-prev-2',
-          next: '#glider-next-2'
-        }
-      })
-    });
-
-    const navbar = document.querySelector('.navbar')
-    window.addEventListener('scroll', function() {
-      navbar.classList.toggle('sticky', window.scrollY > 0);
-    });
-  </script>
+  <script src="/js/script.js"></script>
 
 </body>
 </html>
