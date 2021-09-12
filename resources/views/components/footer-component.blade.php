@@ -23,6 +23,7 @@
   <h4 class="mb-3">Alope Premium</h4>
   <small>
     Dengan <b>Rp 25.00</b> perbulan dapatkan akses belajar tanpa batas dengan membeli versi <b>ALOPE PREMIUM</b>.
+    <br>
     <a href="" class="btn btn-light px-4 btn-premium mt-4">
       <i class="fas fa-crown text-warning me-2"></i>
       Beli Alope Premium

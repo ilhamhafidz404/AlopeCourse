@@ -16,11 +16,11 @@ class TopicController extends Controller
       $series = Category::all();
     }
     $tags = Tag::all();
-    return view('beranda.more.topic', compact('series', 'tags'));
+    return view('user.more.topic', compact('series', 'tags'));
   }
 
   public function show($slug) {
     $series = Category::all();
-    return view('beranda.more.show', compact('series'));
+    return view('user.more.show', compact('series'));
   }
 }

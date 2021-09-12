@@ -1,20 +1,21 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\BlogController;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\TagController;
+use App\Http\Controllers\Admin\PostController as AdminPostController;
+use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\VideoController;
+
 use App\Http\Controllers\BerandaController;
-use App\Http\Controllers\FilterController;
 use App\Http\Controllers\TrashController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\VideoController;
-use App\Http\Controllers\TagController;
 use App\Http\Controllers\TopicController;
 use App\Http\Controllers\WelcomeController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\PostController;
+
+use App\Http\Controllers\Premium\PostController as PremiumPostController;
 //use App\Models\Post;
-use App\Http\Controllers\AdminPostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,7 +28,7 @@ use App\Http\Controllers\AdminPostController;
 |
 */
 
-//Route::get('/', WelcomeController::class);
+route::get('/', BerandaController::class)->name('beranda');
 
 Route::middleware(['role:admin', 'auth'])->group(function () {
   Route::get('/admin/dashboard', DashboardController::class)->name('dashboard.admin');
@@ -37,12 +38,6 @@ Route::middleware(['role:admin', 'auth'])->group(function () {
   route::resource('/admin/tag', TagController::class);
   route::resource('/admin/video', VideoController::class);
   route::resource('/admin/posts', AdminPostController::class);
-  //Route::get('/admin/posts', function() {
-  //    $posts = Post::all();
-  //  return view('dashboard.post.index', compact('posts'));
-  //})->name('admin.post');
-
-
   route::get("/admin/trash", [TrashController::class, "index"])->name('trash.index');
   route::delete("/admin/trash", [TrashController::class, 'destroy'])->name("trash.destroy");
 });
@@ -51,22 +46,14 @@ Route::view('/user/banned', 'beranda.more.user_banned')->name('user.banned')->mi
 
 
 Route::middleware(['role:premium', 'auth'])->group(function () {
-  Route::view('/premium/dashboard', 'beranda.premium.dashboard')->name('dashboard.premium');
-  route::resource('/premium/post', PostController::class);
+  Route::view('/premium/dashboard', 'user.premium.dashboard')->name('dashboard.premium');
+  route::resource('/premium/post', PremiumPostController::class);
 });
-route::get('/', BerandaController::class)->name('beranda');
+
+
 Route::middleware(['role:active|premium|admin', 'auth'])->group(function () {
   route::get('/topic', [TopicController::class, 'index'])->name('topic');
   route::get('/topic/{slug}', [TopicController::class, 'show'])->name('topic.show');
 });
 
 Auth::routes();
-
-
-//Route::get('/login', function () {
-//  return view('auth.login');
-//});
-//Route::get('/register', function () {
-//  return view('auth.register');
-//});
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Post;
-use Illuminate\Support\Str;
+use App\Models\Tag;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Str;
 
-class PostController extends Controller
+class TagController extends Controller
 {
   /**
   * Display a listing of the resource.
@@ -15,9 +16,8 @@ class PostController extends Controller
   * @return \Illuminate\Http\Response
   */
   public function index() {
-    $id = auth()->user()->id;
-    $posts = Post::whereUser_id($id)->get();
-    return view("user.premium.post.index", compact('posts'));
+    $tags = Tag::latest()->get();
+    return view('admin.tag.index', compact('tags'));
   }
 
   /**
@@ -26,7 +26,7 @@ class PostController extends Controller
   * @return \Illuminate\Http\Response
   */
   public function create() {
-    return view("user.premium.post.create");
+    return view('admin.tag.create');
   }
 
   /**
@@ -36,15 +36,16 @@ class PostController extends Controller
   * @return \Illuminate\Http\Response
   */
   public function store(Request $request) {
-    Post::create([
-      'title' => $request->title,
-      'slug' => Str::slug($request->title),
-      'content' => $request->content,
-      "user_id" => auth()->user()->id
+    Tag::create([
+      'nama' => $request->nama,
+      'slug' => Str::slug($request->nama),
+      'badge' => $request->badge,
+      'description' => $request->description,
+      'icon' => $request->icon,
     ]);
 
-    Alert::info('Post dalam tahap pemeriksaan Sebagai Draff');
-    return redirect()->route('post.index');
+    Alert::success('Tag Berhasil Ditambahkan', 'Sekarang tag ini bisa dipakai pada serie anda');
+    return redirect(route('tag.index'));
   }
 
   /**
@@ -75,7 +76,15 @@ class PostController extends Controller
   * @return \Illuminate\Http\Response
   */
   public function update(Request $request, $id) {
-    //
+    Tag::find($id)->update([
+      "nama" => $request->nama,
+      "description" => $request->description,
+      "icon" => $request->icon,
+      "badge" => $request->badge,
+    ]);
+
+    Alert::success('Tag Berhasil Diedit', 'Data tag sekarang sudah berubah');
+    return back();
   }
 
   /**
@@ -85,6 +94,9 @@ class PostController extends Controller
   * @return \Illuminate\Http\Response
   */
   public function destroy($id) {
-    //
+    Tag::find($id)->delete();
+
+    Alert::success('Tag Berhasil Dihapus');
+    return back();
   }
 }

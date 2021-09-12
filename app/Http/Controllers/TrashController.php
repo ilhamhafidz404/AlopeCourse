@@ -9,7 +9,7 @@ class TrashController extends Controller
 {
   public function index() {
     $blogs = Blog::whereStatus("reject")->get();
-    return view('dashboard.trash', compact("blogs"));
+    return view('admin.trash', compact("blogs"));
   }
   public function destroy() {
     Blog::whereStatus("reject")->delete();

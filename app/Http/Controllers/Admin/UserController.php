@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Post;
-use Illuminate\Support\Str;
+use App\Models\User;
 use RealRashid\SweetAlert\Facades\Alert;
 
-class PostController extends Controller
+class UserController extends Controller
 {
   /**
   * Display a listing of the resource.
@@ -15,9 +15,9 @@ class PostController extends Controller
   * @return \Illuminate\Http\Response
   */
   public function index() {
-    $id = auth()->user()->id;
-    $posts = Post::whereUser_id($id)->get();
-    return view("user.premium.post.index", compact('posts'));
+    $users = User::all();
+
+    return view('admin.user.index', compact('users'));
   }
 
   /**
@@ -26,7 +26,7 @@ class PostController extends Controller
   * @return \Illuminate\Http\Response
   */
   public function create() {
-    return view("user.premium.post.create");
+    //
   }
 
   /**
@@ -36,15 +36,7 @@ class PostController extends Controller
   * @return \Illuminate\Http\Response
   */
   public function store(Request $request) {
-    Post::create([
-      'title' => $request->title,
-      'slug' => Str::slug($request->title),
-      'content' => $request->content,
-      "user_id" => auth()->user()->id
-    ]);
-
-    Alert::info('Post dalam tahap pemeriksaan Sebagai Draff');
-    return redirect()->route('post.index');
+    //
   }
 
   /**
@@ -75,7 +67,23 @@ class PostController extends Controller
   * @return \Illuminate\Http\Response
   */
   public function update(Request $request, $id) {
-    //
+    if ($request->status == 'banned') {
+      User::find($id)->update([
+        'status' => $request->status
+      ]);
+
+      User::find($id)->syncRoles('banned');
+      Alert::error('User Di Banned', 'User sekarang tidak bisa login');
+    } else if ($request->status == "active") {
+      User::find($id)->update([
+        'status' => $request->status
+      ]);
+
+      User::find($id)->syncRoles('active');
+      Alert::success('User Diaktifkan', 'User sekarang bisa login kembali');
+    }
+
+    return back();
   }
 
   /**
