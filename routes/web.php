@@ -42,9 +42,6 @@ Route::middleware(['role:admin', 'auth'])->group(function () {
   route::delete("/admin/trash", [TrashController::class, 'destroy'])->name("trash.destroy");
 });
 
-Route::view('/user/banned', 'beranda.more.user_banned')->name('user.banned')->middleware(['role:banned', 'auth']);
-
-
 Route::middleware(['role:premium', 'auth'])->group(function () {
   Route::view('/premium/dashboard', 'user.premium.dashboard')->name('dashboard.premium');
   route::resource('/premium/post', PremiumPostController::class);

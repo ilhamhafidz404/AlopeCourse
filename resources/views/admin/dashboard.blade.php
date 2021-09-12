@@ -1,5 +1,9 @@
 @extends('admin.master')
 
+@section('breadcrumb')
+<li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+@endsection
+
 @section('content')
 <div class="col-xl-3 col-md-6">
   <div class="card card-stats">

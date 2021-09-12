@@ -18,6 +18,21 @@
     </div>
   </small>
 </div>
+@elseif(auth()->user()->hasRole("banned"))
+<div class="card p-3 shadow border-0 premium m-auto text-white text-center">
+  <h4 class="mb-3">
+    Akun Anda di Banned
+  </h4>
+  <small>
+    Saat ini akun anda di <b>Banned</b> dari kelas Kami. Silahkan hubungi Admin jika merasa anda tidak melakukan kesalahn
+    <div class="d-flex mt-4 justify-content-around">
+      <a href="" class="btn btn-light px-4 btn-premium">
+        <i class="fas fa-crown text-warning me-2"></i>
+        Hubungi Admin
+      </a>
+    </div>
+  </small>
+</div>
 @else
 <div class="card p-3 shadow border-0 premium m-auto text-white text-center">
   <h4 class="mb-3">Alope Premium</h4>
@@ -54,6 +69,10 @@
 @endauth
 
 
+@auth
+@if(auth()->user()->hasRole('banned'))
+<div></div>
+@else
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#36275D" fill-opacity="1" d="M0,288L1440,160L1440,320L0,320Z"></path></svg>
 <footer class="text-muted py-5">
   <div class="container-fluid">
@@ -81,3 +100,33 @@
     </div>
   </div>
 </footer>
+@endif
+@else
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#36275D" fill-opacity="1" d="M0,288L1440,160L1440,320L0,320Z"></path></svg>
+<footer class="text-muted py-5">
+  <div class="container-fluid">
+    <div class="row text-white">
+      <div class="col-md-4">
+        <h5 class="">Alope</h5>
+        <small class="mt-5"> &copy; Copyright by Ilham Hafidz</small>
+      </div>
+      <div class="col-md-6">
+      </div>
+      <div class="col-md-2">
+        <h5> Sosial Media</h5>
+        <div class="d-flex align-items-center justify-content-around">
+          <a href="">
+            <i class="fab fa-instagram">  </i>
+          </a>
+          <a href="">
+            <i class="fab fa-facebook-f">  </i>
+          </a>
+          <a href="">
+            <i class="fab fa-twitter">  </i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+@endauth

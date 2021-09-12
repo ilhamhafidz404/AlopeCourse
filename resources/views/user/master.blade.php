@@ -24,6 +24,10 @@
       overflow-x: hidden;
       background-color: #f1f5f9;
     }
+    body.banned {
+      background: linear-gradient(-45deg, #821FC8, #23ADD1 );
+      min-height: 100vh;
+    }
     .navbar {
       transition: 0.5s;
     }
@@ -169,28 +173,38 @@
 
   <title>user</title>
 </head>
-<body>
+@auth
+@if(auth()->user()->hasRole('banned'))
+<body class="banned">
   <x-navbar-component></x-navbar-component>
-  @if(request()->is('/'))
-  <x-header-component></x-header-component>
-  @endif
-  @yield('content')
-  <x-footer-component></x-footer-component>
+  @else
+  <body>
+    <x-navbar-component></x-navbar-component>
+    <x-header-component></x-header-component>
+    @yield('content')
+    @endif
+    @else
+    <body>
+      <x-navbar-component></x-navbar-component>
+      <x-header-component></x-header-component>
+      @yield('content')
+      @endauth
+      <x-footer-component></x-footer-component>
 
-  <!-- Option 1: Bootstrap Bundle with Popper -->
-  <script src="/js/app.js"></script>
+      <!-- Option 1: Bootstrap Bundle with Popper -->
+      <script src="/js/app.js"></script>
 
-  <!-- Prism  -->
-  <script src="{{asset('dist/js/prism.js')}}"></script>
+      <!-- Prism  -->
+      <script src="{{asset('dist/js/prism.js')}}"></script>
 
-  <!-- Font Awesome  -->
-  <script src="https://kit.fontawesome.com/bfdfedea1a.js" crossorigin="anonymous"></script>
+      <!-- Font Awesome  -->
+      <script src="https://kit.fontawesome.com/bfdfedea1a.js" crossorigin="anonymous"></script>
 
-  <!-- Glider  -->
-  <script src="{{asset('dist/js/glider.min.js')}}"></script>
+      <!-- Glider  -->
+      <script src="{{asset('dist/js/glider.min.js')}}"></script>
 
-  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-  <script src="/js/script.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+      <script src="/js/script.js"></script>
 
-</body>
-</html>
+    </body>
+  </html>

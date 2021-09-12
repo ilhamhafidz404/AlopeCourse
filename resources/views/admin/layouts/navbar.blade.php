@@ -110,7 +110,7 @@
                 <div class="row align-items-center">
                   <div class="col-auto">
                     <!-- Avatar -->
-                    <img alt="Image placeholder" src="{{asset('template')}}/assets/img/theme/team-4.jpg" class="avatar rounded-circle">
+                    <img alt="Image placeholder" src="{{asset('storage/').auth()->user()->profile}}}}" class="avatar rounded-circle">
                   </div>
                   <div class="col ml--2">
                     <div class="d-flex justify-content-between align-items-center">
@@ -136,7 +136,9 @@
                   <div class="col ml--2">
                     <div class="d-flex justify-content-between align-items-center">
                       <div>
-                        <h4 class="mb-0 text-sm">John Snow</h4>
+                        <h4 class="mb-0 text-sm">
+                          ggg
+                        </h4>
                       </div>
                       <div class="text-right text-muted">
                         <small>3 hrs ago</small>

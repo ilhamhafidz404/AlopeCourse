@@ -7,7 +7,6 @@
   <a href="{{route('blog.index')}}">Blog</a>
 </li>
 <li class="breadcrumb-item active" aria-current="page">Tambah Blog</li>
-
 @endsection
 
 @section('content')

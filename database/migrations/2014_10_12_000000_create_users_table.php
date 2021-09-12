@@ -14,22 +14,23 @@ class CreateUsersTable extends Migration
   public function up() {
     Schema::create('users', function (Blueprint $table) {
       $table->id();
-      $table->string('name');
-      $table->string('email');
-      $table->timestamp('email_verified_at')->nullable();
-      $table->string('password');
-      $table->enum('status', ['active', 'banned'])->default('active');
-        $table->rememberToken();
-        $table->timestamps();
-      });
+      $table->string("profile")->default("user.jpg");
+        $table->string('name');
+        $table->string('email');
+        $table->timestamp('email_verified_at')->nullable();
+        $table->string('password');
+        $table->enum('status', ['active', 'banned'])->default('active');
+          $table->rememberToken();
+          $table->timestamps();
+        });
     }
 
-    /**
-    * Reverse the migrations.
-    *
-    * @return void
-    */
-    public function down() {
-      Schema::dropIfExists('users');
+      /**
+      * Reverse the migrations.
+      *
+      * @return void
+      */
+      public function down() {
+        Schema::dropIfExists('users');
+      }
     }
-  }
