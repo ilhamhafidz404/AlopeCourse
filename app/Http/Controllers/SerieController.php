@@ -9,7 +9,8 @@ use App\Models\Blog;
 class SerieController extends Controller
 {
   public function index() {
-    return view('user.more.serie');
+    $series = Category::all();
+    return view('user.more.serie', compact('series'));
   }
   public function show($slug) {
     $serie = Category::whereSlug($slug)->first();
