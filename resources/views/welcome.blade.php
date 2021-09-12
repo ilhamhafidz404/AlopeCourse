@@ -8,7 +8,7 @@
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
         @foreach($series as $serie)
         <div class="col-sm-12 col-md-6 col-lg-4">
-          <a href="{{route('topic.show', $serie->slug)}}">
+          <a href="{{route('serie.show', $serie->slug)}}">
             <div class="card border-0 bg-transparent m-auto mb-4" style="width: 90% !important;">
               <img src="{{asset('storage/'.$serie->thumbnail)}}" class="card-img-rounded" width="100%">
               <div class="card-body">

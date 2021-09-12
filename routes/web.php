@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\VideoController;
 
 use App\Http\Controllers\BerandaController;
+use App\Http\Controllers\SerieController;
 use App\Http\Controllers\TrashController;
 use App\Http\Controllers\TopicController;
 use App\Http\Controllers\WelcomeController;
@@ -50,7 +51,8 @@ Route::middleware(['role:premium', 'auth'])->group(function () {
 
 Route::middleware(['role:active|premium|admin', 'auth'])->group(function () {
   route::get('/topic', [TopicController::class, 'index'])->name('topic');
-  route::get('/topic/{slug}', [TopicController::class, 'show'])->name('topic.show');
+  route::get('/serie', [SerieController::class, 'index'])->name('serie.index');
+  route::get('/serie/{slug}', [SerieController::class, 'show'])->name('serie.show');
 });
 
 Auth::routes();

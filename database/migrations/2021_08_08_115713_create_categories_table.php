@@ -19,9 +19,10 @@ class CreateCategoriesTable extends Migration
         $table->string('slug');
         $table->text('description');
         $table->enum('status', ['complete', 'development', 'stuck'])->default('development');
-          $table->timestamps();
-        });
-    }
+          $table->enum('level', ['beginner', 'intermediate'])->default('beginner');
+            $table->timestamps();
+          });
+      }
 
       /**
       * Reverse the migrations.

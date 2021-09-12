@@ -189,6 +189,7 @@
       <x-header-component></x-header-component>
       @yield('content')
       @endauth
+      <x-banner-component></x-banner-component>
       <x-footer-component></x-footer-component>
 
       <!-- Option 1: Bootstrap Bundle with Popper -->
