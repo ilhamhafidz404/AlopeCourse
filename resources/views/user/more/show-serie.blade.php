@@ -26,7 +26,8 @@
 <ul class="d-flex align-items-center mt-4">
   <li class="me-4">
     <i class="fas fa-clock me-1"></i>
-    {{$serie->created_at->diffForHumans()}}
+    <?php $tgl = ($serie->created_at->diff()->days < 1) ? $serie->created_at->diffForHumans() : $serie->created_at->isoFormat('LL') ?>
+    {{$tgl}}
   </li>
   <li class="me-4">
     <i class="fas fa-play me-1"></i>
@@ -54,25 +55,27 @@
     <div class="row">
       @foreach($blogs as $blog)
       <div class="col-md-4 mb-4">
-        <div class="card shadow-sm">
-          <div class="blog-serie w-100" style="background-image: url({{asset('storage/'.$blog->thumbnail)}})"></div>
-          <div class="card-body pt-1">
-            <h5 class="card-title mb-4">
-              {{$blog->judul}}
-            </h5>
-            <div class="d-flex align-items-center justify-content-between">
-              <div>
-                <img src="{{asset('storage/'.$blog->user->profile)}}" alt="{{$blog->user->name}}" class="rounded-circle writer-img">
-                <small class="text-muted ms-2">
-                  {{$blog->user->name}}
+        <a href="{{route('blog.read', $blog->slug)}}">
+          <div class="card shadow-sm">
+            <div class="blog-serie w-100" style="background-image: url({{asset('storage/'.$blog->thumbnail)}})"></div>
+            <div class="card-body pt-1">
+              <h5 class="card-title mb-4 text-dark">
+                {{$blog->judul}}
+              </h5>
+              <div class="d-flex align-items-center justify-content-between">
+                <div>
+                  <img src="{{asset('storage/'.$blog->user->profile)}}" alt="{{$blog->user->name}}" class="rounded-circle writer-img">
+                  <small class="text-muted ms-2">
+                    {{$blog->user->name}}
+                  </small>
+                </div>
+                <small class="text-muted">
+                  {{$blog->created_at->diffForHumans()}}
                 </small>
               </div>
-              <small class="text-muted">
-                {{$blog->created_at->diffForHumans()}}
-              </small>
             </div>
           </div>
-        </div>
+        </a>
       </div>
       @endforeach
     </div>

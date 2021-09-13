@@ -47,7 +47,7 @@
             <div class="glider" id="blog-series">
               @foreach($blogs as $blog)
               <div>
-                <a href="">
+                <a href="{{route('blog.read', $blog->slug)}}">
                   <div class="card border-0 bg-transparent m-auto mb-4" style="width: 90% !important;">
                     <img src="{{asset('storage/default.jpg')}}" class="card-img-rounded" width="100%">
                     <div class="card-body pt-1 px-0">

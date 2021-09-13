@@ -11,6 +11,9 @@
           <a class="nav-link {{request()->is('/')?'active fw-bold':''}}" aria-current="page" href="/">Beranda</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link {{request()->is('blog*')?'active fw-bold':''}}" aria-current="page" href="{{route('blog.list')}}">Blog</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link {{request()->is('serie*')?'active fw-bold':''}}" aria-current="page" href="{{route('serie.index')}}">Serie</a>
         </li>
         <li class="nav-item">
