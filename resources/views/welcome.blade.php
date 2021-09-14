@@ -22,50 +22,61 @@
                 </h4>
                 <div class="card-text d-flex justify-content-between">
                   <small class="text-muted">
-                    {{$serie->created_at->diffForHumans()}}
+                    <?php $tgl = ($serie->created_at->diff()->days < 1) ? $serie->created_at->diffForHumans() : $serie->created_at->format('M, Y') ?>
+                    {{$tgl}}
                   </small>
-                  <small class="text-secondary">Serie <Span class="text-success fw-bold">Complete</Span></small>
-                </div>
-              </div>
-            </div>
-          </a>
-        </div>
-        @endforeach
-      </div>
-    </div>
-  </div>
-
-
-  <div class="latest-blog py-3">
-    <div class="container-fluid">
-      <div class="m-auto latest-blog-title rounded shadow text-center py-1 mb-4">
-        <h3 class="text-uppercase text-white m-0">Blog Terbaru</h3>
-      </div>
-      <div data-name="Multiple Item" class="glider-contain multiple">
-        <div class="gradient-border-bottom">
-          <div class="gradient-border">
-            <div class="glider" id="blog-series">
-              @foreach($blogs as $blog)
-              <div>
-                <a href="{{route('blog.read', $blog->slug)}}">
-                  <div class="card border-0 bg-transparent m-auto mb-4" style="width: 90% !important;">
-                    <img src="{{asset('storage/default.jpg')}}" class="card-img-rounded" width="100%">
-                    <div class="card-body pt-1 px-0">
-                      <small class="card-title text-white">
-                        {{$blog->judul}}
-                      </small>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              @endforeach
+                  <small class="text-secondary">Serie
+                    @if($serie->status == 'complete')
+                    <span class="text-success fw-bold">Complete</span>
+                  </small>
+                  @elseif($serie->status == 'development')
+                  <span class="text-warning fw-bold">Development</span>
+                </small>
+                @else
+                <span class="text-danger fw-bold">Stuck</span>
+              </small>
+              @endif
             </div>
           </div>
         </div>
-        <button role="button" aria-label="Previous" class="glider-prev" id="glider-prev-2"><i class="fa fa-chevron-left text-white"></i></i></button>
-      <button role="button" aria-label="Next" class="glider-next" id="glider-next-2"><i class="fa fa-chevron-right text-white"></i></i></button>
-    <div id="dots2"></div>
+      </a>
+    </div>
+    @endforeach
   </div>
+</div>
+</div>
+
+
+<div class="latest-blog py-3">
+<div class="container-fluid">
+<div class="m-auto latest-blog-title rounded shadow text-center py-1 mb-4">
+<h3 class="text-uppercase text-white m-0">Blog Terbaru</h3>
+</div>
+<div data-name="Multiple Item" class="glider-contain multiple">
+<div class="gradient-border-bottom">
+<div class="gradient-border">
+<div class="glider" id="blog-series">
+@foreach($blogs as $blog)
+<div>
+<a href="{{route('blog.read', $blog->slug)}}">
+<div class="card border-0 bg-transparent m-auto mb-4" style="width: 90% !important;">
+<img src="{{asset('storage/default.jpg')}}" class="card-img-rounded" width="100%">
+<div class="card-body pt-1 px-0">
+<small class="card-title text-white">
+{{$blog->judul}}
+</small>
+</div>
+</div>
+</a>
+</div>
+@endforeach
+</div>
+</div>
+</div>
+<button role="button" aria-label="Previous" class="glider-prev" id="glider-prev-2"><i class="fa fa-chevron-left text-white"></i></i></button>
+<button role="button" aria-label="Next" class="glider-next" id="glider-next-2"><i class="fa fa-chevron-right text-white"></i></i></button>
+<div id="dots2"></div>
+</div>
 </div>
 </div>
 

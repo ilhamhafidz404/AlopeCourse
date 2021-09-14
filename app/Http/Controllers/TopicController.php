@@ -16,7 +16,8 @@ class TopicController extends Controller
       $series = Category::all();
     }
     $tags = Tag::all();
-    return view('user.more.topic', compact('series', 'tags'));
+    $tag = Tag::whereSlug(request('tag'))->first();
+    return view('user.more.topic', compact('series', 'tags', 'tag'));
   }
 
   public function show($slug) {

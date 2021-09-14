@@ -176,3 +176,11 @@ footer {
 svg.footer-svg {
   margin-top: -200px;
 }
+
+.header-card {
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #36275D;
+  padding: 0 90px
+}

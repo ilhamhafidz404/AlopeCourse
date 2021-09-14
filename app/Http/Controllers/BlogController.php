@@ -9,7 +9,7 @@ use App\Models\Category;
 class BlogController extends Controller
 {
   public function list() {
-    $blogs = Blog::latest()->paginate(10);
+    $blogs = Blog::latest()->paginate(12);
     return view('user.more.blog', compact('blogs'));
   }
 

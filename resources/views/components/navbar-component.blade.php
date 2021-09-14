@@ -17,7 +17,7 @@
           <a class="nav-link {{request()->is('serie*')?'active fw-bold':''}}" aria-current="page" href="{{route('serie.index')}}">Serie</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Topic</a>
+          <a class="nav-link {{request()->is('topic*')?'active fw-bold':''}}" href="{{route('topic')}}">Topic</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Video</a>

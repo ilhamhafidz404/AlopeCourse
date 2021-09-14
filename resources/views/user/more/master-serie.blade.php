@@ -47,12 +47,13 @@
 
   <!-- Font Awesome  -->
   <script src="https://kit.fontawesome.com/bfdfedea1a.js" crossorigin="anonymous"></script>
+  <script>
+    const navbar = document.querySelector('.navbar')
+    window.addEventListener('scroll', function() {
+      navbar.classList.toggle('sticky', window.scrollY > 0);
 
-  <!-- Glider  -->
-  <script src="{{asset('dist/js/glider.min.js')}}"></script>
-
-  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-  <script src="/js/script.js"></script>
-
+    });
+  </script>
+  <script src="{{asset('js/script.js')}}"></script>
 </body>
 </html>
