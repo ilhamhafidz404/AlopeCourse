@@ -32,7 +32,7 @@
       <div class="col-md-6">
         <div class="form-group mb-3">
           <label for="badge" class="form-control-label">Warna Badge</label>
-          <input type="color" class="form-control form-control-alternative" placeholder="Warna badge" id="badge" name="badge" value='{{old("badge")}}'>
+          <input type="color" class="form-control form-control-color" placeholder="Warna badge" id="badge" name="badge" value='{{old("badge")}}'>
         </div>
       </div>
       <div class="col-md-6">

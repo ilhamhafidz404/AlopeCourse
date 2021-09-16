@@ -65,8 +65,9 @@ class TagController extends Controller
   * @param  int  $id
   * @return \Illuminate\Http\Response
   */
-  public function edit($id) {
-    //
+  public function edit($slug) {
+    $tag = Tag::whereSlug($slug)->first();
+    return view('admin.tag.edit', compact('tag'));
   }
 
   /**
@@ -85,7 +86,7 @@ class TagController extends Controller
     ]);
 
     Alert::success('Tag Berhasil Diedit', 'Data tag sekarang sudah berubah');
-    return back();
+    return redirect()->route('tag.index');
   }
 
   /**
