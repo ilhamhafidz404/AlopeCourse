@@ -7,12 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 use \App\Models\Category;
 use \App\Models\User;
 use App\Models\Tag;
-use Te7aHoudini\LaravelTrix\Traits\HasTrixRichText;
 
 class Blog extends Model
 {
-  use HasFactory,
-  HasTrixRichText;
+  use HasFactory;
   protected $fillable = ['judul',
     'category_id',
     'content',
