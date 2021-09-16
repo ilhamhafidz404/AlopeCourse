@@ -54,6 +54,9 @@
     .footer-svg {
       margin-top: -190px;
     }
+    a {
+      text-decoration: none;
+    }
   </style>
 </head>
 <body class="bg-light">
@@ -83,6 +86,18 @@
             </ul>
             <hr>
             {!!$blog->content!!}
+            <br><br>
+            @if($ilike)
+            <a href="{{route('like.blog', $blog->id)}}" class="text-danger fs-5">
+              <i class="fas fa-heart me-1"></i>
+              {{$likes}}
+            </a>
+            @else
+            <a href="{{route('like.blog', $blog->id)}}" class="text-danger fs-5">
+              <i class="far fa-heart me-1"></i>
+              {{$likes}}
+            </a>
+            @endif
             <hr>
             <div class="article-footer">
               <div class="row">

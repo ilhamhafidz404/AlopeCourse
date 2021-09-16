@@ -15,6 +15,7 @@ use App\Http\Controllers\SerieController;
 use App\Http\Controllers\TrashController;
 use App\Http\Controllers\TopicController;
 use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\LikeController;
 
 use App\Http\Controllers\Premium\PostController as PremiumPostController;
 //use App\Models\Post;
@@ -58,6 +59,8 @@ Route::middleware(['role:active|premium|admin', 'auth'])->group(function () {
   Route::get('/blog/{slug}', [UserBlogController::class, 'read'])->name('blog.read');
 
   route::get('/topic', [TopicController::class, 'index'])->name('topic');
+
+  route::get('/like/{blog_id}', LikeController::class)->name('like.blog');
 });
 
 Auth::routes();

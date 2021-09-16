@@ -43,6 +43,7 @@ return array(
     'App\\Http\\Requests\\VideoRequest' => $baseDir . '/app/Http/Requests/VideoRequest.php',
     'App\\Models\\Blog' => $baseDir . '/app/Models/Blog.php',
     'App\\Models\\Category' => $baseDir . '/app/Models/Category.php',
+    'App\\Models\\Like' => $baseDir . '/app/Models/Like.php',
     'App\\Models\\Post' => $baseDir . '/app/Models/Post.php',
     'App\\Models\\Tag' => $baseDir . '/app/Models/Tag.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
