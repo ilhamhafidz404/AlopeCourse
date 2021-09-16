@@ -19,7 +19,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '0dd21ce33e2c98c24d1136211fca07eb1acde36f',
+    'reference' => '22e134c15578e33a1555957e01b8c1e4a99416df',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -458,7 +458,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '0dd21ce33e2c98c24d1136211fca07eb1acde36f',
+      'reference' => '22e134c15578e33a1555957e01b8c1e4a99416df',
     ),
     'laravel/sail' => 
     array (
@@ -1317,6 +1317,15 @@ private static $installed = array (
       array (
       ),
       'reference' => '3dd8ddd1e260e58ecc61bb78da3b6584b3bfcba0',
+    ),
+    'te7a-houdini/laravel-trix' => 
+    array (
+      'pretty_version' => '2.0.4',
+      'version' => '2.0.4.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '2295ae96aad8b7c427647c84e814c33926eaf074',
     ),
     'theseer/tokenizer' => 
     array (

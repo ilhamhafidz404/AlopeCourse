@@ -20,7 +20,10 @@
   <link rel="stylesheet" href="{{asset('dist/css/prism.css')}}">
   <link rel="stylesheet" href="{{asset('dist/css/dropify.min.css')}}">
 
+  <link rel="stylesheet" href="{{asset('dist/css/trix.css')}}">
+
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/dt-1.11.2/datatables.min.css" />
+  @trixassets
   <style>
     ul {
       list-style: none

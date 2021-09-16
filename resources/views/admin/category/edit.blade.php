@@ -27,7 +27,7 @@
       <div class="col-md-12">
         <div class="form-group mb-3">
           <label for="nama" class="form-control-label">Nama Series</label>
-          <input type="text" class="form-control form-control-alternative @error('judul') is-invalid @enderror" placeholder="Nama series baru" id="nama" name="nama" value='{{$category->nama}}'>
+          <input type="text" class="form-control form-control-alternative @error('nama') is-invalid @enderror" placeholder="Nama series baru" id="nama" name="nama" value='{{$category->nama}}'>
           @error('nama')
           <div class="form-text invalid-feedback text-danger">
             {{ $message }}
@@ -37,12 +37,12 @@
       </div>
       <div class="col-md-12">
         <div class="form-group">
-          <label for="description" class="form-control-label">Content</label>
-          <textarea class="form-control" id="editor" name="description">
+          <label for="description" class="form-control-label">Deskripsu</label>
+          <textarea class="form-control @error('description') is-invalid @enderror" id="editor" name="description">
             {{$category->description}}
           </textarea>
           @error('description')
-          <div class="form-text text-danger">
+          <div class="text-danger invalid-feedback">
             {{ $message }}
           </div>
           @enderror
@@ -56,8 +56,8 @@
             </i>
           </a>
           <button class="btn btn-primary">
-            <i class="fas fa-plus me-2"></i>
-            Tambah Serie
+            <i class="fas fa-save me-2"></i>
+            Edit Serie
           </button>
         </div>
       </div>

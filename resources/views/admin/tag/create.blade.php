@@ -21,7 +21,7 @@
       <div class="col-md-12">
         <div class="form-group mb-3">
           <label for="nama" class="form-control-label">Nama Tag</label>
-          <input type="text" class="form-control form-control-alternative @error('judul') is-invalid @enderror" placeholder="Nama series baru" id="nama" name="nama" value='{{old("nama")}}'>
+          <input type="text" class="form-control form-control-alternative @error('nama') is-invalid @enderror" placeholder="Nama series baru" id="nama" name="nama" value='{{old("nama")}}'>
           @error('nama')
           <div class="form-text invalid-feedback text-danger">
             {{ $message }}
@@ -32,12 +32,7 @@
       <div class="col-md-6">
         <div class="form-group mb-3">
           <label for="badge" class="form-control-label">Warna Badge</label>
-          <input type="color" class="form-control form-control-alternative @error('judul') is-invalid @enderror" placeholder="Warna badge" id="badge" name="badge" value='{{old("badge")}}'>
-          @error('nama')
-          <div class="form-text invalid-feedback text-danger">
-            {{ $message }}
-          </div>
-          @enderror
+          <input type="color" class="form-control form-control-alternative" placeholder="Warna badge" id="badge" name="badge" value='{{old("badge")}}'>
         </div>
       </div>
       <div class="col-md-6">
@@ -51,8 +46,10 @@
       </div>
       <div class="col-md-12">
         <div class="form-group">
-          <label for="description" class="form-control-label">Content</label>
-          <textarea class="form-control" id="editor" name="description"></textarea>
+          <label for="description" class="form-control-label">Deskripsi</label>
+          <textarea class="form-control" id="editor" name="description">
+            {{old('description')}}
+          </textarea>
           @error('description')
           <div class="form-text text-danger">
             {{ $message }}

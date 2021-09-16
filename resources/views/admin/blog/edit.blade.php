@@ -25,7 +25,12 @@
         <label for="judul" class="form-control-label">
           Judul
         </label>
-        <input type="text" class="form-control" id="judul" value="{{$blog->judul}}" name="judul">
+        <input type="text" class="form-control @error('judul') is-invalid @enderror" id="judul" value="{{$blog->judul}}" name="judul">
+        @error('judul')
+        <div class="form-text invalid-feedback text-danger">
+          {{ $message }}
+        </div>
+        @enderror
       </div>
       <div class="col-md-6 mb-3">
         <label for="serie" class="form-control-label">
@@ -41,9 +46,14 @@
         </select>
       </div>
       <div class="col-md-12 mb-5">
-        <textarea class="form-control" id="editor" rows="4" name="content">
+        <textarea class="form-control @error('content') is-invalid @enderror" id="editor" rows="4" name="content">
           {{$blog->content}}
         </textarea>
+        @error('content')
+        <div class="form-text invalid-feedback text-danger">
+          {{ $message }}
+        </div>
+        @enderror
       </div>
       <div class="col-md-3">
         <a href="{{route('blog.index')}}" class="btn btn-danger">

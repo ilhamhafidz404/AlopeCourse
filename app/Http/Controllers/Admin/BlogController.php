@@ -111,6 +111,7 @@ class BlogController extends Controller
         "judul" => $request->judul,
         "category_id" => $request->category,
         "content" => $request->content,
+        "content" => $request->content,
         "thumbnail" => $request->thumbnail,
         "status" => $request->status
       ]);

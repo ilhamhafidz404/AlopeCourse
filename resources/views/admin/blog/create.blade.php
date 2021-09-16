@@ -54,7 +54,9 @@
       <div class="col-md-12">
         <div class="form-group">
           <label for="content" class="form-control-label">Content</label>
-          <textarea class="form-control" id="editor" rows="4" name="content"></textarea>
+          <textarea class="form-control" id="editor" rows="4" name="content">
+            {{old('content')}}
+          </textarea>
           @error('content')
           <div class="form-text text-danger">
             {{ $message }}

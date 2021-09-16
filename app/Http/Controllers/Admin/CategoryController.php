@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Requests\CategoryRequest;
 use App\Models\Category;
 use App\Models\Blog;
 use App\Models\Tag;
@@ -38,7 +39,7 @@ class CategoryController extends Controller
   * @param  \Illuminate\Http\Request  $request
   * @return \Illuminate\Http\Response
   */
-  public function store(Request $request) {
+  public function store(CategoryRequest $request) {
     $thumbnail = time().".".$request->thumbnail->extension();
     $request->file('thumbnail')->storeAs('public', $thumbnail);
     Category::create([
@@ -80,7 +81,7 @@ class CategoryController extends Controller
   * @param  int  $id
   * @return \Illuminate\Http\Response
   */
-  public function update(Request $request, $id) {
+  public function update(CategoryRequest $request, $id) {
     $thumbnail = time().".".$request->thumbnail->extension();
     $request->file('thumbnail')->storeAs('public', $thumbnail);
     Category::find($id)->update([

@@ -63,6 +63,7 @@ class ComposerStaticInit8881f28cbc77be86ad1c315427eccacd
         array (
             'TijsVerkoyen\\CssToInlineStyles\\' => 31,
             'Tests\\' => 6,
+            'Te7aHoudini\\LaravelTrix\\' => 24,
         ),
         'S' => 
         array (
@@ -219,6 +220,10 @@ class ComposerStaticInit8881f28cbc77be86ad1c315427eccacd
         'Tests\\' => 
         array (
             0 => __DIR__ . '/../..' . '/tests',
+        ),
+        'Te7aHoudini\\LaravelTrix\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/te7a-houdini/laravel-trix/src',
         ),
         'Symfony\\Polyfill\\Php81\\' => 
         array (
@@ -549,7 +554,13 @@ class ComposerStaticInit8881f28cbc77be86ad1c315427eccacd
     public static $classMap = array (
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
-        'App\\Http\\Controllers\\AdminPostController' => __DIR__ . '/../..' . '/app/Http/Controllers/AdminPostController.php',
+        'App\\Http\\Controllers\\Admin\\BlogController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/BlogController.php',
+        'App\\Http\\Controllers\\Admin\\CategoryController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/CategoryController.php',
+        'App\\Http\\Controllers\\Admin\\DashboardController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/DashboardController.php',
+        'App\\Http\\Controllers\\Admin\\PostController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/PostController.php',
+        'App\\Http\\Controllers\\Admin\\TagController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/TagController.php',
+        'App\\Http\\Controllers\\Admin\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/UserController.php',
+        'App\\Http\\Controllers\\Admin\\VideoController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/VideoController.php',
         'App\\Http\\Controllers\\Auth\\ConfirmPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ConfirmPasswordController.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
@@ -558,17 +569,11 @@ class ComposerStaticInit8881f28cbc77be86ad1c315427eccacd
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
         'App\\Http\\Controllers\\BerandaController' => __DIR__ . '/../..' . '/app/Http/Controllers/BerandaController.php',
         'App\\Http\\Controllers\\BlogController' => __DIR__ . '/../..' . '/app/Http/Controllers/BlogController.php',
-        'App\\Http\\Controllers\\CategoryController' => __DIR__ . '/../..' . '/app/Http/Controllers/CategoryController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
-        'App\\Http\\Controllers\\DashboardController' => __DIR__ . '/../..' . '/app/Http/Controllers/DashboardController.php',
-        'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
-        'App\\Http\\Controllers\\PostController' => __DIR__ . '/../..' . '/app/Http/Controllers/PostController.php',
-        'App\\Http\\Controllers\\TagController' => __DIR__ . '/../..' . '/app/Http/Controllers/TagController.php',
+        'App\\Http\\Controllers\\Premium\\PostController' => __DIR__ . '/../..' . '/app/Http/Controllers/Premium/PostController.php',
+        'App\\Http\\Controllers\\SerieController' => __DIR__ . '/../..' . '/app/Http/Controllers/SerieController.php',
         'App\\Http\\Controllers\\TopicController' => __DIR__ . '/../..' . '/app/Http/Controllers/TopicController.php',
         'App\\Http\\Controllers\\TrashController' => __DIR__ . '/../..' . '/app/Http/Controllers/TrashController.php',
-        'App\\Http\\Controllers\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserController.php',
-        'App\\Http\\Controllers\\VideoController' => __DIR__ . '/../..' . '/app/Http/Controllers/VideoController.php',
-        'App\\Http\\Controllers\\WelcomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/WelcomeController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
@@ -593,6 +598,7 @@ class ComposerStaticInit8881f28cbc77be86ad1c315427eccacd
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
+        'App\\View\\Components\\BannerComponent' => __DIR__ . '/../..' . '/app/View/Components/BannerComponent.php',
         'App\\View\\Components\\FooterComponent' => __DIR__ . '/../..' . '/app/View/Components/FooterComponent.php',
         'App\\View\\Components\\HeaderComponent' => __DIR__ . '/../..' . '/app/View/Components/HeaderComponent.php',
         'App\\View\\Components\\ListSeriesComponent' => __DIR__ . '/../..' . '/app/View/Components/ListSeriesComponent.php',
@@ -5404,6 +5410,16 @@ class ComposerStaticInit8881f28cbc77be86ad1c315427eccacd
         'Symfony\\Polyfill\\Php73\\Php73' => __DIR__ . '/..' . '/symfony/polyfill-php73/Php73.php',
         'Symfony\\Polyfill\\Php80\\Php80' => __DIR__ . '/..' . '/symfony/polyfill-php80/Php80.php',
         'Symfony\\Polyfill\\Php81\\Php81' => __DIR__ . '/..' . '/symfony/polyfill-php81/Php81.php',
+        'Te7aHoudini\\LaravelTrix\\Http\\Controllers\\TrixAttachmentController' => __DIR__ . '/..' . '/te7a-houdini/laravel-trix/src/Http/Controllers/TrixAttachmentController.php',
+        'Te7aHoudini\\LaravelTrix\\LaravelTrix' => __DIR__ . '/..' . '/te7a-houdini/laravel-trix/src/LaravelTrix.php',
+        'Te7aHoudini\\LaravelTrix\\LaravelTrixServiceProvider' => __DIR__ . '/..' . '/te7a-houdini/laravel-trix/src/LaravelTrixServiceProvider.php',
+        'Te7aHoudini\\LaravelTrix\\Models\\TrixAttachment' => __DIR__ . '/..' . '/te7a-houdini/laravel-trix/src/Models/TrixAttachment.php',
+        'Te7aHoudini\\LaravelTrix\\Models\\TrixRichText' => __DIR__ . '/..' . '/te7a-houdini/laravel-trix/src/Models/TrixRichText.php',
+        'Te7aHoudini\\LaravelTrix\\Pipes\\AttachmentInput' => __DIR__ . '/..' . '/te7a-houdini/laravel-trix/src/Pipes/AttachmentInput.php',
+        'Te7aHoudini\\LaravelTrix\\Pipes\\Input' => __DIR__ . '/..' . '/te7a-houdini/laravel-trix/src/Pipes/Input.php',
+        'Te7aHoudini\\LaravelTrix\\Pipes\\Styles' => __DIR__ . '/..' . '/te7a-houdini/laravel-trix/src/Pipes/Styles.php',
+        'Te7aHoudini\\LaravelTrix\\Pipes\\TrixEditor' => __DIR__ . '/..' . '/te7a-houdini/laravel-trix/src/Pipes/TrixEditor.php',
+        'Te7aHoudini\\LaravelTrix\\Traits\\HasTrixRichText' => __DIR__ . '/..' . '/te7a-houdini/laravel-trix/src/Traits/HasTrixRichText.php',
         'Tests\\CreatesApplication' => __DIR__ . '/../..' . '/tests/CreatesApplication.php',
         'Tests\\Feature\\ExampleTest' => __DIR__ . '/../..' . '/tests/Feature/ExampleTest.php',
         'Tests\\TestCase' => __DIR__ . '/../..' . '/tests/TestCase.php',

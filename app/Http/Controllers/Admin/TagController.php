@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Requests\TagRequest;
 use App\Models\Tag;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Str;
@@ -35,7 +36,7 @@ class TagController extends Controller
   * @param  \Illuminate\Http\Request  $request
   * @return \Illuminate\Http\Response
   */
-  public function store(Request $request) {
+  public function store(TagRequest $request) {
     Tag::create([
       'nama' => $request->nama,
       'slug' => Str::slug($request->nama),
@@ -75,7 +76,7 @@ class TagController extends Controller
   * @param  int  $id
   * @return \Illuminate\Http\Response
   */
-  public function update(Request $request, $id) {
+  public function update(TagRequest $request, $id) {
     Tag::find($id)->update([
       "nama" => $request->nama,
       "description" => $request->description,
