@@ -53,6 +53,9 @@ class BlogController extends Controller
   * @return \Illuminate\Http\Response
   */
   public function store(BlogRequest $request) {
+    if (!$request->thumbnail) {
+      return back()->with("error_thumb", 'Thumbnail harus ada,, Silahkan isi data kembali');
+    }
     $thumbnail = time().".".$request->thumbnail->extension();
     $request->file('thumbnail')->storeAs('public', $thumbnail);
     Blog::create([
@@ -117,6 +120,9 @@ class BlogController extends Controller
       ]);
       Alert::warning('Blog Di Banned', 'Blog tidak akan terlihat oleh user');
     } else {
+      if (!$request->thumbnail) {
+        return back()->with("error_thumb", 'Thumbnail harus ada,, Silahkan isi data kembali');
+      }
       $thumbnail = time().".".$request->thumbnail->extension();
       $request->file('thumbnail')->storeAs('public', $thumbnail);
       Blog::find($id)->update([

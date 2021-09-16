@@ -29,7 +29,7 @@ class BlogRequest extends FormRequest
         'min:50'],
       'category' => "required",
       'status' => "required",
-      "thumbnail" => "required"
+      "thumbnail" => "image"
     ];
   }
 }

@@ -12,6 +12,12 @@
 @section('content')
 <div class="card p-3">
   <h3 class="text-uppercase card-title">Tambah Pembelajaran Blog Alope Book</h3>
+  @if(session()->has('error_thumb'))
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <i class="fas fa-exclamation-triangle me-2"></i>{{session()->get('error_thumb')}}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  @endif
   <form action="{{route('blog.store')}}" class="mt-3" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="row">
@@ -50,6 +56,11 @@
         <div class="custom-file mb-3">
           <input type="file" id="thumbnail" class="dropify" data-height="500" accept="image/*" name="thumbnail" />
         </div>
+        @error('thumbnail')
+        <div class="form-text text-danger">
+          {{ $message }}
+        </div>
+        @enderror
       </div>
       <div class="col-md-12">
         <div class="form-group">

@@ -14,6 +14,12 @@
 @section('content')
 <div class="card p-3">
   <h3 class="text-uppercase card-title">Edit Blog {{$blog->judul}}</h3>
+  @if(session()->has('error_thumb'))
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <i class="fas fa-exclamation-triangle me-2"></i>{{session()->get('error_thumb')}}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  @endif
   <form action="{{route('blog.update', $blog->id)}}" method="POST" enctype="multipart/form-data">
     @csrf
     @method("PUT")

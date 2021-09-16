@@ -40,6 +40,9 @@ class CategoryController extends Controller
   * @return \Illuminate\Http\Response
   */
   public function store(CategoryRequest $request) {
+    if (!$request->thumbnail) {
+      return back()->with("error_thumb", 'Thumbnail harus ada,, Silahkan isi data kembali');
+    }
     $thumbnail = time().".".$request->thumbnail->extension();
     $request->file('thumbnail')->storeAs('public', $thumbnail);
     Category::create([
@@ -71,7 +74,8 @@ class CategoryController extends Controller
   */
   public function edit($slug) {
     $category = Category::where("slug", $slug)->first();
-    return view("admin.category.edit", compact("category"));
+    $tags = Tag::all();
+    return view("admin.category.edit", compact("category", 'tags'));
   }
 
   /**
@@ -82,13 +86,18 @@ class CategoryController extends Controller
   * @return \Illuminate\Http\Response
   */
   public function update(CategoryRequest $request, $id) {
+    if (!$request->thumbnail) {
+      return back()->with("error_thumb", 'Thumbnail harus ada,, Silahkan isi data kembali');
+    }
     $thumbnail = time().".".$request->thumbnail->extension();
     $request->file('thumbnail')->storeAs('public', $thumbnail);
-    Category::find($id)->update([
+    $category = Category::find($id);
+    $category->update([
       "nama" => $request->nama,
       "description" => $request->description,
       "thumbnail" => $thumbnail
     ]);
+    $category->tag()->sync($request->tags);
 
     Alert::success('Serie berhasil diupdate');
     return redirect(route('series.index'));
