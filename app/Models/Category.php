@@ -16,6 +16,7 @@ class Category extends Model
     'slug',
     'thumbnail',
     'badge',
+    'status',
     'description'];
 
   public function scopeFilter($query, array $filter) {

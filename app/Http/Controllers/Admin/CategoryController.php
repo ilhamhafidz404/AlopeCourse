@@ -95,7 +95,8 @@ class CategoryController extends Controller
     $category->update([
       "nama" => $request->nama,
       "description" => $request->description,
-      "thumbnail" => $thumbnail
+      "thumbnail" => $thumbnail,
+      'status' => $request->status
     ]);
     $category->tag()->sync($request->tags);
 

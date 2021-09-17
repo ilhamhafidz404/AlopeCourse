@@ -264,8 +264,14 @@
           <div class="col-lg-12">
             <h1 class="display-2 text-white mb-0">{{$blog->judul}}</h1>
             <small class=" text-white">{{$blog->category->nama}}</small>
-            <p class="mt-0 mb-5">
+            <p class="mt-0 mb-2">
               {{$blog->category->keterangan}}
+            </p>
+            <p class="fs-5 text-danger mb-5">
+              <i class="fas fa-heart me-1"></i>
+              <span class="fw-bold">
+                {{$likes}}
+              </span>
             </p>
             <a href="{{route('blog.edit', $blog->slug)}}" class="btn btn-neutral">Edit Blog</a>
             <a href="{{route('blog.index')}}" class="btn btn-danger">kembali</a>
@@ -300,6 +306,9 @@
             </div>
             <div class="card-body">
               {!!$blog->content!!}
+              <div class="footer-card">
+
+              </div>
             </div>
           </div>
         </div>

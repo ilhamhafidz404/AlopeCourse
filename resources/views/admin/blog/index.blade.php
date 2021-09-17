@@ -35,7 +35,7 @@
 @endsection
 
 @section('content')
-@if(!$blogCount == 0)
+@if(!$blogs->count() == 0)
 @foreach ($blogs as $blog)
 <div class="col-md-6">
   <div class="card p-3">

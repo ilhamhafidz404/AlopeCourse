@@ -48,7 +48,7 @@
             <div class="position-absolute bottom-0 end-0 start-0 d-flex justify-content-between p-2">
               <div>
                 <form action="{{route('blog.index')}}">
-                  <button name="serie" class="btn btn-success text-white btn-sm" value="{{$category->slug}}" data-bs-toggle="tooltip" data-bs-placement="top" title="Filter">
+                  <button name="serie" class="btn btn-neutral text-dark btn-sm" value="{{$category->slug}}" data-bs-toggle="tooltip" data-bs-placement="top" title="Filter">
                     <i class="fas fa-filter"></i>
                   </button>
                 </form>
@@ -74,11 +74,41 @@
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <h5 class="modal-title" id="exampleModalLabel">{{$category->nama}}</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                {{$category->nama}}
+                <img src="{{asset('storage/'.$category->thumbnail)}}" alt="{{$category->slug}} thumbnail" class="w-100 img-thumbnail">
+                <hr>
+                <b class="mb-2">Deskripsi</b>
+                <p>
+                  {!!$category->description!!}
+                </p>
+                <b class="mb-2 mt-4">Tag</b>
+                <ul class="mt-3 p-0 d-flex">
+                  @foreach($category->tag as $tag)
+                  <li class="me-2">
+                    <span class="badge" style="background-color: {{$tag->badge}}">
+                      {{$tag->nama}}
+                    </span>
+                  </li>
+                  @endforeach
+                </ul>
+                <br>
+                <b>Serie is</b>
+                @if($category->status == 'development')
+                <span class="text-warning">
+                  {{$category->status}}
+                </span>
+                @elseif($category->status == 'complete')
+                <span class="text-success">
+                  {{$category->status}}
+                  @else
+                  <span class="text-danger">
+                    {{$category->status}}
+                    @endif
+                  </span>
+                </span>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

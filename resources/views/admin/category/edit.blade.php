@@ -32,6 +32,22 @@
       </div>
       <div class="col-md-6">
         <div class="form-group mb-3">
+          <label for="status" class="form-control-label">Status</label>
+          <select name="status" id="status" class="form-control">
+            <option value="development">
+              Development
+            </option>
+            <option value="complete">
+              Complete
+            </option>
+            <option value="stuck">
+              Stuck
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group mb-3">
           <label for="nama" class="form-control-label">Nama Series</label>
           <input type="text" class="form-control form-control-alternative @error('nama') is-invalid @enderror" placeholder="Nama series baru" id="nama" name="nama" value='{{$category->nama}}'>
           @error('nama')

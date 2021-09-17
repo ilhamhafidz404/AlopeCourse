@@ -9,6 +9,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 use App\Models\Blog;
 use App\Models\Category;
 use App\Models\Tag;
+use App\Models\Like;
 use Illuminate\Support\Str;
 
 class BlogController extends Controller
@@ -28,11 +29,7 @@ class BlogController extends Controller
     }
     $categories = Category::all();
     $tags = Tag::all();
-    $draffBlog = Blog::where("status", "draff")->get();
-
-    $blogCount = $blogs->count();
-    $blogDraffCount = Blog::where("status", "draff")->count();
-    return view('admin.blog.index', compact('blogs', 'categories', 'tags', "draffBlog", 'blogCount', 'blogDraffCount'));
+    return view('admin.blog.index', compact('blogs', 'categories', 'tags'));
   }
 
   /**
@@ -82,9 +79,10 @@ class BlogController extends Controller
   * @param  int  $id
   * @return \Illuminate\Http\Response
   */
-  public function show(Blog $blog) {
-    //$blog = Blog::whereSlug($slug)->first();
-    return view('admin.blog.show', compact('blog'));
+  public function show($slug) {
+    $blog = Blog::whereSlug($slug)->first();
+    $likes = Like::whereBlog_id($blog->id)->count();
+    return view('admin.blog.show', compact('blog', 'likes'));
   }
 
   /**
