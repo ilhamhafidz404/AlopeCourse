@@ -18,8 +18,30 @@
     Tambah Serie
   </a>
   <button type="button" class="btn btn-neutral btn-sm dropdown-toggle" data-bs-toggle="dropdown">
-    Filter Blog
+    Filter Serie
   </button>
+  <ul class="dropdown-menu">
+    <form action="" method="GET">
+      <li>
+        <a class="btn btn-transparent w-100" href="{{route('series.index')}}">Semua</a>
+      </li>
+      <li>
+        <button value="development" name="status" class="btn btn-transparent w-100">
+          Development
+        </button>
+      </li>
+      <li>
+        <button value="complete" name="status" class="btn btn-transparent w-100">
+          Complete
+        </button>
+      </li>
+      <li>
+        <button value="stuck" name="status" class="btn btn-transparent w-100">
+          Stuck
+        </button>
+      </li>
+    </form>
+  </ul>
 </div>
 @endsection
 
@@ -119,6 +141,9 @@
         </div>
       </div>
       @endforeach
+      @if($categories->count() == 0)
+      <h3 class="text-center">Serie dengan status {{request("status")}} tidak tersedia</h3>
+      @endif
     </div>
   </form>
 </div>

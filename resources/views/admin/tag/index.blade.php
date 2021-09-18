@@ -15,25 +15,6 @@
 @section('header-button')
 <div class="btn-group">
   <a href="{{route('tag.create')}}" class="btn btn-sm btn-neutral me-2">Tambah Tag</a>
-  <button type="button" class="btn btn-neutral btn-sm dropdown-toggle" data-bs-toggle="dropdown">
-    Filter Blog
-  </button>
-  <ul class="dropdown-menu">
-    <form action="" method="GET">
-      <li>
-        <a class="btn btn-transparent w-100" href="{{route('blog.index')}}">Semua</a>
-      </li>
-      <li>
-        <button value="upload" name="status" class="btn btn-transparent w-100">Upload</button>
-      </li>
-      <li>
-        <button value="draff" name="status" class="btn btn-transparent w-100">Draff</button>
-      </li>
-      <li>
-        <button value="banned" name="status" class="btn btn-transparent w-100">Banned</button>
-      </li>
-    </form>
-  </ul>
 </div>
 @endsection
 
@@ -85,7 +66,6 @@
           </div>
         </div>
       </div>
-      {{--<hr class="m-auto" style="background-color: rgba(0,0,0,0.3); width: 40%;"> --}}
       @endforeach
     </div>
   </div>

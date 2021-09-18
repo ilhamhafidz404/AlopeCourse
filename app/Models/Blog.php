@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use \App\Models\Category;
 use \App\Models\User;
-use App\Models\Tag;
 
 class Blog extends Model
 {
@@ -38,11 +37,6 @@ class Blog extends Model
   public function User() {
     return $this->belongsTo(User::class);
   }
-
-  public function Tag() {
-    return $this->belongsToMany(Tag::class);
-  }
-
   public function getRouteKeyName() {
     return 'slug';
   }

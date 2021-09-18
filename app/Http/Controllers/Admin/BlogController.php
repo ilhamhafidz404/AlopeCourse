@@ -121,6 +121,8 @@ class BlogController extends Controller
       if (!$request->thumbnail) {
         return back()->with("error_thumb", 'Thumbnail harus ada,, Silahkan isi data kembali');
       }
+      $blog = Blog::find($id)->first();
+      \File::delete('storage/'.$blog->thumbnail);
       $thumbnail = time().".".$request->thumbnail->extension();
       $request->file('thumbnail')->storeAs('public', $thumbnail);
       Blog::find($id)->update([

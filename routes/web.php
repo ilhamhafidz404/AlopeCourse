@@ -12,7 +12,6 @@ use App\Http\Controllers\Admin\VideoController;
 use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\BlogController as UserBlogController;
 use App\Http\Controllers\SerieController;
-use App\Http\Controllers\TrashController;
 use App\Http\Controllers\TopicController;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\LikeController;
@@ -41,8 +40,6 @@ Route::middleware(['role:admin', 'auth'])->group(function () {
   route::resource('/admin/tag', TagController::class);
   route::resource('/admin/video', VideoController::class);
   route::resource('/admin/posts', AdminPostController::class);
-  route::get("/admin/trash", [TrashController::class, "index"])->name('trash.index');
-  route::delete("/admin/trash", [TrashController::class, 'destroy'])->name("trash.destroy");
 });
 
 Route::middleware(['role:premium', 'auth'])->group(function () {

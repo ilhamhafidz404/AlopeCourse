@@ -17,10 +17,6 @@ class Tag extends Model
     'badge',
     'description'];
 
-  public function Blog() {
-    return $this->belogsToMany(Blog::class);
-  }
-
   public function Category() {
     return $this->belogsToMany(Category::class);
   }

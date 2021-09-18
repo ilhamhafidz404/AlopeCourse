@@ -25,6 +25,10 @@ class Category extends Model
         return  $query->where('slug', $filter);
       });
     });
+
+    $query->when($filter["status"] ?? false, function($query, $filter) {
+      return $query->whereStatus($filter);
+    });
   }
 
   public function Blog() {

@@ -45,12 +45,6 @@
               <span class="nav-link-text">Blog Tag</span>
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link {{request()->is('dashboard/trash')?'active':''}}" href="{{route('trash.index')}}">
-              <i class="fas fa-trash-alt text-danger"></i>
-              <span class="nav-link-text">Blog Trash</span>
-            </a>
-          </li>
         </ul>
         <hr class="my-3">
         <h6 class="navbar-heading p-0 text-muted">

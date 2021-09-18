@@ -19,7 +19,11 @@ class CategoryController extends Controller
   * @return \Illuminate\Http\Response
   */
   public function index() {
-    $categories = Category::all();
+    if (request("status")) {
+      $categories = Category::filter(request(["status"]))->latest()->paginate(10);
+    } else {
+      $categories = Category::latest()->paginate(10);
+    }
     return view("admin.category.index", compact('categories'));
   }
 
