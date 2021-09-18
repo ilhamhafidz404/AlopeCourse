@@ -25,6 +25,7 @@
   </div>
   <!-- Argon Scripts -->
   @include('admin.layouts.feet')
+  @yield('js')
 </body>
 
 </html>

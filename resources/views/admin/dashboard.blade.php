@@ -144,25 +144,16 @@
 </div>
 <div class="col-md-12">
   <div class="card p-3">
+    <canvas id="myChart" height="330"></canvas>
+  </div>
+</div>
+<div class="col-md-12">
+  <div class="card p-3">
     <iframe width="100%" height="350px" src="{{$video->link}}"></iframe>
   </div>
 </div>
-<div class="col-xl-4">
-  <div class="card">
-    <div class="card-header bg-transparent">
-      <div class="row align-items-center">
-        <div class="col">
-          <h6 class="text-uppercase text-muted ls-1 mb-1">Performance</h6>
-          <h5 class="h3 mb-0">Total orders</h5>
-        </div>
-      </div>
-    </div>
-    <div class="card-body">
-      <!-- Chart -->
-      <div class="chart">
-        <canvas id="chart-bars" class="chart-canvas"></canvas>
-      </div>
-    </div>
-  </div>
-</div>
+<script>
+  var _ydata = JSON.parse('{!! json_encode($months) !!}');
+  var _xdata = JSON.parse('{!! json_encode($monthCount) !!}');
+</script>
 @endsection

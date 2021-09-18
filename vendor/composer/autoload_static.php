@@ -63,7 +63,6 @@ class ComposerStaticInit8881f28cbc77be86ad1c315427eccacd
         array (
             'TijsVerkoyen\\CssToInlineStyles\\' => 31,
             'Tests\\' => 6,
-            'Te7aHoudini\\LaravelTrix\\' => 24,
         ),
         'S' => 
         array (
@@ -177,6 +176,8 @@ class ComposerStaticInit8881f28cbc77be86ad1c315427eccacd
         'C' => 
         array (
             'Cron\\' => 5,
+            'ConsoleTVs\\Charts\\' => 18,
+            'Chartisan\\PHP\\' => 14,
             'Carbon\\' => 7,
         ),
         'B' => 
@@ -220,10 +221,6 @@ class ComposerStaticInit8881f28cbc77be86ad1c315427eccacd
         'Tests\\' => 
         array (
             0 => __DIR__ . '/../..' . '/tests',
-        ),
-        'Te7aHoudini\\LaravelTrix\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/te7a-houdini/laravel-trix/src',
         ),
         'Symfony\\Polyfill\\Php81\\' => 
         array (
@@ -523,6 +520,14 @@ class ComposerStaticInit8881f28cbc77be86ad1c315427eccacd
         array (
             0 => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron',
         ),
+        'ConsoleTVs\\Charts\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/consoletvs/charts/src',
+        ),
+        'Chartisan\\PHP\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/chartisan/php/src',
+        ),
         'Carbon\\' => 
         array (
             0 => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon',
@@ -570,10 +575,10 @@ class ComposerStaticInit8881f28cbc77be86ad1c315427eccacd
         'App\\Http\\Controllers\\BerandaController' => __DIR__ . '/../..' . '/app/Http/Controllers/BerandaController.php',
         'App\\Http\\Controllers\\BlogController' => __DIR__ . '/../..' . '/app/Http/Controllers/BlogController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\LikeController' => __DIR__ . '/../..' . '/app/Http/Controllers/LikeController.php',
         'App\\Http\\Controllers\\Premium\\PostController' => __DIR__ . '/../..' . '/app/Http/Controllers/Premium/PostController.php',
         'App\\Http\\Controllers\\SerieController' => __DIR__ . '/../..' . '/app/Http/Controllers/SerieController.php',
         'App\\Http\\Controllers\\TopicController' => __DIR__ . '/../..' . '/app/Http/Controllers/TopicController.php',
-        'App\\Http\\Controllers\\TrashController' => __DIR__ . '/../..' . '/app/Http/Controllers/TrashController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
@@ -696,7 +701,16 @@ class ComposerStaticInit8881f28cbc77be86ad1c315427eccacd
         'Carbon\\Traits\\Units' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Traits/Units.php',
         'Carbon\\Traits\\Week' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Traits/Week.php',
         'Carbon\\Translator' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Translator.php',
+        'Chartisan\\PHP\\ChartData' => __DIR__ . '/..' . '/chartisan/php/src/ChartData.php',
+        'Chartisan\\PHP\\Chartisan' => __DIR__ . '/..' . '/chartisan/php/src/Chartisan.php',
+        'Chartisan\\PHP\\DatasetData' => __DIR__ . '/..' . '/chartisan/php/src/DatasetData.php',
+        'Chartisan\\PHP\\ServerData' => __DIR__ . '/..' . '/chartisan/php/src/ServerData.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'ConsoleTVs\\Charts\\BaseChart' => __DIR__ . '/..' . '/consoletvs/charts/src/BaseChart.php',
+        'ConsoleTVs\\Charts\\ChartsController' => __DIR__ . '/..' . '/consoletvs/charts/src/ChartsController.php',
+        'ConsoleTVs\\Charts\\ChartsServiceProvider' => __DIR__ . '/..' . '/consoletvs/charts/src/ChartsServiceProvider.php',
+        'ConsoleTVs\\Charts\\Commands\\CreateChart' => __DIR__ . '/..' . '/consoletvs/charts/src/Commands/CreateChart.php',
+        'ConsoleTVs\\Charts\\Registrar' => __DIR__ . '/..' . '/consoletvs/charts/src/Registrar.php',
         'Cron\\AbstractField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/AbstractField.php',
         'Cron\\CronExpression' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/CronExpression.php',
         'Cron\\DayOfMonthField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/DayOfMonthField.php',
@@ -5411,16 +5425,6 @@ class ComposerStaticInit8881f28cbc77be86ad1c315427eccacd
         'Symfony\\Polyfill\\Php73\\Php73' => __DIR__ . '/..' . '/symfony/polyfill-php73/Php73.php',
         'Symfony\\Polyfill\\Php80\\Php80' => __DIR__ . '/..' . '/symfony/polyfill-php80/Php80.php',
         'Symfony\\Polyfill\\Php81\\Php81' => __DIR__ . '/..' . '/symfony/polyfill-php81/Php81.php',
-        'Te7aHoudini\\LaravelTrix\\Http\\Controllers\\TrixAttachmentController' => __DIR__ . '/..' . '/te7a-houdini/laravel-trix/src/Http/Controllers/TrixAttachmentController.php',
-        'Te7aHoudini\\LaravelTrix\\LaravelTrix' => __DIR__ . '/..' . '/te7a-houdini/laravel-trix/src/LaravelTrix.php',
-        'Te7aHoudini\\LaravelTrix\\LaravelTrixServiceProvider' => __DIR__ . '/..' . '/te7a-houdini/laravel-trix/src/LaravelTrixServiceProvider.php',
-        'Te7aHoudini\\LaravelTrix\\Models\\TrixAttachment' => __DIR__ . '/..' . '/te7a-houdini/laravel-trix/src/Models/TrixAttachment.php',
-        'Te7aHoudini\\LaravelTrix\\Models\\TrixRichText' => __DIR__ . '/..' . '/te7a-houdini/laravel-trix/src/Models/TrixRichText.php',
-        'Te7aHoudini\\LaravelTrix\\Pipes\\AttachmentInput' => __DIR__ . '/..' . '/te7a-houdini/laravel-trix/src/Pipes/AttachmentInput.php',
-        'Te7aHoudini\\LaravelTrix\\Pipes\\Input' => __DIR__ . '/..' . '/te7a-houdini/laravel-trix/src/Pipes/Input.php',
-        'Te7aHoudini\\LaravelTrix\\Pipes\\Styles' => __DIR__ . '/..' . '/te7a-houdini/laravel-trix/src/Pipes/Styles.php',
-        'Te7aHoudini\\LaravelTrix\\Pipes\\TrixEditor' => __DIR__ . '/..' . '/te7a-houdini/laravel-trix/src/Pipes/TrixEditor.php',
-        'Te7aHoudini\\LaravelTrix\\Traits\\HasTrixRichText' => __DIR__ . '/..' . '/te7a-houdini/laravel-trix/src/Traits/HasTrixRichText.php',
         'Tests\\CreatesApplication' => __DIR__ . '/../..' . '/tests/CreatesApplication.php',
         'Tests\\Feature\\ExampleTest' => __DIR__ . '/../..' . '/tests/Feature/ExampleTest.php',
         'Tests\\TestCase' => __DIR__ . '/../..' . '/tests/TestCase.php',

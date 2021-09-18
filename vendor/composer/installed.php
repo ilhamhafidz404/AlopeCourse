@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => '22e134c15578e33a1555957e01b8c1e4a99416df',
+    'reference' => '46f0c083fe2a3db456c4ac6b0f0fda961d2c6c96',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -28,6 +28,24 @@
       array (
       ),
       'reference' => 'dff976c2f3487d42c1db75a3b180e2b9f0e72ce0',
+    ),
+    'chartisan/php' => 
+    array (
+      'pretty_version' => '1.2.1',
+      'version' => '1.2.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '85d2352077800e9bcb411aec1ff7e4d23eef93a1',
+    ),
+    'consoletvs/charts' => 
+    array (
+      'pretty_version' => '7.2.0',
+      'version' => '7.2.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'cc820595e9bec13fbaf4cf552128860830a0f9e2',
     ),
     'cordoval/hamcrest-php' => 
     array (
@@ -445,7 +463,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '22e134c15578e33a1555957e01b8c1e4a99416df',
+      'reference' => '46f0c083fe2a3db456c4ac6b0f0fda961d2c6c96',
     ),
     'laravel/sail' => 
     array (
@@ -1304,15 +1322,6 @@
       array (
       ),
       'reference' => '3dd8ddd1e260e58ecc61bb78da3b6584b3bfcba0',
-    ),
-    'te7a-houdini/laravel-trix' => 
-    array (
-      'pretty_version' => '2.0.4',
-      'version' => '2.0.4.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '2295ae96aad8b7c427647c84e814c33926eaf074',
     ),
     'theseer/tokenizer' => 
     array (
