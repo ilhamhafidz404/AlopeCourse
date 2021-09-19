@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Admin\PostController as AdminPostController;
+use App\Http\Controllers\Admin\CommunityPostController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\VideoController;
 
@@ -39,6 +40,7 @@ Route::middleware(['role:admin', 'auth'])->group(function () {
   route::resource('/admin/blog', BlogController::class);
   route::resource('/admin/tag', TagController::class);
   route::resource('/admin/video', VideoController::class);
+  route::resource('/admin/community-post', CommunityPostController::class);
   route::resource('/admin/posts', AdminPostController::class);
 });
 

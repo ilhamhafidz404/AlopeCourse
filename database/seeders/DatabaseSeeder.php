@@ -9,6 +9,7 @@ use Database\Seeders\RoleSeeder;
 use Database\Seeders\UserSeeder;
 use App\Models\Blog;
 use App\Models\Video;
+use App\Models\CommunityPost;
 
 class DatabaseSeeder extends Seeder
 {
@@ -25,5 +26,6 @@ class DatabaseSeeder extends Seeder
 
     Blog::factory()->count(10)->create();
     Video::factory()->count(10)->create();
+    CommunityPost::factory()->count(5)->create();
   }
 }

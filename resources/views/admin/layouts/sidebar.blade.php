@@ -52,7 +52,7 @@
         </h6>
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link {{request()->is('dashboard/video')?'active':''}}" href="{{route('video.index')}}">
+            <a class="nav-link {{request()->is('admin/video*')?'active':''}}" href="{{route('video.index')}}">
               <i class="fab fa-youtube text-danger"></i>
               <span class="nav-link-text">Video</span>
             </a>
@@ -65,7 +65,7 @@
         </h6>
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="{{route('posts.index')}}">
+            <a class="nav-link {{request()->is('admin/community-post*')?'active' : ''}}" href="{{route('community-post.index')}}">
               <i class="ni ni-world text-success"></i>
               <span class="nav-link-text">Community Post</span>
             </a>

@@ -27,7 +27,7 @@ class BlogFactory extends Factory
       'thumbnail' => 'default.jpg',
       'category_id' => rand(1, 3),
       'status' => "upload",
-      'content' => $this->faker->paragraph(5),
+      'content' => $this->faker->paragraph(50),
     ];
   }
 }

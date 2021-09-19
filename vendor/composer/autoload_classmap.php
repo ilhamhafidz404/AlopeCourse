@@ -6,10 +6,12 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Charts\\BlogChart' => $baseDir . '/app/Charts/BlogChart.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Http\\Controllers\\Admin\\BlogController' => $baseDir . '/app/Http/Controllers/Admin/BlogController.php',
     'App\\Http\\Controllers\\Admin\\CategoryController' => $baseDir . '/app/Http/Controllers/Admin/CategoryController.php',
+    'App\\Http\\Controllers\\Admin\\CommonityPostController' => $baseDir . '/app/Http/Controllers/Admin/CommonityPostController.php',
     'App\\Http\\Controllers\\Admin\\DashboardController' => $baseDir . '/app/Http/Controllers/Admin/DashboardController.php',
     'App\\Http\\Controllers\\Admin\\PostController' => $baseDir . '/app/Http/Controllers/Admin/PostController.php',
     'App\\Http\\Controllers\\Admin\\TagController' => $baseDir . '/app/Http/Controllers/Admin/TagController.php',
@@ -43,6 +45,7 @@ return array(
     'App\\Http\\Requests\\VideoRequest' => $baseDir . '/app/Http/Requests/VideoRequest.php',
     'App\\Models\\Blog' => $baseDir . '/app/Models/Blog.php',
     'App\\Models\\Category' => $baseDir . '/app/Models/Category.php',
+    'App\\Models\\CommunityPost' => $baseDir . '/app/Models/CommunityPost.php',
     'App\\Models\\Like' => $baseDir . '/app/Models/Like.php',
     'App\\Models\\Post' => $baseDir . '/app/Models/Post.php',
     'App\\Models\\Tag' => $baseDir . '/app/Models/Tag.php',
