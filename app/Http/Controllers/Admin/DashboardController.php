@@ -15,14 +15,24 @@ use Carbon\Carbon;
 class DashboardController extends Controller
 {
   public function __invoke() {
-    $data = Blog::select('id', 'created_at')->get()->groupBy(function($data) {
-      return Carbon::parse($data->created_at)->format('M');
+    $blogData = Blog::select('id', 'created_at')->get()->groupBy(function($blogData) {
+      return Carbon::parse($blogData->created_at)->format('M');
     });
-    $months = [];
-    $monthCount = [];
-    foreach ($data as $month => $values) {
-      $months[] = $month;
-      $monthCount[] = count($values);
+    $blogMonths = [];
+    $blogMonthCount = [];
+    foreach ($blogData as $month => $values) {
+      $blogMonths[] = $month;
+      $blogMonthCount[] = count($values);
+    }
+
+    $serieData = Category::select('id', 'created_at')->get()->groupBy(function($serieData) {
+      return Carbon::parse($serieData->created_at)->format('M');
+    });
+    $serieMonths = [];
+    $serieMonthCount = [];
+    foreach ($serieData as $month => $values) {
+      $serieMonths[] = $month;
+      $serieMonthCount[] = count($values);
     }
     $video = Video::latest()->take(1)->first();
     $blogCount = Blog::count();
@@ -31,6 +41,6 @@ class DashboardController extends Controller
     $userCount = User::count();
     $draffBlogList = Blog::whereStatus("draff")->orderBy("id", "DESC")->take(5)->get();
     $draffBlogCount = Blog::whereStatus("draff")->count();
-    return view('admin.dashboard', compact("draffBlogList", "draffBlogCount", 'blogCount', 'serieCount', 'tagCount', 'video', 'userCount', 'data', 'months', 'monthCount'));
+    return view('admin.dashboard', compact("draffBlogList", "draffBlogCount", 'blogCount', 'serieCount', 'tagCount', 'video', 'userCount', 'blogMonths', 'blogMonthCount', 'serieMonths', 'serieMonthCount'));
   }
 }

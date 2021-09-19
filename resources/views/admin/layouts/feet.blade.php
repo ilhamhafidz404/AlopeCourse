@@ -21,14 +21,14 @@
 <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/dt-1.11.2/datatables.min.js"></script>
 
 <script>
-  var ctx = document.getElementById('myChart');
-  var myChart = new Chart(ctx, {
+  var blogChart = document.getElementById('blogChart');
+  var blogChart = new Chart(blogChart, {
     type: 'bar',
     data: {
-      labels: _ydata,
+      labels: _ydataBlog,
       datasets: [{
         label: 'Grafik Blog',
-        data: _xdata,
+        data: _xdataBlog,
         backgroundColor: [
           'rgba(255, 99, 132, 0.2)',
           'rgba(54, 162, 235, 0.2)',
@@ -56,10 +56,35 @@
       }
     }
   });
-  const chart = new Chartisan({
-    el: '#chart',
-    url: "@chart('blog_chart')",
+  var serieChart = document.getElementById('serieChart');
+  var serieChart = new Chart(serieChart, {
+    type: 'bar',
+    data: {
+      labels: _ydataSerie,
+      datasets: [{
+        label: 'Grafik Blog',
+        data: _xdataSerie,
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)'
+        ],
+        borderColor: [
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)'
+        ],
+        borderWidth: 1
+      }]
+    },
   });
+
 
   $(document).ready(function () {
     $('#myTable').DataTable();

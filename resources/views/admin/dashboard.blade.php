@@ -142,9 +142,14 @@
   </div>
   @endif
 </div>
-<div class="col-md-12">
+<div class="col-md-12 col-lg-6">
   <div class="card p-3">
-    <canvas id="myChart" height="330"></canvas>
+    <canvas id="blogChart" height="330"></canvas>
+  </div>
+</div>
+<div class="col-md-12 col-lg-6">
+  <div class="card p-3">
+    <canvas id="serieChart" height="330"></canvas>
   </div>
 </div>
 <div class="col-md-12">
@@ -153,7 +158,9 @@
   </div>
 </div>
 <script>
-  var _ydata = JSON.parse('{!! json_encode($months) !!}');
-  var _xdata = JSON.parse('{!! json_encode($monthCount) !!}');
+  var _ydataBlog = JSON.parse('{!! json_encode($blogMonths) !!}');
+  var _xdataBlog = JSON.parse('{!! json_encode($blogMonthCount) !!}');
+  var _ydataSerie = JSON.parse('{!! json_encode($serieMonths) !!}');
+  var _xdataSerie = JSON.parse('{!! json_encode($serieMonthCount) !!}');
 </script>
 @endsection
