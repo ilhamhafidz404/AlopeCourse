@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Blog;
 use App\Models\Category;
+use App\Models\CommunityPost;
 
 class BerandaController extends Controller
 {
@@ -16,6 +17,7 @@ class BerandaController extends Controller
   public function __invoke() {
     $blogs = Blog::latest()->take(7)->get();
     $series = Category::latest()->get();
-    return view("welcome", compact('blogs', 'series'));
+    $c_post = CommunityPost::first();
+    return view("welcome", compact('blogs', 'series', 'c_post'));
   }
 }

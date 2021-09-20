@@ -2,6 +2,7 @@ body {
   font-family: 'Poppins', Sans-Serif;
   overflow-x: hidden;
   background-color: #f1f5f9;
+  width: 100vw !important;
 }
 body.banned {
   background: linear-gradient(-45deg, #821FC8, #23ADD1 );
@@ -183,4 +184,20 @@ svg.footer-svg {
   transform: translateX(-50%);
   background-color: #36275D;
   padding: 0 90px
+}
+
+.c_post_banner {
+  background: linear-gradient(45deg, #594DD4, #7749CB);
+  border-radius: 5px 0 10px 0;
+  top: -10px;
+}
+
+.c_post_banner::before {
+  content: '';
+  width: 200px;
+  height: 50px;
+  background: linear-gradient(45deg, #594DD4, #7749CB);
+  position: absolute;
+  left: -200px;
+  top: 20px;
 }
