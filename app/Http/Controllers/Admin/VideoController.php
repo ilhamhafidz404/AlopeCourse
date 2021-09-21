@@ -28,7 +28,8 @@ class VideoController extends Controller
   * @return \Illuminate\Http\Response
   */
   public function create() {
-    //
+    $categories = Category::all();
+    return view('admin.video.create', compact('categories'));
   }
 
   /**
@@ -50,7 +51,7 @@ class VideoController extends Controller
     ]);
 
     Alert::success('Video Tutorial Baru Berhasil Ditambahkan', 'User bisa melihat video baru ini');
-    return back();
+    return redirect(route('video.index'));
   }
 
   /**

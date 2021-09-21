@@ -37,7 +37,7 @@
       <div class="col-md-12">
         <div class="form-group">
           <label for="category" class="form-control-label">
-            Kategori Blog
+            Kategori Video
           </label>
           <select class="form-control" id="category" name="category">
             @foreach($categories as $category)

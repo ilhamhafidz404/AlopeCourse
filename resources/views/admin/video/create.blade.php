@@ -10,8 +10,11 @@
 @endsection
 
 @section('content')
-<div class="card">
-  <form action="{{route('video.create')}}" class="mt-3" method="POST" enctype="multipart/form-data">
+<div class="card p-3">
+  <h3 class="card-title text-uppercase">
+    Tambah Tutorial Video
+  </h3>
+  <form action="{{route('video.store')}}" class="mt-3" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="row">
       <div class="col-md-12">
@@ -69,11 +72,13 @@
         </div>
       </div>
       <div class="col-md-12 text-end">
-        <div class="form-group mt-3">
-          <button class="btn btn-primary">
-            <i class="fas fa-upload me-2"></i>  Update Video
-          </button>
-        </div>
+        <a href="{{route('video.index')}}" class="btn btn-danger me-3">
+          <i class="fas fa-door-open me-2"></i>
+          Kembali
+        </a>
+        <button class="btn btn-primary">
+          <i class="fas fa-upload me-2"></i>  Update Video
+        </button>
       </div>
     </div>
   </form>
