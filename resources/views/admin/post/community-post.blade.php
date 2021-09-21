@@ -11,7 +11,7 @@
 
 @section('header-button')
 <div class="btn-group">
-  <a href="{{route('users.create')}}" class="btn btn-sm btn-neutral me-2">Tambah Post</a>
+  <a href="{{route('community-post.create')}}" class="btn btn-sm btn-neutral me-2">Tambah Post</a>
   <button type="button" class="btn btn-neutral btn-sm dropdown-toggle" data-bs-toggle="dropdown">
     Filter Blog
   </button>
@@ -59,10 +59,14 @@
             </a>
           </h4>
           <h4 class="mt-1">
-            <a href="" class="text-white">
-              <i class="fas fa-trash-alt me-1"></i>
-              Hapus Post
-            </a>
+            <form action="{{route('community-post.destroy', $post->id)}}" method="POST">
+              @csrf
+              @method('DELETE')
+              <button class="bg-transparent text-white border-0 p-0" onclick="return confirm('Yakin?')">
+                <i class="fas fa-trash-alt me-1"></i>
+                Hapus Post
+              </button>
+            </form>
           </h4>
         </div>
       </div>
@@ -70,7 +74,7 @@
     <div class="col-md-10">
       <div class="card bg-white p-3">
         <h2 class="text-center mb-4">{{$post->title}}</h2>
-        <div class="post-banner" style="background-image: url({{asset('storage/'.$post->banner)}}); width: 80%; height: 350px; background-position: center; background-size: cover; margin: auto"></div>
+        <div class="post-banner" style="background-image: url({{asset('storage/community-post/'.$post->banner)}}); width: 80%; height: 350px; background-position: center; background-size: cover; margin: auto"></div>
         <p class="mt-4">
           {{$post->content}}
         </p>
