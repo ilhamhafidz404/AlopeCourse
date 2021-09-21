@@ -26,7 +26,7 @@
 <ul class="d-flex align-items-center mt-4">
   <li class="me-4">
     <i class="fas fa-clock me-1"></i>
-    <?php $tgl = ($serie->created_at->diff()->days < 1) ? $serie->created_at->diffForHumans() : $serie->created_at->isoFormat('LL') ?>
+    <?php $tgl = ($serie->created_at->diff()->days < 1) ? $serie->created_at->diffForHumans() : $serie->created_at->isoFormat('F') ?>
     {{$tgl}}
   </li>
   <li class="me-4">

@@ -9,6 +9,11 @@ class CommunityPost extends Model
 {
   use HasFactory;
   protected $fillable = ['title',
+    'slug',
     'content',
     'banner'];
+
+  public function getRouteKeyName() {
+    return 'slug';
+  }
 }

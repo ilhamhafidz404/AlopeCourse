@@ -3,7 +3,6 @@
 @section('title', 'Edit Blog')
 
 @section('breadcrumb')
-
 <li class="breadcrumb-item" aria-current="page">
   <a href="{{route('blog.index')}}">Blog</a>
 </li>
@@ -77,5 +76,4 @@
     </div>
   </form>
 </div>
-
 @endsection

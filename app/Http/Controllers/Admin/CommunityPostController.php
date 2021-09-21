@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\CommunityPost;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Str;
 use App\Http\Requests\CommunityPostRequest;
 
 class CommunityPostController extends Controller
@@ -45,6 +46,7 @@ class CommunityPostController extends Controller
     CommunityPost::create([
       'banner' => $banner,
       'title' => $request->title,
+      'slug' => Str::slug($request->title),
       'content' => $request->content
     ]);
 
@@ -68,8 +70,10 @@ class CommunityPostController extends Controller
   * @param  int  $id
   * @return \Illuminate\Http\Response
   */
-  public function edit($id) {
-    //
+  public function edit($slug) {
+    $post = CommunityPost::whereSlug($slug)->first();
+
+    return view('admin.post.edit', compact('post'));
   }
 
   /**
@@ -79,8 +83,24 @@ class CommunityPostController extends Controller
   * @param  int  $id
   * @return \Illuminate\Http\Response
   */
-  public function update(Request $request, $id) {
-    //
+  public function update(CommunityPostRequest $request, $id) {
+    if (!$request->banner) {
+      return back()->with('banner_error', 'Banner harus diupload, Silahkan isi data kembali');
+    }
+    $post = CommunityPost::find($id)->first();
+    \File::delete('storage/community-post/'.$post->banner);
+
+    $banner = time().".".$request->banner->extension();
+    $request->file('banner')->storeAs('public/community-post', $banner);
+    CommunityPost::find($id)->update([
+      'title' => $request->title,
+      'slug' => Str::slug($request->title),
+      'banner' => $banner,
+      'content' => $request->content
+    ]);
+
+    return redirect(route('community-post.index'));
+
   }
 
   /**
@@ -90,7 +110,9 @@ class CommunityPostController extends Controller
   * @return \Illuminate\Http\Response
   */
   public function destroy($id) {
-    CommunityPost::find($id)->delete();
+    $post = CommunityPost::find($id);
+    \File::delete('storage/community-post/'. $post->banner);
+    $post->delete();
 
     Alert::warning('Berhasil Dihapus', 'Community baru telah dicopot dari Mading');
     return back();

@@ -15,6 +15,7 @@ class CreateCommunityPostsTable extends Migration
     Schema::create('community_posts', function (Blueprint $table) {
       $table->id();
       $table->string('title');
+      $table->string('slug');
       $table->text('content');
       $table->string('banner')->default('default.jpg');
         $table->timestamps();

@@ -12,25 +12,6 @@
 @section('header-button')
 <div class="btn-group">
   <a href="{{route('community-post.create')}}" class="btn btn-sm btn-neutral me-2">Tambah Post</a>
-  <button type="button" class="btn btn-neutral btn-sm dropdown-toggle" data-bs-toggle="dropdown">
-    Filter Blog
-  </button>
-  <ul class="dropdown-menu">
-    <form action="" method="GET">
-      <li>
-        <a class="btn btn-transparent w-100" href="{{route('blog.index')}}">Semua</a>
-      </li>
-      <li>
-        <button value="upload" name="status" class="btn btn-transparent w-100">Upload</button>
-      </li>
-      <li>
-        <button value="draff" name="status" class="btn btn-transparent w-100">Draff</button>
-      </li>
-      <li>
-        <button value="banned" name="status" class="btn btn-transparent w-100">Banned</button>
-      </li>
-    </form>
-  </ul>
 </div>
 @endsection
 
@@ -53,7 +34,7 @@
             Action
           </h3>
           <h4>
-            <a href="" class="text-white">
+            <a href="{{route('community-post.edit', $post->slug)}}" class="text-white">
               <i class="fas fa-pencil-alt me-1"></i>
               Edit Post
             </a>
@@ -76,7 +57,7 @@
         <h2 class="text-center mb-4">{{$post->title}}</h2>
         <div class="post-banner" style="background-image: url({{asset('storage/community-post/'.$post->banner)}}); width: 80%; height: 350px; background-position: center; background-size: cover; margin: auto"></div>
         <p class="mt-4">
-          {{$post->content}}
+          {!! $post->content !!}
         </p>
       </div>
     </div>

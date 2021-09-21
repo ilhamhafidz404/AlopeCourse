@@ -80,16 +80,16 @@
 
 <br><br><br>
 <div id="community-post" class="mt-5 bg-transparent position-relative" style="overflow-x: hiddenn; width: 100%">
-  <div class="position-absolute" style="width: 110%; height: 400px; transform: rotate(-5deg); left: -30px; background:  #36275D; top: 50%"></div>
+  <div class="position-absolute" style="width: 100%; height: 400px; transform: rotate(-5deg); left: -30px; background:  #36275D; top: 50%"></div>
   <div class="container-fluid">
     <div class="card p-3  border-0 shadow position-relative">
       <div class="position-absolute px-5 py-2 text-white c_post_banner start-0">
         <h3 class="text-center">Community Post</h3>
       </div>
-      <h2 class="text-center mb-3 text uppercase mt-4">{{$c_post->title}}</h2>
-      <div class="post-banner rounded shadow mb-4" style="background-image: url({{asset('storage/'.$c_post->banner)}}); width: 70%; height: 250px; background-position: center; background-size: cover; margin: auto; overflow:hidden"></div>
+      <h2 class="text-center mb-3 text uppercase mt-5">{{$c_post->title}}</h2>
+      <div class="post-banner rounded shadow mb-4" style="background-image: url({{asset('storage/community-post/'.$c_post->banner)}}); width: 70%; height: 250px; background-position: center; background-size: cover; margin: auto; overflow:hidden"></div>
       <p>
-        {{$c_post->content}}
+        {!! $c_post->content !!}
       </p>
     </div>
   </div>
