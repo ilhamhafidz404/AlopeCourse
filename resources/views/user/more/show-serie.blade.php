@@ -51,33 +51,94 @@
 
 @section('card-content')
 <div class="container-fluid series-content">
-  <div class="card p-4 shadow">
-    <div class="row">
-      @foreach($blogs as $blog)
-      <div class="col-md-4 mb-4">
-        <a href="{{route('blog.read', $blog->slug)}}">
-          <div class="card shadow-sm">
-            <div class="blog-serie w-100" style="background-image: url({{asset('storage/'.$blog->thumbnail)}})"></div>
-            <div class="card-body pt-1">
-              <h5 class="card-title mb-4 text-dark">
-                {{$blog->judul}}
-              </h5>
-              <div class="d-flex align-items-center justify-content-between">
-                <div>
-                  <img src="{{asset('storage/'.$blog->user->profile)}}" alt="{{$blog->user->name}}" class="rounded-circle writer-img">
-                  <small class="text-muted ms-2">
-                    {{$blog->user->name}}
-                  </small>
-                </div>
-                <small class="text-muted">
-                  {{$blog->created_at->diffForHumans()}}
-                </small>
+  <div class="card shadow">
+    <div class="accordion" id="accordionExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingVideo">
+          <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#video">
+            Video
+          </button>
+        </h2>
+        <div id="video" class="accordion-collapse collapse show">
+          <div class="accordion-body">
+            <div class="row">
+              @foreach($videos as $video)
+              <div class="col-sm-12 col-md-6 col-lg-4">
+                <a href="">
+                  <div class="card border-0 bg-transparent position-relative m-auto mb-4" style="width: 90% !important;">
+                    <span class="badge bg-danger position-absolute" style="top-0">
+                      Video
+                    </span>
+                    <div class="rounded video-thumb w-100" style="background-image: url({{asset('storage/'.$video->thumbnail)}});"></div>
+                    <div class="card-body">
+                      <h4 class="card-title my-1 text-dark">
+                        {{$video->title}}
+                      </h4>
+                      <div class="d-flex justify-content-between">
+                        <div>
+                          <small href="">
+                            #{{$video->category->nama}}
+                          </small>
+                        </div>
+                        <div>
+                          <span class="badge bg-secondary">
+                            Episode 1
+                          </span>
+                          <span class="badge bg-secondary">
+                            25 Menit
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </a>
               </div>
+              @endforeach
             </div>
           </div>
-        </a>
+        </div>
       </div>
-      @endforeach
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headerBlog">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#blog">
+            Blog
+          </button>
+        </h2>
+        <div id="blog" class="accordion-collapse collapse">
+          <div class="accordion-body">
+            <div class="row">
+              @foreach($blogs as $blog)
+              <div class="col-md-4 mb-4">
+                <a href="{{route('blog.read', $blog->slug)}}">
+                  <div class="position-relative card shadow-sm">
+                    <span class="badge bg-warning text-dark position-absolute" style="top-0">
+                      Blog
+                    </span>
+                    <div class="blog-serie w-100" style="background-image: url({{asset('storage/'.$blog->thumbnail)}})"></div>
+                    <div class="card-body pt-1">
+                      <h5 class="card-title mb-4 text-dark">
+                        {{$blog->judul}}
+                      </h5>
+                      <div class="d-flex align-items-center justify-content-between">
+                        <div>
+                          <img src="{{asset('storage/'.$blog->user->profile)}}" alt="{{$blog->user->name}}" class="rounded-circle writer-img">
+                          <small class="text-muted ms-2">
+                            {{$blog->user->name}}
+                          </small>
+                        </div>
+                        <small class="text-muted">
+                          {{$blog->created_at->diffForHumans()}}
+                        </small>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              @endforeach
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

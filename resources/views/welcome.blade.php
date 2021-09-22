@@ -4,7 +4,7 @@
 <main class="mt-5">
   <div class="album py-5 bg-light">
     <div class="container-fluid">
-      <h3 class="mb-4 text-center text-uppercase">Serie Blog</h3>
+      <h3 class="mb-4 text-center text-uppercase">Serie</h3>
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
         @foreach($series as $serie)
         <div class="col-sm-12 col-md-6 col-lg-4">
