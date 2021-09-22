@@ -64,7 +64,7 @@
             <div class="row">
               @foreach($videos as $video)
               <div class="col-sm-12 col-md-6 col-lg-4">
-                <a href="">
+                <a href="{{route('video.stream', $video->slug)}}">
                   <div class="card border-0 bg-transparent position-relative m-auto mb-4" style="width: 90% !important;">
                     <span class="badge bg-danger position-absolute" style="top-0">
                       Video

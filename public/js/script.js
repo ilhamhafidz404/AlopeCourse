@@ -1,3 +1,9 @@
+const navbar = document.querySelector('.navbar')
+window.addEventListener('scroll', function() {
+  navbar.classList.toggle('sticky', window.scrollY > 0);
+});
+
+
 var typed3 = new Typed('#typed', {
   strings: ['Web Programming', 'Web Design', 'Mobile App'],
   typeSpeed: 50,
@@ -19,14 +25,8 @@ window.addEventListener('load', function () {
   })
 });
 
-const navbar = document.querySelector('.navbar')
-window.addEventListener('scroll', function() {
-  navbar.classList.toggle('sticky', window.scrollY > 0);
-
-  var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-  var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-    return new bootstrap.Tooltip(tooltipTriggerEl)
-  })
-  console.log(tooltipTriggerList)
-
-});
+var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+  return new bootstrap.Tooltip(tooltipTriggerEl)
+})
+console.log(tooltipTriggerList)

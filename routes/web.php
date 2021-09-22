@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\VideoController;
 
 use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\BlogController as UserBlogController;
+use App\Http\Controllers\VideoController as UserVideoController;
 use App\Http\Controllers\SerieController;
 use App\Http\Controllers\TopicController;
 use App\Http\Controllers\WelcomeController;
@@ -56,6 +57,8 @@ Route::middleware(['role:active|premium|admin', 'auth'])->group(function () {
 
   Route::get('/blog', [UserBlogController::class, 'list'])->name('blog.list');
   Route::get('/blog/{slug}', [UserBlogController::class, 'read'])->name('blog.read');
+
+  Route::get('/video/{slug}', [UserVideoController::class, 'stream'])->name('video.stream');
 
   route::get('/topic', [TopicController::class, 'index'])->name('topic');
 
