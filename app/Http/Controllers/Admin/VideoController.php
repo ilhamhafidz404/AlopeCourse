@@ -47,7 +47,8 @@ class VideoController extends Controller
       'category_id' => $request->category,
       'link' => $request->link,
       'description' => $request->description,
-      'thumbnail' => $thumbnail
+      'thumbnail' => $thumbnail,
+      'episode' => $request->episode
     ]);
 
     Alert::success('Video Tutorial Baru Berhasil Ditambahkan', 'User bisa melihat video baru ini');
@@ -95,6 +96,7 @@ class VideoController extends Controller
       "description" => $request->description,
       "link" => $request->link,
       "thumbnail" => $thumbnail,
+      "episode" => $request->episode
     ]);
 
     Alert::success('Vide berhasil Diedit', 'Data video berhasil diubah');

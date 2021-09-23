@@ -26,6 +26,7 @@ class VideoFactory extends Factory
       'slug' => Str::slug($this->faker->sentence(rand(2, 3)), "-"),
       'category_id' => rand(1, 3),
       'description' => $this->faker->paragraph(5),
+      'episode' => rand(1, 50),
       'link' => 'https://www.youtube.com/embed/N7iY-jNWeFc'
     ];
   }

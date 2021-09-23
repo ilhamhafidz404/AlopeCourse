@@ -25,7 +25,7 @@
       <div class="col-md-12">
         <div class="form-group mb-3">
           <label for="title" class="form-control-label">Judul Video</label>
-          <input type="text" class="form-control form-control-alternative @error('title') is-invalid @enderror" placeholder="Judul Blog yang dibuat" id="title" name="title">
+          <input type="text" class="form-control form-control-alternative @error('title') is-invalid @enderror" placeholder="Judul Video yang dibuat" id="title" name="title">
           @error('title')
           <div class="form-text invalid-feedback text-danger">
             {{ $message }}
@@ -33,10 +33,10 @@
           @enderror
         </div>
       </div>
-      <div class="col-md-12">
+      <div class="col-md-6">
         <div class="form-group">
           <label for="category" class="form-control-label">
-            Kategori Blog
+            Kategori Video
           </label>
           <select class="form-control" id="category" name="category">
             @foreach($categories as $category)
@@ -46,6 +46,18 @@
             @endforeach
           </select>
         </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group mb-3">
+          <label for="title" class="form-control-label">Episode</label>
+          <input type="number" class="form-control form-control-alternative @error('episode') is-invalid @enderror" placeholder="Episode pada Serie ini..." id="episode" name="episode">
+          @error('episode')
+          <div class="form-text invalid-feedback text-danger">
+            {{ $message }}
+          </div>
+          @enderror
+        </div>
+
       </div>
       <div class="col-md-12">
         <div class="form-group">

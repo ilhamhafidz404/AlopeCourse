@@ -59,6 +59,7 @@ Route::middleware(['role:active|premium|admin', 'auth'])->group(function () {
   Route::get('/blog/{slug}', [UserBlogController::class, 'read'])->name('blog.read');
 
   Route::get('/video/{slug}', [UserVideoController::class, 'stream'])->name('video.stream');
+  Route::get('/video', [UserVideoController::class, 'index'])->name('list.video.tutor');
 
   route::get('/topic', [TopicController::class, 'index'])->name('topic');
 

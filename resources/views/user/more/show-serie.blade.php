@@ -82,7 +82,7 @@
                         </div>
                         <div>
                           <span class="badge bg-secondary">
-                            Episode 1
+                            Episode {{$video->episode}}
                           </span>
                           <span class="badge bg-secondary">
                             25 Menit

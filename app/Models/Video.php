@@ -13,6 +13,7 @@ class Video extends Model
     'thumbnail',
     'category_id',
     'slug',
+    'episode',
     'description',
     'link'];
   public function Category() {

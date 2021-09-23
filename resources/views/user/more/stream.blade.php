@@ -92,30 +92,36 @@
               <a href="#" class="list-group-item list-group-item-action active d-flex justify-content-between" aria-current="true">
                 <div style="width:15%" class="d-flex align-items-center justify-content-center">
                   <div class="border rounded-circle d-flex align-items-center justify-content-center" style="width: 30px; height:30px">
-                    1
+                    {{$listVideo->episode}}
                   </div>
                 </div>
                 <div class="ms-2" style="width:85%">
-                  <h5 class="mb-1">
+                  <h6 class="mb-1">
                     {{$listVideo->title}}
-                  </h5>
+                  </h6>
+                  <small>
+                    <i class="fas fa-play me-1"></i>
+                    <span class="fw-bold">
+                      Diputar
+                    </span>
+                  </small>
+                </div>
+              </a>
+              @else
+              <a href="{{route('video.stream', $listVideo->slug)}}" class="list-group-item list-group-item-action d-flex justify-content-between" aria-current="true">
+                <div style="width:15%" class="d-flex justify-content-center align-items-center">
+                  <div class="border rounded-circle d-flex align-items-center justify-content-center" style="width: 30px; height:30px">
+                    {{$listVideo->episode}}
+                  </div>
+                </div>
+                <div class="ms-2" style="width:85%">
+                  <h6 class="mb-1">
+                    {{$listVideo->title}}
+                  </h6>
                   <small>26 Min</small>
                 </div>
               </a>
               @endif
-              <a href="{{route('video.stream', $listVideo->slug)}}" class="list-group-item list-group-item-action d-flex justify-content-between" aria-current="true">
-                <div style="width:15%" class="d-flex justify-content-center align-items-center">
-                  <div class="border rounded-circle d-flex align-items-center justify-content-center" style="width: 30px; height:30px">
-                    1
-                  </div>
-                </div>
-                <div class="ms-2" style="width:85%">
-                  <h5 class="mb-1">
-                    {{$listVideo->title}}
-                  </h5>
-                  <small>26 Min</small>
-                </div>
-              </a>
               @endforeach
             </div>
           </div>

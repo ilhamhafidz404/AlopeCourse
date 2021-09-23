@@ -14,13 +14,13 @@
           <a class="nav-link {{request()->is('blog*')?'active fw-bold':''}}" aria-current="page" href="{{route('blog.list')}}">Blog</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link {{request()->is('video*')?'active fw-bold':''}}" href="{{route('list.video.tutor')}}">Video</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link {{request()->is('serie*')?'active fw-bold':''}}" aria-current="page" href="{{route('serie.index')}}">Serie</a>
         </li>
         <li class="nav-item">
           <a class="nav-link {{request()->is('topic*')?'active fw-bold':''}}" href="{{route('topic')}}">Topic</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Video</a>
         </li>
         <li class="nav-item dropdown ms-3">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">

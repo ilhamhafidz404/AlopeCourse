@@ -20,6 +20,7 @@ class CreateVideosTable extends Migration
         $table->foreignId('category_id');
         $table->text('description');
         $table->text('link');
+        $table->integer('episode');
         $table->timestamps();
       });
     }

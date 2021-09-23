@@ -8,7 +8,8 @@ use App\Models\Video;
 class VideoController extends Controller
 {
   public function index() {
-    //
+    $videos = Video::paginate(10);
+    return view('user.more.video', compact('videos'));
   }
   public function stream($slug) {
     $video = Video::whereSlug($slug)->first();
