@@ -11,6 +11,7 @@
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="/css/app.css">
+  <link rel="stylesheet" href="/css/testi.css">
 
   <!-- prism -->
   <link rel="stylesheet" href="{{asset('dist/css/prism.css')}}">

@@ -63,8 +63,8 @@ class VideoController extends Controller
   * @return \Illuminate\Http\Response
   */
   public function show(Video $video) {
-    // $video = Video::whereSlug($slug)->first();
     $videos = Video::whereCategory_id($video->category_id->all());
+    // $video = Video::whereSlug($slug)->first();
     return view('admin.video.show', compact('video', 'videos'));
   }
 
