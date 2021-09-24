@@ -48,7 +48,8 @@ class VideoController extends Controller
       'link' => $request->link,
       'description' => $request->description,
       'thumbnail' => $thumbnail,
-      'episode' => $request->episode
+      'episode' => $request->episode,
+      'duration' => $request->duration,
     ]);
 
     Alert::success('Video Tutorial Baru Berhasil Ditambahkan', 'User bisa melihat video baru ini');
@@ -63,7 +64,8 @@ class VideoController extends Controller
   */
   public function show(Video $video) {
     // $video = Video::whereSlug($slug)->first();
-    return view('admin.video.show', compact('video'));
+    $videos = Video::whereCategory_id($video->category_id->all());
+    return view('admin.video.show', compact('video', 'videos'));
   }
 
   /**
@@ -96,7 +98,8 @@ class VideoController extends Controller
       "description" => $request->description,
       "link" => $request->link,
       "thumbnail" => $thumbnail,
-      "episode" => $request->episode
+      "episode" => $request->episode,
+      "duration" => $request->duration
     ]);
 
     Alert::success('Vide berhasil Diedit', 'Data video berhasil diubah');

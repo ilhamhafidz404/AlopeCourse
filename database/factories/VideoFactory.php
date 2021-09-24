@@ -27,6 +27,7 @@ class VideoFactory extends Factory
       'category_id' => rand(1, 3),
       'description' => $this->faker->paragraph(5),
       'episode' => rand(1, 50),
+      'duration' => rand(20, 50),
       'link' => 'https://www.youtube.com/embed/N7iY-jNWeFc'
     ];
   }

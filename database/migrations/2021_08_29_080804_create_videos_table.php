@@ -21,6 +21,7 @@ class CreateVideosTable extends Migration
         $table->text('description');
         $table->text('link');
         $table->integer('episode');
+        $table->integer('duration');
         $table->timestamps();
       });
     }

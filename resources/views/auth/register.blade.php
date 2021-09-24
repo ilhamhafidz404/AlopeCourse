@@ -1,5 +1,13 @@
 @extends('auth.master')
 
+
+@section('webtitle', 'Registrasi')
+@section('title', 'Create an Account')
+@section('subtitle')
+Ayo bergabung bersama kami untuk mendapatkan tempat belajar yang memuaskan.
+@endsection
+
+
 @section('form')
 <form method="POST" action="{{ route('register') }}">
   @csrf

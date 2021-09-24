@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
   <meta name="author" content="Creative Tim">
-  <title>Argon Dashboard - Free Dashboard for Bootstrap 4</title>
+  <title>@yield('webtitle')</title>
   <!-- Favicon -->
   <link rel="icon" href="{{asset('template')}}/assets/img/brand/favicon.png" type="image/png">
   <!-- Fonts -->
@@ -27,9 +27,9 @@
         <div class="header-body text-center mb-7">
           <div class="row justify-content-center">
             <div class="col-xl-5 col-lg-6 col-md-8 px-5">
-              <h1 class="text-white">Create an account</h1>
+              <h1 class="text-white">@yield('title')</h1>
               <p class="text-lead text-white">
-                Use these awesome forms to login or create new account in your project for free.
+                @yield('subtitle')
               </p>
             </div>
           </div>
@@ -49,7 +49,7 @@
           <div class="card bg-secondary border-0">
             <div class="card-body px-lg-5 py-lg-5">
               <div class="text-center text-muted mb-4">
-                <small>Or sign up with credentials</small>
+                <small>@yield('credential'))</small>
               </div>
               @yield('form')
             </div>

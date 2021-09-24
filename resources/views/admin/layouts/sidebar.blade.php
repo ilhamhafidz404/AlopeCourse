@@ -24,7 +24,9 @@
         </ul>
         <hr class="my-3">
         <h6 class="navbar-heading p-0 text-muted">
-          <span class="docs-normal">Blog Post</span>
+          <span class="docs-normal">
+            Tutorial
+          </span>
         </h6>
         <ul class="navbar-nav">
           <li class="nav-item">
@@ -36,13 +38,19 @@
           <li class="nav-item">
             <a class="nav-link {{request()->is('admin/series*')?'active':''}}" href="{{route('series.index')}}">
               <i class="ni ni-folder-17 text-yellow"></i>
-              <span class="nav-link-text">Blog Serie</span>
+              <span class="nav-link-text">Serie</span>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link {{request()->is('admin/tag*')?'active':''}}" href="{{route('tag.index')}}">
               <i class="ni ni-tag text-orange"></i>
-              <span class="nav-link-text">Blog Tag</span>
+              <span class="nav-link-text">Serie Tag</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {{request()->is('admin/video*')?'active':''}}" href="{{route('video.index')}}">
+              <i class="fab fa-youtube text-danger"></i>
+              <span class="nav-link-text">Video</span>
             </a>
           </li>
         </ul>

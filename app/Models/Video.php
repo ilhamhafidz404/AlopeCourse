@@ -15,6 +15,7 @@ class Video extends Model
     'slug',
     'episode',
     'description',
+    'duration',
     'link'];
   public function Category() {
     return $this->belongsTo(Category::class);
