@@ -228,3 +228,82 @@ svg.footer-svg {
 .silver {
   background: linear-gradient(-20deg, #fff, #93c0d7);
 }
+
+#group span {
+  color: #36275D;
+}
+#group .sosmed {
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+#group .sosmed .text {
+  width: 89%;
+  padding: 0 20px;
+}
+
+#group .sosmed .text p {
+  font-size: 15px;
+}
+
+#group .sosmed .text h5::after {
+  content: '';
+  width: 30px;
+  height: 3px;
+  display: block;
+  background-color: red;
+}
+
+#group .facebook i {
+  color: #3b5998;
+}
+
+#group .facebook .text h5::after {
+  background-color: #3b5998;
+}
+
+#group .twitter i {
+  color: #38bdf8;
+}
+
+#group .twitter .text h5::after {
+  background-color: #38bdf8;
+}
+
+#group .instagram i {
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  color: #fff;
+  padding: 6px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+#group .instagram .text h5::after {
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+#group .discord i {
+  color: #818cf8;
+}
+
+#group .discord .text h5::after {
+  background-color: #818cf8;
+}
+
+#group .youtube i {
+  color: #ef4444;
+}
+
+#group .youtube .text h5::after {
+  background-color: #ef4444;
+}
+
+#group .telegram i {
+  color: #37aee2;
+}
+
+#group .telegram .text h5::after {
+  background-color: #37aee2;
+}
