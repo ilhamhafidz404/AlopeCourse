@@ -217,3 +217,14 @@ svg.footer-svg {
   margin-top: -20px;
   margin-top: -20px;
 }
+
+.platinum {
+  background: linear-gradient(-20deg, #9A5FE3, #64C0EA);
+}
+.gold {
+  background: linear-gradient(-20deg, gold, #fff);
+}
+
+.silver {
+  background: linear-gradient(-20deg, #fff, #93c0d7);
+}
