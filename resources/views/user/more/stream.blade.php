@@ -70,7 +70,23 @@
     <div class="mx-auto mt-4" style="width:97%">
       <div class="row">
         <div class="col-md-7">
+          <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#description">
+                  Deskripsi
+                </button>
+              </h2>
+              <div id="description" class="accordion-collapse collapse show">
+                <div class="accordion-body">
+                  {!! $video->description  !!}
+                </div>
+              </div>
+            </div>
+          </div>
           <div class="card p-3">
+
+
             <div id="disqus_thread" class="mt-4"></div>
             <script>
               (function() {

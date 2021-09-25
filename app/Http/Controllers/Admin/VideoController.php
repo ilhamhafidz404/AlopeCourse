@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Requests\VideoRequest;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Models\Video;
 use App\Models\Category;
@@ -38,7 +39,10 @@ class VideoController extends Controller
   * @param  \Illuminate\Http\Request  $request
   * @return \Illuminate\Http\Response
   */
-  public function store(Request $request) {
+  public function store(VideoRequest $request) {
+    if (!$request->thumbnail) {
+      return back()->with('thumb_error', 'Thumbnail anda kosong, mohon untuk mengulang input data kembali');
+    }
     $thumbnail = time().".".$request->thumbnail->extension();
     $request->file('thumbnail')->storeAs('public', $thumbnail);
     Video::create([
@@ -63,8 +67,9 @@ class VideoController extends Controller
   * @return \Illuminate\Http\Response
   */
   public function show(Video $video) {
-    $videos = Video::whereCategory_id($video->category_id->all());
+    //$videos = Video::whereCategory_id($video->category_id->all());
     // $video = Video::whereSlug($slug)->first();
+    $videos = Video::whereCategory_id($video->category_id)->get();
     return view('admin.video.show', compact('video', 'videos'));
   }
 
@@ -113,6 +118,9 @@ class VideoController extends Controller
   * @return \Illuminate\Http\Response
   */
   public function destroy($id) {
-    //
+    Video::find($id)-> delete();
+
+    Alert::warning('Vide berhasil Dihapus');
+    return back();
   }
 }

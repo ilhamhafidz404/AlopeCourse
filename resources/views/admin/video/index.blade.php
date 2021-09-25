@@ -15,25 +15,6 @@
   <a type="button" class="btn btn-neutral me-2 btn-sm" href="{{route('video.create')}}">
     Tambah Video
   </a>
-  <button type="button" class="btn btn-neutral btn-sm dropdown-toggle" data-bs-toggle="dropdown">
-    Filter Blog
-  </button>
-  <ul class="dropdown-menu">
-    <form action="" method="GET">
-      <li>
-        <a class="btn btn-transparent w-100" href="">Semua</a>
-      </li>
-      <li>
-        <button value="upload" name="status" class="btn btn-transparent w-100">Upload</button>
-      </li>
-      <li>
-        <button value="draff" name="status" class="btn btn-transparent w-100">Draff</button>
-      </li>
-      <li>
-        <button value="banned" name="status" class="btn btn-transparent w-100">Banned</button>
-      </li>
-    </form>
-  </ul>
 </div>
 @endsection
 
@@ -46,14 +27,27 @@
       </div>
       <div class="card-body d-flex justify-content-between">
         <div>
-          <h4 class="mb-0">{{$video->title}}</h4>
+          <span class="badge bg-gradient-primary">
+            Episode {{$video->episode}}
+          </span>
+          <span class="badge bg-gradient-danger">
+            {{$video->duration}} Menit
+          </span>
+          <h4 class="mb-0 mt-2">{{$video->title}}</h4>
           <small class="text-muted">{{$video->category->nama}}</small>
         </div>
         <div>
-          <a href="{{route('video.edit', $video->slug)}}" class="btn btn-primary btn-sm">
+          <form action="{{route('video.destroy', $video->id)}}" class="d-inline" method="POST">
+            @csrf
+            @method("DELETE")
+            <button class="btn btn-sm text-white btn-transparent bg-gradient-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="hapus" onclick="return confirm('yakin?')">
+              <i class="fas fa-trash-alt"></i>
+            </button>
+          </form>
+          <a href="{{route('video.edit', $video->slug)}}" class="btn btn-primary btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit">
             <i class="fas fa-pen"></i>
           </button>
-          <a href="{{route('video.show', $video->slug)}}" class="btn btn-sm px-3 btn-danger">
+          <a href="{{route('video.show', $video->slug)}}" class="btn btn-sm px-2 btn-danger d-block mt-3" data-bs-toggle="tooltip" data-bs-placement="top" title="Lihat Tutorial">
             <i class="fas fa-play"></i>
           </a>
         </div>

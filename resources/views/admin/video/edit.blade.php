@@ -34,7 +34,7 @@
           @enderror
         </div>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-6">
         <div class="form-group">
           <label for="category" class="form-control-label">
             Kategori Video
@@ -48,7 +48,7 @@
           </select>
         </div>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-3">
         <div class="form-group mb-3">
           <label for="episodd" class="form-control-label">Episode</label>
           <input type="number" class="form-control form-control-alternative @error('episode') is-invalid @enderror" placeholder="Episode pada Serie ini..." id="episode" name="episode" value="{{$video->episode}}">
@@ -59,10 +59,13 @@
           @enderror
         </div>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-3">
         <div class="form-group mb-3">
           <label for="duration" class="form-control-label">Durasi (menit)</label>
-          <input type="number" class="form-control form-control-alternative @error('duration') is-invalid @enderror" placeholder="Durasi video" id="duration" name="duration" value="{{$video->duration}}">
+          <div class="input-group">
+            <input type="number" class="form-control @error('duration') is-invalid @enderror" placeholder="Durasi" id="duration" name="duration" value="{{$video->duration}}">
+            <span class="input-group-text">Menit</span>
+          </div>
           @error('duration')
           <div class="form-text invalid-feedback text-danger">
             {{ $message }}
