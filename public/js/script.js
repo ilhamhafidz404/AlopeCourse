@@ -1,8 +1,12 @@
+//const tooltipTriggerList = [].slice.call//(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+//const tooltipList = tooltipTriggerList.map//(function (tooltipTriggerEl) {
+////})
+//console.log(tooltipTriggerList)
+
 const navbar = document.querySelector('.navbar')
 window.addEventListener('scroll', function() {
   navbar.classList.toggle('sticky', window.scrollY > 0);
 });
-
 
 const next = document.querySelector('.next');
 const prev = document.querySelector('.prev');
@@ -56,9 +60,3 @@ window.addEventListener('load', function () {
     }
   })
 });
-
-var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-  return new bootstrap.Tooltip(tooltipTriggerEl)
-})
-console.log(tooltipTriggerList)

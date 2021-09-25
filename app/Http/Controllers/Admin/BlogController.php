@@ -149,4 +149,10 @@ class BlogController extends Controller
     Alert::success('Berhasil Dihapus', 'Blog Sekarang dihapus');
     return back();
   }
+
+  public function addSyntax($slug) {
+    $blog = Blog::whereSlug($slug)->first();
+
+    return view('admin.blog.addSyntax');
+  }
 }

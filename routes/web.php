@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\PostController as AdminPostController;
 use App\Http\Controllers\Admin\CommunityPostController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\VideoController;
+use App\Http\Controllers\Admin\BlogSyntaxController;
 
 use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\BlogController as UserBlogController;
@@ -39,6 +40,9 @@ Route::middleware(['role:admin', 'auth'])->group(function () {
   route::resource('/admin/series', CategoryController::class);
   route::resource('/admin/users', UserController::class);
   route::resource('/admin/blog', BlogController::class);
+  route::get('/admin/blsyntax', [BlogSyntaxController::class, 'index'])->name('syntax.index');
+  route::get('/admin/blsyntax/{slug}/add', [BlogSyntaxController::class, 'add'])->name('syntax.add');
+  route::put('/admin/blsyntax/{syntax}', [BlogSyntaxController::class, 'save'])->name('syntax.save');
   route::resource('/admin/tag', TagController::class);
   route::resource('/admin/video', VideoController::class);
   route::resource('/admin/community-post', CommunityPostController::class);
