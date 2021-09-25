@@ -98,6 +98,7 @@
               {{$likes}}
             </a>
             @endif
+            <a href="{{$next}}">a</a>
             <hr>
             <div class="article-footer">
               <div class="row">

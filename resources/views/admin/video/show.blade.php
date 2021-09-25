@@ -17,12 +17,22 @@
 
 <div class="row">
   <div class="col-md-7">
-    <div class="card mb-3 p-3">
+    <div class="card mb-3 p-3 position-relative">
       <div class="text-center">
         <small>Serie Pembelajaran</small>
         <h3 class="fw-bold mt-0">{{$video->category->nama}}</h3>
+        <div class="d-flex align-items-center justify-content-center rounded py-4 bg-gradient-primary top-50 position-absolute" style="width:25px; height:30px; right:-10px; transform: translateY(-50%)">
+          <a href="{{$next}}" class="text-white">
+            <i class="fas fa-chevron-right"></i>
+          </a>
+        </div>
+        <div class="d-flex align-items-center justify-content-center rounded py-4 bg-gradient-primary top-50 position-absolute" style="width:25px; height:30px; left:-10px; transform: translateY(-50%)">
+          <a href="{{$prev}}" class="text-white">
+            <i class="fas fa-chevron-left"></i>
+          </a>
+        </div>
       </div>
-      <p class="text-dark mt-3">
+      <p class="text-dark mt-3 mx-auto" style="width: 90%">
         {{$video->category->description}}
       </p>
     </div>

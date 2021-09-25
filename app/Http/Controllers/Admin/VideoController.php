@@ -70,7 +70,10 @@ class VideoController extends Controller
     //$videos = Video::whereCategory_id($video->category_id->all());
     // $video = Video::whereSlug($slug)->first();
     $videos = Video::whereCategory_id($video->category_id)->get();
-    return view('admin.video.show', compact('video', 'videos'));
+    $category = Category::whereId($video->category_id)->first();
+    $next = Video::whereCategory_id($category->id +1)->pluck('slug')->first();
+    $prev = Video::whereCategory_id($category->id -1)->pluck('slug')->first();
+    return view('admin.video.show', compact('video', 'videos', 'next', 'prev'));
   }
 
   /**

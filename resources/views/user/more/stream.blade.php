@@ -70,6 +70,36 @@
     <div class="mx-auto mt-4" style="width:97%">
       <div class="row">
         <div class="col-md-7">
+
+          <div class="card mb-3 p-3 position-relative">
+            <div class="text-center">
+              <small>Serie Pembelajaran</small>
+              <h3 class="fw-bold mt-0 mb-1">{{$video->category->nama}}</h3>
+              <ul class="d-flex justify-content-center p-0">
+                @foreach($category->tag as $tag)
+                <li>
+                  <button class="btn btn-transparent text-primary px-1 py-1" data-bs-toggle="popover" title="{{$tag->nama}}" data-bs-trigger="focus" data-bs-content="{{$tag->description}}">
+                    #{{$tag->nama}}
+                  </button>
+                </li>
+                @endforeach
+              </ul>
+              <div class="d-flex align-items-center justify-content-center rounded py-4 top-50 position-absolute" style="width:25px; height:30px; right:-10px; transform: translateY(-50%); background-color: #36275D">
+                <a href="{{$next}}" class="text-white">
+                  <i class="fas fa-chevron-right"></i>
+                </a>
+              </div>
+              <div class="d-flex align-items-center justify-content-center rounded py-4 top-50 position-absolute" style="width:25px; height:30px; left:-10px; transform: translateY(-50%); background-color: #36275D">
+                <a href="{{$prev}}" class="text-white">
+                  <i class="fas fa-chevron-left"></i>
+                </a>
+              </div>
+            </div>
+            <p class="text-dark mt-3 mx-auto" style="width: 90%">
+              {{$video->category->description}}
+            </p>
+          </div>
+
           <div class="accordion" id="accordionExample">
             <div class="accordion-item">
               <h2 class="accordion-header" id="headingOne">
@@ -85,8 +115,6 @@
             </div>
           </div>
           <div class="card p-3">
-
-
             <div id="disqus_thread" class="mt-4"></div>
             <script>
               (function() {
@@ -105,9 +133,9 @@
             <div class="list-group p-0">
               @foreach($videos as $listVideo)
               @if($video->slug == $listVideo->slug)
-              <a href="#" class="list-group-item list-group-item-action active d-flex justify-content-between" aria-current="true">
+              <a href="#" class="list-group-item list-group-item-action active d-flex justify-content-between" style=" background: linear-gradient(-45deg, #821FC8, #23ADD1 );" aria-current="true">
                 <div style="width:15%" class="d-flex align-items-center justify-content-center">
-                  <div class="border rounded-circle d-flex align-items-center justify-content-center" style="width: 30px; height:30px">
+                  <div class="border rounded-circle d-flex align-items-center justify-content-center" style="width: 30px; height:30px;">
                     {{$listVideo->episode}}
                   </div>
                 </div>
@@ -151,6 +179,12 @@
   <!-- Option 1: Bootstrap Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
   <script src="{{asset('dist/js/prism.js')}}"></script>
+  <script>
+    var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+      return new bootstrap.Popover(popoverTriggerEl)
+    })
+  </script>
   <script src="https://kit.fontawesome.com/bfdfedea1a.js" crossorigin="anonymous"></script>
   <script src="/js/script.js"></script>
   @include('sweetalert::alert')

@@ -16,9 +16,11 @@ class BlogController extends Controller
 
   public function read($slug) {
     $blog = Blog::whereSlug($slug)->first();
+    $next = Blog::where('id', $blog->id +1)->pluck('slug')->first();
+    $previous = Blog::where('id', $blog->id -1)->pluck('slug')->first();
     $serie = Category::whereId($blog->category_id)->first();
     $likes = Like::whereBlog_id($blog->id)->count();
     $ilike = Like::whereBlog_id($blog->id)->whereUser_id(auth()->user()->id)->first();
-    return view('user.more.read-blog', compact('blog', 'serie', 'likes', 'ilike'));
+    return view('user.more.read-blog', compact('blog', 'serie', 'likes', 'ilike', 'next', 'previous'));
   }
 }
