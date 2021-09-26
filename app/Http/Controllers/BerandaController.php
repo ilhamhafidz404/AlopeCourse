@@ -17,7 +17,7 @@ class BerandaController extends Controller
   public function __invoke() {
     $blogs = Blog::latest()->take(7)->get();
     $series = Category::latest()->get();
-    $c_post = CommunityPost::first();
+    $c_post = CommunityPost::latest()->first();
     return view("welcome", compact('blogs', 'series', 'c_post'));
   }
 }

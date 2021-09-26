@@ -15,10 +15,11 @@
 
   <!-- prism -->
   <link rel="stylesheet" href="{{asset('dist/css/prism.css')}}">
+  <link rel="stylesheet" href="{{asset('css/lightbox.min.css')}}">
 
   <!-- glider -->
   <link rel="stylesheet" href="{{asset('dist/css/glider.min.css')}}">
-  <link rel="stylesheet" href="{{asset('css/style.css')}}">
+  <link rel="stylesheet" href="{{asset('css/mystyle.css')}}">
 
   <title>user</title>
 </head>
@@ -52,6 +53,8 @@
 
       <!-- Glider  -->
       <script src="{{asset('dist/js/glider.min.js')}}"></script>
+
+      <script src="{{asset('js/lightbox-plus-jquery.min.js')}}"></script>
 
       <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
       <script src="/js/script.js"></script>

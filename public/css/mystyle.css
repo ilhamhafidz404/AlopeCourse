@@ -1,0 +1,323 @@
+a {
+  text-decoration: none !important;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.container-fluid {
+  width: 90% !important;
+}
+
+body {
+  font-family: "Poppins", Sans-Serif;
+  overflow-x: hidden;
+  background-color: #f1f5f9;
+  width: 100vw !important;
+}
+body.banned {
+  background: linear-gradient(-45deg, #821FC8, #23ADD1);
+  min-height: 100vh;
+}
+
+.navbar {
+  transition: 0.5s;
+}
+.navbar.sticky {
+  background-color: white !important;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+  padding: 5px 30px !important;
+}
+.navbar.sticky a {
+  color: #333 !important;
+}
+
+section.header {
+  background: linear-gradient(-45deg, #821FC8, #23ADD1);
+}
+section.header .header-path {
+  background-color: #5D4A8E;
+  bottom: -35px;
+}
+section.header .header-hot {
+  background-color: rgba(0, 0, 0, 0.3);
+  max-width: 400px;
+  border-radius: 20px;
+}
+section.header .header-hot span.badge {
+  border-radius: 20px;
+}
+section.header .circle-container {
+  padding-top: 120px;
+  position: relative;
+  height: 300px;
+  margin-top: 50px;
+}
+section.header .circle-container .circle {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+section.header .circle-container .circle.circle1 {
+  width: 100px;
+  height: 100px;
+  z-index: 3;
+}
+section.header .circle-container .circle.circle2 {
+  width: 200px;
+  height: 200px;
+  z-index: 2;
+}
+section.header .circle-container .circle.circle3 {
+  height: 300px;
+  width: 300px;
+  z-index: 1;
+}
+section.header .circle-container .circle span {
+  background-color: #fff;
+  padding: 5px;
+  width: 25px;
+  height: 25px;
+}
+section.header .circle-container .circle span.html {
+  top: 0;
+  left: 5px;
+  color: #e34c26;
+}
+section.header .circle-container .circle span.css {
+  bottom: 0;
+  right: 5px;
+  color: #264de4;
+}
+section.header .circle-container .circle span.js {
+  top: -10px;
+  left: 55%;
+  color: #f0db4f;
+}
+section.header .circle-container .circle span.php {
+  bottom: 45px;
+  left: 0;
+  color: #8993be;
+}
+section.header .circle-container .circle span.sass {
+  bottom: 90px;
+  right: -13px;
+  color: #cc6699;
+}
+section.header .circle-container .circle span.laravel {
+  top: 30px;
+  left: 33px;
+  color: #fb503b;
+}
+section.header .circle-container .circle span.vue {
+  bottom: 20px;
+  right: 43px;
+  color: #42b883;
+}
+section.header .circle-container .circle span.react {
+  top: 60px;
+  right: 8px;
+  color: #61DBFB;
+}
+section.header .circle-container .circle span.node {
+  bottom: 3px;
+  left: 70px;
+  color: #68A063;
+}
+
+.card-img-rounded {
+  border-radius: 10px;
+}
+
+.latest-blog {
+  background: linear-gradient(45deg, #594DD4, #7749CB);
+}
+.latest-blog .latest-blog-title {
+  max-width: 400px;
+  margin-top: -35px !important;
+  background-color: #36275D;
+}
+
+#community-post {
+  width: 90%;
+  margin: auto;
+}
+#community-post .c_post_ribbon {
+  background: linear-gradient(45deg, #594DD4, #7749CB);
+  border-radius: 5px 0 10px 0;
+  top: -10px;
+}
+#community-post .c_post_ribbon::before {
+  content: "";
+  width: 200px;
+  height: 50px;
+  background: linear-gradient(45deg, #594DD4, #7749CB);
+  position: absolute;
+  left: -200px;
+  top: 20px;
+}
+#community-post .c_post_banner {
+  background-position: center;
+  background-size: cover;
+  right: -20px;
+  bottom: -40px;
+  position: absolute;
+}
+#community-post .c_post_text {
+  width: calc(100% - 180px);
+}
+
+#testi {
+  background: #36275D;
+  z-index: 100;
+  margin-top: -10px;
+}
+
+.btn_price {
+  border-radius: 20px;
+}
+
+.platinum {
+  background: linear-gradient(-45deg, #821FC8, #23ADD1);
+}
+
+.gold {
+  background: linear-gradient(-20deg, gold, #fff);
+}
+
+.silver {
+  background: linear-gradient(-20deg, #fff, #93c0d7);
+}
+
+#group span {
+  color: #36275D;
+}
+#group .sosmed {
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  margin: 20px 0;
+}
+#group .sosmed .text {
+  width: 89%;
+  padding: 0 20px;
+}
+#group .sosmed .text p {
+  font-size: 15px;
+}
+#group .sosmed .text h5::after {
+  content: "";
+  width: 30px;
+  height: 3px;
+  display: block;
+}
+#group .facebook i {
+  color: #3b5998;
+}
+#group .facebook h5::after {
+  background-color: #3b5998;
+}
+#group .twitter i {
+  color: #38bdf8;
+}
+#group .twitter h5::after {
+  background-color: #38bdf8;
+}
+#group .instagram i {
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  color: #fff;
+  padding: 6px;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+#group .instagram h5::after {
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+#group .discord i {
+  color: #818cf8;
+}
+#group .discord h5::after {
+  background-color: #818cf8;
+}
+#group .youtube i {
+  color: #ef4444;
+}
+#group .youtube h5::after {
+  background-color: #ef4444;
+}
+#group .telegram i {
+  color: #37aee2;
+}
+#group .telegram h5::after {
+  background-color: #37aee2;
+}
+
+.premium {
+  background: linear-gradient(-20deg, #9A5FE3, #64C0EA);
+  margin-top: 150px !important;
+  margin-bottom: -230px !important;
+  max-width: 500px;
+}
+.premium .btn-premium {
+  border-radius: 25px;
+}
+
+footer {
+  background-color: #36275D;
+  margin-top: -10px;
+}
+
+svg.footer-svg {
+  margin-top: -200px;
+}
+
+.serie-name::before {
+  content: "";
+  width: 200px;
+  height: 10px;
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.5);
+  bottom: 0;
+}
+
+.series-content {
+  margin-top: -37px !important;
+}
+
+.blog-serie {
+  height: 150px;
+  max-height: 200px;
+  background-position: center;
+  background-size: cover;
+}
+
+.video-thumb {
+  height: 200px;
+  max-height: 200px;
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
+}
+
+.writer-img {
+  width: 25px;
+  max-width: 35px;
+}
+
+.blog-thumb-header {
+  background-position: center;
+  background-size: cover;
+  height: 320px;
+  max-height: 350px;
+}
+.header-card {
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #36275D;
+  padding: 0 90px;
+}
+
+.serie-blog-info {
+  background: #36275D;
+}

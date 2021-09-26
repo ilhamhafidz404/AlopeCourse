@@ -60,3 +60,8 @@ window.addEventListener('load', function () {
     }
   })
 });
+
+lightbox.option({
+  'disableScrolling': true,
+  'wrapAround': true
+})

@@ -23,6 +23,7 @@
     },
     "dependencies": {
         "@popperjs/core": "^2.10.1",
+        "lightbox2": "^2.11.3",
         "typed.js": "^2.0.12"
     }
 }

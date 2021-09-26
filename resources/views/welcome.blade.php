@@ -51,14 +51,29 @@
           <div class="gradient-border">
             <div class="glider" id="blog-series">
               @foreach($blogs as $blog)
-              <div>
+              <div class="mx-2">
                 <a href="{{route('blog.read', $blog->slug)}}">
-                  <div class="card border-0 bg-transparent m-auto mb-4" style="width: 90% !important;">
-                    <img src="{{asset('storage/default.jpg')}}" class="card-img-rounded" width="100%">
-                    <div class="card-body pt-1 px-0">
-                      <small class="card-title text-white">
-                        {{$blog->judul}}
+                  <div class="card shadow-sm">
+                    <div class="blog-serie w-100" style="background-image: url({{asset('storage/'.$blog->thumbnail)}})"></div>
+                    <div class="card-body pt-1">
+                      <small class="text-muted">
+                        {{$blog->category->nama}}
                       </small>
+                      <h5 class="card-title mb-4 text-dark mt-0">
+                        {{$blog->judul}}
+                      </h5>
+                      <div class="d-flex align-items-center justify-content-between">
+                        <div>
+                          <img src="{{asset('storage/'.$blog->user->profile)}}" alt="{{$blog->user->name}}" class="rounded-circle writer-img">
+                          <small class="text-muted ms-2">
+                            {{$blog->user->name}}
+                          </small>
+                        </div>
+                        <small class="text-muted">
+                          <?php $tgl = ($blog->created_at->diff()->days < 1) ? $blog->created_at->diffForHumans() : $blog->created_at->format('M, Y') ?>
+                          {{$tgl}}
+                        </small>
+                      </div>
                     </div>
                   </div>
                 </a>
@@ -75,22 +90,27 @@
   </div>
 
   <br><br><br>
-  <div id="community-post" class="mt-5 bg-transparent position-relative" style="overflow-x: hiddenn; width: 100%">
+  <div id="community-post" class="mt-5">
     <div class="container-fluid">
-      <div class="card p-3  border-0 shadow position-relative">
-        <div class="position-absolute px-5 py-2 text-white c_post_banner start-0">
+      <div class="card p-3 pb-5 border-0 shadow position-relative">
+        <a href="{{asset('storage/community-post/'.$c_post->banner)}}" data-lightbox="image-1">
+          <div class="c_post_banner rounded shadow-sm mb-4" style="background-image: url({{asset('storage/community-post/'.$c_post->banner)}}); width: 180px; height: 180px"></div>
+        </a>
+        <div class="position-absolute px-5 py-2 text-white c_post_ribbon start-0">
           <h3 class="text-center">Community Post</h3>
         </div>
         <h2 class="text-center mb-3 text uppercase mt-5">{{$c_post->title}}</h2>
-        <div class="post-banner rounded shadow mb-4" style="background-image: url({{asset('storage/community-post/'.$c_post->banner)}}); width: 70%; height: 250px; background-position: center; background-size: cover; margin: auto; overflow:hidden"></div>
-        <p>
+        <!--   <div class="c_post_banner rounded shadow mb-4" style="background-image: url({{asset('storage/community-post/'.$c_post->banner)}});"></div>-->
+        <div class="c_post_text ps-2 mt-3">
           {!! $c_post->content !!}
-        </p>
+          <br>
+        </div>
+        <small class="text-muted position-absolute start-0 bottom-0 m-2">*Klik gambar untuk memperbesar</small>
       </div>
     </div>
   </div>
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" style="margin-top:-200px"><path fill="#36275D" fill-opacity="1" d="M0,288L1440,160L1440,320L0,320Z"></path></svg>
-  <div id="testi" class="pt-1">
+  <div id="testi" class="pt-1 position-relative">
     <section class="container">
       <div class="title text-center">
         <h3 class="text-white mt-5">TESTIMONI</h3>
@@ -174,7 +194,7 @@
 
 
   <div id="pricing" class="m-auto" style="width: 95%;">
-    <h3 class="text-center fw-bolda">ALOPE PREMIUM ACCESS</h3>
+    <h3 class="text-center fw-bold">ALOPE PREMIUM ACCESS</h3>
     <p class="text-center m-auto text-muted" style="width: 60%;">
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum quisquam molestiae ipsa aliquid consectetur dolor nobis quasi iure est,
     </p>
@@ -217,7 +237,7 @@
               Claim Ebook Alope secara Gratis
             </li>
           </ul>
-          <a href="" class="btn btn-primary text-white mt-4">
+          <a href="" class="btn btn-primary text-white mt-4 btn_price">
             Beli Akses
           </a>
         </div>
@@ -264,7 +284,7 @@
               Claim Ebook Alope secara Gratis
             </li>
           </ul>
-          <a href="" class="btn btn-primary text-white mt-4">
+          <a href="" class="btn btn-primary text-white mt-4 btn_price">
             Beli Akses
           </a>
         </div>
@@ -299,7 +319,7 @@
               Source Code Gratis
             </li>
           </ul>
-          <a href="" class="btn btn-primary text-white mt-4">
+          <a href="" class="btn btn-primary text-white mt-4 btn_price">
             Beli Akses
           </a>
         </div>
@@ -371,7 +391,7 @@
       <span>Jadi bagian dari Team??</span>
       <div class="row mt-3">
         <div class="col-md-6">
-          <div class="facebook d-flex align-items-center sosmed">
+          <div class="facebook d-flex align-items-center sosmed justify-content-between">
             <div class="i">
               <i class="fs-1 fab fa-facebook-f"></i>
             </div>

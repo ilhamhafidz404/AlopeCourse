@@ -6,35 +6,13 @@
 
   <link rel="stylesheet" href="{{asset('dist/css/prism.css')}}">
 
+  <link rel="stylesheet" href="{{asset('css/mystyle.css')}}">
+
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 
   <title>Hello, world!</title>
   <style>
-    .navbar {
-      transition: 0.5s;
-    }
-    .navbar.sticky {
-      background-color: white !important;
-      box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
-      padding: 5px 30px !important;
-    }
-    .navbar.sticky a {
-      color: #333 !important;
-    }
-    .blog-thumb-header {
-      background-position: center;
-      background-size: cover;
-      height: 320px;
-      max-height: 350px;
-    }
-    footer {
-      background-color: #36275D;
-      margin-top: -10px;
-    }
-    .container-fluid {
-      width: 90% !important;
-    }
     .svg-head {
       background-size: cover;
       background-position: center;
@@ -44,18 +22,6 @@
       position: absolute;
       z-index: -100;
       top: -30px;
-    }
-    .serie-blog-info {
-      background: #36275D
-    }
-    ul {
-      list-style: none;
-    }
-    .footer-svg {
-      margin-top: -190px;
-    }
-    a {
-      text-decoration: none;
     }
   </style>
 </head>
