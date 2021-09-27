@@ -65,7 +65,25 @@
   <br><br><br>
   <main class="mx-auto mt-4" style="width: 97%">
     <div class="card p-2">
+      @if($video->isPremium)
+      @if(auth()->user()->hasRole('premium'))
       <iframe width="100%" height="350px" src="{{$video->link}}"></iframe>
+      @else
+      <div class="p-4 bg-light">
+        <h3>OOPS!!</h3>
+        <p class="text-muted">
+          Video ini termasuk dalam list premium, <br>
+          Anda harus berlangganan jika ingin tonton video ini.
+        </p>
+        <a href="https://api.whatsapp.com/send?phone=6283871352030&text=Hai%20saya%20ingin%20berlangganan%20di%20ALOPE" class="btn btn-primary px-5 mt-4">
+          <i class="fas fa-rocket me-2"></i>
+          Mulai Berlangganan
+        </a>
+      </div>
+      @endif
+      @else
+      <iframe width="100%" height="350px" src="{{$video->link}}"></iframe>
+      @endif
     </div>
     <div class="mx-auto mt-4" style="width:97%">
       <div class="row">
@@ -129,6 +147,16 @@
           </div>
         </div>
         <div class="col-md-5">
+          <div class="card p-3 mb-4 text-center position-relative">
+            <a href="{{$prevVideo}}" class="position-absolute start-0 fs-5 top-50 text-muted ms-3" style="transform:translateY(-50%)">
+              <i class="fas fa-chevron-left"></i>
+            </a>
+            <h4 class="mt-2 mx-auto" style="max-width: 90%">{{$video->title}}</h4>
+            <a href="{{$nextVideo}}" class="position-absolute end-0 fs-5 top-50 text-muted me-3" style="transform:translateY(-50%)">
+              <i class="fas fa-chevron-right"></i>
+            </a>
+            <small>Epsode {{$video->episode}}/ {{$videos->count()}}</small>
+          </div>
           <div class="card shadow-sm p-0">
             <div class="list-group p-0">
               @foreach($videos as $listVideo)
@@ -150,6 +178,9 @@
                     </span>
                   </small>
                 </div>
+                @if($listVideo->isPremium)
+                <i class="fas fa-crown text-warning"></i>
+                @endif
               </a>
               @else
               <a href="{{route('video.stream', $listVideo->slug)}}" class="list-group-item list-group-item-action d-flex justify-content-between" aria-current="true">
@@ -164,6 +195,9 @@
                   </h6>
                   <small>26 Min</small>
                 </div>
+                @if($listVideo->isPremium)
+                <i class="fas fa-crown text-warning"></i>
+                @endif
               </a>
               @endif
               @endforeach
@@ -187,6 +221,24 @@
   </script>
   <script src="https://kit.fontawesome.com/bfdfedea1a.js" crossorigin="anonymous"></script>
   <script src="/js/script.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
+  <script>
+    const clipboard = new ClipboardJS('.copy');
+
+    clipboard.on('success', function(e) {
+      console.info('Action:', e.action);
+      console.info('Text:', e.text);
+      console.info('Trigger:', e.trigger);
+
+      e.clearSelection();
+    });
+
+    clipboard.on('error', function(e) {
+      console.error('Action:', e.action);
+      console.error('Trigger:', e.trigger);
+    });
+  </script>
   @include('sweetalert::alert')
 </body>
 </html>

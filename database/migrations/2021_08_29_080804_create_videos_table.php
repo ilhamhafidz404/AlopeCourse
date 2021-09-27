@@ -22,16 +22,17 @@ class CreateVideosTable extends Migration
         $table->text('link');
         $table->integer('episode');
         $table->integer('duration');
-        $table->timestamps();
-      });
+        $table->tinyInteger('isPremium')->default(false);
+          $table->timestamps();
+        });
     }
 
-    /**
-    * Reverse the migrations.
-    *
-    * @return void
-    */
-    public function down() {
-      Schema::dropIfExists('videos');
+      /**
+      * Reverse the migrations.
+      *
+      * @return void
+      */
+      public function down() {
+        Schema::dropIfExists('videos');
+      }
     }
-  }

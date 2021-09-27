@@ -81,7 +81,6 @@
           </div>
           @enderror
         </div>
-
       </div>
       <div class="col-md-12">
         <div class="form-group">
@@ -98,13 +97,18 @@
         <div class="form-group">
           <label for="editor" class="form-control-label">Deskripsi</label>
           <textarea class="form-control" id="editor" rows="4" name="description">
-
           </textarea>
           @error('description')
           <div class="form-text text-danger">
             {{ $message }}
           </div>
           @enderror
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input" name="premium" id="premium">
+          <label class="form-check-label" for="premium">Upload sebagai tutorial Premium</label>
         </div>
       </div>
       <div class="col-md-12 text-end">

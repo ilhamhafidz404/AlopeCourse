@@ -10,12 +10,14 @@ use App\Http\Controllers\Admin\CommunityPostController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\VideoController;
 use App\Http\Controllers\Admin\BlogSyntaxController;
+use App\Http\Controllers\Admin\TokenController as AdminTokenController;
 
 use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\BlogController as UserBlogController;
 use App\Http\Controllers\VideoController as UserVideoController;
 use App\Http\Controllers\SerieController;
 use App\Http\Controllers\TopicController;
+use App\Http\Controllers\TokenController as UserTokenController;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\LikeController;
 
@@ -47,6 +49,7 @@ Route::middleware(['role:admin', 'auth'])->group(function () {
   route::resource('/admin/video', VideoController::class);
   route::resource('/admin/community-post', CommunityPostController::class);
   route::resource('/admin/posts', AdminPostController::class);
+  route::resource('/admin/token', AdminTokenController::class);
 });
 
 Route::middleware(['role:premium', 'auth'])->group(function () {
@@ -68,6 +71,8 @@ Route::middleware(['role:active|premium|admin', 'auth'])->group(function () {
   route::get('/topic', [TopicController::class, 'index'])->name('topic');
 
   route::get('/like/{blog_id}', LikeController::class)->name('like.blog');
+
+  route::post('/token', UserTokenController::class)->name('getPremium');
 });
 
 Auth::routes();

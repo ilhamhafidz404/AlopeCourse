@@ -22,7 +22,10 @@
 <div class="row">
   @foreach($videos as $video)
   <div class="col-md-6">
-    <div class="card overflow-hidden">
+    <div class="card overflow-hidden position-relative">
+      @if($video->isPremium)
+      <i class="fas fa-crown text-yellow position-absolute end-0 top-0 bg-white rounded-circle p-2 m-2"></i>
+      @endif
       <div class="card-image" style="height: 200px; width: 100%; background-image: url({{asset('storage/'.$video->thumbnail)}}); background-position: center; background-size: cover;">
       </div>
       <div class="card-body d-flex justify-content-between">

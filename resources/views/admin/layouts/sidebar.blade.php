@@ -21,6 +21,14 @@
               <span class="nav-link-text">Management User</span>
             </a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link {{request()->is('admin/token*')?'active':''}}" href="{{route('token.index')}}">
+              <i class="ni ni-single-02 text-yellow"></i>
+              <span class="nav-link-text">
+                Token Premium
+              </span>
+            </a>
+          </li>
         </ul>
         <hr class="my-3">
         <h6 class="navbar-heading p-0 text-muted">

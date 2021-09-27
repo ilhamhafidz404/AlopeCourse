@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
 use \App\Models\Blog;
 use \App\Models\Post;
+use \App\Models\Token;
 
 class User extends Authenticatable
 {
@@ -53,5 +54,9 @@ class User extends Authenticatable
 
   public function Post() {
     return $this->hasMany(Post::class);
+  }
+
+  public function Token() {
+    return $this->hasMany(Token::class);
   }
 }

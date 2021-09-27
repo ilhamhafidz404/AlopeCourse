@@ -43,6 +43,10 @@ class VideoController extends Controller
     if (!$request->thumbnail) {
       return back()->with('thumb_error', 'Thumbnail anda kosong, mohon untuk mengulang input data kembali');
     }
+    $ispremium = false;
+    if ($request->premium) {
+      $ispremium = true;
+    }
     $thumbnail = time().".".$request->thumbnail->extension();
     $request->file('thumbnail')->storeAs('public', $thumbnail);
     Video::create([
@@ -54,6 +58,7 @@ class VideoController extends Controller
       'thumbnail' => $thumbnail,
       'episode' => $request->episode,
       'duration' => $request->duration,
+      'isPremium' => $ispremium
     ]);
 
     Alert::success('Video Tutorial Baru Berhasil Ditambahkan', 'User bisa melihat video baru ini');
