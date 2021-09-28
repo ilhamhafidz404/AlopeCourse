@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Blog;
 use App\Models\Category;
 use App\Models\CommunityPost;
+use App\Models\Token;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class BerandaController extends Controller
 {

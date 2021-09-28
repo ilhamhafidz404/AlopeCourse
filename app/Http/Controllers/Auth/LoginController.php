@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use App\Models\Token;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class LoginController extends Controller
 {
@@ -38,8 +40,19 @@ class LoginController extends Controller
     $this->middleware('guest')->except('logout');
   }
   protected function authenticated(Request $request, $user) {
+    //kalau admin tidak perlu pengecekan
     if ($user->hasRole('admin')) {
       return redirect()->route('dashboard.admin');
+    }
+
+    //cek dulu si user punya token atau tidak
+    $token = Token::whereUser_id($user->id)->first();
+    if ($token) {
+      if ($token->expired_at < date('Y-m-d H:s:i')) {
+        Alert::toast('Paket Premium Anda telah habis', 'info');
+        $user->syncRoles('active');
+        $token->delete();
+      }
     }
     return redirect()->route('beranda');
   }
