@@ -16,6 +16,8 @@ class CreateTokensTable extends Migration
       $table->id();
       $table->string("token");
       $table->foreignId("user_id");
+      $table->enum("type", ["silver", "gold", "platinum"]);
+      $table->timestamp("expired_at");
       $table->timestamps();
     });
   }
