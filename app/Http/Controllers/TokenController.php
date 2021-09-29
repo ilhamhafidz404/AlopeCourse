@@ -15,7 +15,12 @@ class TokenController extends Controller
   * @param  \Illuminate\Http\Request  $request
   * @return \Illuminate\Http\Response
   */
-  public function __invoke(Request $request) {
+
+  public function redeem() {
+    return view('user.more.token');
+  }
+
+  public function getPremium(Request $request) {
     $tokenInput = $request->token;
     $token = Token::whereToken($tokenInput)->first();
     if ($token) {

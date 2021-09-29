@@ -19,6 +19,7 @@ use App\Http\Controllers\SerieController;
 use App\Http\Controllers\TopicController;
 use App\Http\Controllers\TokenController as UserTokenController;
 use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\LikeController;
 
 use App\Http\Controllers\Premium\PostController as PremiumPostController;
@@ -72,7 +73,13 @@ Route::middleware(['role:active|premium|admin', 'auth'])->group(function () {
 
   route::get('/like/{blog_id}', LikeController::class)->name('like.blog');
 
-  route::post('/token', UserTokenController::class)->name('getPremium');
+  route::get('/reedem-token', [UserTokenController::class, 'redeem'])->name('redeem');
+  route::post('/token', [UserTokenController::class, 'getPremium'])->name('getPremium');
+
+  route::get('/u/{profile}', [ProfileController::class, 'index'])->name('profile.index');
+
+  route::get('/u/{profile}/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+  route::put('/u/{profile}', [ProfileController::class, 'update'])->name('profile.update');
 });
 
 Auth::routes();

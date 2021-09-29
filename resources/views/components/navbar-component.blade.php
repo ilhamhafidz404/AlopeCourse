@@ -28,8 +28,9 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li>
-              <a class="dropdown-item" href="">
-                <i class="fas fa-user me-2"></i> Profil
+              <a class="dropdown-item" href="{{route('profile.index', auth()->user()->username)}}">
+                <img src="{{asset('storage/'.auth()->user()->profile)}}" alt="foto-profile" class="rounded-circle me-3" width="30px">
+                Profil
               </a>
             </li>
             @if(auth()->user()->hasRole('admin'))
@@ -38,6 +39,18 @@
             <li><a class="dropdown-item" href="{{route('dashboard.premium')}}">Dashboard</a></li>
             @endif
             <li><hr class="dropdown-divider"></li>
+            <li>
+              <a class="dropdown-item" href="{{route('profile.edit', auth()->user()->username)}}">
+                <i class="fas fa-cog me-4"></i>
+                Edit Profile
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="{{route('redeem')}}">
+                <i class="fas fa-cog me-4"></i>
+                Reedem Token
+              </a>
+            </li>
             <li>
               <a class="dropdown-item" href="{{ route('logout') }}"
                 onclick="event.preventDefault();

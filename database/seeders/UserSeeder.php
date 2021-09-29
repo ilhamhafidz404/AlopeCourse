@@ -15,6 +15,7 @@ class UserSeeder extends Seeder
   public function run() {
     $admin = User::create([
       'name' => "admin",
+      'username' => "adggvvmin",
       'email' => 'admin@admin.com',
       'password' => bcrypt('admin')
     ]);
@@ -23,6 +24,7 @@ class UserSeeder extends Seeder
 
     $active = User::create([
       'name' => "active",
+      'username' => "actgghhive",
       'email' => 'active@user.com',
       'password' => bcrypt('active')
     ]);
@@ -31,6 +33,7 @@ class UserSeeder extends Seeder
 
     $premium = User::create([
       'name' => "premium",
+      'username' => "preggghmium",
       'email' => 'premium@user.com',
       'password' => bcrypt('premium')
     ]);
@@ -39,6 +42,7 @@ class UserSeeder extends Seeder
 
     $banned = User::create([
       'name' => "banned",
+      'username' => "bagggnned",
       'email' => 'banned@user.com',
       'password' => bcrypt('banned')
     ]);

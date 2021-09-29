@@ -10,6 +10,7 @@ use Spatie\Permission\Traits\HasRoles;
 use \App\Models\Blog;
 use \App\Models\Post;
 use \App\Models\Token;
+use \App\Models\Biodata;
 
 class User extends Authenticatable
 {
@@ -26,7 +27,8 @@ class User extends Authenticatable
     'name',
     'email',
     'password',
-    'status'
+    'status',
+    'username'
   ];
 
   /**
@@ -58,5 +60,9 @@ class User extends Authenticatable
 
   public function Token() {
     return $this->hasMany(Token::class);
+  }
+
+  public function Biodata() {
+    return $this->hasOne(Biodata::class);
   }
 }
