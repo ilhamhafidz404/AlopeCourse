@@ -83,6 +83,9 @@
             <p class="text-white mt-0 mb-5">
               {{$user->biodata->about}}
             </p>
+            <p class="invisible">
+              Kita tidak tau banyak tentang {{$user->name}}, tpi percayalah dia pasti orang yang luar biasa.
+            </p>
           </div>
         </div>
       </div>

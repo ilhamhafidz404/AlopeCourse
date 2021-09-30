@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-transparent fixed-top p-3">
   <div class="container">
-    <a class="navbar-brand" href="#">ALOPE</a>
+    <a class="navbar-brand" href="/">ALOPE</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -47,7 +47,7 @@
             </li>
             <li>
               <a class="dropdown-item" href="{{route('redeem')}}">
-                <i class="fas fa-cog me-4"></i>
+                <i class="fas fa-ticket-alt me-4"></i>
                 Reedem Token
               </a>
             </li>
@@ -55,6 +55,7 @@
               <a class="dropdown-item" href="{{ route('logout') }}"
                 onclick="event.preventDefault();
                 document.getElementById('logout-form').submit();">
+                <i class="fas fa-sign-out-alt me-4"></i>
                 {{ __('Logout') }}
               </a>
 

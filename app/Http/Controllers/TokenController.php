@@ -17,7 +17,7 @@ class TokenController extends Controller
   */
 
   public function redeem() {
-    return view('user.more.token');
+    return view('user.more.redeem');
   }
 
   public function getPremium(Request $request) {

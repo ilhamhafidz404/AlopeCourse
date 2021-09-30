@@ -17,13 +17,13 @@
           </li>
           <li class="nav-item">
             <a class="nav-link {{request()->is('admin/users*')?'active':''}}" href="{{route('users.index')}}">
-              <i class="ni ni-single-02 text-yellow"></i>
+              <i class="ni ni-circle-08 text-yellow"></i>
               <span class="nav-link-text">Management User</span>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link {{request()->is('admin/token*')?'active':''}}" href="{{route('token.index')}}">
-              <i class="ni ni-single-02 text-yellow"></i>
+              <i class="ni ni-diamond text-info"></i>
               <span class="nav-link-text">
                 Token Premium
               </span>
@@ -106,7 +106,7 @@
           <li class="nav-item">
             <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html" target="_blank">
               <i class="ni ni-spaceship"></i>
-              <span class="nav-link-text">Getting started</span>
+              <span class="nav-link-text">Redeem Code</span>
             </a>
           </li>
           <li class="nav-item">

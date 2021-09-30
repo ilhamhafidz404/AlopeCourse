@@ -27,5 +27,12 @@
     ul {
       list-style: none
     }
+    #giveUser {
+      display: none;
+    }
+
+    #giveUser.show {
+      display: block !important;
+    }
   </style>
 </head>

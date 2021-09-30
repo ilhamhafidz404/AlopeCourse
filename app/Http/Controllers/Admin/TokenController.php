@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Token;
+use App\Models\User;
 
 class TokenController extends Controller
 {
@@ -15,7 +16,8 @@ class TokenController extends Controller
   */
   public function index() {
     $tokens = Token::latest()->get();
-    return view('admin.token.index', compact('tokens'));
+    $users = User::all();
+    return view('admin.token.index', compact('tokens', 'users'));
   }
 
   /**
@@ -34,7 +36,21 @@ class TokenController extends Controller
   * @return \Illuminate\Http\Response
   */
   public function store(Request $request) {
-    //
+    if ($request->user) {
+      Token::create([
+        'token' => $request->token,
+        'type' => $request->type,
+        "user_id" => $request->user
+      ]);
+    } else {
+      Token::create([
+        'token' => $request->token,
+        'type' => $request->type,
+        'user_id' => 0
+      ]);
+    }
+
+    return back();
   }
 
   /**
@@ -64,7 +80,8 @@ class TokenController extends Controller
   * @param  int  $id
   * @return \Illuminate\Http\Response
   */
-  public function update(Request $request, $id) {
+  public function update(Request $request,
+    $id) {
     //
   }
 

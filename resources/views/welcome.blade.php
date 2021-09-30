@@ -487,16 +487,4 @@
     </div>
   </div>
 </div>
-
-<div class="container">
-
-  <div class="card p-3">
-    <form action="{{route('getPremium')}}" method="POST">
-      @csrf
-      <input type="text" name="token" class="form-control">
-      <button class="btn btn-primary">Generate</button>
-    </form>
-  </div>
-</div>
-
 @endsection
