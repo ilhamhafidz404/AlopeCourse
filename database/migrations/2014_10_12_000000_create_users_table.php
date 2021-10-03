@@ -16,8 +16,8 @@ class CreateUsersTable extends Migration
       $table->id();
       $table->string("profile")->default("user.jpg");
         $table->string('name');
-        $table->string('username');
-        $table->string('email');
+        $table->string('username')->unique();
+        $table->string('email')->unique();
         $table->timestamp('email_verified_at')->nullable();
         $table->string('password');
         $table->enum('status', ['active', 'banned'])->default('active');

@@ -23,7 +23,7 @@ class VideoRequest extends FormRequest
   public function rules() {
     return [
       'thumbnail' => 'image',
-      'title' => 'required',
+      'title' => 'required|unique:videos',
       'episode' => 'required',
       'duration' => 'required',
       'link' => 'required',

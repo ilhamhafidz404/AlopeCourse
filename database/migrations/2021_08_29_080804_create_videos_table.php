@@ -16,7 +16,7 @@ class CreateVideosTable extends Migration
       $table->id();
       $table->string('thumbnail')->default('default.jpg');
         $table->string('title');
-        $table->string('slug');
+        $table->string('slug')->unique();
         $table->foreignId('category_id');
         $table->text('description');
         $table->text('link');

@@ -24,7 +24,8 @@ class BlogRequest extends FormRequest
     return [
       "judul" => ["required",
         'min:10',
-        'max:50'],
+        'max:50',
+        'unique:blogs'],
       'content' => ["required",
         'min:50'],
       'category' => "required",

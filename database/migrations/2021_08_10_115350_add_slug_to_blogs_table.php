@@ -13,7 +13,7 @@ class AddSlugToBlogsTable extends Migration
   */
   public function up() {
     Schema::table('blogs', function (Blueprint $table) {
-      $table->string('slug')->after('judul');
+      $table->string('slug')->after('judul')->unique();
     });
   }
 

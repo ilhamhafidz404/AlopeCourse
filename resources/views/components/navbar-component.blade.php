@@ -52,6 +52,12 @@
               </a>
             </li>
             <li>
+              <a class="dropdown-item" href="{{route('redeem')}}">
+                <i class="fas fa-ticket-alt me-4"></i>
+                Alope Journey
+              </a>
+            </li>
+            <li>
               <a class="dropdown-item" href="{{ route('logout') }}"
                 onclick="event.preventDefault();
                 document.getElementById('logout-form').submit();">

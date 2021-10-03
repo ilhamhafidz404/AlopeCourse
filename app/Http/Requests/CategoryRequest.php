@@ -22,7 +22,8 @@ class CategoryRequest extends FormRequest
   */
   public function rules() {
     return [
-      "nama" => ['required'],
+      "nama" => ['required',
+        'unique:categories'],
       "description" => ['required'],
       "thumbnail" => 'image'
     ];

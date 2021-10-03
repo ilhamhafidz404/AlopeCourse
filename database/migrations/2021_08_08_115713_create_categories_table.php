@@ -16,7 +16,7 @@ class CreateCategoriesTable extends Migration
       $table->id();
       $table->string('thumbnail')->default('default.jpg');
         $table->string('nama');
-        $table->string('slug');
+        $table->string('slug')->unique();
         $table->text('description');
         $table->enum('status', ['complete', 'development', 'stuck'])->default('development');
           $table->enum('level', ['beginner', 'intermediate'])->default('beginner');
