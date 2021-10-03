@@ -68,33 +68,6 @@
             </a>
           </li>
         </ul>
-
-        <hr class="my-3">
-        <h6 class="navbar-heading p-0 text-muted">
-          <span class="docs-normal">Post</span>
-        </h6>
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link {{request()->is('admin/community-post*')?'active' : ''}}" href="{{route('community-post.index')}}">
-              <i class="ni ni-world text-success"></i>
-              <span class="nav-link-text">Community Post</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link {{request()->is('admin/posts*')?'active' : ''}}" href="{{route('posts.index')}}">
-              <i class="ni ni-send text-info"></i>
-              <span class="nav-link-text">User Post</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{route('posts.index')}}">
-              <i class="ni ni-ungroup text-orange"></i>
-              <span class="nav-link-text">
-                Post Tag
-              </span>
-            </a>
-          </li>
-        </ul>
         <!-- Divider -->
         <hr class="my-3">
         <!-- Heading -->

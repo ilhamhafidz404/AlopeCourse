@@ -35,8 +35,6 @@
             </li>
             @if(auth()->user()->hasRole('admin'))
             <li><a class="dropdown-item" href="{{route('dashboard.admin')}}">Dashboard</a></li>
-            @elseif(auth()->user()->hasRole('premium'))
-            <li><a class="dropdown-item" href="{{route('dashboard.premium')}}">Dashboard</a></li>
             @endif
             <li><hr class="dropdown-divider"></li>
             <li>

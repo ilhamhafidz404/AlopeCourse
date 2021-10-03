@@ -5,8 +5,6 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\TagController;
-use App\Http\Controllers\Admin\PostController as AdminPostController;
-use App\Http\Controllers\Admin\CommunityPostController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\VideoController;
 use App\Http\Controllers\Admin\BlogSyntaxController;
@@ -21,9 +19,6 @@ use App\Http\Controllers\TokenController as UserTokenController;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\LikeController;
-
-use App\Http\Controllers\Premium\PostController as PremiumPostController;
-//use App\Models\Post;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,16 +43,8 @@ Route::middleware(['role:admin', 'auth'])->group(function () {
   route::put('/admin/blsyntax/{syntax}', [BlogSyntaxController::class, 'save'])->name('syntax.save');
   route::resource('/admin/tag', TagController::class);
   route::resource('/admin/video', VideoController::class);
-  route::resource('/admin/community-post', CommunityPostController::class);
-  route::resource('/admin/posts', AdminPostController::class);
   route::resource('/admin/token', AdminTokenController::class);
 });
-
-Route::middleware(['role:premium', 'auth'])->group(function () {
-  Route::view('/premium/dashboard', 'user.premium.dashboard')->name('dashboard.premium');
-  route::resource('/premium/post', PremiumPostController::class);
-});
-
 
 Route::middleware(['role:active|premium|admin', 'auth'])->group(function () {
   route::get('/serie', [SerieController::class, 'index'])->name('serie.index');

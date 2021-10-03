@@ -88,27 +88,6 @@
       </div>
     </div>
   </div>
-
-  <br><br><br>
-  <div id="community-post" class="mt-5">
-    <div class="container-fluid">
-      <div class="card p-3 pb-5 border-0 shadow position-relative">
-        <a href="{{asset('storage/community-post/'.$c_post->banner)}}" data-lightbox="image-1">
-          <div class="c_post_banner rounded shadow-sm mb-4" style="background-image: url({{asset('storage/community-post/'.$c_post->banner)}}); width: 180px; height: 180px"></div>
-        </a>
-        <div class="position-absolute px-5 py-2 text-white c_post_ribbon start-0">
-          <h3 class="text-center">Community Post</h3>
-        </div>
-        <h2 class="text-center mb-3 text uppercase mt-5">{{$c_post->title}}</h2>
-        <!--   <div class="c_post_banner rounded shadow mb-4" style="background-image: url({{asset('storage/community-post/'.$c_post->banner)}});"></div>-->
-        <div class="c_post_text ps-2 mt-3">
-          {!! $c_post->content !!}
-          <br>
-        </div>
-        <small class="text-muted position-absolute start-0 bottom-0 m-2">*Klik gambar untuk memperbesar</small>
-      </div>
-    </div>
-  </div>
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" style="margin-top:-200px"><path fill="#36275D" fill-opacity="1" d="M0,288L1440,160L1440,320L0,320Z"></path></svg>
   <div id="testi" class="pt-1 position-relative">
     <section class="container">
