@@ -1,38 +1,71 @@
 @extends('admin.master')
 
 
+@section('breadcrumb')
+<li class="breadcrumb-item active" aria-current="page">
+  Token
+</li>
+@endsection
+
 @section('header-button')
 <div class="btn-group">
   <a href="{{route('blog.create')}}" class="btn btn-sm btn-neutral me-2" data-bs-toggle="modal" data-bs-target="#exampleModal">Tambah Redeem</a>
-  <button type="button" class="btn btn-neutral btn-sm dropdown-toggle" data-bs-toggle="dropdown">
-    Filter Blog
-  </button>
-  <ul class="dropdown-menu">
-    <form action="" method="GET">
-      <li>
-        <a class="btn btn-transparent w-100" href="{{route('blog.index')}}">Semua</a>
-      </li>
-      <li>
-        <button value="upload" name="status" class="btn btn-transparent w-100">Upload</button>
-      </li>
-      <li>
-        <button value="draff" name="status" class="btn btn-transparent w-100">Draff</button>
-      </li>
-      <li>
-        <button value="banned" name="status" class="btn btn-transparent w-100">Banned</button>
-      </li>
-    </form>
-  </ul>
 </div>
 @endsection
 
 @section('content')
-<div class="card p-3">
+<div class="card p-4">
   <div class="row">
     @foreach($tokens as $token)
     <div class="col-md-4">
-      <div class="card p-3">
-        {{$token->token}}
+      <div class="card shadow">
+        <div class="row">
+          @if($token->type == 'platinum')
+          <div class="col-4 bg-gradient-primary">
+          </div>
+          @elseif($token->type == 'gold')
+          <div class="col-4 bg-gradient-warning">
+          </div>
+          @elseif($token->type == 'silver')
+          <div class="col-4 bg-gradient-success">
+          </div>
+          @endif
+          <div class="col-8 py-2 position-relative">
+            <h6 class="text-uppercase mb-0">
+              {{$token->token}}
+            </h6>
+            <small class="text-muted">
+              {{$token->type}}
+            </small>
+            <br>
+            <div class="position-absolute" style="top:-5px; right: 25px">
+              <form action="{{route('token.destroy', $token->id)}}" method="POST">
+                @csrf
+                @method('DELETE')
+                <div class="dropdown">
+                  <button class="btn btn-neutral btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">
+
+                  </button>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <button class="btn btn-sm btn-transparent dropdown-item" type="submit">
+                      Hapus
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+            @if($token->user_id == 0)
+            <small class="text-danger mt-3">
+              Token belum digunakan
+            </small>
+            @else
+            <small class="text-success">
+              Digunakan oleh {{$token->user->name}}
+            </small>
+            @endif
+          </div>
+        </div>
       </div>
     </div>
     @endforeach
@@ -42,13 +75,13 @@
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Tambah Redeem Code</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form action="{{route('token.store')}}" method="POST">
-          @csrf
+      <form action="{{route('token.store')}}" method="POST">
+        @csrf
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Tambah Redeem Code</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
           <div class="form-group mb-3">
             <label for="token" class="form-label">
               Token
@@ -76,6 +109,7 @@
               Pilih User
             </label>
             <select name="user" id="type" class="form-select">
+              <option value="0" selected>pilih user</option>
               @foreach($users as $user)
               @if($user->hasRole('active'))
               <option value="{{$user->id}}">{{$user->name}}</option>
@@ -83,13 +117,12 @@
               @endforeach
             </select>
           </div>
-          <button class="btn btn-primary">G</button>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Save changes</button>
+        </div>
+      </form>
     </div>
   </div>
 </div>

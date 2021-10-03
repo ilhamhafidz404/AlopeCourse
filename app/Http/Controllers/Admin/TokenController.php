@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 use App\Models\Token;
 use App\Models\User;
 
@@ -36,20 +37,13 @@ class TokenController extends Controller
   * @return \Illuminate\Http\Response
   */
   public function store(Request $request) {
-    if ($request->user) {
-      Token::create([
-        'token' => $request->token,
-        'type' => $request->type,
-        "user_id" => $request->user
-      ]);
-    } else {
-      Token::create([
-        'token' => $request->token,
-        'type' => $request->type,
-        'user_id' => 0
-      ]);
-    }
+    Token::create([
+      'token' => $request->token,
+      'type' => $request->type,
+      "user_id" => $request->user
+    ]);
 
+    Alert::success('Berhasil Diupload', 'Token baru telah ditambahkan');
     return back();
   }
 
@@ -92,6 +86,9 @@ class TokenController extends Controller
   * @return \Illuminate\Http\Response
   */
   public function destroy($id) {
-    //
+    Token::find($id)->delete();
+
+    Alert::error('Berhasil dihapus', 'Token telah terhapus');
+    return back();
   }
 }
