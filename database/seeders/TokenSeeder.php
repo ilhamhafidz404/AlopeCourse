@@ -15,10 +15,14 @@ class TokenSeeder extends Seeder
     \App\Models\Token::insert([
       ["token" => "qwerty",
         "user_id" => 2,
-        "type" => "silver"],
+        "type" => "silver",
+        "expired_at" => now()
+      ],
       ["token" => "zzz",
         "user_id" => 0,
-        "type" => "gold"],
+        "type" => "gold",
+        "expired_at" => now()
+      ],
     ]);
   }
 }
