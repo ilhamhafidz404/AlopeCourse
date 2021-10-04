@@ -10,7 +10,6 @@ use Database\Seeders\UserSeeder;
 use Database\Seeders\TokenSeeder;
 use App\Models\Blog;
 use App\Models\Video;
-use App\Models\CommunityPost;
 
 class DatabaseSeeder extends Seeder
 {
@@ -24,10 +23,10 @@ class DatabaseSeeder extends Seeder
     $this->call(TagSeeder::class);
     $this->call(RoleSeeder::class);
     $this->call(UserSeeder::class);
-    $this->call(TokenSeeder::class);
 
     Blog::factory()->count(10)->create();
     Video::factory()->count(10)->create();
-    CommunityPost::factory()->count(5)->create();
+      
+    $this->call(TokenSeeder::class);
   }
 }
