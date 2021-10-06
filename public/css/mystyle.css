@@ -55,32 +55,33 @@ section.header .circle-container {
   padding-top: 120px;
   position: relative;
   height: 300px;
-  margin-top: 50px;
+  margin-top: 120px !important;
+  margin-bottom: 70px !important;
 }
 section.header .circle-container .circle {
   border: 2px solid rgba(0, 0, 0, 0.1);
 }
 section.header .circle-container .circle.circle1 {
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   z-index: 3;
 }
 section.header .circle-container .circle.circle2 {
-  width: 200px;
-  height: 200px;
+  width: 250px;
+  height: 250px;
   z-index: 2;
 }
 section.header .circle-container .circle.circle3 {
-  height: 300px;
-  width: 300px;
+  height: 350px;
+  width: 350px;
   z-index: 1;
 }
 section.header .circle-container .circle span {
   background-color: #fff;
   padding: 5px;
-  width: 35px;
-  height: 35px;
-  font-size: 20px;
+  width: 40px;
+  height: 40px;
+  font-size: 25px;
 }
 section.header .circle-container .circle span.html {
   top: 0;
