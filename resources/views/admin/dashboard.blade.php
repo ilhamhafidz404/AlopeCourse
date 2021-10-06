@@ -11,8 +11,8 @@
     <div class="card-body">
       <div class="row">
         <div class="col">
-          <h5 class="card-title text-uppercase text-muted mb-0">Total Blog Terupload</h5>
-          <span class="h2 font-weight-bold mb-0">{{$blogCount}}</span>
+          <h5 class="card-title text-uppercase text-muted mb-0">Total Tutorial</h5>
+          <span class="h2 font-weight-bold mb-0">{{$tutorCount}}</span>
         </div>
         <div class="col-auto">
           <div class="icon icon-shape bg-gradient-primary text-white rounded-circle shadow">
@@ -33,7 +33,7 @@
     <div class="card-body">
       <div class="row">
         <div class="col">
-          <h5 class="card-title text-uppercase text-muted mb-0">Total Blog Serie</h5>
+          <h5 class="card-title text-uppercase text-muted mb-0">Total Serie</h5>
           <span class="h2 font-weight-bold mb-0">{{$serieCount}}</span>
         </div>
         <div class="col-auto">
@@ -55,7 +55,7 @@
     <div class="card-body">
       <div class="row">
         <div class="col">
-          <h5 class="card-title text-uppercase text-muted mb-0">Total Topic Blog</h5>
+          <h5 class="card-title text-uppercase text-muted mb-0">Total Topic</h5>
           <span class="h2 font-weight-bold mb-0">{{$serieCount}}</span>
         </div>
         <div class="col-auto">
@@ -149,7 +149,7 @@
 </div>
 <div class="col-md-12 col-lg-6">
   <div class="card p-3">
-    <canvas id="serieChart" height="330"></canvas>
+    <canvas id="videoChart" height="330"></canvas>
   </div>
 </div>
 <div class="col-md-12">
@@ -160,7 +160,7 @@
 <script>
   var _ydataBlog = JSON.parse('{!! json_encode($blogMonths) !!}');
   var _xdataBlog = JSON.parse('{!! json_encode($blogMonthCount) !!}');
-  var _ydataSerie = JSON.parse('{!! json_encode($serieMonths) !!}');
-  var _xdataSerie = JSON.parse('{!! json_encode($serieMonthCount) !!}');
+  var _ydataSerie = JSON.parse('{!! json_encode($videoMonths) !!}');
+  var _xdataSerie = JSON.parse('{!! json_encode($videoMonthCount) !!}');
 </script>
 @endsection

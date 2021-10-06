@@ -78,7 +78,7 @@
                   </small>
                   <ul class="d-flex mb-0 p-0 mt-3">
                     <li class="me-3">
-                      <a href="">
+                      <a href="{{route('profile.index', $blog->user->username)}}">
                         <small>
                           Profile Penulis
                         </small>
@@ -128,35 +128,36 @@
             </p>
           </div>
 
-          <div class="p-3">
+          <div class="mt-4">
             <h4 class="fst-italic">
               Blog Serupa
             </h4>
-            <ol class="list-unstyled mb-0">
-              <li>
-                <a href="#">March 2021</a>
-              </li>
-              <li>
-                <a href="#">February 2021</a>
-              </li>
-              <li>
-                <a href="#">January 2021</a>
-              </li>
-              <li>
-              </ol>
+            <div class="list-group mt-3">
+              @foreach($similiar_blogs as $similiar_blog)
+              @if($similiar_blog->slug == $blog->slug)
+              <a href="#" class="list-group-item list-group-item-action active" style=" background: linear-gradient(-45deg, #821FC8, #23ADD1 );">
+                <h5 class="mb-1">{{Str::limit($similiar_blog->judul, 20)}}</h5>
+              </a>
+              @else
+              <a href="{{route('blog.read', $similiar_blog->slug)}}" class="list-group-item list-group-item-action">
+                <h5 class="mb-1">{{Str::limit($similiar_blog->judul, 20)}}</h5>
+              </a>
+              @endif
+              @endforeach
             </div>
           </div>
         </div>
       </div>
-    </main>
+    </div>
+  </main>
 
-    <x-footer-component></x-footer-component>
+  <x-footer-component></x-footer-component>
 
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
-    <script src="{{asset('dist/js/prism.js')}}"></script>
-    <script src="https://kit.fontawesome.com/bfdfedea1a.js" crossorigin="anonymous"></script>
-    <script src="/js/script.js"></script>
-    @include('sweetalert::alert')
-  </body>
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+  <script src="{{asset('dist/js/prism.js')}}"></script>
+  <script src="https://kit.fontawesome.com/bfdfedea1a.js" crossorigin="anonymous"></script>
+  <script src="/js/script.js"></script>
+  @include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
+</body>
 </html>

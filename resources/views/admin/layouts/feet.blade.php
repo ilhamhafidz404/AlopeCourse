@@ -123,13 +123,13 @@
         }
       }
     });
-    var serieChart = document.getElementById('serieChart');
+    var serieChart = document.getElementById('videoChart');
     var serieChart = new Chart(serieChart, {
       type: 'bar',
       data: {
         labels: _ydataSerie,
         datasets: [{
-          label: 'Grafik Blog',
+          label: 'Grafik Video',
           data: _xdataSerie,
           backgroundColor: [
             'rgba(255, 99, 132, 0.2)',

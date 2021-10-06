@@ -4,7 +4,7 @@
 
 @section('content')
 <main class="mt-5">
-  <div class="album py-5 bg-light">
+  <div class="album py-5">
     <div class="container-fluid">
       <h3 class="mb-4 text-center text-uppercase">Serie</h3>
       <div class="row">

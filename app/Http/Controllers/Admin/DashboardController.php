@@ -15,6 +15,7 @@ use Carbon\Carbon;
 class DashboardController extends Controller
 {
   public function __invoke() {
+    //Chart Blog
     $blogData = Blog::select('id', 'created_at')->get()->groupBy(function($blogData) {
       return Carbon::parse($blogData->created_at)->format('M');
     });
@@ -25,22 +26,29 @@ class DashboardController extends Controller
       $blogMonthCount[] = count($values);
     }
 
-    $serieData = Category::select('id', 'created_at')->get()->groupBy(function($serieData) {
-      return Carbon::parse($serieData->created_at)->format('M');
+    //Chart Video
+    $videoData = Video::select('id', 'created_at')->get()->groupBy(function($videoData) {
+      return Carbon::parse($videoData->created_at)->format('M');
     });
-    $serieMonths = [];
-    $serieMonthCount = [];
-    foreach ($serieData as $month => $values) {
-      $serieMonths[] = $month;
-      $serieMonthCount[] = count($values);
+    $videoMonths = [];
+    $videoMonthCount = [];
+    foreach ($videoData as $month => $values) {
+      $videoMonths[] = $month;
+      $videoMonthCount[] = count($values);
     }
+
     $video = Video::latest()->take(1)->first();
-    $blogCount = Blog::count();
+    $tutorCount = Blog::count() + Video::count();
+
     $serieCount = Category::count();
     $tagCount = Tag::count();
     $userCount = User::count();
     $draffBlogList = Blog::whereStatus("draff")->orderBy("id", "DESC")->take(5)->get();
     $draffBlogCount = Blog::whereStatus("draff")->count();
-    return view('admin.dashboard', compact("draffBlogList", "draffBlogCount", 'blogCount', 'serieCount', 'tagCount', 'video', 'userCount', 'blogMonths', 'blogMonthCount', 'serieMonths', 'serieMonthCount'));
+
+    //enhance Blog
+    $checkBulanSebelumnya = now()->format('m');
+    $checkBulanSebelumnya = (int) $checkBulanSebelumnya;
+    return view('admin.dashboard', compact("draffBlogList", "draffBlogCount", 'tutorCount', 'serieCount', 'tagCount', 'video', 'userCount', 'blogMonths', 'blogMonthCount', 'videoMonths', 'videoMonthCount'));
   }
 }
