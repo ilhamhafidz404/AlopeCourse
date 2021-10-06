@@ -9,6 +9,7 @@ use App\Models\Tag;
 use App\Models\Category;
 use App\Models\Video;
 use App\Models\User;
+use App\Models\Notification;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 
@@ -46,9 +47,11 @@ class DashboardController extends Controller
     $draffBlogList = Blog::whereStatus("draff")->orderBy("id", "DESC")->take(5)->get();
     $draffBlogCount = Blog::whereStatus("draff")->count();
 
+    $notifications = Notification::latest()->get();
+
     //enhance Blog
     $checkBulanSebelumnya = now()->format('m');
     $checkBulanSebelumnya = (int) $checkBulanSebelumnya;
-    return view('admin.dashboard', compact("draffBlogList", "draffBlogCount", 'tutorCount', 'serieCount', 'tagCount', 'video', 'userCount', 'blogMonths', 'blogMonthCount', 'videoMonths', 'videoMonthCount'));
+    return view('admin.dashboard', compact("draffBlogList", "draffBlogCount", 'tutorCount', 'serieCount', 'tagCount', 'video', 'userCount', 'blogMonths', 'blogMonthCount', 'videoMonths', 'videoMonthCount', 'notifications'));
   }
 }

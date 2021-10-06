@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use App\Models\Biodata;
+use App\Models\Notification;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -73,6 +74,12 @@ class RegisterController extends Controller
 
     Biodata::create([
       'user_id' => $user->id,
+    ]);
+
+    Notification::create([
+      "user_id" => $user->id,
+      "subject" => "User baru mendaftar",
+      "message" => "Telah bergabung dengan tim. Ayo tawarkan hal menarik supaya dia terkesan."
     ]);
 
     return $user;

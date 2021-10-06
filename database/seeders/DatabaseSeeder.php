@@ -8,6 +8,7 @@ use Database\Seeders\TagSeeder;
 use Database\Seeders\RoleSeeder;
 use Database\Seeders\UserSeeder;
 use Database\Seeders\TokenSeeder;
+use Database\Seeders\NotificationSeeder;
 use App\Models\Blog;
 use App\Models\Video;
 
@@ -23,10 +24,11 @@ class DatabaseSeeder extends Seeder
     $this->call(TagSeeder::class);
     $this->call(RoleSeeder::class);
     $this->call(UserSeeder::class);
+    $this->call(NotificationSeeder::class);
 
     Blog::factory()->count(10)->create();
     Video::factory()->count(10)->create();
-      
+
     $this->call(TokenSeeder::class);
   }
 }

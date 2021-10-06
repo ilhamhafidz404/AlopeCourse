@@ -11,6 +11,7 @@ use \App\Models\Blog;
 use \App\Models\Post;
 use \App\Models\Token;
 use \App\Models\Biodata;
+use \App\Models\Notification;
 
 class User extends Authenticatable
 {
@@ -60,6 +61,10 @@ class User extends Authenticatable
 
   public function Token() {
     return $this->hasMany(Token::class);
+  }
+
+  public function Notification() {
+    return $this->hasMany(Notification::class);
   }
 
   public function Biodata() {
