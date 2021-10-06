@@ -1,5 +1,7 @@
 @extends('user.master')
 
+@section('title', 'Alope')
+
 @section('content')
 <main class="mt-5">
   <div class="album py-5 bg-light">
@@ -172,10 +174,10 @@
 
 
 
-  <div id="pricing" class="m-auto" style="width: 95%;">
+  <div id="pricing" class="m-auto container-fluid">
     <h3 class="text-center fw-bold">ALOPE PREMIUM ACCESS</h3>
     <p class="text-center m-auto text-muted" style="width: 60%;">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum quisquam molestiae ipsa aliquid consectetur dolor nobis quasi iure est,
+      Beli akses Premium untuk mendapatkan Full Akses ke tutorial yang lebih keren dan Menyenangkan.
     </p>
     <div class="row align-items-center mt-4">
       <div class="col-md-4">
@@ -184,7 +186,7 @@
           <h3 class=" mt-4">
             <sup>Rp.</sup>
             <span class="fw-bold" style="font-size: 50px">
-              45
+              100
             </span>
             <sub class="fw-bold mb-2">
               .000
@@ -216,7 +218,7 @@
               Claim Ebook Alope secara Gratis
             </li>
           </ul>
-          <a href="" class="btn btn-primary text-white mt-4 btn_price">
+          <a href="https://api.whatsapp.com/send?phone=6283871352030&text=Hai%20Saya%20Ingin%20Berlangganan%20di%20ALOPE" class="btn btn-primary text-white mt-4 btn_price">
             Beli Akses
           </a>
         </div>
@@ -227,7 +229,7 @@
           <h3 class=" mt-4">
             <sup>Rp.</sup>
             <span class="fw-bold" style="font-size: 50px">
-              45
+              170
             </span>
             <sub class="fw-bold mb-2">
               .000
@@ -263,7 +265,7 @@
               Claim Ebook Alope secara Gratis
             </li>
           </ul>
-          <a href="" class="btn btn-primary text-white mt-4 btn_price">
+          <a href="https://api.whatsapp.com/send?phone=6283871352030&text=Hai%20Saya%20Ingin%20Berlangganan%20di%20ALOPE" class="btn btn-primary text-white mt-4 btn_price">
             Beli Akses
           </a>
         </div>
@@ -274,7 +276,7 @@
           <h3 class=" mt-4">
             <sup>Rp.</sup>
             <span class="fw-bold" style="font-size: 50px">
-              45
+              40
             </span>
             <sub class="fw-bold mb-2">
               .000
@@ -298,7 +300,7 @@
               Source Code Gratis
             </li>
           </ul>
-          <a href="" class="btn btn-primary text-white mt-4 btn_price">
+          <a href="https://api.whatsapp.com/send?phone=6283871352030&text=Hai%20Saya%20Ingin%20Berlangganan%20di%20ALOPE" class="btn btn-primary text-white mt-4 btn_price">
             Beli Akses
           </a>
         </div>
@@ -318,10 +320,10 @@
           <div>
             <p class="fw-bold" style="color: #36275D">
               <i class="fas fa-question me-2"></i>
-              Apa yang sering Ditanyakan??
+              Kenapa saya harus gabung ALOPE?
             </p>
             <p class="text-muted">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero consectetur asperiores laborum eaaerat sint.
+              ALOPE di rekomendasikan oleh beberapa Programming enthusiast khususnya yang masih pemula karena ALOPE menyenangkan dengan tutorial Beginner Friendly.
             </p>
           </div>
         </div>
@@ -329,10 +331,10 @@
           <div>
             <p class="fw-bold" style="color: #36275D">
               <i class="fas fa-question me-2"></i>
-              Apa yang sering Ditanyakan??
+              Bagaimana cara saya membayar Akses Premium?
             </p>
             <p class="text-muted">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero consectetur asperiores laborum eaaerat sint.
+              Pembayaran bisa dilakukan dengan membayar via <b>E-Wallet</b> berupa <b>Gopay, Link Aja</b> atau lewat <b>OVO</b>. Bisa juga via Trasferbank, bisa ke <b>BCA, Mandiri</b> dan <b>BRI</b>
             </p>
           </div>
         </div>
@@ -340,10 +342,10 @@
           <div>
             <p class="fw-bold" style="color: #36275D">
               <i class="fas fa-question me-2"></i>
-              Apa yang sering Ditanyakan??
+              Siapa yang menjadi Tutor di ALOPE?
             </p>
             <p class="text-muted">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero consectetur asperiores laborum eaaerat sint.
+              Ilham Hafidz, siswa SMK yang mengenal Web Programming sejak SMP dan sudah menyumbangkan beberapa Piala Perlombaan Programming di sekolahnya.
             </p>
           </div>
         </div>
@@ -351,10 +353,10 @@
           <div>
             <p class="fw-bold" style="color: #36275D">
               <i class="fas fa-question me-2"></i>
-              Apa yang sering Ditanyakan??
+              Apakah tutorial Gratis tersedia?
             </p>
             <p class="text-muted">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero consectetur asperiores laborum eaaerat sint.
+              Yap, tentu. Bahkan 75% tutorial di ALOPE itu <b>Gratis</b>, tpi bagi kalian yang mau support silahkan Upgrade ke versi <b>Premium</b> atau bisa <b>Donate</b> di Saweria.
             </p>
           </div>
         </div>
@@ -372,7 +374,7 @@
         <div class="col-md-6">
           <div class="facebook d-flex align-items-center sosmed justify-content-between">
             <div class="i">
-              <i class="fs-1 fab fa-facebook-f"></i>
+              <i class="fs-1 fab fa-facebook"></i>
             </div>
             <div class="text">
               <h5>Facebook</h5>

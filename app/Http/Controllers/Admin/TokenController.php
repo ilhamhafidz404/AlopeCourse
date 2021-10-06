@@ -43,7 +43,7 @@ class TokenController extends Controller
       "user_id" => $request->user
     ]);
 
-    Alert::success('Berhasil Diupload', 'Token baru telah ditambahkan');
+    Alert::success('Berhasil Menambahkan Token', 'Token baru telah ditambahkan');
     return back();
   }
 

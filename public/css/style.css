@@ -57,7 +57,7 @@ section.header {
   margin-top: 50px;
 }
 .circle {
-  border: 1px solid rgba(0,0,0,0.1);
+  border: 2px solid rgba(0,0,0,0.1);
 }
 .circle1 {
   width: 100px;
@@ -77,8 +77,9 @@ section.header {
 .circle span {
   background-color: #fff;
   padding: 5px;
-  width: 25px;
-  height: 25px;
+  width: 45px;
+  height: 45px;
+  font-size: 20px;
 }
 .circle span.html {
   top: 0;

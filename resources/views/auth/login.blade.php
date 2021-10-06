@@ -3,9 +3,8 @@
 @section('webtitle', 'Login')
 @section('title', 'Login Account')
 @section('subtitle')
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio aut explicabo nulla perferendis
+Pastikan Email dan Password yang anda masukan sudah terdaftar di ALOPE.
 @endsection
-@section('credential', 'Masukan Email terdaftar')
 @section('form')
 <form role="form" method="POST" action="{{ route('login') }}">
   @csrf

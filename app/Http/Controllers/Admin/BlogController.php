@@ -146,7 +146,7 @@ class BlogController extends Controller
   public function destroy($id) {
     Blog::find($id)->delete();
 
-    Alert::success('Berhasil Dihapus', 'Blog Sekarang dihapus');
+    Alert::success('Blog Berhasil Dihapus');
     return back();
   }
 

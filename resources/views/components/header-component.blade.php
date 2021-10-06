@@ -2,8 +2,8 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-lg-6">
-        <br>
-        <a class="py-1 px-3 mt-5 header-hot d-flex justify-content-between align-items-center text-white">
+        <br><br>
+        <a class="py-1 px-3 mt-5 header-hot d-flex justify-content-between align-items-center text-white mb-4">
           <div>
             <span class="badge bg-danger me-2">
               <i class="fas fa-fire me-1"></i> HOT
@@ -19,8 +19,8 @@
           Tempat Belajar <b>Programming </b> yang Menyenangkan
           <span id="typed" class="fs-6"></span>
         </h1>
-
-        <small class="lead text-white mt-4">
+        <br>
+        <small class="lead text-white mt-5">
           Belajar pemrograman web, web design & mobile app lengkap dari dasar untuk pemula sampai mahir, tersedia tutorial dengan studi kasus.
         </small>
 
@@ -37,7 +37,7 @@
           </ul>
         </div>
       </div>
-      <div class="col-lg-6 circle-container">
+      <div class="col-lg-6 circle-container mt-5">
         <div class="d-flex align-items-center justify-content-center">
           <div class="circle circle1 position-absolute d-flex align-items-center justify-content-center rounded-circle">
             <span class="html position-absolute d-flex align-items-center justify-content-center rounded-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="HTML">

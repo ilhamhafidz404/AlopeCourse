@@ -41,6 +41,7 @@ section.header {
 section.header .header-path {
   background-color: #5D4A8E;
   bottom: -35px;
+  overflow-x: auto;
 }
 section.header .header-hot {
   background-color: rgba(0, 0, 0, 0.3);
@@ -57,7 +58,7 @@ section.header .circle-container {
   margin-top: 50px;
 }
 section.header .circle-container .circle {
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 2px solid rgba(0, 0, 0, 0.1);
 }
 section.header .circle-container .circle.circle1 {
   width: 100px;
@@ -77,8 +78,9 @@ section.header .circle-container .circle.circle3 {
 section.header .circle-container .circle span {
   background-color: #fff;
   padding: 5px;
-  width: 25px;
-  height: 25px;
+  width: 35px;
+  height: 35px;
+  font-size: 20px;
 }
 section.header .circle-container .circle span.html {
   top: 0;
@@ -265,6 +267,23 @@ section.header .circle-container .circle span.node {
 footer {
   background-color: #36275D;
   margin-top: -10px;
+}
+footer a {
+  font-size: 20px;
+}
+footer a i {
+  color: #fff;
+  padding: 10px;
+  border-radius: 50%;
+}
+footer a i.fa-twitter {
+  background-color: #1DA1F2;
+}
+footer a i.fa-facebook {
+  background-color: #4267B2;
+}
+footer a i.fa-instagram {
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
 }
 
 svg.footer-svg {

@@ -4,7 +4,7 @@
 @section('webtitle', 'Registrasi')
 @section('title', 'Create an Account')
 @section('subtitle')
-Ayo bergabung bersama kami untuk mendapatkan tempat belajar yang memuaskan.
+Daftarkan akun anda untuk menjadi member di ALOPE dan dapatkan tutorial Gratis setiapharinya.
 @endsection
 
 
@@ -76,8 +76,15 @@ Ayo bergabung bersama kami untuk mendapatkan tempat belajar yang memuaskan.
       </div>
     </div>
   </div>
+  <div class="text-center mb-4">
+    <button type="submit" class="btn btn-primary mt-4 px-5">
+      Daftar
+    </button>
+  </div>
   <div class="text-center">
-    <button type="submit" class="btn btn-primary mt-4">Create account</button>
+    <small>
+      Sudah punya Akun? <a href="{{route('login')}}">Login</a>
+    </small>
   </div>
 </form>
 @endsection

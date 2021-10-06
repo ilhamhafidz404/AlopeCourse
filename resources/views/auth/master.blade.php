@@ -49,7 +49,7 @@
           <div class="card bg-secondary border-0">
             <div class="card-body px-lg-5 py-lg-5">
               <div class="text-center text-muted mb-4">
-                <small>@yield('credential'))</small>
+                <small>@yield('credential')</small>
               </div>
               @yield('form')
             </div>
@@ -64,7 +64,7 @@
       <div class="row align-items-center justify-content-xl-between">
         <div class="col-xl-6">
           <div class="copyright text-center text-xl-left text-muted">
-            &copy; 2020 <a href="https://www.creative-tim.com" class="font-weight-bold ml-1" target="_blank">Creative Tim</a>
+            &copy; 2021 <a href="" class="font-weight-bold ml-1" target="_blank">Ilham Hafidz</a>
           </div>
         </div>
         <div class="col-xl-6">

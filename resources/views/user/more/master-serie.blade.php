@@ -19,7 +19,7 @@
   <link rel="stylesheet" href="{{asset('dist/css/glider.min.css')}}">
 
   <link rel="stylesheet" href="{{asset('css/style.css')}}">
-  <title>user</title>
+  <title>@yield('title')</title>
 </head>
 <body class="bg-light">
   <x-navbar-component></x-navbar-component>

@@ -1,5 +1,7 @@
 @extends('user.more.master-serie')
 
+@section('title', 'Alope - Topic')
+
 @section('header')
 <a class="py-1 px-3 mt-5 header-hot d-flex justify-content-between align-items-center text-white">
   <div>
@@ -21,7 +23,7 @@
   @if(request()->tag)
   {{$tag->description}}
   @else
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus voluptatum, ex illum deserunt eligendi tempore ullam quas illo aspernatur culpa esse accusamus, vitae expedita molestias dolorum voluptatem voluptate excepturi assumenda.
+  Ikuti tutorial dengan topic yang sesuai dengan bahasa pemrogramman/Framework yang sedang ingin anda pelajari. Ini membantu anda supaya anda bisa fokus untuk mempelajari teknologi tertentu secara bertahap.
   @endif
 </small>
 <form action="" class="mt-5">

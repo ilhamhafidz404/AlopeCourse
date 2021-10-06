@@ -1,5 +1,7 @@
 @extends('user.more.master-serie')
 
+@section('title', 'Alope - Blog')
+
 @section('header')
 <a class="py-1 px-3 mt-5 header-hot d-flex justify-content-between align-items-center text-white">
   <div>
@@ -18,7 +20,7 @@
 </h1>
 
 <small class="lead text-white mt-5">
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus voluptatum, ex illum deserunt eligendi tempore ullam quas illo aspernatur culpa esse accusamus, vitae expedita molestias dolorum voluptatem voluptate excepturi assumenda.
+  Tutorial dalam bentuk Blog untuk kalian yang suka membaca bisa didapatkan. Artikel tersedia dengan Source Code dan Highlighting Syntax yang membuat anda nyaman melihat potongan baris code di setiap bahasa pemrogrammanya.
 </small>
 @endsection
 

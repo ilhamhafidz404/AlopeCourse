@@ -43,6 +43,7 @@ section.header
   .header-path 
     background-color: #5D4A8E
     bottom: -35px
+    overflow-x: auto
   .header-hot 
     background-color: rgba(0,0,0, 0.3)
     max-width: 400px
@@ -55,7 +56,7 @@ section.header
     height: 300px
     margin-top: 50px    
     .circle 
-      border: 1px solid rgba(0,0,0,0.1)
+      border: 2px solid rgba(0,0,0,0.1)
       &.circle1 
         width: 100px
         height: 100px
@@ -71,8 +72,9 @@ section.header
       span 
         background-color: #fff
         padding: 5px
-        width: 25px
-        height: 25px
+        width: 35px
+        height: 35px
+        font-size: 20px
         &.html 
           top: 0
           left: 5px
@@ -233,6 +235,19 @@ section.header
 footer 
   background-color: $dark
   margin-top: -10px
+  a
+    font-size: 20px
+    i
+      color: #fff
+      padding: 10px
+      border-radius: 50%
+      &.fa-twitter
+        background-color: #1DA1F2
+      &.fa-facebook
+        background-color: #4267B2
+      &.fa-instagram
+        background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)
+
 svg.footer-svg 
   margin-top: -200px
 
