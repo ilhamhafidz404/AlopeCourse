@@ -7,8 +7,8 @@
   <!-- Sidenav -->
   @include('admin.layouts.sidebar')
   <div class="main-content" id="panel">
-    <!-- Topnav -->
-    @include('admin.layouts.navbar')
+
+    <x-admin.navbar-component></x-admin.navbar-component>
 
     <!-- Header -->
     @include('admin.layouts.header')
