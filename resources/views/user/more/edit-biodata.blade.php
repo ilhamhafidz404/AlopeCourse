@@ -6,13 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
   <meta name="author" content="Creative Tim">
-  <title>Argon Dashboard - Free Dashboard for Bootstrap 4</title>
+  <title>Edit Biodata</title>
   <!-- Favicon -->
   <link rel="icon" href="../assets/img/brand/favicon.png" type="image/png">
   <!-- Fonts -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
   <!-- Icons -->
   <link rel="stylesheet" href="{{asset('template')}}/assets/vendor/nucleo/css/nucleo.css" type="text/css">
+
+  <link rel="stylesheet" href="{{asset('dist/css/dropify.min.css')}}">
   <link rel="stylesheet" href="{{asset('template')}}/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
   <link rel="stylesheet" href="/css/app.css">
   <link rel="stylesheet" href="/css/mystyle.css">
@@ -32,12 +34,16 @@
     <div class="container-fluid" style="margin-top: -200px">
       <div class="card mt-5">
         <div class="card-body">
-          <form action="{{route('profile.update', $user->id)}}" method="POST">
+          <form action="{{route('profile.update', $user->id)}}" method="POST" enctype="multipart/form-data">
             @method('PUT')
             @csrf
             <h6 class="heading-small text-muted mb-4">User information</h6>
             <div class="pl-lg-4">
               <div class="row">
+                <div class="col-12 mb-3">
+                  <label class="form-control-label" for="profile">Foro Profile</label>
+                  <input type="file" id="profile" class="dropify" data-height="300" accept="image/*" name="profile" />
+                </div>
                 <div class="col-md-6 mb-3">
                   <label class="form-control-label" for="name">Name</label>
                   <input type="text" class="form-control" id="name" placeholder="Jhon Doe" name="name" value="{{$user->name}}">
@@ -48,7 +54,7 @@
                     <div class="input-group-text">
                       alope.com/
                     </div>
-                    <input type="text" class="form-control" id="username" placeholder="Jhon Doe" name="usernams" value="{{$user->username}}">
+                    <input type="text" class="form-control" id="username" placeholder="Jhon Doe" name="username" value="{{$user->username}}">
                   </div>
                 </div>
                 <div class="col-md-6">
@@ -143,16 +149,6 @@
   <x-footer-component></x-footer-component>
   <!-- Argon Scripts -->
   <!-- Core -->
-  <script src="/js/app.js"></script>
-  <script src="/js/script.js"></script>
-
-  <script src="{{asset('template/')}}/assets/vendor/jquery/dist/jquery.min.js"></script>
-  <script src="{{asset('template/')}}/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="{{asset('template/')}}/assets/vendor/js-cookie/js.cookie.js"></script>
-  <script src="{{asset('template/')}}/assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
-  <script src="{{asset('template/')}}/assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
-  <!-- Argon JS -->
-  <script src="{{asset('template/')}}/assets/js/argon.js?v=1.2.0"></script>
+  @include('admin.layouts.feet')
 </body>
-@include('sweetalert::alert')
 </html>

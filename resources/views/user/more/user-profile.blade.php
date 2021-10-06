@@ -99,7 +99,7 @@
               <div class="col-lg-3 order-lg-2">
                 <div class="card-profile-image">
                   <a href="#">
-                    <img src="{{asset('template/')}}/assets/img/theme/team-4.jpg" class="rounded-circle">
+                    <img src="{{asset('storage/profile/'.$user->profile)}}" class="rounded-circle">
                   </a>
                 </div>
               </div>

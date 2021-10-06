@@ -29,7 +29,7 @@
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li>
               <a class="dropdown-item" href="{{route('profile.index', auth()->user()->username)}}">
-                <img src="{{asset('storage/'.auth()->user()->profile)}}" alt="foto-profile" class="rounded-circle me-3" width="30px">
+                <img src="{{asset('storage/profile/'.auth()->user()->profile)}}" alt="foto-profile" class="rounded-circle me-3" width="30px">
                 Profil
               </a>
             </li>

@@ -77,9 +77,28 @@ class ProfileController extends Controller
       'twitter' => $request->twitter,
       'instagram' => $request->instagram,
     ]);
+    User::find($id)->update([
+      'name' => $request->name,
+      'username' => $request->username,
+    ]);
+
+    if ($request->profile != auth()->user()->id) {
+      $profile = time().".".$request->profile->extension();
+      $request->file('profile')->storeAs('public/profile', $profile);
+      if (auth()->user()->profile == 'user.jpg') {
+        User::find($id)->update([
+          'profile' => $profile
+        ]);
+      } else {
+        \File::delete('storage/profile/'.auth()->user()->profile);
+        User::find($id)->update([
+          'profile' => $profile
+        ]);
+      }
+    }
 
     Alert::toast('Profile telah terupdate', 'success');
-    return back();
+    return redirect()->route('profile.edit', $request->username);
   }
 
   /**
