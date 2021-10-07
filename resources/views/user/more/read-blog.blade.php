@@ -37,9 +37,27 @@
       <div class="col-md-8">
         <div class="card shadow-sm border-0 bg-white p-4">
           <article class="blog-post">
-            <h2 class="blog-post-title">
-              {{$blog->judul}}
-            </h2>
+            <div class="d-flex justify-content-between">
+              <div>
+                <h2 class="blog-post-title">
+                  {{$blog->judul}}
+                </h2>
+              </div>
+              <div>
+                <i class="fas fa-share text-muted me-3"></i>
+                @if($ilike)
+                <a href="{{route('like.blog', $blog->id)}}" class="text-danger fs-6">
+                  <i class="fas fa-heart"></i>
+                  {{$likes}}
+                </a>
+                @else
+                <a href="{{route('like.blog', $blog->id)}}" class="text-danger fs-6">
+                  <i class="far fa-heart"></i>
+                  {{$likes}}
+                </a>
+                @endif
+              </div>
+            </div>
             <ul class="p-0 d-flex">
               @foreach($serie->tag as $tag)
               <li class="me-2">
@@ -53,23 +71,11 @@
             <hr>
             {!!$blog->content!!}
             <br><br>
-            @if($ilike)
-            <a href="{{route('like.blog', $blog->id)}}" class="text-danger fs-5">
-              <i class="fas fa-heart me-1"></i>
-              {{$likes}}
-            </a>
-            @else
-            <a href="{{route('like.blog', $blog->id)}}" class="text-danger fs-5">
-              <i class="far fa-heart me-1"></i>
-              {{$likes}}
-            </a>
-            @endif
-            <a href="{{$next}}">a</a>
             <hr>
             <div class="article-footer">
               <div class="row">
                 <div class="col-md-2">
-                  <img src="{{asset('storage/'.$blog->user->profile)}}" alt="{{$blog->user->name}} Profile" class="w-100 rounded-circle mt-2">
+                  <img src="{{asset('storage/profile/'.$blog->user->profile)}}" alt="{{$blog->user->name}} Profile" class="w-100 rounded-circle mt-2">
                 </div>
                 <div class="col-md-10">
                   <h5 class="mb-1">{{$blog->user->name}}</h6>

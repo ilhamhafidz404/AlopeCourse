@@ -56,9 +56,70 @@
           </form>
         </div>
       </div>
-      <div class="card mt-3 p-3">
-        <h4>Cara Mendapatkan Kode Redeem Premium</h4>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate odio cumque itaque deleniti, iure excepturi enim sequi aspernatur quo nam facilis. Assumenda aliquam beatae, aliquid voluptatibus blanditiis. Nam, voluptates voluptas.
+      <div class="card mt-3 p-4">
+        <h3>Cara Mendapatkan Kode Redeem Premium</h3>
+        <div class="mt-3">
+          <div class="d-flex mb-3">
+            <div class="me-4 ">
+              <h4 class="fs-1">
+                1
+              </h4>
+            </div>
+            <div>
+              <p>
+                Siapkan dan Pastikan anda mepunyai akun E-Wallet, baik Go-Pay, OVO ataupun Link Aja. Atau jika kalian tidak punya E-Wallet juga bisa menggunakan Rekening BANK apapun yang bisa transfer ke Rekening BANK saya (Mandiri, BCA dan BRI).
+              </p>
+            </div>
+          </div>
+          <div class="d-flex mb-3">
+            <div class="me-4">
+              <h4 class="fs-1">
+                2
+              </h4>
+            </div>
+            <div>
+              <p>
+                Pilih paket yang bakal anda pilih, untuk sekarang anda bisa memilih paket <a href="" class="linkDesc">Silver</a>, <a href="" class="linkDesc">Gold</a>, <a href="" class="linkDesc">Platinum</a>. Paket ini menemtukan seberapa lama anda menjadi user Premium dan seberapa banyak fitur yang bisa anda jelajahi.
+              </p>
+            </div>
+          </div>
+          <div class="d-flex mb-3">
+            <div class="me-4">
+              <h4 class="fs-1">
+                3
+              </h4>
+            </div>
+            <div>
+              <p>
+                Lakukan pembayaran dengan nominal sesuai paket yang anda pilih. Pembayaran bisa melalui transfer Bank atau E-wallet. Jika sudah melakukan pembayaran silahkan <b>Foto Bukti Pembayaran</b>.
+              </p>
+            </div>
+          </div>
+          <div class="d-flex mb-3">
+            <div class="me-4">
+              <h4 class="fs-1">
+                4
+              </h4>
+            </div>
+            <div>
+              <p>
+                Kirimkan Foto Bukti Pembayaran tadi melalui <a href="" class="linkDesc">WhatsApp</a> yang tercantum. Silahkan tunggu beberapa menit untuk mendapatkan Voucher Token Reedemnya dari Customer Service kami.
+              </p>
+            </div>
+          </div>
+          <div class="d-flex mb-3">
+            <div class="me-4">
+              <h4 class="fs-1">
+                5
+              </h4>
+            </div>
+            <div>
+              <p>
+                Masukan kode Reedem ke <a href="" class="linkDesc">Reedem Token</a>. Dan selamat anda sekarang sudah menjadi ALOPE PREMIUM MEMBER. <span class="text-warning fw-bold">Have Fun</span>.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

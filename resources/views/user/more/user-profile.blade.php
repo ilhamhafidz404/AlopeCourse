@@ -46,28 +46,30 @@
             <ul class="d-flex">
               @if($user->biodata->twitter)
               <li>
-                <a href="" class="btn btn-sm btn-primary me-1">
+                <a href="https://twitter.com/{{$user->biodata->twitter}}" class="btn btn-sm  me-1 text-white" style="background-color:#00acee ">
                   <i class="fab fa-twitter"></i>
                 </a>
               </li>
               @endif
               @if($user->biodata->instagram)
               <li>
-                <a href="" class="btn btn-sm btn-primary me-1">
+                <a href="https://instagram.com/{{$user->biodata->instagram}}" class="btn btn-sm me-1 text-white" target="_blank" style="
+                  background: radial-gradient(circle farthest-corner at 35% 90%, #fec564, transparent 50%), radial-gradient(circle farthest-corner at 0 140%, #fec564, transparent 50%), radial-gradient(ellipse farthest-corner at 0 -25%, #5258cf, transparent 50%), radial-gradient(ellipse farthest-corner at 20% -50%, #5258cf, transparent 50%), radial-gradient(ellipse farthest-corner at 100% 0, #893dc2, transparent 50%), radial-gradient(ellipse farthest-corner at 60% -20%, #893dc2, transparent 50%), radial-gradient(ellipse farthest-corner at 100% 100%, #d9317a, transparent), linear-gradient(#6559ca, #bc318f 30%, #e33f5f 50%, #f77638 70%, #fec66d 100%);
+                  ">
                   <i class="fab fa-instagram"></i>
                 </a>
               </li>
               @endif
               @if($user->biodata->github)
               <li>
-                <a href="" class="btn btn-sm btn-primary me-1">
+                <a href="https://github.com/{{$user->biodata->github}}" class="btn btn-sm btn-neutral me-1" target="_blank" style="color: #171515">
                   <i class="fab fa-github"></i>
                 </a>
               </li>
               @endif
               @if($user->biodata->facebook)
               <li>
-                <a href="" class="btn btn-sm btn-primary me-1">
+                <a href="" class="btn btn-sm me-1 text-white" style="background-color: #4267B2">
                   <i class="fab fa-facebook"></i>
                 </a>
               </li>
