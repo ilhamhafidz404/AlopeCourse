@@ -1,6 +1,6 @@
-@extends('user.master')
+@extends('auth.master')
 
-@section('content')
+@section('form')
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-8">
