@@ -33,8 +33,10 @@
           </a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link position-relative" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="ni ni-bell-55"></i>
+            <div style="width: 7px; height: 7px; top:5px; right:16px" class="bg-danger rounded-circle position-absolute">
+            </div>
           </a>
           <div class="dropdown-menu dropdown-menu-xl  dropdown-menu-right  py-0 overflow-hidden">
             <!-- Dropdown header -->
@@ -78,31 +80,31 @@
           <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="ni ni-ungroup"></i>
           </a>
-          <div class="dropdown-menu dropdown-menu-lg dropdown-menu-dark bg-default  dropdown-menu-right ">
+          <div class="dropdown-menu dropdown-menu-lg dropdown-menu-dark bg-default  dropdown-menu-right py-4">
             <div class="row shortcuts px-4">
-              <a href="#!" class="col-4 shortcut-item">
+              <a href="{{route('dashboard.admin')}}" class="col-4 shortcut-item text-center mb-4">
+                <span class="shortcut-media avatar rounded-circle bg-gradient-primary">
+                  <i class="ni ni-tv-2"></i>
+                </span>
+                <small class="text-white">Dashboard</small>
+              </a>
+              <a href="#!" class="col-4 shortcut-item text-center mb-4">
                 <span class="shortcut-media avatar rounded-circle bg-gradient-red">
-                  <i class="ni ni-calendar-grid-58"></i>
+                  <i class="ni ni-button-play"></i>
                 </span>
-                <small>Calendar</small>
+                <small class="text-white">Youtube</small>
               </a>
-              <a href="#!" class="col-4 shortcut-item">
-                <span class="shortcut-media avatar rounded-circle bg-gradient-orange">
-                  <i class="ni ni-email-83"></i>
-                </span>
-                <small>Email</small>
-              </a>
-              <a href="#!" class="col-4 shortcut-item">
+              <a href="#!" class="col-4 shortcut-item text-center mb-4">
                 <span class="shortcut-media avatar rounded-circle bg-gradient-info">
                   <i class="ni ni-credit-card"></i>
                 </span>
-                <small>Payments</small>
+                <small class="text-white">Payments</small>
               </a>
-              <a href="#!" class="col-4 shortcut-item">
-                <span class="shortcut-media avatar rounded-circle bg-gradient-green">
-                  <i class="ni ni-books"></i>
+              <a href="{{route('beranda')}}" class="col-4 shortcut-item text-center">
+                <span class="shortcut-media avatar rounded-circle bg-gradient-purple">
+                  <i class="ni ni-spaceship"></i>
                 </span>
-                <small>Reports</small>
+                <small class="text-white">Beranda</small>
               </a>
               <a href="#!" class="col-4 shortcut-item">
                 <span class="shortcut-media avatar rounded-circle bg-gradient-purple">

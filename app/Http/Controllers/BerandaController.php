@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Blog;
 use App\Models\Category;
-use App\Models\CommunityPost;
-use App\Models\Token;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class BerandaController extends Controller
@@ -19,7 +17,6 @@ class BerandaController extends Controller
   public function __invoke() {
     $blogs = Blog::latest()->take(7)->get();
     $series = Category::latest()->get();
-    $c_post = CommunityPost::latest()->first();
-    return view("welcome", compact('blogs', 'series', 'c_post'));
+    return view("welcome", compact('blogs', 'series'));
   }
 }

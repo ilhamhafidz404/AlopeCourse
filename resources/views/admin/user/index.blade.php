@@ -42,17 +42,29 @@
       <thead class="thead-light">
         <tr>
           <th>#</th>
-          <th>Nama</th>
+          <th>Username</th>
           <th>Email</th>
           <th>Status</th>
           <th>Action</th>
         </tr>
       </thead>
       <tbody>
+        <?php $i = 1 ?>
         @foreach($users as $user)
         <tr>
-          <td>1</td>
-          <td>{{$user->name}}</td>
+          <td>{{$i++}}</td>
+          <td>
+            <div class="media align-items-center">
+              <a href="#" class="avatar rounded-circle mr-3">
+                <img alt="Image placeholder" src="{{asset('storage/profile/'.$user->profile)}}">
+              </a>
+              <div class="media-body">
+                <span class="name mb-0 text-sm">
+                  {{$user->username}}
+                </span>
+              </div>
+            </div>
+          </td>
           <td>{{$user->email}}</td>
           <td>
             @if($user->status == 'active')
