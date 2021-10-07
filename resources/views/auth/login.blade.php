@@ -45,12 +45,16 @@ Pastikan Email dan Password yang anda masukan sudah terdaftar di ALOPE.
     </div>
     <div class="col-md-6 text-right">
       <small class="ms-auto">
-        <a href="{{route('register')}}">Daftar Akun</a>
+        <a href="{{route('password.request')}}">Lupa Password?</a>
       </small>
     </div>
   </div>
   <div class="text-center">
     <button type="submit" class="btn btn-primary my-4 px-5">Masuk</button>
   </div>
+  <small class="text-center d-block">
+    Belum punya akun?
+    <a href="{{route('register')}}">Daftar Akun</a>
+  </small>
 </form>
 @endsection

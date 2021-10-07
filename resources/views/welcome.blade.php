@@ -66,7 +66,7 @@
                       </h5>
                       <div class="d-flex align-items-center justify-content-between">
                         <div>
-                          <img src="{{asset('storage/'.$blog->user->profile)}}" alt="{{$blog->user->name}}" class="rounded-circle writer-img">
+                          <img src="{{asset('storage/profile/'.$blog->user->profile)}}" alt="{{$blog->user->name}}" class="rounded-circle writer-img">
                           <small class="text-muted ms-2">
                             {{$blog->user->name}}
                           </small>

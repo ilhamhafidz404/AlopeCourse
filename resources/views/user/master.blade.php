@@ -28,9 +28,23 @@
   <x-navbar-component></x-navbar-component>
   @else
   <body>
-    <x-navbar-component></x-navbar-component>
+
+    <x-navbar-component> </x-navbar-component>
     <x-header-component></x-header-component>
     @yield('content')
+    @if(auth::check() && !auth()->user()->email_verified_at)
+    <div class="alert alert-warning position-fixed bottom-0 w-100 m-0" style="z-index: 1000">
+      <h4 class="text-center">
+        Email anda belum di verifikasi.
+        <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
+          @csrf
+          <button type="submit" class="btn btn-link p-0 m-0 align-baseline">
+            <h4>Verifikasi sekarang</h4>
+          </button>.
+        </form>
+      </h4>
+    </div>
+    @endif
     @endif
     @else
     <body>

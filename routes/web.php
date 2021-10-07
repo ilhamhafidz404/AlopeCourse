@@ -51,7 +51,7 @@ Route::middleware(['role:active|premium|admin', 'auth'])->group(function () {
   route::get('/serie/{slug}', [SerieController::class, 'show'])->name('serie.show');
 
   Route::get('/blog', [UserBlogController::class, 'list'])->name('blog.list');
-  Route::get('/blog/{slug}', [UserBlogController::class, 'read'])->name('blog.read');
+  Route::get('/blog/{slug}', [UserBlogController::class, 'read'])->name('blog.read')->middleware('verified');
 
   Route::get('/video/{slug}', [UserVideoController::class, 'stream'])->name('video.stream');
   Route::get('/video', [UserVideoController::class, 'index'])->name('list.video.tutor');
@@ -69,4 +69,4 @@ Route::middleware(['role:active|premium|admin', 'auth'])->group(function () {
   route::put('/u/{profile}', [ProfileController::class, 'update'])->name('profile.update');
 });
 
-Auth::routes();
+Auth::routes(["verify" => true]);

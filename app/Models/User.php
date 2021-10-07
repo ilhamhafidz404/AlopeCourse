@@ -13,7 +13,7 @@ use \App\Models\Token;
 use \App\Models\Biodata;
 use \App\Models\Notification;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
   use HasFactory,
   Notifiable,

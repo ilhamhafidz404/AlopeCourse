@@ -26,8 +26,5 @@ class AppServiceProvider extends ServiceProvider
   public function boot(Charts $charts) {
     Paginator::useBootstrap();
     Schema::defaultStringLength(191);
-    $charts->register([
-      \App\Charts\BlogChart::class
-    ]);
   }
 }
