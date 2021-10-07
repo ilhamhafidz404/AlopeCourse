@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
   <meta name="author" content="Creative Tim">
-  <title>Argon Dashboard - Free Dashboard for Bootstrap 4</title>
+  <title>{{$user->username}} - Alope</title>
   <!-- Favicon -->
   <link rel="icon" href="../assets/img/brand/favicon.png" type="image/png">
   <!-- Fonts -->
@@ -119,8 +119,10 @@
                       <span class="description">Friends</span>
                     </div>
                     <div>
-                      <span class="heading">10</span>
-                      <span class="description">Photos</span>
+                      <span class="heading">
+                        {{$like}}
+                      </span>
+                      <span class="description">Like</span>
                     </div>
                     <div>
                       <span class="heading">89</span>
@@ -131,10 +133,13 @@
               </div>
               <div class="text-center">
                 <h5 class="h3">
-                  Jessica Jones<span class="font-weight-light">, 27</span>
+                  {{$user->username}}
+                  @if($user->hasRole('premium'))
+                  <i class="fas fa-crown text-yellow ms-2"></i>
+                  @endif
                 </h5>
                 <div class="h5 font-weight-300">
-                  <i class="ni location_pin mr-2"></i>Bucharest, Romania
+                  Bergabung pada {{$user->created_at->format('M Y')}}
                 </div>
                 <div class="h5 mt-4">
                   <i class="ni business_briefcase-24 mr-2"></i>Solution Manager - Creative Tim Officer

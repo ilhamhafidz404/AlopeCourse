@@ -48,7 +48,7 @@
                 <div class="row align-items-center">
                   <div class="col-auto">
                     <!-- Avatar -->
-                    <img alt="Image placeholder" src="{{asset('storage/'.$notification->user->profile)}}" class="avatar rounded-circle">
+                    <img alt="Image placeholder" src="{{asset('storage/profile/'.$notification->user->profile)}}" class="avatar rounded-circle">
                   </div>
                   <div class="col ml--2">
                     <div class="d-flex justify-content-between align-items-center">
@@ -125,7 +125,7 @@
           <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <div class="media align-items-center">
               <span class="avatar avatar-sm rounded-circle">
-                <img alt="Image placeholder" src="{{asset('template')}}/assets/img/theme/team-4.jpg">
+                <img alt="Image placeholder" src="{{asset('storage/profile/'.auth()->user()->profile)}}">
               </span>
               <div class="media-body  ml-2  d-none d-lg-block">
                 <span class="mb-0 text-sm  font-weight-bold">John Snow</span>

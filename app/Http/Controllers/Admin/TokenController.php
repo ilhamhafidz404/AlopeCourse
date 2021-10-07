@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Requests\TokenRequest;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Models\Token;
 use App\Models\User;
@@ -36,11 +37,20 @@ class TokenController extends Controller
   * @param  \Illuminate\Http\Request  $request
   * @return \Illuminate\Http\Response
   */
-  public function store(Request $request) {
+  public function store(TokenRequest $request) {
+    if ($request->type == "silver") {
+      $expired_at = time() + (86400 * (30*1));
+    } elseif ($request->type == "gold") {
+      $expired_at = time() + (86400 * (30*3));
+    } elseif ($request->type == "platinum") {
+      $expired_at = time() + (86400 * (30*6));
+    }
+
     Token::create([
       'token' => $request->token,
       'type' => $request->type,
-      "user_id" => $request->user
+      "user_id" => $request->user,
+      "expired_at" => date("Y-m-d H:i:s", $expired_at)
     ]);
 
     Alert::success('Berhasil Menambahkan Token', 'Token baru telah ditambahkan');

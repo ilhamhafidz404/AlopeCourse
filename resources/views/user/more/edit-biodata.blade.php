@@ -43,6 +43,11 @@
                 <div class="col-12 mb-3">
                   <label class="form-control-label" for="profile">Foro Profile</label>
                   <input type="file" id="profile" class="dropify" data-height="300" accept="image/*" name="profile" />
+                  @error('profile')
+                  <small class="text-danger">
+                    {{$message}}
+                  </small>
+                  @enderror
                 </div>
                 <div class="col-md-6 mb-3">
                   <label class="form-control-label" for="name">Name</label>

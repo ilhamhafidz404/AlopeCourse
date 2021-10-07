@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Biodata;
+use App\Models\Like;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class ProfileController extends Controller
@@ -17,7 +18,8 @@ class ProfileController extends Controller
   public function index($username) {
     $user = User::whereUsername($username)->first();
     $biodata = Biodata::whereUser_id($user->id)->first();
-    return view('user.more.user-profile', compact('user', 'biodata'));
+    $like = Like::whereUser_id($user->id)->count();
+    return view('user.more.user-profile', compact('user', 'biodata', 'like'));
   }
 
   /**
@@ -83,6 +85,10 @@ class ProfileController extends Controller
     ]);
 
     if ($request->profile != auth()->user()->id) {
+      $request->validate([
+        'profile' => ['image', 'dimensions:max_width=1000,max_height=1000,ratio:1/1']
+      ]);
+
       $profile = time().".".$request->profile->extension();
       $request->file('profile')->storeAs('public/profile', $profile);
       if (auth()->user()->profile == 'user.jpg') {
