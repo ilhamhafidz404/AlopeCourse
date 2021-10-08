@@ -21,6 +21,25 @@
   <link rel="stylesheet" href="{{asset('css/mystyle.css')}}">
 
   <title>@yield('title')</title>
+  <style>
+    svg.svgTesti{
+    margin-top:-400px !important;
+  }
+  svg.svgTestiBottom{
+    margin-top: -150px;
+  }
+  @media only screen and (max-width: 1486px) {
+    svg.svgTesti {
+     display: none;
+    }
+    #testi{
+      margin-top: 0
+    }
+    svg.svgTestiBottom{
+    margin-top: -70px;
+  }
+  }
+  </style>
 </head>
 @auth
 @if(auth()->user()->hasRole('banned'))
@@ -33,16 +52,16 @@
     <x-header-component></x-header-component>
     @yield('content')
     @if(auth::check() && !auth()->user()->email_verified_at)
-    <div class="alert alert-warning position-fixed bottom-0 w-100 m-0" style="z-index: 1000">
-      <h4 class="text-center">
-        Email anda belum di verifikasi.
+    <div class="alert alert-danger position-fixed bottom-0 w-100 m-0 p-2" style="z-index: 1000">
+      <h5 class="text-center mb-0">
+        Email anda belum di verifikasi
         <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
           @csrf
           <button type="submit" class="btn btn-link p-0 m-0 align-baseline">
-            <h4>Verifikasi sekarang</h4>
+            <h5 class="mb-0">Verifikasi sekarang</h5>
           </button>.
         </form>
-      </h4>
+      </h5>
     </div>
     @endif
     @endif
@@ -50,6 +69,19 @@
     <body>
       <x-navbar-component></x-navbar-component>
       <x-header-component></x-header-component>
+      @if(auth::check() && !auth()->user()->email_verified_at)
+      <div class="alert alert-danger position-fixed bottom-0 w-100 m-0 p-2" style="z-index: 1000">
+        <h5 class="text-center mb-0">
+          Email anda belum di verifikasi
+          <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
+            @csrf
+            <button type="submit" class="btn btn-link p-0 m-0 align-baseline">
+              <h5 class="mb-0">Verifikasi sekarang</h5>
+            </button>.
+          </form>
+        </h5>
+      </div>
+      @endif
       @yield('content')
       @endauth
       <x-banner-component></x-banner-component>

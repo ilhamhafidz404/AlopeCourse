@@ -44,13 +44,13 @@
       <div class="col-md-2">
         <h5> Sosial Media</h5>
         <div class="d-flex align-items-center justify-content-around">
-          <a href="">
+          <a href="" class="me-3">
             <i class="fab fa-instagram">  </i>
           </a>
-          <a href="">
-            <i class="fab fa-facebook-f">  </i>
+          <a href="" class="me-3">
+            <i class="fab fa-facebook">  </i>
           </a>
-          <a href="">
+          <a href="" class="me-3">
             <i class="fab fa-twitter">  </i>
           </a>
         </div>

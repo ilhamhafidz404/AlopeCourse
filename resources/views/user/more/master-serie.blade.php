@@ -17,9 +17,34 @@
 
   <!-- glider -->
   <link rel="stylesheet" href="{{asset('dist/css/glider.min.css')}}">
-
-  <link rel="stylesheet" href="{{asset('css/style.css')}}">
+  <link rel="stylesheet" href="{{asset('css/mystyle.css')}}">
   <title>@yield('title')</title>
+  <style>
+    @media only screen and (max-width: 1363px){
+      svg.footer-svg{
+        margin-top: -350px;
+      }
+    }
+    @media only screen and (max-width: 1139px){
+    svg.footer-svg{
+            margin-top: -300px;
+          }
+    @media only screen and (max-width: 917px){
+    svg.footer-svg{
+            margin-top: -250px;
+          }
+    }
+    @media only screen and (max-width: 688px){
+    svg.footer-svg{
+            margin-top: -200px;
+          }
+    }
+    @media only screen and (max-width: 455px){
+    svg.footer-svg{
+            display: none;
+          }
+    }
+  </style>
 </head>
 <body class="bg-light">
   <x-navbar-component></x-navbar-component>

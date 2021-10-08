@@ -55,7 +55,7 @@
               @foreach($blogs as $blog)
               <div class="mx-2">
                 <a href="{{route('blog.read', $blog->slug)}}">
-                  <div class="card shadow-sm">
+                  <div class="card shadow-sm me-2">
                     <div class="blog-serie w-100" style="background-image: url({{asset('storage/'.$blog->thumbnail)}})"></div>
                     <div class="card-body pt-1">
                       <small class="text-muted">
@@ -90,9 +90,10 @@
       </div>
     </div>
   </div>
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" style="margin-top:-200px"><path fill="#36275D" fill-opacity="1" d="M0,288L1440,160L1440,320L0,320Z"></path></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="svgTesti"><path fill="#36275D" fill-opacity="1" d="M0,288L1440,160L1440,320L0,320Z"></path></svg>
   <div id="testi" class="pt-1 position-relative">
     <section class="container">
+      <br>
       <div class="title text-center">
         <h3 class="text-white mt-5">TESTIMONI</h3>
         <p class="text-white text-muted">
@@ -169,7 +170,7 @@
       </div>
     </section>
   </div>
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" style="margin-top: -10px"><path fill="#36275D" fill-opacity="1" d="M0,288L1440,160L1440,0L0,0Z"></path></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="svgTestiBottom"><path fill="#36275D" fill-opacity="1" d="M0,288L1440,160L1440,0L0,0Z"></path></svg>
 
 
 
@@ -372,7 +373,7 @@
       <span>Jadi bagian dari Team??</span>
       <div class="row mt-3">
         <div class="col-md-6">
-          <div class="facebook d-flex align-items-center sosmed justify-content-between">
+          <div class="facebook d-flex align-items-center sosmed">
             <div class="i">
               <i class="fs-1 fab fa-facebook"></i>
             </div>

@@ -174,7 +174,7 @@ section.header .circle-container .circle span.node {
 #testi {
   background: #36275D;
   z-index: 100;
-  margin-top: -10px;
+  margin-top: -45px;
 }
 
 .btn_price {
@@ -267,7 +267,7 @@ section.header .circle-container .circle span.node {
 
 footer {
   background-color: #36275D;
-  margin-top: -10px;
+  margin-top: -60px;
 }
 footer a {
   font-size: 20px;
@@ -288,7 +288,7 @@ footer a i.fa-instagram {
 }
 
 svg.footer-svg {
-  margin-top: -200px;
+  margin-top: -400px;
 }
 
 .serie-name::before {
