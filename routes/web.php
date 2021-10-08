@@ -49,24 +49,22 @@ Route::middleware(['role:admin', 'auth'])->group(function () {
 Route::middleware(['role:active|premium|admin', 'auth'])->group(function () {
   route::get('/serie', [SerieController::class, 'index'])->name('serie.index');
   route::get('/serie/{slug}', [SerieController::class, 'show'])->name('serie.show');
-
   Route::get('/blog', [UserBlogController::class, 'list'])->name('blog.list');
-  Route::get('/blog/{slug}', [UserBlogController::class, 'read'])->name('blog.read')->middleware('verified');
-
-  Route::get('/video/{slug}', [UserVideoController::class, 'stream'])->name('video.stream');
   Route::get('/video', [UserVideoController::class, 'index'])->name('list.video.tutor');
-
   route::get('/topic', [TopicController::class, 'index'])->name('topic');
-
-  route::get('/like/{blog_id}', LikeController::class)->name('like.blog');
-
-  route::get('/reedem-token', [UserTokenController::class, 'redeem'])->name('redeem');
-  route::post('/token', [UserTokenController::class, 'getPremium'])->name('getPremium');
-
   route::get('/u/{profile}', [ProfileController::class, 'index'])->name('profile.index');
-
   route::get('/u/{profile}/edit', [ProfileController::class, 'edit'])->name('profile.edit');
   route::put('/u/{profile}', [ProfileController::class, 'update'])->name('profile.update');
+
+
+  //Route yang harus Verifikasi Dulu
+  Route::middleware(['verified'])->group(function() {
+    Route::get('/blog/{slug}', [UserBlogController::class, 'read'])->name('blog.read');
+    Route::get('/video/{slug}', [UserVideoController::class, 'stream'])->name('video.stream');
+    Route::get('/like/{blog_id}', LikeController::class)->name('like.blog');
+    route::get('/reedem-token', [UserTokenController::class, 'redeem'])->name('redeem');
+    route::post('/token', [UserTokenController::class, 'getPremium'])->name('getPremium');
+  });
 });
 
 Auth::routes(["verify" => true]);
