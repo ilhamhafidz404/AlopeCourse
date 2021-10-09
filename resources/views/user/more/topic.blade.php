@@ -47,7 +47,7 @@
       <div class="col-sm-12 col-md-6 col-lg-4">
         <a href="{{route('serie.show', $serie->slug)}}">
           <div class="card border-0 bg-transparent m-auto mb-4" style="width: 90% !important;">
-            <img src="{{asset('storage/'.$serie->thumbnail)}}" class="card-img-rounded" width="100%">
+            <img src="{{asset('storage/thumbnail/serie/'.$serie->thumbnail)}}" class="card-img-rounded" width="100%">
             <div class="card-body p-0 mt-1">
               @foreach($serie->tag as $tag)
               <span class="badge" style="background-color:{{$tag->badge}}">

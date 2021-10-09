@@ -30,7 +30,7 @@
   <div class="svg-head"></div>
   <br><br><br>
   <main class="container-fluid mt-5">
-    <div class="p-4 p-md-5 mb-4 text-white rounded blog-thumb-header" style="background-image:url({{asset('storage/'.$blog->thumbnail)}})">
+    <div class="p-4 p-md-5 mb-4 text-white rounded blog-thumb-header" style="background-image:url({{asset('storage/thumbnail/blog/'.$blog->thumbnail)}})">
     </div>
 
     <div class="row g-5">

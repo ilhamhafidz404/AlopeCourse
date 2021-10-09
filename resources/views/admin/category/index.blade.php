@@ -65,7 +65,7 @@
             {{$category->status}}
           </span>
           @endif
-          <img src="{{asset('storage/'.$category->thumbnail)}}" class="card-img w-100" alt="thumbnail-kategori{{$category->slug}}">
+          <img src="{{asset('storage/thumbnail/serie/'.$category->thumbnail)}}" class="card-img w-100" alt="thumbnail-kategori{{$category->slug}}">
           <div class="card-img-overlay">
             <div class="position-absolute bottom-0 end-0 start-0 d-flex justify-content-between p-2">
               <div>

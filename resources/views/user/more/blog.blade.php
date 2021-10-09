@@ -35,7 +35,7 @@
       <div class="col-md-4 mb-4">
         <a href="{{route('blog.read', $blog->slug)}}">
           <div class="card shadow-sm">
-            <div class="blog-serie w-100" style="background-image: url({{asset('storage/'.$blog->thumbnail)}})"></div>
+            <div class="blog-serie w-100" style="background-image: url({{asset('storage/thumbnail/blog/'.$blog->thumbnail)}})"></div>
             <div class="card-body pt-1">
               <small class="text-muted">
                 {{$blog->category->nama}}

@@ -54,7 +54,7 @@ class BlogController extends Controller
       return back()->with("error_thumb", 'Thumbnail harus ada,, Silahkan isi data kembali');
     }
     $thumbnail = time().".".$request->thumbnail->extension();
-    $request->file('thumbnail')->storeAs('public', $thumbnail);
+    $request->file('thumbnail')->storeAs('public/thumbnail/blog', $thumbnail);
     Blog::create([
       'status' => $request->status,
       'judul' => $request->judul,
@@ -122,7 +122,7 @@ class BlogController extends Controller
         return back()->with("error_thumb", 'Thumbnail harus ada,, Silahkan isi data kembali');
       }
       $blog = Blog::find($id)->first();
-      \File::delete('storage/'.$blog->thumbnail);
+      \File::delete('storage/thumbnail/blog/'.$blog->thumbnail);
       $thumbnail = time().".".$request->thumbnail->extension();
       $request->file('thumbnail')->storeAs('public', $thumbnail);
       Blog::find($id)->update([

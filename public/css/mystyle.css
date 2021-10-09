@@ -163,6 +163,7 @@ section.header .circle-container .circle span.node {
 #community-post .c_post_banner {
   background-position: center;
   background-size: cover;
+  overflow: hidden;
   right: -20px;
   bottom: -40px;
   position: absolute;
@@ -174,7 +175,7 @@ section.header .circle-container .circle span.node {
 #testi {
   background: #36275D;
   z-index: 100;
-  margin-top: -45px;
+  margin-top: -50px;
 }
 
 .btn_price {
@@ -267,7 +268,7 @@ section.header .circle-container .circle span.node {
 
 footer {
   background-color: #36275D;
-  margin-top: -60px;
+  margin-top: -10px;
 }
 footer a {
   font-size: 20px;
@@ -288,7 +289,7 @@ footer a i.fa-instagram {
 }
 
 svg.footer-svg {
-  margin-top: -400px;
+  margin-top: -300px;
 }
 
 .serie-name::before {
@@ -327,9 +328,11 @@ svg.footer-svg {
 .blog-thumb-header {
   background-position: center;
   background-size: cover;
+  overflow: hidden;
   height: 320px;
   max-height: 350px;
 }
+
 .header-card {
   top: -20px;
   left: 50%;

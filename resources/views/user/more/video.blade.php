@@ -35,7 +35,7 @@
       <div class="col-sm-12 col-md-6 col-lg-4">
         <a href="{{route('video.stream', $video->slug)}}">
           <div class="card border-0 bg-transparent position-relative m-auto mb-4" style="width: 90% !important;">
-            <div class="rounded video-thumb w-100" style="background-image: url({{asset('storage/'.$video->thumbnail)}});"></div>
+            <div class="rounded video-thumb w-100" style="background-image: url({{asset('storage/thumbnail/video/'.$video->thumbnail)}});"></div>
             <div class="card-body">
               <h4 class="card-title my-1 text-dark">
                 {{$video->title}}

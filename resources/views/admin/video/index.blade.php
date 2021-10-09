@@ -26,7 +26,7 @@
       @if($video->isPremium)
       <i class="fas fa-crown text-yellow position-absolute end-0 top-0 bg-white rounded-circle p-2 m-2"></i>
       @endif
-      <div class="card-image" style="height: 200px; width: 100%; background-image: url({{asset('storage/'.$video->thumbnail)}}); background-position: center; background-size: cover;">
+      <div class="card-image" style="height: 200px; width: 100%; background-image: url({{asset('storage/thumbnail/video/'.$video->thumbnail)}}); background-position: center; background-size: cover;">
       </div>
       <div class="card-body d-flex justify-content-between">
         <div>

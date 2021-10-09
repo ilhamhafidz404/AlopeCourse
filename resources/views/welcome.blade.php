@@ -12,7 +12,7 @@
         <div class="col-md-6 col-lg-4">
           <a href="{{route('serie.show', $serie->slug)}}">
             <div class="card border-0 bg-transparent m-auto mb-4" style="width: 90% !important;">
-              <img src="{{asset('storage/'.$serie->thumbnail)}}" class="card-img-rounded" width="100%">
+              <img src="{{asset('storage/thumbnail/serie/'.$serie->thumbnail)}}" class="card-img-rounded" width="100%">
               <div class="card-body">
                 @foreach($serie->tag as $tag)
                 <span class="badge" style="background-color:{{$tag->badge}}">
@@ -56,7 +56,7 @@
               <div class="mx-2">
                 <a href="{{route('blog.read', $blog->slug)}}">
                   <div class="card shadow-sm me-2">
-                    <div class="blog-serie w-100" style="background-image: url({{asset('storage/'.$blog->thumbnail)}})"></div>
+                    <div class="blog-serie w-100" style="background-image: url({{asset('storage/thumbnail/blog/'.$blog->thumbnail)}})"></div>
                     <div class="card-body pt-1">
                       <small class="text-muted">
                         {{$blog->category->nama}}

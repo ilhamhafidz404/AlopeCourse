@@ -69,7 +69,7 @@
                     <span class="badge bg-danger position-absolute" style="top-0">
                       Video
                     </span>
-                    <div class="rounded video-thumb w-100" style="background-image: url({{asset('storage/'.$video->thumbnail)}});"></div>
+                    <div class="rounded video-thumb w-100" style="background-image: url({{asset('storage/thumbnail/video/'.$video->thumbnail)}});"></div>
                     <div class="card-body">
                       <h4 class="card-title my-1 text-dark">
                         {{$video->title}}
@@ -115,14 +115,14 @@
                     <span class="badge bg-warning text-dark position-absolute" style="top-0">
                       Blog
                     </span>
-                    <div class="blog-serie w-100" style="background-image: url({{asset('storage/'.$blog->thumbnail)}})"></div>
+                    <div class="blog-serie w-100" style="background-image: url({{asset('storage/thumbnail/blog/'.$blog->thumbnail)}})"></div>
                     <div class="card-body pt-1">
                       <h5 class="card-title mb-4 text-dark">
                         {{$blog->judul}}
                       </h5>
                       <div class="d-flex align-items-center justify-content-between">
                         <div>
-                          <img src="{{asset('storage/'.$blog->user->profile)}}" alt="{{$blog->user->name}}" class="rounded-circle writer-img">
+                          <img src="{{asset('storage/profile/'.$blog->user->profile)}}" alt="{{$blog->user->name}}" class="rounded-circle writer-img">
                           <small class="text-muted ms-2">
                             {{$blog->user->name}}
                           </small>

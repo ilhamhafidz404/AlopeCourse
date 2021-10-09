@@ -22,23 +22,23 @@
 
   <title>@yield('title')</title>
   <style>
-    svg.svgTesti{
-    margin-top:-400px !important;
-  }
-  svg.svgTestiBottom{
-    margin-top: -150px;
-  }
-  @media only screen and (max-width: 1486px) {
     svg.svgTesti {
-     display: none;
+      margin-top: -400px !important;
     }
-    #testi{
-      margin-top: 0
+    svg.svgTestiBottom {
+      margin-top: -150px;
     }
-    svg.svgTestiBottom{
-    margin-top: -70px;
-  }
-  }
+@media only screen and (max-width: 1486px) {
+      svg.svgTesti {
+        display: none;
+      }
+      #testi {
+        margin-top: 0
+      }
+      svg.svgTestiBottom {
+        margin-top: -70px;
+      }
+    }
   </style>
 </head>
 @auth

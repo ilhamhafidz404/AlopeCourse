@@ -20,65 +20,79 @@
   <link rel="stylesheet" href="{{asset('css/mystyle.css')}}">
   <title>@yield('title')</title>
   <style>
-    @media only screen and (max-width: 1363px){
-      svg.footer-svg{
-        margin-top: -350px;
+@media only screen and (max-width: 1363px) {
+    svg.footer-svg {
+      margin-top: -350px !important;
+    }
+  }
+@media only screen and (max-width: 1139px) {
+    svg.footer-svg {
+      margin-top: -300px !important;
+    }
+@media only screen and (max-width: 917px) {
+      svg.footer-svg {
+        margin-top: -250px !important;
       }
     }
-    @media only screen and (max-width: 1139px){
-    svg.footer-svg{
-            margin-top: -300px;
-          }
-    @media only screen and (max-width: 917px){
-    svg.footer-svg{
-            margin-top: -250px;
-          }
+@media only screen and (max-width: 688px) {
+      svg.footer-svg {
+        margin-top: -200px !important;
+      }
     }
-    @media only screen and (max-width: 688px){
-    svg.footer-svg{
-            margin-top: -200px;
-          }
-    }
-    @media only screen and (max-width: 455px){
-    svg.footer-svg{
-            display: none;
-          }
+@media only screen and (max-width: 455px) {
+      svg.footer-svg {
+        display: none;
+      }
     }
   </style>
-</head>
-<body class="bg-light">
-  <x-navbar-component></x-navbar-component>
-  <section class="py-5 text-start header text-white position-relative">
-    <div class="container-fluid pb-5">
-      <div class="row">
-        <div class="col-lg-6">
-          <br>
-          @yield('header')
+  </head>
+  <body class="bg-light">
+    <x-navbar-component></x-navbar-component>
+    <section class="py-5 text-start header text-white position-relative">
+      <div class="container-fluid pb-5">
+        <div class="row">
+          <div class="col-lg-6">
+            <br>
+            @yield('header')
+          </div>
         </div>
       </div>
+    </section>
+
+    @yield('card-content')
+
+    @if(auth::check() && !auth()->user()->email_verified_at)
+    <div class="alert alert-danger position-fixed bottom-0 w-100 m-0 p-2" style="z-index: 1000">
+      <h5 class="text-center mb-0">
+        Email anda belum di verifikasi
+        <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
+          @csrf
+          <button type="submit" class="btn btn-link p-0 m-0 align-baseline">
+            <h5 class="mb-0">Verifikasi sekarang</h5>
+          </button>.
+        </form>
+      </h5>
     </div>
-  </section>
+    @endif;
 
-  @yield('card-content')
-
-  <x-footer-component></x-footer-component>
+    <x-footer-component></x-footer-component>
 
 
-  <!-- Option 1: Bootstrap Bundle with Popper -->
-  <script src="/js/app.js"></script>
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="/js/app.js"></script>
 
-  <!-- Prism  -->
-  <script src="{{asset('dist/js/prism.js')}}"></script>
+    <!-- Prism  -->
+    <script src="{{asset('dist/js/prism.js')}}"></script>
 
-  <!-- Font Awesome  -->
-  <script src="https://kit.fontawesome.com/bfdfedea1a.js" crossorigin="anonymous"></script>
-  <script>
-    const navbar = document.querySelector('.navbar')
-    window.addEventListener('scroll', function() {
-      navbar.classList.toggle('sticky', window.scrollY > 0);
+    <!-- Font Awesome  -->
+    <script src="https://kit.fontawesome.com/bfdfedea1a.js" crossorigin="anonymous"></script>
+    <script>
+      const navbar = document.querySelector('.navbar')
+      window.addEventListener('scroll', function() {
+        navbar.classList.toggle('sticky', window.scrollY > 0);
 
-    });
-  </script>
-  <script src="{{asset('js/script.js')}}"></script>
-</body>
+      });
+    </script>
+    <script src="{{asset('js/script.js')}}"></script>
+  </body>
 </html>

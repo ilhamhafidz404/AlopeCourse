@@ -41,7 +41,7 @@
   <div class="card p-3">
     <div class="row">
       <div class="col-sm-5 d-flex align-items-center">
-        <img src="{{asset('storage/'.$blog->thumbnail )}}" width="100%" class="rounded">
+        <img src="{{asset('storage/thumbnail/blog/'.$blog->thumbnail )}}" width="100%" class="rounded">
       </div>
       <div class="col-sm-7 p-3 position-relative">
         <h4 class="my-0 text-uppercase">
