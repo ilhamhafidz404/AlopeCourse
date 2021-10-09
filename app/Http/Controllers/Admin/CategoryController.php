@@ -48,7 +48,7 @@ class CategoryController extends Controller
       return back()->with("error_thumb", 'Thumbnail harus ada,, Silahkan isi data kembali');
     }
     $thumbnail = time().".".$request->thumbnail->extension();
-    $request->file('thumbnail')->storeAs('public', $thumbnail);
+    $request->file('thumbnail')->storeAs('public/thumbnail/serie', $thumbnail);
     Category::create([
       'nama' => $request->nama,
       'slug' => Str::slug($request->nama),
@@ -94,7 +94,7 @@ class CategoryController extends Controller
       return back()->with("error_thumb", 'Thumbnail harus ada,, Silahkan isi data kembali');
     }
     $thumbnail = time().".".$request->thumbnail->extension();
-    $request->file('thumbnail')->storeAs('public', $thumbnail);
+    $request->file('thumbnail')->storeAs('public/thumbnail/serie', $thumbnail);
     $category = Category::find($id);
     $category->update([
       "nama" => $request->nama,

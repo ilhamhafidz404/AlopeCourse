@@ -44,6 +44,7 @@ class UserSeeder extends Seeder
       'name' => "banned",
       'username' => "bagggnned",
       'email' => 'banned@user.com',
+      "status" => "banned",
       'password' => bcrypt('banned')
     ]);
 

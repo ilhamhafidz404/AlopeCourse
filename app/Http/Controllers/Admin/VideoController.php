@@ -48,7 +48,7 @@ class VideoController extends Controller
       $ispremium = true;
     }
     $thumbnail = time().".".$request->thumbnail->extension();
-    $request->file('thumbnail')->storeAs('public', $thumbnail);
+    $request->file('thumbnail')->storeAs('public/thumbnail/video', $thumbnail);
     Video::create([
       'title' => $request->title,
       'slug' => Str::slug($request->title),
@@ -102,7 +102,7 @@ class VideoController extends Controller
   */
   public function update(Request $request, $id) {
     $thumbnail = time().".".$request->thumbnail->extension();
-    $request->file('thumbnail')->storeAs('public', $thumbnail);
+    $request->file('thumbnail')->storeAs('public/thumbnail/video', $thumbnail);
 
     Video::find($id)->update([
       "title" => $request->title,

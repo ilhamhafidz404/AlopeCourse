@@ -54,7 +54,7 @@ class BlogController extends Controller
       return back()->with("error_thumb", 'Thumbnail harus ada,, Silahkan isi data kembali');
     }
     $thumbnail = time().".".$request->thumbnail->extension();
-    $request->file('thumbnail')->storeAs('public/thumbnail/blog', $thumbnail);
+    $request->file('thumbnail')->storeAs('public/thumbnail/blog', $thumbnail,);
     Blog::create([
       'status' => $request->status,
       'judul' => $request->judul,
