@@ -172,17 +172,14 @@
   </div>
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="svgTestiBottom"><path fill="#36275D" fill-opacity="1" d="M0,288L1440,160L1440,0L0,0Z"></path></svg>
 
-
-
-
   <div id="pricing" class="m-auto container-fluid">
     <h3 class="text-center fw-bold">ALOPE PREMIUM ACCESS</h3>
     <p class="text-center m-auto text-muted" style="width: 60%;">
       Beli akses Premium untuk mendapatkan Full Akses ke tutorial yang lebih keren dan Menyenangkan.
     </p>
-    <div class="row align-items-center mt-4">
-      <div class="col-md-4">
-        <div class="card border-0 shadow-sm p-3 text-center gold mb-3">
+    <div class="row justify-content-center align-items-center mt-4">
+      <div class="col-md-5 p-0 mb-3">
+        <div class="card border-0 shadow-sm p-3 text-center gold bg-white py-5">
           <h5>Gold</h5>
           <h3 class=" mt-4">
             <sup>Rp.</sup>
@@ -219,12 +216,12 @@
               Claim Ebook Alope secara Gratis
             </li>
           </ul>
-          <a href="https://api.whatsapp.com/send?phone=6283871352030&text=Hai%20Saya%20Ingin%20Berlangganan%20di%20ALOPE" class="btn btn-primary text-white mt-4 btn_price">
+          <a href="{{route('invoice')}}" class="btn btn-primary text-white mt-4 btn_price">
             Beli Akses
           </a>
         </div>
       </div>
-      <div class="col-md-4 p-0 mb-3">
+      <div class="col-md-5 p-0 mb-3">
         <div class="card border-0 shadow-sm p-3 text-center platinum py-5 text-white">
           <h5>Platinum</h5>
           <h3 class=" mt-4">
@@ -271,42 +268,11 @@
           </a>
         </div>
       </div>
-      <div class="col-md-4 mb-3">
-        <div class="card border-0 shadow-sm p-3 text-center silver">
-          <h5>Silver</h5>
-          <h3 class=" mt-4">
-            <sup>Rp.</sup>
-            <span class="fw-bold" style="font-size: 50px">
-              40
-            </span>
-            <sub class="fw-bold mb-2">
-              .000
-            </sub>
-          </h3>
-          <ul class="mt-4 mb-2">
-            <li class="mb-2">
-              <i class="fas fa-check me-2 text-success"></i>
-              Akses Alope Journey
-            </li>
-            <li class="mb-2">
-              <i class="fas fa-check me-2 text-success"></i>
-              Premium selama 1 bulan
-            </li>
-            <li class="mb-2">
-              <i class="fas fa-check me-2 text-success"></i>
-              Buat Post di Alope Cicle
-            </li>
-            <li class="mb-2">
-              <i class="fas fa-check me-2 text-success"></i>
-              Source Code Gratis
-            </li>
-          </ul>
-          <a href="https://api.whatsapp.com/send?phone=6283871352030&text=Hai%20Saya%20Ingin%20Berlangganan%20di%20ALOPE" class="btn btn-primary text-white mt-4 btn_price">
-            Beli Akses
-          </a>
-        </div>
-      </div>
     </div>
+
+    <a href="" class="mt-2 d-block text-end">
+      Lihat Paket lainnya
+    </a>
   </div>
 
   <br><br>

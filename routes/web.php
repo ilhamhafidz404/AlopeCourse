@@ -20,6 +20,9 @@ use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\LikeController;
 
+
+use App\Models\Notification;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -58,12 +61,23 @@ Route::middleware(['role:active|premium|admin', 'auth'])->group(function () {
 
 
   //Route yang harus Verifikasi Dulu
-  Route::middleware(['verified'])->group(function() {
+  Route::middleware(['verified', 'auth'])->group(function() {
     Route::get('/blog/{slug}', [UserBlogController::class, 'read'])->name('blog.read');
     Route::get('/video/{slug}', [UserVideoController::class, 'stream'])->name('video.stream');
     Route::get('/like/{blog_id}', LikeController::class)->name('like.blog');
     route::get('/reedem-token', [UserTokenController::class, 'redeem'])->name('redeem');
     route::post('/token', [UserTokenController::class, 'getPremium'])->name('getPremium');
+    Route::get('/invoice', function() {
+      return view('user.more.invoice');
+    })->name('invoice');
+    Route::get('/touch-admin', function() {
+      Notification::create([
+        "user_id" => auth()->user()->id,
+        "subject" => auth()->user()->username." Mencolek anda",
+        "message" => auth()->user()->username." telah mengclaim dirinya telah membayar untuk berlangganan, ayo cek!"
+      ]);
+      return redirect("https://api.whatsapp.com/send?phone=6283871352030&text=Hai%20Saya%20Ingin%20Berlangganan%20di%20ALOPE");
+    })->name('touch-admin');
   });
 });
 
