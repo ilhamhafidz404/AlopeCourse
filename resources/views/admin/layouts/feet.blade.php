@@ -8,7 +8,6 @@
 <!-- Optional JS
 <script src="{{asset('template')}}/assets/vendor/chart.js/dist/Chart.min.js"></script>
 <script src="{{asset('template')}}/assets/vendor/chart.js/dist/Chart.extension.js"></script>-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
 
 <!-- Argon JS -->
 <script src="{{asset('template')}}/assets/js/argon.js?v=1.2.0"></script>
@@ -73,21 +72,6 @@
         }
       })
     });
-    //var myDropzone = new Dropzone(div#dropzone);
-    /*ClassicEditor
-    .create(document.querySelector('#editor'))
-    .catch(error => {
-      console.error(error);
-    });*/
-
-    var options = {
-      filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
-      filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
-      filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
-      filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
-    };
-    CKEDITOR.replace('editor', options);
-
     var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
     var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
       return new bootstrap.Popover(popoverTriggerEl)
@@ -98,69 +82,12 @@
       return new bootstrap.Tooltip(tooltipTriggerEl)
     })
 
-    var blogChart = document.getElementById('blogChart');
-    var blogChart = new Chart(blogChart, {
-      type: 'bar',
-      data: {
-        labels: _ydataBlog,
-        datasets: [{
-          label: 'Grafik Blog',
-          data: _xdataBlog,
-          backgroundColor: [
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(54, 162, 235, 0.2)',
-            'rgba(255, 206, 86, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(153, 102, 255, 0.2)',
-            'rgba(255, 159, 64, 0.2)'
-          ],
-          borderColor: [
-            'rgba(255, 99, 132, 1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(75, 192, 192, 1)',
-            'rgba(153, 102, 255, 1)',
-            'rgba(255, 159, 64, 1)'
-          ],
-          borderWidth: 1
-        }]
-      },
-      options: {
-        scales: {
-          y: {
-            beginAtZero: true
-          }
-        }
-      }
-    });
-    var serieChart = document.getElementById('videoChart');
-    var serieChart = new Chart(serieChart, {
-      type: 'bar',
-      data: {
-        labels: _ydataSerie,
-        datasets: [{
-          label: 'Grafik Video',
-          data: _xdataSerie,
-          backgroundColor: [
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(54, 162, 235, 0.2)',
-            'rgba(255, 206, 86, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(153, 102, 255, 0.2)',
-            'rgba(255, 159, 64, 0.2)'
-          ],
-          borderColor: [
-            'rgba(255, 99, 132, 1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(75, 192, 192, 1)',
-            'rgba(153, 102, 255, 1)',
-            'rgba(255, 159, 64, 1)'
-          ],
-          borderWidth: 1
-        }]
-      },
-    });
-
+    var options = {
+      filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
+      filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
+      filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
+      filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
+    };
+    CKEDITOR.replace('editor', options);
   </script>
   @include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])

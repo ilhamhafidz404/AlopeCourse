@@ -154,6 +154,15 @@
           </div>
         </div>
       </div>
+
+      @foreach($messages as $message)
+      <div class="card p-3">
+        <h5>{{$message->subject}}</h5>
+        <p>
+          {{$message->message}}
+        </p>
+      </div>
+      @endforeach
     </div>
   </div>
   <x-footer-component></x-footer-component>

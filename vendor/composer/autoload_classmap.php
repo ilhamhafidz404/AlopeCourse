@@ -50,6 +50,7 @@ return array(
     'App\\Models\\Blog' => $baseDir . '/app/Models/Blog.php',
     'App\\Models\\Category' => $baseDir . '/app/Models/Category.php',
     'App\\Models\\Like' => $baseDir . '/app/Models/Like.php',
+    'App\\Models\\Message' => $baseDir . '/app/Models/Message.php',
     'App\\Models\\Notification' => $baseDir . '/app/Models/Notification.php',
     'App\\Models\\Tag' => $baseDir . '/app/Models/Tag.php',
     'App\\Models\\Token' => $baseDir . '/app/Models/Token.php',

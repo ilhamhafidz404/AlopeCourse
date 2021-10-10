@@ -79,7 +79,7 @@
           </td>
           <td>
             @if($user->status == "active")
-            <form action="{{route('users.update', $user->id)}}" method="POST">
+            <form class="d-inline" action="{{route('users.update', $user->id)}}" method="POST">
               @csrf
               @method('PUT')
               <button class="btn btn-sm btn-danger" value="banned" name="status">
@@ -87,7 +87,7 @@
               </button>
             </form>
             @else
-            <form action="{{route('users.update', $user->id)}}" method="POST">
+            <form class="d-inline" action="{{route('users.update', $user->id)}}" method="POST">
               @csrf
               @method('PUT')
               <button class="btn btn-sm btn-success" value="active" name="status">
@@ -95,6 +95,55 @@
               </button>
             </form>
             @endif
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#{{$user->username}}">
+              <span class="fas fa-eye"></span>
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="{{$user->username}}">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Kirim Token ke {{$user->name}}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form action="{{route('token.message')}}">
+                      <div class="form-group mb-3">
+                        <label for="user" class="form-label">
+                          User tujuan
+                        </label>
+                        <input type="text" class="form-control" readonly value="{{$user->username}}" name="user" id="user">
+                      </div>
+
+                      <div class="form-group">
+                        <label for="tokeb" class="form-label">
+                          Pilih Kode Token
+                        </label>
+                        <select name="token" id="" class="form-select">
+                          @foreach($tokens as $token)
+                          <option value="{{$token->id}}">
+                            {{$token->token}}
+                            ({{$token->type}})
+                          </option>
+                          @endforeach
+                        </select>
+                      </div>
+                      <button class="btn btn-danger">
+                        nd
+                      </button>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         @endforeach

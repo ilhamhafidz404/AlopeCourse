@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\VideoController;
 use App\Http\Controllers\Admin\BlogSyntaxController;
 use App\Http\Controllers\Admin\TokenController as AdminTokenController;
+use App\Http\Controllers\Admin\MessageController;
 
 use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\BlogController as UserBlogController;
@@ -47,6 +48,8 @@ Route::middleware(['role:admin', 'auth'])->group(function () {
   route::resource('/admin/tag', TagController::class);
   route::resource('/admin/video', VideoController::class);
   route::resource('/admin/token', AdminTokenController::class);
+
+  route::get('/admin/messagetoken', MessageController::class)->name('token.message');
 });
 
 Route::middleware(['role:active|premium|admin', 'auth'])->group(function () {

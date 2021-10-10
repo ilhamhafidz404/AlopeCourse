@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Token;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class UserController extends Controller
@@ -16,8 +17,8 @@ class UserController extends Controller
   */
   public function index() {
     $users = User::all();
-
-    return view('admin.user.index', compact('users'));
+    $tokens = Token::whereUser_id(0)->get();
+    return view('admin.user.index', compact('users', 'tokens'));
   }
 
   /**

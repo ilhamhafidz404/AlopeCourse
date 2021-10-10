@@ -157,10 +157,77 @@
     <iframe width="100%" height="350px" src="{{$video->link}}"></iframe>
   </div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
+
 <script>
   var _ydataBlog = JSON.parse('{!! json_encode($blogMonths) !!}');
   var _xdataBlog = JSON.parse('{!! json_encode($blogMonthCount) !!}');
   var _ydataSerie = JSON.parse('{!! json_encode($videoMonths) !!}');
   var _xdataSerie = JSON.parse('{!! json_encode($videoMonthCount) !!}');
+
+
+  var blogChart = document.getElementById('blogChart');
+  var blogChart = new Chart(blogChart, {
+    type: 'bar',
+    data: {
+      labels: _ydataBlog,
+      datasets: [{
+        label: 'Grafik Blog',
+        data: _xdataBlog,
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)'
+        ],
+        borderColor: [
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)'
+        ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+  var serieChart = document.getElementById('videoChart');
+  var serieChart = new Chart(serieChart, {
+    type: 'bar',
+    data: {
+      labels: _ydataSerie,
+      datasets: [{
+        label: 'Grafik Video',
+        data: _xdataSerie,
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)'
+        ],
+        borderColor: [
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)'
+        ],
+        borderWidth: 1
+      }]
+    },
+  });
 </script>
 @endsection

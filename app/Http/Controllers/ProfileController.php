@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Biodata;
 use App\Models\Like;
+use App\Models\Message;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class ProfileController extends Controller
@@ -19,7 +20,8 @@ class ProfileController extends Controller
     $user = User::whereUsername($username)->first();
     $biodata = Biodata::whereUser_id($user->id)->first();
     $like = Like::whereUser_id($user->id)->count();
-    return view('user.more.user-profile', compact('user', 'biodata', 'like'));
+    $messages = Message::whereUser_id($user->id)->get();
+    return view('user.more.user-profile', compact('user', 'biodata', 'like', "messages"));
   }
 
   /**
