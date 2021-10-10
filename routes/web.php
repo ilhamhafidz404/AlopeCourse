@@ -81,4 +81,8 @@ Route::middleware(['role:active|premium|admin', 'auth'])->group(function () {
   });
 });
 
+Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
+  \UniSharp\LaravelFilemanager\Lfm::routes();
+});
+
 Auth::routes(["verify" => true]);

@@ -13,7 +13,9 @@
 <!-- Argon JS -->
 <script src="{{asset('template')}}/assets/js/argon.js?v=1.2.0"></script>
 <!-- CKEditor -->
-<script src="https://cdn.ckeditor.com/ckeditor5/29.1.0/classic/ckeditor.js"></script>
+<!--<script src="https://cdn.ckeditor.com/ckeditor5/29.1.0/classic/ckeditor.js"></script>-->
+<script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
+
 
 <script src="{{asset('dist/js/prism.js')}}"></script>
 <script src="{{asset('dist/js/dropify.min.js')}}"></script>
@@ -72,11 +74,19 @@
       })
     });
     //var myDropzone = new Dropzone(div#dropzone);
-    ClassicEditor
+    /*ClassicEditor
     .create(document.querySelector('#editor'))
     .catch(error => {
       console.error(error);
-    });
+    });*/
+
+    var options = {
+      filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
+      filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
+      filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
+      filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
+    };
+    CKEDITOR.replace('editor', options);
 
     var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
     var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
