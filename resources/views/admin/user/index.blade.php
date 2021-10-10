@@ -110,8 +110,8 @@
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
-                  <div class="modal-body">
-                    <form action="{{route('token.message')}}">
+                  <form action="{{route('token.message')}}">
+                    <div class="modal-body">
                       <div class="form-group mb-3">
                         <label for="user" class="form-label">
                           User tujuan
@@ -123,7 +123,7 @@
                         <label for="tokeb" class="form-label">
                           Pilih Kode Token
                         </label>
-                        <select name="token" id="" class="form-select">
+                        <select name="token" id="token" class="form-select">
                           @foreach($tokens as $token)
                           <option value="{{$token->id}}">
                             {{$token->token}}
@@ -132,15 +132,12 @@
                           @endforeach
                         </select>
                       </div>
-                      <button class="btn btn-danger">
-                        nd
-                      </button>
-                    </form>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                  </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <button class="btn btn-primary">Save changes</button>
+                    </div>
+                  </form>
                 </div>
               </div>
             </div>

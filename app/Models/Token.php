@@ -12,7 +12,8 @@ class Token extends Model
   protected $fillable = ["user_id",
     "token",
     "expired_at",
-    "type"];
+    "type",
+    "isOrder"];
 
 
   public function User() {

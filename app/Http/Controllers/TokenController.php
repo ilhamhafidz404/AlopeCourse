@@ -42,6 +42,7 @@ class TokenController extends Controller
           }
           $token->update([
             'user_id' => auth()->user()->id,
+            'isOrder' => false,
             "expired_at" => date("Y-m-d H:i:s", $expired_at)
           ]);
           Notification::create([

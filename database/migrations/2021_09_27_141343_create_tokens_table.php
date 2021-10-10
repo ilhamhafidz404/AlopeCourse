@@ -17,17 +17,18 @@ class CreateTokensTable extends Migration
       $table->string("token");
       $table->foreignId("user_id");
       $table->enum("type", ["silver", "gold", "platinum"]);
-      $table->timestamp("expired_at")->nullable();
-      $table->timestamps();
-    });
-  }
+      $table->tinyInteger("isOrder")->default(false);
+        $table->timestamp("expired_at")->nullable();
+        $table->timestamps();
+      });
+    }
 
-  /**
-  * Reverse the migrations.
-  *
-  * @return void
-  */
-  public function down() {
-    Schema::dropIfExists('tokens');
+    /**
+    * Reverse the migrations.
+    *
+    * @return void
+    */
+    public function down() {
+      Schema::dropIfExists('tokens');
+    }
   }
-}

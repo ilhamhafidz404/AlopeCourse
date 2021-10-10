@@ -55,9 +55,13 @@
                 </div>
               </form>
             </div>
-            @if($token->user_id == 0)
+            @if($token->isOrder)
+            <small class="text-warning mt-3">
+              Sudah di order
+            </small>
+            @elseif($token->user_id == 0)
             <small class="text-danger mt-3">
-              Token belum digunakan
+              Belum digunakan
             </small>
             @else
             <small class="text-success">

@@ -17,7 +17,7 @@ class UserController extends Controller
   */
   public function index() {
     $users = User::all();
-    $tokens = Token::whereUser_id(0)->get();
+    $tokens = Token::whereUser_id(0)->where('isOrder', false)->get();
     return view('admin.user.index', compact('users', 'tokens'));
   }
 

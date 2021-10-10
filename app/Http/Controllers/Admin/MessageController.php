@@ -19,6 +19,9 @@ class MessageController extends Controller
       "subject" => "Terimakasih telah membeli pake Premium kami",
       "message" => "Silahkan Reedem tokennya segera dan dapatkan palet premium agar proses belajarmu semakin menyenangkan. Kode tokenmu adalah ".$token->token
     ]);
+    $token->update([
+      "isOrder" => true
+    ]);
 
     Alert::success("Berhasil mengirim pesan");
     return back();
