@@ -6,14 +6,14 @@
 <footer class="text-muted py-5">
   <div class="container-fluid">
     <div class="row text-white">
-      <div class="col-md-4">
+      <div class="col-4">
         <h5 class="">Alope</h5>
         <small class="mt-5"> &copy; Copyright by Ilham Hafidz</small>
       </div>
-      <div class="col-md-6">
+      <div class="col-6">
       </div>
-      <div class="col-md-2">
-        <h5> Sosial Media</h5>
+      <div class="col-2">
+        <h5 class="text-nowrap"> Sosial Media</h5>
         <div class="d-flex align-items-center justify-content-around">
           <a href="" class="me-3">
             <i class="fab fa-instagram">  </i>
@@ -35,14 +35,14 @@
 <footer class="text-muted py-5">
   <div class="container-fluid">
     <div class="row text-white">
-      <div class="col-md-4">
+      <div class="col-4">
         <h5 class="">Alope</h5>
         <small class="mt-5"> &copy; Copyright by Ilham Hafidz</small>
       </div>
-      <div class="col-md-6">
+      <div class="col-6">
       </div>
-      <div class="col-md-2">
-        <h5> Sosial Media</h5>
+      <div class="col-2">
+        <h5 class="text-nowrap"> Sosial Media</h5>
         <div class="d-flex align-items-center justify-content-around">
           <a href="" class="me-3">
             <i class="fab fa-instagram">  </i>

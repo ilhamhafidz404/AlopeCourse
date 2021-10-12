@@ -178,7 +178,7 @@
       Beli akses Premium untuk mendapatkan Full Akses ke tutorial yang lebih keren dan Menyenangkan.
     </p>
     <div class="row justify-content-center align-items-center mt-4">
-      <div class="col-md-5 p-0 mb-3">
+      <div class="col-md-5 col-xl-3 col-lg-4 p-0 mb-3">
         <div class="card border-0 shadow-sm p-3 text-center gold bg-white py-5">
           <h5>Gold</h5>
           <h3 class=" mt-4">
@@ -221,7 +221,7 @@
           </a>
         </div>
       </div>
-      <div class="col-md-5 p-0 mb-3">
+      <div class="col-md-5 col-xl-3 col-lg-4 p-0 mb-3">
         <div class="card border-0 shadow-sm p-3 text-center platinum py-5 text-white">
           <h5>Platinum</h5>
           <h3 class=" mt-4">

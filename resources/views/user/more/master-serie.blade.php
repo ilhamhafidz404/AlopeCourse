@@ -24,6 +24,9 @@
     svg.footer-svg {
       margin-top: -350px !important;
     }
+    footer {
+      margin-top: -57px !important;
+    }
   }
 @media only screen and (max-width: 1139px) {
     svg.footer-svg {

@@ -38,6 +38,17 @@
       svg.svgTestiBottom {
         margin-top: -70px;
       }
+      .premium {
+        margin-top: 50px !important;
+        margin-bottom: -300px !important;
+      }
+    }
+
+@media only screen and (min-width: 947px) {
+      .premium {
+        margin-top: 0px !important;
+        margin-bottom: -200px !important;
+      }
     }
   </style>
 </head>
