@@ -18,6 +18,37 @@
   <link rel="stylesheet" href="/css/mystyle.css">
   <!-- Argon CSS -->
   <link rel="stylesheet" href="{{asset('template/')}}/assets/css/argon.css?v=1.2.0" type="text/css">
+
+  <style>
+@media only screen and (max-width: 1363px) {
+    svg.footer-svg {
+      margin-top: -350px !important;
+    }
+    footer {
+      margin-top: -57px !important;
+    }
+  }
+@media only screen and (max-width: 1139px) {
+    svg.footer-svg {
+      margin-top: -300px !important;
+    }
+  }
+@media only screen and (max-width: 917px) {
+    svg.footer-svg {
+      margin-top: -250px !important;
+    }
+  }
+@media only screen and (max-width: 688px) {
+    svg.footer-svg {
+      margin-top: -200px !important;
+    }
+  }
+@media only screen and (max-width: 455px) {
+    svg.footer-svg {
+      display: none;
+    }
+  }
+  </style>
 </head>
 
 <body>
@@ -27,7 +58,7 @@
     <x-navbar-component></x-navbar-component>
     <!-- Header -->
     <!-- Header -->
-    <div class="header pb-6 d-flex align-items-center" style="min-height: 500px; background-image: url({{asset('template')}}/assets/img/theme/profile-cover.jpg); background-size: cover; background-position: center top;">
+    <div class="header pb-6 d-flex align-items-center" style="min-height: 500px; background-image: url({{asset('template')}}/assets/img/theme/profile-cover.jpg); background-size: cover; background-position: center;">
       <!-- Mask -->
       <span class="mask bg-gradient-default opacity-8"></span>
       <!-- Header container -->
@@ -43,7 +74,7 @@
             </p>
             @else
             <p class="text-white">
-              hmmmm kayaknya kota pesan kmu kosong.
+              hmmmm kayaknya kotak pesan kmu kosong.
             </p>
             @endif
             <p class="invisible">
@@ -58,7 +89,7 @@
       <div class="card">
         <div class="card-header">
           <h2>
-            Kota Pesan Kamu
+            Kotak Pesan Kamu
             <span class="badge bg-danger">
               {{$messageCount}}
             </span>
@@ -93,6 +124,69 @@
     </h5>
   </div>
   @endif
+
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-xl-4 order-xl-2">
+        <div class="card card-profile">
+          <div class="row justify-content-center">
+            <div class="col-lg-3 order-lg-2">
+              <div class="card-profile-image">
+                <a href="#">
+                  <img src="{{asset('storage/profile/'.$user->profile)}}" class="rounded-circle">
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
+            <div class="d-flex justify-content-between">
+              <a href="#" class="btn btn-sm btn-info  mr-4 ">Connect</a>
+              <a href="#" class="btn btn-sm btn-default float-right">Message</a>
+            </div>
+          </div>
+          <div class="card-body pt-0">
+            <div class="row">
+              <div class="col">
+                <div class="card-profile-stats d-flex justify-content-center">
+                  <div>
+                    <span class="heading">22</span>
+                    <span class="description">Friends</span>
+                  </div>
+                  <div>
+                    <span class="heading">
+                      {{$like}}
+                    </span>
+                    <span class="description">Like</span>
+                  </div>
+                  <div>
+                    <span class="heading">89</span>
+                    <span class="description">Comments</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="text-center">
+              <h5 class="h3">
+                {{$user->username}}
+                @if($user->hasRole('premium'))
+                <i class="fas fa-crown text-yellow ms-2"></i>
+                @endif
+              </h5>
+              <div class="h5 font-weight-300">
+                Bergabung pada {{$user->created_at->format('M Y')}}
+              </div>
+              <div class="h5 mt-4">
+                <i class="ni business_briefcase-24 mr-2"></i>Solution Manager - Creative Tim Officer
+              </div>
+              <div>
+                <i class="ni education_hat mr-2"></i>University of Computer Science
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <x-footer-component></x-footer-component>
   <!-- Argon Scripts -->
