@@ -9,7 +9,7 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\VideoController;
 use App\Http\Controllers\Admin\BlogSyntaxController;
 use App\Http\Controllers\Admin\TokenController as AdminTokenController;
-use App\Http\Controllers\Admin\MessageController;
+use App\Http\Controllers\Admin\MessageController as AdminMessageController;
 
 use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\BlogController as UserBlogController;
@@ -20,6 +20,7 @@ use App\Http\Controllers\TokenController as UserTokenController;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\LikeController;
+use App\Http\Controllers\MessageController;
 
 
 use App\Models\Notification;
@@ -49,7 +50,7 @@ Route::middleware(['role:admin', 'auth'])->group(function () {
   route::resource('/admin/video', VideoController::class);
   route::resource('/admin/token', AdminTokenController::class);
 
-  route::get('/admin/messagetoken', MessageController::class)->name('token.message');
+  route::get('/admin/messagetoken', AdminMessageController::class)->name('token.message');
 });
 
 Route::middleware(['role:active|premium|admin', 'auth'])->group(function () {
@@ -61,6 +62,7 @@ Route::middleware(['role:active|premium|admin', 'auth'])->group(function () {
   route::get('/u/{profile}', [ProfileController::class, 'index'])->name('profile.index');
   route::get('/u/{profile}/edit', [ProfileController::class, 'edit'])->name('profile.edit');
   route::put('/u/{profile}', [ProfileController::class, 'update'])->name('profile.update');
+  Route::get('/messages', [MessageController::class, 'index'])->name('message');
 
 
   //Route yang harus Verifikasi Dulu
@@ -73,6 +75,7 @@ Route::middleware(['role:active|premium|admin', 'auth'])->group(function () {
     Route::get('/invoice', function() {
       return view('user.more.invoice');
     })->name('invoice');
+
     Route::get('/touch-admin', function() {
       Notification::create([
         "user_id" => auth()->user()->id,

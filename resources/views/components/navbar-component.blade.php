@@ -50,9 +50,9 @@
               </a>
             </li>
             <li>
-              <a class="dropdown-item" href="{{route('redeem')}}">
-                <i class="fas fa-ticket-alt me-4"></i>
-                Alope Journey
+              <a class="dropdown-item" href="{{route('message')}}">
+                <i class="fas fa-rocket me-4"></i>
+                Message
               </a>
             </li>
             <li>
