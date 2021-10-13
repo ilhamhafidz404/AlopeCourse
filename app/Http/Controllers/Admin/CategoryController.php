@@ -93,6 +93,11 @@ class CategoryController extends Controller
     if (!$request->thumbnail) {
       return back()->with("error_thumb", 'Thumbnail harus ada,, Silahkan isi data kembali');
     }
+    $category = Category::whereId($id)->first();
+    if ($category->thumbnail != "default.jpg") {
+      \File::delete('storage/thumbnail/serie/'.$category->thumbnail);
+    }
+
     $thumbnail = time().".".$request->thumbnail->extension();
     $request->file('thumbnail')->storeAs('public/thumbnail/serie', $thumbnail);
     $category = Category::find($id);

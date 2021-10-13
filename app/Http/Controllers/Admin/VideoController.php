@@ -101,6 +101,11 @@ class VideoController extends Controller
   * @return \Illuminate\Http\Response
   */
   public function update(Request $request, $id) {
+    $video = Video::whereId($id)->first();
+    if ($video->thumbnail != "default.jpg") {
+      \File::delete('storage/thumbnail/video/'.$video->thumbnail);
+    }
+
     $thumbnail = time().".".$request->thumbnail->extension();
     $request->file('thumbnail')->storeAs('public/thumbnail/video', $thumbnail);
 

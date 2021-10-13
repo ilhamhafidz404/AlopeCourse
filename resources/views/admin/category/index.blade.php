@@ -100,7 +100,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                <img src="{{asset('storage/'.$category->thumbnail)}}" alt="{{$category->slug}} thumbnail" class="w-100 img-thumbnail">
+                <img src="{{asset('storage/thumbnail/serie/'.$category->thumbnail)}}" alt="{{$category->slug}} thumbnail" class="w-100 img-thumbnail">
                 <hr>
                 <b class="mb-2">Deskripsi</b>
                 <p>
