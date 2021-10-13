@@ -20,6 +20,34 @@
   <link rel="stylesheet" href="{{asset('dist/css/glider.min.css')}}">
   <link rel="stylesheet" href="{{asset('css/mystyle.css')}}">
 
+
+  <!--
+      	==========================================================================================================
+      	==========================================================================================================
+      	==========================================================================================================
+      	,,
+      	`7MMF' A `7MF' `7MM OO
+      	`MA ,MA ,V MM 88
+      	VM: ,VVM: ,V .gP"Ya MM ,p6"bo ,pW"Wq.`7MMpMMMb.pMMMb. .gP"Ya ||
+      	MM. M' MM. M',M' Yb MM 6M' OO 6W' `Wb MM MM MM ,M' Yb ||
+      	`MM A' `MM A' 8M"""""" MM 8M 8M M8 MM MM MM 8M"""""" `'
+      	:MM; :MM; YM. , MM YM. , YA. ,A9 MM MM MM YM. , ,,
+      	VF VF `Mbmmd'.JMML.YMbmd' `Ybmd9'.JMML JMML JMML.`Mbmmd' db
+      	to,
+      	___ __ __ _ __ _ _ _ __ _ __ _
+      	/ __>| \ \| / / | \ | ___ ___ ___ _ _ <_> /. | | / / _ _ ._ _ <_>._ _ ___ ___ ._ _
+      	\__ \| || \ | |/ ._>/ . |/ ._>| '_>| | /_ .| | \ | | || ' || || ' |/ . |<_> || ' |
+      	<___/|_|_|_||_\_\ |_\_|\___.\_. |\___.|_| |_| |_| |_\_\`___||_|_||_||_|_|\_. |<___||_|_|
+      	<___' <___'
+      	──────▄▀▄─────▄▀▄
+      	─────▄█░░▀▀▀▀▀░░█▄
+      	─▄▄──█░░░░░░░░░░░█──▄▄
+      	█▄▄█─█░░▀░░┬░░▀░░█─█▄▄█ Hayo mau ngapain liat2 ke sini ( ͡❛ ͜ʖ ͡❛) ?
+      	==========================================================================================================
+      	==========================================================================================================
+      	==========================================================================================================
+      	-->
+
   <title>@yield('title')</title>
   <style>
     svg.svgTesti {
@@ -44,10 +72,25 @@
       }
     }
 
-@media only screen and (min-width: 947px) {
+@media only screen and (max-width: 810px) {
       .premium {
         margin-top: 0px !important;
         margin-bottom: -200px !important;
+      }
+    }
+
+
+@media only screen and (max-width: 696px) {
+      .premium {
+        margin-top: 0px !important;
+        margin-bottom: -160px !important;
+      }
+    }
+
+@media only screen and (max-width: 696px) {
+      .premium {
+        margin-top: 0px !important;
+        margin-bottom: -100px !important;
       }
     }
   </style>

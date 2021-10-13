@@ -127,7 +127,7 @@
 
   <div class="container mt-5">
     <div class="row">
-      <div class="col-xl-4 order-xl-2">
+      <div class="col-xl-6 order-xl-2">
         <div class="card card-profile">
           <div class="row justify-content-center">
             <div class="col-lg-3 order-lg-2">
