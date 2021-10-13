@@ -30,9 +30,15 @@
   <ul class="d-flex p-0">
     @foreach($tags as $tag)
     <li class="me-2">
+      @if(request('tag') == $tag->slug)
+      <button class="btn btn-transparent btn-lg px-4 py-3 d-flex align-items-center justify-content-center shadow-sm" value="{{$tag->slug}}" style="background-color: {{$tag->badge}} !important; opacity: 0.5" name="tag">
+        <i class="fab fa-{{$tag->icon}} fs-2 fw-bold text-white"></i>
+      </button>
+      @else
       <button class="btn btn-transparent btn-lg px-4 py-3 d-flex align-items-center justify-content-center shadow-sm" value="{{$tag->slug}}" style="border-color: {{$tag->badge}} !important; background-color: rgba(54,39,93, 0.3)" name="tag">
         <i class="fab fa-{{$tag->icon}} fs-2 fw-bold" style="color:{{$tag->badge}}"></i>
       </button>
+      @endif
     </li>
     @endforeach
   </ul>

@@ -20,8 +20,7 @@ class ProfileController extends Controller
     $user = User::whereUsername($username)->first();
     $biodata = Biodata::whereUser_id($user->id)->first();
     $like = Like::whereUser_id($user->id)->count();
-    $messages = Message::whereUser_id($user->id)->get();
-    return view('user.more.user-profile', compact('user', 'biodata', 'like', "messages"));
+    return view('user.more.user-profile', compact('user', 'biodata', 'like'));
   }
 
   /**
