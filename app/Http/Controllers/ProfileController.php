@@ -86,7 +86,7 @@ class ProfileController extends Controller
       'username' => $request->username,
     ]);
 
-    if ($request->profile != auth()->user()->id) {
+    if ($request->profile != auth()->user()->profile) {
       $request->validate([
         'profile' => ['image', 'dimensions:max_width=1000,max_height=1000,ratio:1/1']
       ]);

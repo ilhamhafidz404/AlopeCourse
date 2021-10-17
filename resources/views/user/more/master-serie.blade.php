@@ -28,26 +28,26 @@
       margin-top: -57px !important;
     }
   }
-@media only screen and (max-width: 1139px) {
-    svg.footer-svg {
-      margin-top: -300px !important;
+  @media only screen and (max-width: 1139px) {
+      svg.footer-svg {
+        margin-top: -300px !important;
+      }
     }
-  }
-@media only screen and (max-width: 917px) {
-    svg.footer-svg {
-      margin-top: -250px !important;
+  @media only screen and (max-width: 917px) {
+      svg.footer-svg {
+        margin-top: -250px !important;
+      }
     }
-  }
-@media only screen and (max-width: 688px) {
-    svg.footer-svg {
-      margin-top: -200px !important;
+  @media only screen and (max-width: 688px) {
+      svg.footer-svg {
+        margin-top: -200px !important;
+      }
     }
-  }
-@media only screen and (max-width: 455px) {
-    svg.footer-svg {
-      display: none;
+  @media only screen and (max-width: 455px) {
+      svg.footer-svg {
+        display: none;
+      }
     }
-  }
   </style>
 </head>
 <body class="bg-light">

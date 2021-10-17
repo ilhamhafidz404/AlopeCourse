@@ -124,10 +124,10 @@
     </h5>
   </div>
   @endif
-
+<br>
   <div class="container mt-5">
     <div class="row">
-      <div class="col-xl-6 order-xl-2">
+      <div class="col-xl-5">
         <div class="card card-profile">
           <div class="row justify-content-center">
             <div class="col-lg-3 order-lg-2">
@@ -138,13 +138,7 @@
               </div>
             </div>
           </div>
-          <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
-            <div class="d-flex justify-content-between">
-              <a href="#" class="btn btn-sm btn-info  mr-4 ">Connect</a>
-              <a href="#" class="btn btn-sm btn-default float-right">Message</a>
-            </div>
-          </div>
-          <div class="card-body pt-0">
+          <div class="card-body pt-5">
             <div class="row">
               <div class="col">
                 <div class="card-profile-stats d-flex justify-content-center">
@@ -154,7 +148,7 @@
                   </div>
                   <div>
                     <span class="heading">
-                      {{$like}}
+                      {{$like}}yf
                     </span>
                     <span class="description">Like</span>
                   </div>
@@ -183,6 +177,36 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
+      <div class="col-xl-7">
+        <div class="list-group">
+          <a href="{{route('profile.edit', auth()->user()->username)}}" class="list-group-item list-group-item-action text-purple">
+            <i class="fas fa-cog me-3"></i>
+            Edit Profile
+          </a>
+          <a href="{{route('invoice')}}" class="list-group-item list-group-item-action text-yellow">
+            <i class="fas fa-crown me-3"></i>
+            Beli Paket
+          </a>
+          <a href="{{route('redeem')}}" class="list-group-item list-group-item-action text-success">
+            <i class="fas fa-ticket-alt me-3"></i>
+            Reedem Token
+          </a>
+          <a href="{{route('message')}}" class="list-group-item list-group-item-action text-wite active">
+            <i class="fas fa-rocket me-3"></i>
+            Message
+          </a>
+          <a class="list-group-item list-group-item-action text-warning" href="{{ route('logout') }}"
+            onclick="event.preventDefault();
+            document.getElementById('logout-form').submit();">
+            <i class="fas fa-sign-out-alt me-4"></i>
+            {{ __('Logout') }}
+          </a>
+          <a href="{{route('iam_out')}}" onclick="return confirm('Yakin anda ingin menghapus akun anda?')" class="list-group-item list-group-item-action text-danger">
+            <i class="fas fa-trash me-3"></i>
+            Hapus Akun
+          </a>
         </div>
       </div>
     </div>

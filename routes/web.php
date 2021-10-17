@@ -17,13 +17,13 @@ use App\Http\Controllers\VideoController as UserVideoController;
 use App\Http\Controllers\SerieController;
 use App\Http\Controllers\TopicController;
 use App\Http\Controllers\TokenController as UserTokenController;
-use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\MessageController;
 
 
 use App\Models\Notification;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -63,7 +63,11 @@ Route::middleware(['role:active|premium|admin', 'auth'])->group(function () {
   route::get('/u/{profile}/edit', [ProfileController::class, 'edit'])->name('profile.edit');
   route::put('/u/{profile}', [ProfileController::class, 'update'])->name('profile.update');
   Route::get('/messages', [MessageController::class, 'index'])->name('message');
-
+  Route::get('/iam_out', function() {
+    User::whereId(auth()->user()->id)->delete();
+    Notification::whereUserId(auth()->user()->id)->delete();
+    return redirect()->route('beranda');
+  })->name('iam_out');
 
   //Route yang harus Verifikasi Dulu
   Route::middleware(['verified', 'auth'])->group(function() {

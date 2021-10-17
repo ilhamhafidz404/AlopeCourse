@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel="stylesheet" href="{{asset('dist/css/prism.css')}}">
+  <link rel="stylesheet" href="{{asset('css/mystyle.css')}}">
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
@@ -51,11 +52,31 @@
     ul {
       list-style: none;
     }
-    .footer-svg {
-      margin-top: -190px;
-    }
     a {
       text-decoration: none;
+    }
+    svg.footer-svg {
+      margin-top: -250px !important;
+    }
+    @media only screen and (max-width: 1139px) {
+      svg.footer-svg {
+        margin-top: -200px !important;
+      }
+    }
+  @media only screen and (max-width: 917px) {
+      svg.footer-svg {
+        margin-top: -150px !important;
+      }
+    }
+  @media only screen and (max-width: 688px) {
+      svg.footer-svg {
+        margin-top: -100px !important;
+      }
+    }
+  @media only screen and (max-width: 455px) {
+      svg.footer-svg {
+        display: none;
+      }
     }
   </style>
 </head>
@@ -102,14 +123,14 @@
                 </li>
                 @endforeach
               </ul>
-              <div class="d-flex align-items-center justify-content-center rounded py-4 top-50 position-absolute" style="width:25px; height:30px; right:-10px; transform: translateY(-50%); background-color: #36275D">
+              <div class="d-flex align-items-center justify-content-center rounded py-4 top-50 position-absolute" style="width:25px; height:30px; right:-3px; transform: translateY(-50%); background-color: #36275D">
                 <a href="{{$next}}" class="text-white">
-                  <i class="fas fa-chevron-right"></i>
+                  <i class="fas fa-chevron-right py-3 px-2"></i>
                 </a>
               </div>
-              <div class="d-flex align-items-center justify-content-center rounded py-4 top-50 position-absolute" style="width:25px; height:30px; left:-10px; transform: translateY(-50%); background-color: #36275D">
+              <div class="d-flex align-items-center justify-content-center rounded py-4 top-50 position-absolute" style="width:25px; height:30px; left:-3px; transform: translateY(-50%); background-color: #36275D">
                 <a href="{{$prev}}" class="text-white">
-                  <i class="fas fa-chevron-left"></i>
+                  <i class="fas fa-chevron-left py-3 px-2"></i>
                 </a>
               </div>
             </div>

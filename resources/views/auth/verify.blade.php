@@ -16,5 +16,4 @@ Sebelum anda melihat content tutorial dari ALOPE, silahkan verifikasikan terlebi
   @csrf
   <button type="submit" class="btn btn-link p-0 m-0 align-baseline w-100 text-center">{{ __('Klik untuk mendapatkan link verifikasi') }}</button>.
 </form>
-
 @endsection

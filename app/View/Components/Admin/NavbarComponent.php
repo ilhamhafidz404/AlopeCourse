@@ -5,7 +5,7 @@ namespace App\View\Components\Admin;
 use Illuminate\View\Component;
 use App\Models\Notification;
 
-class NavbarComponent extends Component
+class navbarcomponent extends Component
 {
   /**
   * Create a new component instance.
@@ -22,7 +22,7 @@ class NavbarComponent extends Component
   * @return \Illuminate\Contracts\View\View|\Closure|string
   */
   public function render() {
-    $notifications = Notification::latest()->get();
+    $notifications = Notification::all();
     return view('components.admin.navbar-component', compact('notifications'));
   }
 }
