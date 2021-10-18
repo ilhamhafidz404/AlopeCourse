@@ -27,14 +27,14 @@
 @section('card-content')
 <div class="container-fluid series-content">
   <div class="card p-4 shadow position-relative">
-    <div class="header-card position-absolute rounded shadow-sm">
+    {{-- <div class="header-card position-absolute rounded shadow-sm">
       <h4 class="text-uppercase text-white">List Video</h4>
-    </div>
+    </div> --}}
     <div class="row mt-4">
       @foreach($videos as $video)
       <div class="col-sm-12 col-md-6 col-lg-4">
         <a href="{{route('video.stream', $video->slug)}}">
-          <div class="card border-0 bg-transparent position-relative m-auto mb-4" style="width: 90% !important;">
+          <div class="card border-0 bg-transparent position-relative m-0 mb-4">
             <div class="rounded video-thumb w-100" style="background-image: url({{asset('storage/thumbnail/video/'.$video->thumbnail)}});"></div>
             <div class="card-body">
               <h4 class="card-title my-1 text-dark">

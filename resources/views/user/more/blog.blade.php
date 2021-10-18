@@ -27,9 +27,9 @@
 @section('card-content')
 <div class="container-fluid series-content">
   <div class="card p-4 shadow position-relative">
-    <div class="header-card position-absolute rounded shadow-sm">
-      <h4 class="text-uppercase text-white">List Blog</h4>
-    </div>
+    {{-- <div class="header-card position-absolute rounded shadow-sm">
+      <h4 class="text-uppercase text-white mb-0">List Blog</h4>
+    </div> --}}
     <div class="row mt-4">
       @foreach($blogs as $blog)
       <div class="col-md-4 mb-4">

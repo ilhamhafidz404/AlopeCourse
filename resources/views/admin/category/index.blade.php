@@ -3,9 +3,6 @@
 @section('title', 'Blog Serie')
 
 @section('breadcrumb')
-<li class="breadcrumb-item" aria-current="page">
-  <a href="{{route('blog.index')}}">Blog</a>
-</li>
 <li class="breadcrumb-item">
   <a href="{{route('series.index')}}">Series</a>
 </li>
@@ -50,8 +47,8 @@
   <form action="{{route('blog.index')}}">
     <div class="row">
       @foreach($categories as $category)
-      <div class="col-md-4">
-        <div class="card bg-dark text-white" style="max-height: 150px; overflow: hidden">
+      <div class="col-sm-6 col-md-4">
+        <div class="card bg-dark text-white w-100" style="height: 150px; background-image: url({{asset('storage/thumbnail/serie/'.$category->thumbnail)}}); background-size: cover; background-position: center">
           @if($category->status == 'complete')
           <span class="badge bg-success position-absolute start-0">
             {{$category->status}}
@@ -65,7 +62,6 @@
             {{$category->status}}
           </span>
           @endif
-          <img src="{{asset('storage/thumbnail/serie/'.$category->thumbnail)}}" class="card-img w-100" alt="thumbnail-kategori{{$category->slug}}">
           <div class="card-img-overlay">
             <div class="position-absolute bottom-0 end-0 start-0 d-flex justify-content-between p-2">
               <div>
@@ -100,7 +96,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                <img src="{{asset('storage/thumbnail/serie/'.$category->thumbnail)}}" alt="{{$category->slug}} thumbnail" class="w-100 img-thumbnail">
+                <div class="w-100" style="height: 210px; max-height: 250px; background-image: url({{asset('storage/thumbnail/serie/'.$category->thumbnail)}}); background-position: center; background-size: cover"></div>
                 <hr>
                 <b class="mb-2">Deskripsi</b>
                 <p>

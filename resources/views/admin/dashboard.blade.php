@@ -1,5 +1,7 @@
 @extends('admin.master')
 
+@section('title', 'Dashboard')
+
 @section('breadcrumb')
 <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
 @endsection

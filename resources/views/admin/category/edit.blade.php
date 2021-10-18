@@ -3,9 +3,6 @@
 @section('title', 'Edit Series')
 
 @section('breadcrumb')
-<li class="breadcrumb-item" aria-current="page">
-  <a href="{{route('blog.index')}}">Blog</a>
-</li>
 <li class="breadcrumb-item">
   <a href="{{route('series.index')}}">Series</a>
 </li>
@@ -27,7 +24,7 @@
     <div class="row">
       <div class="col-md-12">
         <div class="custom-file mb-3">
-          <input type="file" id="thumbnail" class="dropify" data-height="300" accept="image/*" name="thumbnail" />
+          <input type="file" id="thumbnail" class="dropify" data-height="230" accept="image/*" name="thumbnail" />
         </div>
       </div>
       <div class="col-md-6">

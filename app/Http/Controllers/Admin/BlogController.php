@@ -106,34 +106,24 @@ class BlogController extends Controller
   * @param  int  $id
   * @return \Illuminate\Http\Response
   */
-  public function update(BlogRequest $request, $id) {
-    if ($request->status == 'banned') {
-      Blog::find($id)->update([
-        "judul" => $request->judul,
-        "category_id" => $request->category,
-        "content" => $request->content,
-        "content" => $request->content,
-        "thumbnail" => $request->thumbnail,
-        "status" => $request->status
-      ]);
-      Alert::warning('Blog Di Banned', 'Blog tidak akan terlihat oleh user');
-    } else {
-      if (!$request->thumbnail) {
-        return back()->with("error_thumb", 'Thumbnail harus ada,, Silahkan isi data kembali');
-      }
-      $blog = Blog::find($id)->first();
-      \File::delete('storage/thumbnail/blog/'.$blog->thumbnail);
-      $thumbnail = time().".".$request->thumbnail->extension();
-      $request->file('thumbnail')->storeAs('public', $thumbnail);
-      Blog::find($id)->update([
-        "judul" => $request->judul,
-        "category_id" => $request->category,
-        "content" => $request->content,
-        "thumbnail" => $thumbnail,
-        "status" => $request->status
-      ]);
-      Alert::success('Berhasil Diedit', 'Blog menglami perubahan');
+  public function update(Request $request, $id) {
+    if (!$request->thumbnail) {
+      return back()->with("error_thumb", 'Thumbnail harus ada,, Silahkan isi data kembali');
     }
+    if($request->thumbnail == 'default.jpg'){
+      $blog = Blog::find($id)->first();
+      return \File::delete('storage/thumbnail/blog/'.$blog->thumbnail);
+    }
+    $thumbnail = time().".".$request->thumbnail->extension();
+    $request->file('thumbnail')->storeAs('public/thumbnail/blog', $thumbnail);
+    Blog::find($id)->update([
+      "judul" => $request->judul,
+      "category_id" => $request->category,
+      "content" => $request->content,
+      "thumbnail" => $thumbnail,
+      "status" => $request->status
+    ]);
+    Alert::success('Berhasil Diedit', 'Blog menglami perubahan');
     return redirect(route('blog.index'));
   }
 

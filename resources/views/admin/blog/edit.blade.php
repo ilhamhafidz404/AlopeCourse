@@ -24,7 +24,7 @@
     @method("PUT")
     <div class="row">
       <div class="col-md-12 mb-3">
-        <input type="file" id="thumbnail" class="dropify" data-height="500" accept="image/*" name="thumbnail" />
+        <input type="file" id="thumbnail" class="dropify" data-height="320" accept="image/*" name="thumbnail" />
       </div>
       <div class="col-md-6 mb-3">
         <label for="judul" class="form-control-label">
@@ -69,7 +69,7 @@
         <button class="btn btn-primary" name="status" value="upload">
           <i class="fas fa-save me-2"></i> Ubah dan Upload Data
         </button>
-        <button class="btn btn-warning" value="draff">
+        <button class="btn btn-warning" value="draff" name="status">
           <i class="fas fa-clipboard me-2"></i> Simpan sebagai Draff
         </button>
       </div>

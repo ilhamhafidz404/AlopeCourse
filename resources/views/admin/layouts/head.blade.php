@@ -34,5 +34,8 @@
     #giveUser.show {
       display: block !important;
     }
+    .card-img{
+      background-position: center
+    }
   </style>
 </head>

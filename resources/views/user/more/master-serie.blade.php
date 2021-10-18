@@ -55,7 +55,7 @@
   <section class="py-5 text-start header text-white position-relative">
     <div class="container-fluid pb-5">
       <div class="row">
-        <div class="col-lg-6">
+        <div class="col-lg-8">
           <br>
           @yield('header')
         </div>

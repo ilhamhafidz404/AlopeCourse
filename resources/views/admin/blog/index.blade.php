@@ -67,14 +67,10 @@
         @endif
         <div class="d-flex justify-content-end">
           @if($blog->status === "upload")
-          <form action="{{route('blog.update', $blog->id)}}" method="POST">
+          <form action="{{route('blog.banned', $blog->id)}}" method="POST">
             @csrf
             @method("PUT")
-            <input type="hidden" name="judul" value="{{$blog->judul}}">
-            <input type="hidden" name="category" value="{{$blog->category->id}}">
-            <input type="hidden" name="content" value="{{$blog->content}}">
-            <input type="hidden" name="thumbnail" value="{{$blog->thumbnail}}">
-            <button class="btn btn-warning btn-sm" name="status" value="banned" data-bs-toggle="tooltip" data-bs-placement="top" title="Banned">
+            <button class="btn btn-warning btn-sm" name="status" data-bs-toggle="tooltip" data-bs-placement="top" title="Banned">
               <i class="fas fa-ban"></i>
             </button>
           </form>

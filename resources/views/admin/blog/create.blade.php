@@ -54,7 +54,7 @@
       </div>
       <div class="col-md-12">
         <div class="custom-file mb-3">
-          <input type="file" id="thumbnail" class="dropify" data-height="500" accept="image/*" name="thumbnail" />
+          <input type="file" id="thumbnail" class="dropify" data-height="320" accept="image/*" name="thumbnail" />
         </div>
         @error('thumbnail')
         <div class="form-text text-danger">
@@ -82,11 +82,11 @@
       </div>
       <div class="col-md-6 text-end">
         <div class="form-group mt-3">
-          <button class="btn btn-primary" name="status" value="upload">
-            <i class="fas fa-upload me-2"></i>  Upload Blog
-          </button>
           <button class="btn btn-warning" name="status" value="draff">
             <i class="fas fa-clipboard me-2"></i>  Simpan sebagai Draff
+          </button>
+          <button class="btn btn-primary" name="status" value="upload">
+            <i class="fas fa-upload me-2"></i>  Upload Blog
           </button>
         </div>
       </div>

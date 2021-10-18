@@ -31,7 +31,7 @@
     @foreach($tags as $tag)
     <li class="me-2">
       @if(request('tag') == $tag->slug)
-      <button class="btn btn-transparent btn-lg px-4 py-3 d-flex align-items-center justify-content-center shadow-sm" value="{{$tag->slug}}" style="background-color: {{$tag->badge}} !important; opacity: 0.5" name="tag">
+      <button class="btn btn-transparent btn-lg px-4 py-3 d-flex align-items-center justify-content-center shadow-sm" value="{{$tag->slug}}" style="background-color: {{$tag->badge}} !important;" name="tag">
         <i class="fab fa-{{$tag->icon}} fs-2 fw-bold text-white"></i>
       </button>
       @else
@@ -49,6 +49,7 @@
 <div class="container-fluid series-content">
   <div class="card p-4 shadow">
     <div class="row">
+      @if ($series->count() > 0)
       @foreach($series as $serie)
       <div class="col-sm-12 col-md-6 col-lg-4">
         <a href="{{route('serie.show', $serie->slug)}}">
@@ -82,6 +83,9 @@
         </a>
       </div>
       @endforeach
+      @else
+          <h5 class="text-center mt-0">Belum tersedia tutorial yang terkait dengan serie ini</h5>
+      @endif
     </div>
   </div>
 </div>

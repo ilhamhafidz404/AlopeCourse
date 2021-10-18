@@ -17,9 +17,9 @@
   <link rel="stylesheet" href="{{asset('dist/css/dropify.min.css')}}">
   <link rel="stylesheet" href="{{asset('template')}}/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
   <link rel="stylesheet" href="/css/app.css">
-  <link rel="stylesheet" href="/css/mystyle.css">
   <!-- Argon CSS -->
   <link rel="stylesheet" href="{{asset('template/')}}/assets/css/argon.css?v=1.2.0" type="text/css">
+  <link rel="stylesheet" href="/css/mystyle.css">
   <style>
 @media only screen and (max-width: 1363px) {
     svg.footer-svg {
@@ -186,5 +186,6 @@
   <!-- Argon Scripts -->
   <!-- Core -->
   @include('admin.layouts.feet')
+  <script src="/js/script.js"></script>
 </body>
 </html>

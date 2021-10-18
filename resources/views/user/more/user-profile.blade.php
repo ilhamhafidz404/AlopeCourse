@@ -216,7 +216,7 @@
   <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
     @csrf
   </form>
-  @if(auth::check() && !auth()->user()->email_verified_at)
+  {{-- @if(auth::check() && !auth()->user()->email_verified_at)
   <div class="alert alert-danger position-fixed bottom-0 w-100 m-0 p-2" style="z-index: 1000">
     <h5 class="text-center mb-0">
       Email anda belum di verifikasi
@@ -228,7 +228,7 @@
       </form>
     </h5>
   </div>
-  @endif
+  @endif --}}
 
   <x-footer-component></x-footer-component>
   <!-- Argon Scripts -->

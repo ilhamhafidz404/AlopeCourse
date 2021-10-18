@@ -4,9 +4,6 @@
 
 @section('breadcrumb')
 <li class="breadcrumb-item" aria-current="page">
-  <a href="{{route('blog.index')}}">Blog</a>
-</li>
-<li class="breadcrumb-item" aria-current="page">
   <a href="{{route('tag.index')}}">Tag</a>
 </li>
 <li class="breadcrumb-item active" aria-current="page">List Blog Tag</li>

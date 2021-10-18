@@ -70,11 +70,11 @@
             </h1>
             @if($messages->count() >=1)
             <p class="text-white">
-              Wow, ternyata ada yang memberi kamu pesan nih.
+              Ada yang memberi pesan padamu, bacalah siapa tau itu penting.
             </p>
             @else
             <p class="text-white">
-              hmmmm kayaknya kotak pesan kmu kosong.
+              Hmmmm kotak pesan kamu untuk saat ini kosong.
             </p>
             @endif
             <p class="invisible">
@@ -90,7 +90,7 @@
         <div class="card-header">
           <h2>
             Kotak Pesan Kamu
-            <span class="badge bg-danger">
+            <span class="badge bg-danger d-inline-flex align-items-center justify-content-center" style="width: 20px; height: 20px; border-radius: 50%">
               {{$messageCount}}
             </span>
           </h2>
@@ -111,20 +111,7 @@
       </div>
     </div>
   </div>
-  @if(auth::check() && !auth()->user()->email_verified_at)
-  <div class="alert alert-danger position-fixed bottom-0 w-100 m-0 p-2" style="z-index: 1000">
-    <h5 class="text-center mb-0">
-      Email anda belum di verifikasi
-      <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
-        @csrf
-        <button type="submit" class="btn btn-link p-0 m-0 align-baseline">
-          <h5 class="mb-0">Verifikasi sekarang</h5>
-        </button>.
-      </form>
-    </h5>
-  </div>
-  @endif
-<br>
+  <br>
   <div class="container mt-5">
     <div class="row">
       <div class="col-xl-5">
@@ -211,6 +198,20 @@
       </div>
     </div>
   </div>
+
+  {{-- @if(auth::check() && !auth()->user()->email_verified_at)
+  <div class="alert alert-danger position-fixed bottom-0 w-100 m-0 p-2" style="z-index: 1000">
+    <h5 class="text-center mb-0">
+      Email anda belum di verifikasi
+      <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
+        @csrf
+        <button type="submit" class="btn btn-link p-0 m-0 align-baseline">
+          <h5 class="mb-0">Verifikasi sekarang</h5>
+        </button>.
+      </form>
+    </h5>
+  </div>
+  @endif --}}
 
   <x-footer-component></x-footer-component>
   <!-- Argon Scripts -->

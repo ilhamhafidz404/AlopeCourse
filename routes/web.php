@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\VideoController;
 use App\Http\Controllers\Admin\BlogSyntaxController;
+use App\Http\Controllers\Admin\BannedBlogController;
 use App\Http\Controllers\Admin\TokenController as AdminTokenController;
 use App\Http\Controllers\Admin\MessageController as AdminMessageController;
 
@@ -38,30 +39,33 @@ use App\Models\User;
 
 route::get('/', BerandaController::class)->name('beranda');
 
+// Khusus untuk admin
 Route::middleware(['role:admin', 'auth'])->group(function () {
   Route::get('/admin/dashboard', DashboardController::class)->name('dashboard.admin');
-  route::resource('/admin/series', CategoryController::class);
-  route::resource('/admin/users', UserController::class);
-  route::resource('/admin/blog', BlogController::class);
-  route::get('/admin/blsyntax', [BlogSyntaxController::class, 'index'])->name('syntax.index');
-  route::get('/admin/blsyntax/{slug}/add', [BlogSyntaxController::class, 'add'])->name('syntax.add');
-  route::put('/admin/blsyntax/{syntax}', [BlogSyntaxController::class, 'save'])->name('syntax.save');
-  route::resource('/admin/tag', TagController::class);
-  route::resource('/admin/video', VideoController::class);
-  route::resource('/admin/token', AdminTokenController::class);
+  Route::resource('/admin/series', CategoryController::class);
+  Route::resource('/admin/users', UserController::class);
+  Route::resource('/admin/tag', TagController::class);
+  Route::resource('/admin/video', VideoController::class);
+  Route::resource('/admin/token', AdminTokenController::class);
+  Route::get('/admin/messagetoken', AdminMessageController::class)->name('token.message');
 
-  route::get('/admin/messagetoken', AdminMessageController::class)->name('token.message');
+  // Route Khusus Blog
+  Route::resource('/admin/blog', BlogController::class);
+  Route::get('/admin/blsyntax', [BlogSyntaxController::class, 'index'])->name('syntax.index');
+  Route::get('/admin/blsyntax/{slug}/add', [BlogSyntaxController::class, 'add'])->name('syntax.add');
+  Route::put('/admin/blsyntax/{syntax}', [BlogSyntaxController::class, 'save'])->name('syntax.save');
+  Route::put('/admin/banblog/{id}', BannedBlogController::class)->name('blog.banned');
 });
 
 Route::middleware(['role:active|premium|admin', 'auth'])->group(function () {
-  route::get('/serie', [SerieController::class, 'index'])->name('serie.index');
-  route::get('/serie/{slug}', [SerieController::class, 'show'])->name('serie.show');
+  Route::get('/serie', [SerieController::class, 'index'])->name('serie.index');
+  Route::get('/serie/{slug}', [SerieController::class, 'show'])->name('serie.show');
   Route::get('/blog', [UserBlogController::class, 'list'])->name('blog.list');
   Route::get('/video', [UserVideoController::class, 'index'])->name('list.video.tutor');
-  route::get('/topic', [TopicController::class, 'index'])->name('topic');
-  route::get('/u/{profile}', [ProfileController::class, 'index'])->name('profile.index');
-  route::get('/u/{profile}/edit', [ProfileController::class, 'edit'])->name('profile.edit');
-  route::put('/u/{profile}', [ProfileController::class, 'update'])->name('profile.update');
+  Route::get('/topic', [TopicController::class, 'index'])->name('topic');
+  Route::get('/u/{profile}', [ProfileController::class, 'index'])->name('profile.index');
+  Route::get('/u/{profile}/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+  Route::put('/u/{profile}', [ProfileController::class, 'update'])->name('profile.update');
   Route::get('/messages', [MessageController::class, 'index'])->name('message');
   Route::get('/iam_out', function() {
     User::whereId(auth()->user()->id)->delete();
@@ -74,8 +78,8 @@ Route::middleware(['role:active|premium|admin', 'auth'])->group(function () {
     Route::get('/blog/{slug}', [UserBlogController::class, 'read'])->name('blog.read');
     Route::get('/video/{slug}', [UserVideoController::class, 'stream'])->name('video.stream');
     Route::get('/like/{blog_id}', LikeController::class)->name('like.blog');
-    route::get('/reedem-token', [UserTokenController::class, 'redeem'])->name('redeem');
-    route::post('/token', [UserTokenController::class, 'getPremium'])->name('getPremium');
+    Route::get('/reedem-token', [UserTokenController::class, 'redeem'])->name('redeem');
+    Route::post('/token', [UserTokenController::class, 'getPremium'])->name('getPremium');
     Route::get('/invoice', function() {
       return view('user.more.invoice');
     })->name('invoice');

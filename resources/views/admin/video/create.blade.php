@@ -28,7 +28,7 @@
     <div class="row">
       <div class="col-md-12">
         <div class="custom-file mb-3">
-          <input type="file" id="thumbnail" class="dropify" data-height="500" accept="image/*" name="thumbnail" />
+          <input type="file" id="thumbnail" class="dropify" data-height="230" accept="image/*" name="thumbnail" />
         </div>
       </div>
       <div class="col-md-12">

@@ -1,5 +1,6 @@
 @extends('admin.master')
 
+@section('title', 'Token')
 
 @section('breadcrumb')
 <li class="breadcrumb-item active" aria-current="page">
