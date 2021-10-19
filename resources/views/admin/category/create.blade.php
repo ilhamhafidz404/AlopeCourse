@@ -53,9 +53,9 @@
           <select multiple class="form-control" id="tag" name="tags[]">
             <option hidden selected>Pilih Tag</option>
             @foreach($tags as $tag)
-            <option value="{{$tag->id}}">
-              {{$tag->nama}}
-            </option>
+              <option value="{{$tag->id}}">
+                {{$tag->nama}}
+              </option>
             @endforeach
           </select>
           @error('category')

@@ -20,9 +20,9 @@
           <label for="nama" class="form-control-label">Nama Tag</label>
           <input type="text" class="form-control form-control-alternative @error('nama') is-invalid @enderror" placeholder="Nama series baru" id="nama" name="nama" value='{{old("nama")}}'>
           @error('nama')
-          <div class="form-text invalid-feedback text-danger">
-            {{ $message }}
-          </div>
+            <div class="form-text invalid-feedback text-danger">
+              {{ $message }}
+            </div>
           @enderror
         </div>
       </div>
@@ -48,9 +48,9 @@
             {{old('description')}}
           </textarea>
           @error('description')
-          <div class="form-text text-danger">
-            {{ $message }}
-          </div>
+            <div class="form-text text-danger">
+              {{ $message }}
+            </div>
           @enderror
         </div>
       </div>

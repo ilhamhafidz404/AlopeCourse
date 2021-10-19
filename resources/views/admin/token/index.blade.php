@@ -10,12 +10,13 @@
 
 @section('header-button')
 <div class="btn-group">
+  <button class="btn btn-sm btn-neutral me-2 changeToken">Change Look</button>
   <a href="{{route('blog.create')}}" class="btn btn-sm btn-neutral me-2" data-bs-toggle="modal" data-bs-target="#exampleModal">Tambah Redeem</a>
 </div>
 @endsection
 
 @section('content')
-<div class="card p-4">
+<div class="card p-4 tokenGrid tokenList show">
   <div class="row">
     @foreach($tokens as $token)
     <div class="col-md-4">
@@ -48,7 +49,7 @@
 
                   </button>
                   <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Gift Token</a>
                     <button class="btn btn-sm btn-transparent dropdown-item" type="submit">
                       Hapus
                     </button>
@@ -74,6 +75,50 @@
       </div>
     </div>
     @endforeach
+  </div>
+</div>
+
+<div class="card p-3 tokenTable tokenList">
+  <div class="table-responsive">
+    <table class="table align-items-center table-flush" id="myTable">
+      <thead class="thead-light">
+        <tr>
+          <th>#</th>
+          <th>Token</th>
+          <th>Type</th>
+          <th>status</th>
+          <th><i class="fas fa-cogs"></i></th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php $i = 1 ?>
+        @foreach($tokens as $token)
+        <tr>
+          <td>{{$i++}}</td>
+          <td>
+            {{$token->token}}
+          </td>
+          <td>{{$token->type}}</td>
+          <td>
+            @if($token->isOrder)
+              <small class="text-warning fw-bold mt-3">
+                Sudah di order
+              </small>
+            @elseif($token->user_id == 0)
+              <small class="text-danger fw-bold mt-3">
+                Belum digunakan
+              </small>
+            @else
+              <small class="text-success fw-bold">
+                Digunakan oleh {{$token->user->name}}
+              </small>
+            @endif  
+          </td>
+          <td><i class="fas fa-ellipsis-v"></i></td>
+        </tr>
+        @endforeach
+      </tbody>
+    </table>
   </div>
 </div>
 
@@ -125,7 +170,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Save changes</button>
+          <button type="submit" class="btn btn-primary">Generate</button>
         </div>
       </form>
     </div>
@@ -133,6 +178,20 @@
 </div>
 
 <script>
+  const tokenGrid= document.querySelector('.tokenGrid');
+  const tokenTable= document.querySelector('.tokenTable');
+  const changeToken= document.querySelector('.changeToken');
+  changeToken.addEventListener('click', ()=>{
+    tokenTable.classList.toggle('show');
+    tokenGrid.classList.toggle('show');
+  });
+  // tokenList.forEach(tokens => {
+  //   tokens.addEventListener('click', ()=>{
+  //     tokenTable.classList.toggle('show');
+  //     tokenGrid.classList.toggle('show');
+  //   });
+  // });
+
   const switchGiven = document.querySelector('#switchGiven');
   const giveUser = document.querySelector('#giveUser');
 

@@ -67,25 +67,25 @@
         @endif
         <div class="d-flex justify-content-end">
           @if($blog->status === "upload")
-          <form action="{{route('blog.banned', $blog->id)}}" method="POST">
-            @csrf
-            @method("PUT")
-            <button class="btn btn-warning btn-sm" name="status" data-bs-toggle="tooltip" data-bs-placement="top" title="Banned">
-              <i class="fas fa-ban"></i>
-            </button>
-          </form>
+            <form action="{{route('blog.banned', $blog->id)}}" method="POST">
+              @csrf
+              @method("PUT")
+              <button class="btn btn-warning btn-sm" name="status" data-bs-toggle="tooltip" data-bs-placement="top" title="Banned">
+                <i class="fas fa-ban"></i>
+              </button>
+            </form>
           @elseif($blog->status === 'draff')
-          <a href="{{route('blog.edit', $blog->slug)}}" class="btn btn-sm  btn-info" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit">
-            <i class="fas fa-pencil-alt"></i>
-          </a>
+            <a href="{{route('blog.edit', $blog->slug)}}" class="btn btn-sm me-0 btn-info" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit">
+              <i class="fas fa-pencil-alt"></i>
+            </a>
           @elseif($blog->status === 'banned')
-          <form action="{{route('blog.destroy', $blog->id)}}" method="POST">
-            @method('DELETE')
-            @csrf
-            <button class="btn btn-sm  btn-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus" onclick="return confirm('Yakin ingin menghapus Blog ini secara permanent?')" type="submit">
-              <i class="fas fa-trash-alt"></i>
-            </button>
-          </form>
+            <form action="{{route('blog.destroy', $blog->id)}}" method="POST">
+              @method('DELETE')
+              @csrf
+              <button class="btn btn-sm  btn-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus" onclick="return confirm('Yakin ingin menghapus Blog ini secara permanent?')" type="submit">
+                <i class="fas fa-trash-alt"></i>
+              </button>
+            </form>
           @endif
           <a href="{{route('blog.show', $blog->slug)}}" class="btn btn-sm btn-primary ms-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Detail">
             <i class="fas fa-eye"></i>

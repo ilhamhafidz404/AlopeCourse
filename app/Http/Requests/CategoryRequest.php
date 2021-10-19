@@ -24,7 +24,7 @@ class CategoryRequest extends FormRequest
     return [
       "nama" => ['required'],
       "description" => ['required'],
-      "thumbnail" => 'image'
+      "thumbnail" => ['image'] 
     ];
   }
 }

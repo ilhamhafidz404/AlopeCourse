@@ -136,10 +136,6 @@
       <x-footer-component></x-footer-component>
 
       <!-- Option 1: Bootstrap Bundle with Popper -->
-      <script type="text/javascript">
-        var myModal = new bootstrap.Modal(document.getElementById('notif'), {})
-        myModal.toggle()
-      </script>
       <script src="/js/app.js"></script>
 
       <!-- Prism  -->

@@ -37,5 +37,11 @@
     .card-img{
       background-position: center
     }
+    .tokenList.show{
+      display: block !important;
+    }
+    .tokenList{
+      display: none;
+    }
   </style>
 </head>

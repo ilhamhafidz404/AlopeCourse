@@ -12,33 +12,17 @@ use Illuminate\Support\Str;
 
 class VideoController extends Controller
 {
-  /**
-  * Display a listing of the resource.
-  *
-  * @return \Illuminate\Http\Response
-  */
   public function index() {
     $videos = Video::latest()->paginate(10);
     $categories = Category::all();
     return view('admin.video.index', compact('videos', 'categories'));
   }
 
-  /**
-  * Show the form for creating a new resource.
-  *
-  * @return \Illuminate\Http\Response
-  */
   public function create() {
     $categories = Category::all();
     return view('admin.video.create', compact('categories'));
   }
 
-  /**
-  * Store a newly created resource in storage.
-  *
-  * @param  \Illuminate\Http\Request  $request
-  * @return \Illuminate\Http\Response
-  */
   public function store(VideoRequest $request) {
     if (!$request->thumbnail) {
       return back()->with('thumb_error', 'Thumbnail anda kosong, mohon untuk mengulang input data kembali');
@@ -65,12 +49,6 @@ class VideoController extends Controller
     return redirect(route('video.index'));
   }
 
-  /**
-  * Display the specified resource.
-  *
-  * @param  int  $id
-  * @return \Illuminate\Http\Response
-  */
   public function show(Video $video) {
     //$videos = Video::whereCategory_id($video->category_id->all());
     // $video = Video::whereSlug($slug)->first();
@@ -81,35 +59,24 @@ class VideoController extends Controller
     return view('admin.video.show', compact('video', 'videos', 'next', 'prev'));
   }
 
-  /**
-  * Show the form for editing the specified resource.
-  *
-  * @param  int  $id
-  * @return \Illuminate\Http\Response
-  */
   public function edit($slug) {
     $video = Video::whereSlug($slug)->first();
     $categories = Category::all();
     return view('admin.video.edit', compact('video', 'categories'));
   }
 
-  /**
-  * Update the specified resource in storage.
-  *
-  * @param  \Illuminate\Http\Request  $request
-  * @param  int  $id
-  * @return \Illuminate\Http\Response
-  */
   public function update(Request $request, $id) {
-    $video = Video::whereId($id)->first();
-    if ($video->thumbnail != "default.jpg") {
-      \File::delete('storage/thumbnail/video/'.$video->thumbnail);
+    $video = Video::find($id);
+    if(!$request->thumbnail){
+      $thumbnail= $video->thumbnail;
+    } else{
+      if($video->thumbnail != 'default.jpg'){
+        \File::delete('storage/thumbnail/video/'.$video->thumbnail);
+      }
+      $thumbnail = time().".".$request->thumbnail->extension();
+      $request->file('thumbnail')->storeAs('public/thumbnail/video', $thumbnail);
     }
-
-    $thumbnail = time().".".$request->thumbnail->extension();
-    $request->file('thumbnail')->storeAs('public/thumbnail/video', $thumbnail);
-
-    Video::find($id)->update([
+    $video->update([
       "title" => $request->title,
       'slug' => Str::slug($request->title),
       "category_id" => $request->category,
@@ -124,12 +91,6 @@ class VideoController extends Controller
     return redirect(route('video.index'));
   }
 
-  /**
-  * Remove the specified resource from storage.
-  *
-  * @param  int  $id
-  * @return \Illuminate\Http\Response
-  */
   public function destroy($id) {
     Video::find($id)-> delete();
 

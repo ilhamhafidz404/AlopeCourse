@@ -115,7 +115,7 @@
         <thead class="thead-light">
           <tr>
             <th scope="col" class="sort" data-sort="judul">Blog</th>
-            <th scope="col" class="sort" data-sort="category">Category</th>
+            <th scope="col" class="sort" data-sort="category">Serie</th>
             <th scope="col" class="sort" data-sort="created_at">Dibuat Pada</th>
           </tr>
         </thead>
@@ -124,9 +124,9 @@
           <tr>
             <th scope="row">
               <div class="media align-items-center">
-                <img alt="{{$draffBlog->slug}} Image" src="{{asset('storage/'.$draffBlog->thumbnail)}}" width="120px" class="img-thumbnail me-3">
+                <img alt="{{$draffBlog->slug}} Image" src="{{asset('storage/thumbnail/blog/'.$draffBlog->thumbnail)}}" width="120px" class="img-thumbnail me-3">
                 <div class="media-body">
-                  <span class="name mb-0 text-sm">{{$draffBlog->judul}}</span>
+                  <a href="{{route('blog.show', $draffBlog->slug)}}" class="name mb-0 text-sm">{{$draffBlog->judul}}</a>
                 </div>
               </div>
             </th>
@@ -134,7 +134,7 @@
               {{$draffBlog->category->nama}}
             </td>
             <td>
-              {{$draffBlog->created_at}}
+              {{$draffBlog->created_at->diffForHumans()}}
             </td>
           </tr>
           @endforeach

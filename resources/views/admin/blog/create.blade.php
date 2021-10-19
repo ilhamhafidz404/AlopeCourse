@@ -40,9 +40,15 @@
           <select class="form-control" id="category" name="category">
             <option hidden selected>Pilih Kategori</option>
             @foreach($categories as $category)
-            <option value="{{$category->id}}">
-              {{$category->nama}}
-            </option>
+            @if (old('category') == $category->id)    
+              <option value="{{$category->id}}" selected>
+                {{$category->nama}}
+              </option>
+            @else     
+              <option value="{{$category->id}}">
+                {{$category->nama}}
+              </option>
+            @endif
             @endforeach
           </select>
           @error('category')

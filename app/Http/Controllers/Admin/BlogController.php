@@ -14,11 +14,6 @@ use Illuminate\Support\Str;
 
 class BlogController extends Controller
 {
-  /**
-  * Display a listing of the resource.
-  *
-  * @return \Illuminate\Http\Response
-  */
   public function index() {
     if (request("serie")) {
       $blogs = Blog::filter(request(["serie"]))->latest()->paginate(10);
@@ -32,23 +27,12 @@ class BlogController extends Controller
     return view('admin.blog.index', compact('blogs', 'categories', 'tags'));
   }
 
-  /**
-  * Show the form for creating a new resource.
-  *
-  * @return \Illuminate\Http\Response
-  */
   public function create() {
     $categories = Category::all();
     $tags = Tag::all();
     return view('admin.blog.create', compact('categories', 'tags'));
   }
 
-  /**
-  * Store a newly created resource in storage.
-  *
-  * @param  \Illuminate\Http\Request  $request
-  * @return \Illuminate\Http\Response
-  */
   public function store(BlogRequest $request) {
     if (!$request->thumbnail) {
       return back()->with("error_thumb", 'Thumbnail harus ada,, Silahkan isi data kembali');
@@ -73,24 +57,12 @@ class BlogController extends Controller
     return redirect(route('blog.index'));
   }
 
-  /**
-  * Display the specified resource.
-  *
-  * @param  int  $id
-  * @return \Illuminate\Http\Response
-  */
   public function show($slug) {
     $blog = Blog::whereSlug($slug)->first();
     $likes = Like::whereBlog_id($blog->id)->count();
     return view('admin.blog.show', compact('blog', 'likes'));
   }
 
-  /**
-  * Show the form for editing the specified resource.
-  *
-  * @param  int  $id
-  * @return \Illuminate\Http\Response
-  */
   public function edit(Blog $blog) {
     //$blog = Blog::where("slug", $slug)->first();
     $categories = Category::all();
@@ -99,24 +71,21 @@ class BlogController extends Controller
     return view("admin.blog.edit", compact("blog", "categories", "tags"));
   }
 
-  /**
-  * Update the specified resource in storage.
-  *
-  * @param  \Illuminate\Http\Request  $request
-  * @param  int  $id
-  * @return \Illuminate\Http\Response
-  */
   public function update(Request $request, $id) {
+    // Select Blog dari Id yang dikirim
+    $blog = Blog::find($id);
     if (!$request->thumbnail) {
-      return back()->with("error_thumb", 'Thumbnail harus ada,, Silahkan isi data kembali');
+      // Jika request dari name thumbnail tidak ada, variable thumbnail diisi oleh thumbnail sebelumnya
+      $thumbnail= $blog->thumbnail;
+    } else{
+      // jika Blog thumbnail bukan 'default.jpg', delete gambarnya
+      if($blog->thumbnail != 'default.jpg'){
+        \File::delete('storage/thumbnail/blog/'.$blog->thumbnail);
+      }
+      $thumbnail = time().".".$request->thumbnail->extension();
+      $request->file('thumbnail')->storeAs('public/thumbnail/blog', $thumbnail);
     }
-    if($request->thumbnail == 'default.jpg'){
-      $blog = Blog::find($id)->first();
-      return \File::delete('storage/thumbnail/blog/'.$blog->thumbnail);
-    }
-    $thumbnail = time().".".$request->thumbnail->extension();
-    $request->file('thumbnail')->storeAs('public/thumbnail/blog', $thumbnail);
-    Blog::find($id)->update([
+    $blog->update([
       "judul" => $request->judul,
       "category_id" => $request->category,
       "content" => $request->content,
@@ -127,12 +96,6 @@ class BlogController extends Controller
     return redirect(route('blog.index'));
   }
 
-  /**
-  * Remove the specified resource from storage.
-  *
-  * @param  int  $id
-  * @return \Illuminate\Http\Response
-  */
   public function destroy($id) {
     Blog::find($id)->delete();
 
