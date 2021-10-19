@@ -84,29 +84,29 @@
   <x-navbar-component></x-navbar-component>
   <div class="svg-head"></div>
   <br><br><br>
-  <main class="mx-auto mt-4" style="width: 97%">
+  <main class="mt-4 container-fluid" style="width: 95% !important">
     <div class="card p-2">
       @if($video->isPremium)
-      @if(auth()->user()->hasRole('premium'))
-      <iframe width="100%" height="350px" src="{{$video->link}}"></iframe>
+        @if(auth()->user()->hasRole('premium'))
+          <iframe width="100%" height="350px" src="{{$video->link}}"></iframe>
+        @else
+        <div class="p-4 bg-light">
+          <h3>OOPS!!</h3>
+          <p class="text-muted">
+            Video ini termasuk dalam list premium, <br>
+            Anda harus berlangganan jika ingin tonton video ini.
+          </p>
+          <a href="https://api.whatsapp.com/send?phone=6283871352030&text=Hai%20saya%20ingin%20berlangganan%20di%20ALOPE" class="btn btn-primary px-5 mt-4">
+            <i class="fas fa-rocket me-2"></i>
+            Mulai Berlangganan
+          </a>
+        </div> 
+        @endif
       @else
-      <div class="p-4 bg-light">
-        <h3>OOPS!!</h3>
-        <p class="text-muted">
-          Video ini termasuk dalam list premium, <br>
-          Anda harus berlangganan jika ingin tonton video ini.
-        </p>
-        <a href="https://api.whatsapp.com/send?phone=6283871352030&text=Hai%20saya%20ingin%20berlangganan%20di%20ALOPE" class="btn btn-primary px-5 mt-4">
-          <i class="fas fa-rocket me-2"></i>
-          Mulai Berlangganan
-        </a>
-      </div>
-      @endif
-      @else
-      <iframe width="100%" height="350px" src="{{$video->link}}"></iframe>
+        <iframe width="100%" height="350px" src="{{$video->link}}"></iframe>
       @endif
     </div>
-    <div class="mx-auto mt-4" style="width:97%">
+    <div class="mt-4">
       <div class="row">
         <div class="col-md-7">
 

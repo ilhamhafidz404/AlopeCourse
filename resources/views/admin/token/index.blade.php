@@ -19,61 +19,99 @@
 <div class="card p-4 tokenGrid tokenList show">
   <div class="row">
     @foreach($tokens as $token)
-    <div class="col-md-4">
-      <div class="card shadow">
-        <div class="row">
-          @if($token->type == 'platinum')
-          <div class="col-4 bg-gradient-primary">
-          </div>
-          @elseif($token->type == 'gold')
-          <div class="col-4 bg-gradient-warning">
-          </div>
-          @elseif($token->type == 'silver')
-          <div class="col-4 bg-gradient-success">
-          </div>
-          @endif
-          <div class="col-8 py-2 position-relative">
-            <h6 class="text-uppercase mb-0">
-              {{$token->token}}
-            </h6>
-            <small class="text-muted">
-              {{$token->type}}
-            </small>
-            <br>
-            <div class="position-absolute" style="top:-5px; right: 25px">
-              <form action="{{route('token.destroy', $token->id)}}" method="POST">
-                @csrf
-                @method('DELETE')
-                <div class="dropdown">
-                  <button class="btn btn-neutral btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">
-
-                  </button>
-                  <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Gift Token</a>
-                    <button class="btn btn-sm btn-transparent dropdown-item" type="submit">
-                      Hapus
-                    </button>
-                  </div>
-                </div>
-              </form>
+      <div class="col-md-4">
+        <div class="card shadow">
+          <div class="row">
+            @if($token->type == 'platinum')
+            <div class="col-4 bg-gradient-primary">
             </div>
-            @if($token->isOrder)
-            <small class="text-warning mt-3">
-              Sudah di order
-            </small>
-            @elseif($token->user_id == 0)
-            <small class="text-danger mt-3">
-              Belum digunakan
-            </small>
-            @else
-            <small class="text-success">
-              Digunakan oleh {{$token->user->name}}
-            </small>
+            @elseif($token->type == 'gold')
+            <div class="col-4 bg-gradient-warning">
+            </div>
+            @elseif($token->type == 'silver')
+            <div class="col-4 bg-gradient-success">
+            </div>
             @endif
+            <div class="col-8 py-2 position-relative">
+              <h6 class="text-uppercase mb-0">
+                {{$token->token}}
+              </h6>
+              <small class="text-muted">
+                {{$token->type}}
+              </small>
+              <br>
+              <div class="position-absolute" style="top:-5px; right: 25px">
+                <form action="{{route('token.destroy', $token->id)}}" method="POST">
+                  @csrf
+                  @method('DELETE')
+                  <div class="dropdown">
+                    <button class="btn btn-neutral btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">
+                    </button>
+                    <div class="dropdown-menu">
+                      <button type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#giveTokenBox{{$token->id}}">Give Token</button> 
+                      <button class="dropdown-item" type="submit">
+                        Hapus
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              @if($token->isOrder)
+              <small class="text-warning mt-3">
+                Sudah di order
+              </small>
+              @elseif($token->user_id == 0)
+              <small class="text-danger mt-3">
+                Belum digunakan
+              </small>
+              @else
+              <small class="text-success">
+                Digunakan oleh {{$token->user->name}}
+              </small>
+              @endif
+            </div>
           </div>
         </div>
       </div>
-    </div>
+      <!-- Modal -->
+      <div class="modal fade" id="giveTokenBox{{$token->id}}">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Give Token {{$token->token}}</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="{{route('token.message')}}">
+              <div class="modal-body">
+                <div class="form-group mb-3">
+                  <label for="token" class="form-label">
+                    Token
+                  </label>
+                  <input type="hidden" name="token" id="token" readonly value="{{$token->id}}">
+                  <input type="text" readonly class="form-control" value="{{$token->token}}">
+                </div>
+                <div class="form-group my-3">
+                  <label for="user" class="form-label">
+                    Pilih User
+                  </label>
+                  <select name="user" id="type" class="form-select">
+                    <option value="0" hidden selected>Pilih user</option>
+                    @foreach($users as $user)
+                      @if($user->hasRole('active'))
+                        <option value="{{$user->username}}">{{$user->name}}</option>
+                      @endif
+                    @endforeach
+                  </select>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary" name="gift" value="1">Give Token</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
     @endforeach
   </div>
 </div>
@@ -114,15 +152,73 @@
               </small>
             @endif  
           </td>
-          <td><i class="fas fa-ellipsis-v"></i></td>
+          <td>
+            <div class="dropdown">
+              <button class="btn btn-transparent" type="button" data-bs-toggle="dropdown">
+                <i class="fas fa-ellipsis-v"></i>
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <button type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#giveToken{{$token->id}}">Give Token</button> 
+                </li>
+                <li>
+                  <form action="{{route('token.destroy', $token->id)}}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button class="dropdown-item" onclick="return confirm('Yakin mau menghapus token ini?')">Hapus</button>
+                  </form>
+                </li>
+              </ul>
+            </div>
+          </td>
         </tr>
+        <!-- Modal -->
+        <div class="modal fade" id="giveToken{{$token->id}}">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Give Token {{$token->token}}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <form action="{{route('token.message')}}">
+                <div class="modal-body">
+                  <div class="form-group mb-3">
+                    <label for="token" class="form-label">
+                      Token
+                    </label>
+                    <input type="hidden" name="token" id="token" readonly value="{{$token->id}}">
+                    <input type="text" readonly class="form-control" value="{{$token->token}}">
+                  </div>
+                  <div class="form-group my-3">
+                    <label for="user" class="form-label">
+                      Pilih User
+                    </label>
+                    <select name="user" id="type" class="form-select">
+                      <option value="0" hidden selected>Pilih user</option>
+                      @foreach($users as $user)
+                        @if($user->hasRole('active'))
+                          <option value="{{$user->username}}">{{$user->name}}</option>
+                        @endif
+                      @endforeach
+                    </select>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-primary" name="gift" value="1">Give Token</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
         @endforeach
       </tbody>
     </table>
   </div>
 </div>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+<div class="modal fade" id="exampleModal">
   <div class="modal-dialog">
     <div class="modal-content">
       <form action="{{route('token.store')}}" method="POST">
@@ -161,9 +257,9 @@
             <select name="user" id="type" class="form-select">
               <option value="0" selected>pilih user</option>
               @foreach($users as $user)
-              @if($user->hasRole('active'))
-              <option value="{{$user->id}}">{{$user->name}}</option>
-              @endif
+                @if($user->hasRole('active'))
+                  <option value="{{$user->id}}">{{$user->name}}</option>
+                @endif
               @endforeach
             </select>
           </div>

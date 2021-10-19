@@ -143,7 +143,7 @@
                         @endif
                       <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button class="btn btn-primary" name="gift" value="1" >Give</button>
+                        <button class="btn btn-primary" name="gift" value="1">Give</button>
                       </div>
                     </form>
                   </div>

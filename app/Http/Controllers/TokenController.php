@@ -10,28 +10,27 @@ use App\Models\Notification;
 
 class TokenController extends Controller
 {
-  /**
-  * Handle the incoming request.
-  *
-  * @param  \Illuminate\Http\Request  $request
-  * @return \Illuminate\Http\Response
-  */
-
   public function redeem() {
     return view('user.more.redeem');
   }
 
   public function getPremium(Request $request) {
+    // ambil inputan user
     $tokenInput = $request->token;
+    // chek apakah token yang user inputkan sesuai dengan token yang ada
     $token = Token::whereToken($tokenInput)->first();
     if ($token) {
-      if ($token->user_id == auth()->user()->id) {
+      // Cek apakah user sudah premium atau sedang menggunkan salah satu token
+      if (Token::whereUserId(auth()->user()->id)->first()) {
         Alert::toast('Anda sedang di Paket Premium', 'warning');
         return back();
       } else {
+        // jka tidak, cek apakah token yang user inputkan itu dimiliki user lain
         if ($token->user_id == 0) {
+          // Ganti Role user
           $user = User::find(auth()->user()->id);
           $user->syncRoles('premium');
+          // Menemtukan expire dari token
           $token_type = $token->type;
           if ($token_type == 'silver') {
             $expired_at = time() + (86400 * (30*1));
