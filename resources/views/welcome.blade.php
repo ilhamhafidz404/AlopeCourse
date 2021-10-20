@@ -12,12 +12,12 @@
         <div class="col-md-6 col-lg-4">
           <a href="{{route('serie.show', $serie->slug)}}">
             <div class="card border-0 bg-transparent m-auto mb-4" style="width: 90% !important;">
-              <img src="{{asset('storage/thumbnail/serie/'.$serie->thumbnail)}}" class="card-img-rounded" width="100%">
+              <img src="{{asset('storage/thumbnail/serie/'.$serie->thumbnail)}}" class="card-img-rounded" width="100%" height="201px">
               <div class="card-body">
                 @foreach($serie->tag as $tag)
-                <span class="badge" style="background-color:{{$tag->badge}}">
-                  {{$tag->nama}}
-                </span>
+                  <span class="badge" style="background-color:{{$tag->badge}}">
+                    {{$tag->nama}}
+                  </span>
                 @endforeach
                 <h4 class="card-title my-2 text-dark">
                   {{$serie->nama}}
@@ -28,11 +28,11 @@
                     {{$tgl}}
                   </small>
                   @if($serie->status == 'complete')
-                  <small class="text-secondary">Serie<span class="text-success fw-bold">Complete</span></small>
+                    <small class="text-secondary">Serie<span class="text-success fw-bold">Complete</span></small>
                   @elseif($serie->status == 'development')
-                  <small class="text-secondary">Serie<span class="text-warning fw-bold">Development</span></small>
+                    <small class="text-secondary">Serie<span class="text-warning fw-bold">Development</span></small>
                   @else
-                  <small class="text-secondary">Serie<span class="text-danger fw-bold">Stuck</span></small>
+                    <small class="text-secondary">Serie<span class="text-danger fw-bold">Stuck</span></small>
                   @endif
                 </div>
               </div>
@@ -269,10 +269,11 @@
         </div>
       </div>
     </div>
-
-    <a href="" class="mt-2 d-block text-end">
-      Lihat Paket lainnya
-    </a>
+    <div class="mx-auto" style="width: 50%">
+      <a href="" class="mt-2 d-block text-end">
+        Lihat Paket lainnya
+      </a>
+    </div>
   </div>
 
   <br><br>
@@ -419,13 +420,13 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title">Modal title</h5>                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <h5 class="modal-title">Modal title</h5>                        
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
             <p>
               Modal body text goes here.
             </p>
-
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>      <button type="button" class="btn btn-primary">Save changes</button>

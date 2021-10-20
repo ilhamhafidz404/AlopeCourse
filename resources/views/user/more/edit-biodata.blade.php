@@ -10,7 +10,9 @@
   <!-- Favicon -->
   <link rel="icon" href="../assets/img/brand/favicon.png" type="image/png">
   <!-- Fonts -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   <!-- Icons -->
   <link rel="stylesheet" href="{{asset('template')}}/assets/vendor/nucleo/css/nucleo.css" type="text/css">
 
@@ -21,34 +23,37 @@
   <link rel="stylesheet" href="{{asset('template/')}}/assets/css/argon.css?v=1.2.0" type="text/css">
   <link rel="stylesheet" href="/css/mystyle.css">
   <style>
-@media only screen and (max-width: 1363px) {
-    svg.footer-svg {
-      margin-top: -350px !important;
+    body{
+      font-family: 'Poppins', sans-serif;
     }
-    footer {
-      margin-top: -57px !important;
+    @media only screen and (max-width: 1363px) {
+      svg.footer-svg {
+        margin-top: -350px !important;
+      }
+      footer {
+        margin-top: -57px !important;
+      }
     }
-  }
-@media only screen and (max-width: 1139px) {
-    svg.footer-svg {
-      margin-top: -300px !important;
+    @media only screen and (max-width: 1139px) {
+      svg.footer-svg {
+        margin-top: -300px !important;
+      }
     }
-  }
-@media only screen and (max-width: 917px) {
-    svg.footer-svg {
-      margin-top: -250px !important;
+    @media only screen and (max-width: 917px) {
+      svg.footer-svg {
+        margin-top: -250px !important;
+      }
     }
-  }
-@media only screen and (max-width: 688px) {
-    svg.footer-svg {
-      margin-top: -200px !important;
+    @media only screen and (max-width: 688px) {
+      svg.footer-svg {
+        margin-top: -200px !important;
+      }
     }
-  }
-@media only screen and (max-width: 455px) {
-    svg.footer-svg {
-      display: none;
+    @media only screen and (max-width: 455px) {
+      svg.footer-svg {
+        display: none;
+      }
     }
-  }
   </style>
 
 </head>
@@ -170,8 +175,13 @@
                     <input type="text" class="form-control" id="facebook" placeholder="Jhone Doe" name="facebook" value="{{$user->biodata->facebook}}">
                   </div>
                 </div>
-                <div class="col-md-12 mt-4">
-                  <button class="btn btn-primary">
+                <div class="col-md-12 mt-4 text-right">
+                  <a href="{{route('profile.index', auth()->user()->username)}}" class="btn btn-neutral">
+                    <img src="{{asset('storage/profile/'.auth()->user()->profile)}}" width="25px" height="25px" class="rounded-circle mr-3">
+                    Lihat Profile
+                  </a>
+                  <button class="btn btn-primary px-5">
+                    <i class="fas fa-save mr-3"></i>
                     Update Profile
                   </button>
                 </div>

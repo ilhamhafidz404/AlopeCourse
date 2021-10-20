@@ -3,15 +3,12 @@
 @section('webtitle', 'Forgot Password')
 @section('title', 'Lupa Password')
 @section('subtitle')
-Masukan password baru. Ingat jangan sampai lupa lagi dengan password barumu.
+  Masukan password baru. Ingat jangan sampai lupa lagi dengan password barumu.
 @endsection
 @section('form')
 <form method="POST" action="{{ route('password.update') }}">
   @csrf
-
   <input type="hidden" name="token" value="{{ $token }}">
-
-
   <div class="form-group mb-3">
     <div class="input-group input-group-merge input-group-alternative">
       <div class="input-group-prepend">

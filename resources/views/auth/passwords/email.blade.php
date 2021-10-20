@@ -4,18 +4,11 @@
 @section('webtitle', 'Forgot Password')
 @section('title', 'Lupa Password')
 @section('subtitle')
-Masukan Email terdaftar anda untuk mendapatkan link ganti password akun.
+  Masukan Email terdaftar anda untuk mendapatkan link ganti password akun.
 @endsection
 @section('form')
-@if (session('status'))
-<div class="alert alert-success" role="alert">
-  {{ session('status') }}
-</div>
-@endif
-
 <form method="POST" action="{{ route('password.email') }}">
   @csrf
-
   <div class="form-group mb-4">
     <div class="input-group input-group-merge input-group-alternative">
       <div class="input-group-prepend">
@@ -24,9 +17,9 @@ Masukan Email terdaftar anda untuk mendapatkan link ganti password akun.
       <input class="form-control" id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Email">
     </div>
     @error('email')
-    <small class="text-danger">
-      {{$message}}
-    </small>
+      <small class="text-danger">
+        {{$message}}
+      </small>
     @enderror
   </div>
   <div class="form-group row mb-0">

@@ -10,7 +10,9 @@
   <!-- Favicon -->
   <link rel="icon" href="../assets/img/brand/favicon.png" type="image/png">
   <!-- Fonts -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   <!-- Icons -->
   <link rel="stylesheet" href="{{asset('template')}}/assets/vendor/nucleo/css/nucleo.css" type="text/css">
   <link rel="stylesheet" href="{{asset('template')}}/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
@@ -20,34 +22,42 @@
   <link rel="stylesheet" href="{{asset('template/')}}/assets/css/argon.css?v=1.2.0" type="text/css">
 
   <style>
-@media only screen and (max-width: 1363px) {
-    svg.footer-svg {
-      margin-top: -350px !important;
+    body{
+      font-family: 'Poppins', sans-serif;
     }
-    footer {
-      margin-top: -57px !important;
+    @media only screen and (max-width: 1363px) {
+      svg.footer-svg {
+        margin-top: -350px !important;
+      }
+      footer {
+        margin-top: -57px !important;
+      }
     }
-  }
-@media only screen and (max-width: 1139px) {
-    svg.footer-svg {
-      margin-top: -300px !important;
+    @media only screen and (max-width: 1139px) {
+      svg.footer-svg {
+        margin-top: -300px !important;
+      }
     }
-  }
-@media only screen and (max-width: 917px) {
-    svg.footer-svg {
-      margin-top: -250px !important;
+    @media only screen and (max-width: 917px) {
+      svg.footer-svg {
+        margin-top: -250px !important;
+      }
     }
-  }
-@media only screen and (max-width: 688px) {
-    svg.footer-svg {
-      margin-top: -200px !important;
+    @media only screen and (max-width: 767px) {
+      .reedemPlatinum {
+        display: none;
+      }
     }
-  }
-@media only screen and (max-width: 455px) {
-    svg.footer-svg {
-      display: none;
+    @media only screen and (max-width: 688px) {
+      svg.footer-svg {
+        margin-top: -200px !important; 
+      }
     }
-  }
+    @media only screen and (max-width: 455px) {
+      svg.footer-svg {
+        display: none;
+      }
+    }
   </style>
 </head>
 <body>
@@ -59,7 +69,7 @@
       <!-- Mask -->
       <span class="mask bg-gradient-default opacity-8"></span>
     </div>
-    <div class="container-fluid" style="margin-top: -300px">
+    <div class="container-fluid" style="margin-top: -250px">
       <div class="row">
         <div class="col-md-8 text-white">
           <h1 class="fs-1 text-white fw-bold">Hello, {{auth()->user()->name}}</h1>
@@ -69,6 +79,26 @@
             </span>
           </p>
         </div>
+        <div class="col-md-4">
+          <div class="position-absolute left-0 right-0 reedemPlatinum" style="top: -120px;">
+            <h3 class="text-white text-center">Beli Paket Premium</h3>
+            <div class="card border-0 shadow p-3 text-center platinum mx-auto" style="width: 230px">
+              <h2 class="text-white">PLATINUM</h2>
+              <h3 class=" mt-3 text-white">
+                <sup>Rp.</sup>
+                <span class="fw-bold" style="font-size: 50px">
+                  100
+                </span>
+                <sub class="fw-bold mb-2">
+                  .000
+                </sub>
+              </h3>
+              <a href="{{route('invoice')}}" class="btn btn-neutral mt-4 btn_price">
+                Beli Akses
+              </a>
+            </div>
+          </div>
+          </div>
       </div>
       <div class="card mt-5">
         <div class="card-body">
@@ -88,64 +118,64 @@
       </div>
       <div class="card mt-3 p-4">
         <h3>Cara Mendapatkan Kode Redeem Premium</h3>
-        <div class="mt-3">
+        <div class="mt-3 px-5">
           <div class="d-flex mb-3">
             <div class="me-4 ">
-              <h4 class="fs-1">
-                1
+              <h4 class="fs-1 text-purple">
+                1.
               </h4>
             </div>
-            <div>
+            <div class="d-flex align-items-center">
               <p>
-                Siapkan dan Pastikan anda mepunyai akun E-Wallet, baik Go-Pay, OVO ataupun Link Aja. Atau jika kalian tidak punya E-Wallet juga bisa menggunakan Rekening BANK apapun yang bisa transfer ke Rekening BANK saya (Mandiri, BCA dan BRI).
+                Siapkan dan pastikan anda mepunyai akun E-Wallet, baik Go-Pay, OVO ataupun Link Aja. Atau jika kalian tidak punya E-Wallet juga bisa menggunakan Rekening BANK apapun yang bisa transfer ke Rekening BANK saya (Mandiri, BCA dan BRI).
               </p>
             </div>
           </div>
           <div class="d-flex mb-3">
             <div class="me-4">
-              <h4 class="fs-1">
-                2
+              <h4 class="fs-1 text-purple">
+                2.
               </h4>
             </div>
-            <div>
+            <div class="d-flex align-items-center">
               <p>
-                Pilih paket yang bakal anda pilih, untuk sekarang anda bisa memilih paket <a href="" class="linkDesc">Silver</a>, <a href="" class="linkDesc">Gold</a>, <a href="" class="linkDesc">Platinum</a>. Paket ini menemtukan seberapa lama anda menjadi user Premium dan seberapa banyak fitur yang bisa anda jelajahi.
+                Pilih paket yang bakal anda pilih, untuk sekarang anda bisa memilih paket <a href="" class="linkDesc">Silver</a>, <a href="" class="linkDesc">Gold</a>, <a href="" class="linkDesc">Platinum</a>. Paket ini menentukan seberapa lama anda menjadi user Premium dan seberapa banyak fitur yang bisa anda jelajahi.
               </p>
             </div>
           </div>
           <div class="d-flex mb-3">
             <div class="me-4">
-              <h4 class="fs-1">
-                3
+              <h4 class="fs-1 text-purple">
+                3.
               </h4>
             </div>
-            <div>
+            <div class="d-flex align-items-center">
               <p>
-                Lakukan pembayaran dengan nominal sesuai paket yang anda pilih. Pembayaran bisa melalui transfer Bank atau E-wallet. Jika sudah melakukan pembayaran silahkan <b>Foto Bukti Pembayaran</b>.
+                Lakukan pembayaran dengan nominal sesuai paket yang anda pilih. Pembayaran bisa melalui transfer Bank atau E-wallet. Jika sudah melakukan pembayaran silahkan <b>foto bukti pembayaran</b>.
               </p>
             </div>
           </div>
           <div class="d-flex mb-3">
             <div class="me-4">
-              <h4 class="fs-1">
-                4
+              <h4 class="fs-1 text-purple">
+                4.
               </h4>
             </div>
-            <div>
+            <div class="d-flex align-items-center">
               <p>
-                Kirimkan Foto Bukti Pembayaran tadi melalui <a href="" class="linkDesc">WhatsApp</a> yang tercantum. Silahkan tunggu beberapa menit untuk mendapatkan Voucher Token Reedemnya dari Customer Service kami.
+                Kirimkan foto bukti pembayaran tadi melalui <a href="" class="linkDesc">WhatsApp</a> yang tercantum. Silahkan tunggu beberapa menit untuk mendapatkan voucher token reedemnya dari Customer Service kami.
               </p>
             </div>
           </div>
           <div class="d-flex mb-3">
             <div class="me-4">
-              <h4 class="fs-1">
-                5
+              <h4 class="fs-1 text-purple">
+                5.
               </h4>
             </div>
-            <div>
+            <div class="d-flex align-items-center">
               <p>
-                Masukan kode Reedem ke <a href="" class="linkDesc">Reedem Token</a>. Dan selamat anda sekarang sudah menjadi ALOPE PREMIUM MEMBER. <span class="text-warning fw-bold">Have Fun</span>.
+                Masukan kode reedem ke <a href="" class="linkDesc">Reedem Token</a>. Dan selamat anda sekarang sudah menjadi ALOPE PREMIUM MEMBER. <span class="text-warning fw-bold">Have Fun</span>.
               </p>
             </div>
           </div>

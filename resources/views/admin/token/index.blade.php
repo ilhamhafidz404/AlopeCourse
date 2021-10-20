@@ -23,14 +23,14 @@
         <div class="card shadow">
           <div class="row">
             @if($token->type == 'platinum')
-            <div class="col-4 bg-gradient-primary">
-            </div>
+              <div class="col-4 bg-gradient-primary">
+              </div>
             @elseif($token->type == 'gold')
-            <div class="col-4 bg-gradient-warning">
-            </div>
+              <div class="col-4 bg-gradient-warning">
+              </div>
             @elseif($token->type == 'silver')
-            <div class="col-4 bg-gradient-success">
-            </div>
+              <div class="col-4 bg-gradient-success">
+              </div>
             @endif
             <div class="col-8 py-2 position-relative">
               <h6 class="text-uppercase mb-0">

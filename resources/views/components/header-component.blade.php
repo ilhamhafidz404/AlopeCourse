@@ -27,12 +27,11 @@
         <div class="header-path p-3 position-absolute start-0 end-0 mx-5 rounded shadow">
           <ul class="d-flex align-items-center justify-content-center">
             @foreach($tags as $tag)
-            <li class="ms-3">
-              <a href="" class="badge" style="background-color: {{$tag->badge}}">
-                <i class="fab fa-{{$tag->icon}} me-2"></i>
-                {{$tag->nama}}
-              </a>
-            </li>
+              <li class="ms-3">
+                <a href="" class="btn text-white" style="background-color: {{$tag->badge}}">
+                  <i class="fab fa-{{$tag->icon}} d-block" style="font-size: 20px"></i>
+                </a>
+              </li>
             @endforeach
           </ul>
         </div>

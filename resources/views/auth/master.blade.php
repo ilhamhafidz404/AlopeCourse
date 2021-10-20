@@ -19,6 +19,38 @@
 </head>
 
 <body class="bg-default">
+  {{-- Session Verify --}}
+  @if (session('resent'))
+    <div class="toast bg-white top-0 position-absolute px-3 py-2 rounded right-0 m-4" role="alert" aria-live="assertive" aria-atomic="true" style="width: 400px; z-index: 100">
+      <div class="toast-header">
+        <i class="fas fa-check mr-2 text-success"></i>
+        <strong class="mr-auto">Link Verifikasi Dikirim</strong>
+        {{-- <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button> --}}
+      </div>
+      <div class="toast-body mt-1">
+        Lihat email anda untuk memperivikasi akun anda.
+      </div>
+    </div>
+  @endif
+
+  {{-- Session Email --}}
+  @if (session('status'))
+    <div class="toast bg-white top-0 position-absolute px-3 py-2 rounded right-0 m-4" role="alert" aria-live="assertive" aria-atomic="true" style="width: 400px; z-index: 100">
+      <div class="toast-header">
+        <i class="fas fa-check mr-2 text-success"></i>
+        <strong class="mr-auto">Link Reset Password Dikirim</strong>
+        {{-- <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button> --}}
+      </div>
+      <div class="toast-body mt-1">
+        Lihat email anda untuk mereset password akun anda.
+      </div>
+    </div>
+  @endif
+
   <!-- Main content -->
   <div class="main-content">
     <!-- Header -->
@@ -47,7 +79,7 @@
       <div class="row justify-content-center">
         <div class="col-lg-6 col-md-8">
           <div class="card bg-secondary border-0">
-            <div class="card-body px-lg-5 py-lg-5">
+            <div class="card-body">
               <div class="text-center text-muted mb-4">
                 <small>@yield('credential')</small>
               </div>

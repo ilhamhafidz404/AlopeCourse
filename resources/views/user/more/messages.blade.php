@@ -6,11 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
   <meta name="author" content="Creative Tim">
-  <title> - Alope</title>
+  <title>Message {{auth()->user()->username}}</title>
   <!-- Favicon -->
   <link rel="icon" href="../assets/img/brand/favicon.png" type="image/png">
   <!-- Fonts -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   <!-- Icons -->
   <link rel="stylesheet" href="{{asset('template')}}/assets/vendor/nucleo/css/nucleo.css" type="text/css">
   <link rel="stylesheet" href="{{asset('template')}}/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
@@ -20,34 +22,46 @@
   <link rel="stylesheet" href="{{asset('template/')}}/assets/css/argon.css?v=1.2.0" type="text/css">
 
   <style>
-@media only screen and (max-width: 1363px) {
-    svg.footer-svg {
-      margin-top: -350px !important;
+    body{
+      font-family: 'Poppins', sans-serif;
     }
-    footer {
-      margin-top: -57px !important;
+    .message::before{
+      content: '';
+      position: absolute;
+      border-left: 13px solid transparent;
+      border-right: 13px solid transparent;
+      border-bottom: 25px solid #2dce8a;
+      left: -25px;
+      transform: rotate(-90deg);
     }
-  }
-@media only screen and (max-width: 1139px) {
-    svg.footer-svg {
-      margin-top: -300px !important;
+    @media only screen and (max-width: 1363px) {
+      svg.footer-svg {
+        margin-top: -350px !important;
+      }
+      footer {
+        margin-top: -57px !important;
+      }
     }
-  }
-@media only screen and (max-width: 917px) {
-    svg.footer-svg {
-      margin-top: -250px !important;
+    @media only screen and (max-width: 1139px) {
+      svg.footer-svg {
+        margin-top: -300px !important;
+      }
     }
-  }
-@media only screen and (max-width: 688px) {
-    svg.footer-svg {
-      margin-top: -200px !important;
+    @media only screen and (max-width: 917px) {
+      svg.footer-svg {
+        margin-top: -250px !important;
+      }
     }
-  }
-@media only screen and (max-width: 455px) {
-    svg.footer-svg {
-      display: none;
+    @media only screen and (max-width: 688px) {
+      svg.footer-svg {
+        margin-top: -200px !important;
+      }
     }
-  }
+    @media only screen and (max-width: 455px) {
+      svg.footer-svg {
+        display: none;
+      }
+    }
   </style>
 </head>
 
@@ -65,17 +79,14 @@
       <div class="container-fluid d-flex align-items-center">
         <div class="row mt-5">
           <div class="col-md-8">
-            <h1 class="display-2 text-white text-uppercase">
-              Pesan
-            </h1>
             @if($messages->count() >=1)
-            <p class="text-white">
-              Ada yang memberi pesan padamu, bacalah siapa tau itu penting.
-            </p>
-            @else
-            <p class="text-white">
-              Hmmmm kotak pesan kamu untuk saat ini kosong.
-            </p>
+              <h1 class="display-2 text-white text-uppercase">
+                Pesan
+              </h1>
+              @else
+              <h1 class="display-2 text-white text-uppercase">
+                Tidak ada pesan untukmu saat ini
+              </h1>
             @endif
             <p class="invisible">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, aliquid, eum? Et ab dolorem similique maiores iure, nihil odio, autem reiciendis enim officia, ex numquam officiis eius? Et quia, nesciunt.
@@ -86,25 +97,18 @@
     </div>
     <!-- Page content -->
     <div class="container-fluid" style="margin-top:-200px">
-      <div class="card">
-        <div class="card-header">
-          <h2>
-            Kotak Pesan Kamu
-            <span class="badge bg-danger d-inline-flex align-items-center justify-content-center" style="width: 20px; height: 20px; border-radius: 50%">
-              {{$messageCount}}
-            </span>
-          </h2>
-        </div>
-        <div class="card-body">
+      <div class="row">
+        <div class="col-md-9 grid">
           @foreach($messages as $message)
-          <div class="card p-3 shadow">
-            <div class="card-header">
-              {{$message->subject}}
+            <div class="card shadow grid-item">
+              <div class="card-header bg-gradient-success text-white message">
+                {{$message->subject}}
+              </div>
+              <div class="card-body pr-5">
+                {{$message->message}}
+              </div>
             </div>
-            <div class="card-body">
-              {{$message->message}}
-            </div>
-          </div>
+            <br>
           @endforeach
           {{$messages->links()}}
         </div>
@@ -167,34 +171,7 @@
         </div>
       </div>
       <div class="col-xl-7">
-        <div class="list-group">
-          <a href="{{route('profile.edit', auth()->user()->username)}}" class="list-group-item list-group-item-action text-purple">
-            <i class="fas fa-cog me-3"></i>
-            Edit Profile
-          </a>
-          <a href="{{route('invoice')}}" class="list-group-item list-group-item-action text-yellow">
-            <i class="fas fa-crown me-3"></i>
-            Beli Paket
-          </a>
-          <a href="{{route('redeem')}}" class="list-group-item list-group-item-action text-success">
-            <i class="fas fa-ticket-alt me-3"></i>
-            Reedem Token
-          </a>
-          <a href="{{route('message')}}" class="list-group-item list-group-item-action text-wite active">
-            <i class="fas fa-rocket me-3"></i>
-            Message
-          </a>
-          <a class="list-group-item list-group-item-action text-warning" href="{{ route('logout') }}"
-            onclick="event.preventDefault();
-            document.getElementById('logout-form').submit();">
-            <i class="fas fa-sign-out-alt me-4"></i>
-            {{ __('Logout') }}
-          </a>
-          <a href="{{route('iam_out')}}" onclick="return confirm('Yakin anda ingin menghapus akun anda?')" class="list-group-item list-group-item-action text-danger">
-            <i class="fas fa-trash me-3"></i>
-            Hapus Akun
-          </a>
-        </div>
+        <x-mini-nav-component></x-mini-nav-component>
       </div>
     </div>
   </div>
@@ -218,6 +195,23 @@
   <!-- Core -->
   <script src="/js/app.js"></script>
   <script src="/js/script.js"></script>
+
+  {{-- Masonry --}}
+  <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+  <script>
+    var elem = document.querySelector('.grid');
+    var msnry = new Masonry( elem, {
+      // options
+      itemSelector: '.grid-item',
+      columnWidth: 100
+    });
+
+    // element argument can be a selector string
+    //   for an individual element
+    var msnry = new Masonry( '.grid', {
+      // options
+    });
+  </script>
 
   <script src="{{asset('template/')}}/assets/vendor/jquery/dist/jquery.min.js"></script>
   <script src="{{asset('template/')}}/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

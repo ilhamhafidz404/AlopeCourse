@@ -10,7 +10,9 @@
   <!-- Favicon -->
   <link rel="icon" href="../assets/img/brand/favicon.png" type="image/png">
   <!-- Fonts -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   <!-- Icons -->
   <link rel="stylesheet" href="{{asset('template')}}/assets/vendor/nucleo/css/nucleo.css" type="text/css">
   <link rel="stylesheet" href="{{asset('template')}}/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
@@ -18,6 +20,32 @@
   <link rel="stylesheet" href="/css/mystyle.css">
   <!-- Argon CSS -->
   <link rel="stylesheet" href="{{asset('template/')}}/assets/css/argon.css?v=1.2.0" type="text/css">
+  <style>
+    body{
+      font-family: 'Poppins', sans-serif;
+    }
+    .hubungiKami::before{
+      content: '';
+      width: 100px;
+      height: 7px;
+      border-radius: 15px;
+      background: rgba(255, 255, 255, 0.7);
+      position: absolute;
+      left: 10px;
+      bottom: 0;
+      transition: 0.3s;
+    }
+    .hubungiKami:hover::before{
+      content: '';
+      width: calc(100% - 20px);
+      height: 20px;
+      background: rgba(255, 255, 255, 0.5);
+      left: 20px;
+    }
+    .hubungiKami{
+      color: #fff !important;
+    }
+  </style>
 </head>
 
 <body>
@@ -33,7 +61,7 @@
       <!-- Header container -->
       <div class="container-fluid d-flex align-items-center">
         <div class="row mt-5">
-          <div class="col-lg-7 col-md-8 mt-4">
+          <div class="col-md-8 mt-4">
             <h1 class="display-2 text-white text-uppercase">
               ALOPE PREMIUM
             </h1>
@@ -52,9 +80,11 @@
         <div class="row">
           <div class="col-md-5">
             <div class="alert bg-success text-white">
-              Silahkan <a href="{{route('touch-admin')}}" target="_blank">
-                <i class="fab fa-whatsapp ml-2"></i>
-                Hubungi Admin </a> untuk proses yang lebih cepat.
+              Silahkan 
+              <a href="{{route('touch-admin')}}" target="_blank" class="fw-bold hubungiKami position-relative">
+                <i class="fab fa-whatsapp ml-1"></i> Hubungi Admin 
+              </a> 
+              untuk proses yang lebih cepat.
             </div>
             <div class="card mt-4">
               <div class="card-header">
