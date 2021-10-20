@@ -15,8 +15,8 @@ class BerandaController extends Controller
   * @return \Illuminate\Http\Response
   */
   public function __invoke() {
-    $blogs = Blog::latest()->take(7)->get();
-    $series = Category::latest()->get();
+    $blogs = Blog::with(['category','user'])->latest()->take(7)->get();
+    $series = Category::latest()->get()->load('tag');
     return view("welcome", compact('blogs', 'series'));
   }
 }

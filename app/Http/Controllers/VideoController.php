@@ -9,7 +9,7 @@ use App\Models\Category;
 class VideoController extends Controller
 {
   public function index() {
-    $videos = Video::paginate(10);
+    $videos = Video::with('category')->paginate(10);
     return view('user.more.video', compact('videos'));
   }
   public function stream($slug) {

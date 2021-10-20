@@ -27,7 +27,7 @@
     .hubungiKami::before{
       content: '';
       width: 100px;
-      height: 7px;
+      height: 6px;
       border-radius: 15px;
       background: rgba(255, 255, 255, 0.7);
       position: absolute;
@@ -79,7 +79,7 @@
       <div class="card p-3" style="margin-top: -100px">
         <div class="row">
           <div class="col-md-5">
-            <div class="alert bg-success text-white">
+            <div class="alert bg-gradient-success text-white">
               Silahkan 
               <a href="{{route('touch-admin')}}" target="_blank" class="fw-bold hubungiKami position-relative">
                 <i class="fab fa-whatsapp ml-1"></i> Hubungi Admin 
@@ -88,12 +88,15 @@
             </div>
             <div class="card mt-4">
               <div class="card-header">
-                Via Bank Transfer
+                <i class="fas fa-credit-card me-2 text-muted fs-3"></i>
+                <span class="fw-bold">Via Rekening Bank</span>
+                <small class="d-block" style="font-size: 10px">Gunakan transfer bank untuk transaksi</small>
               </div>
               <div class="card-body p-2">
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item d-flex justify-content-between">
                     <div>
+                      <img src="{{asset('image/payment/bca.svg')}}" width="50px" class="me-2">
                       BCA
                     </div>
                     <small>
@@ -102,6 +105,7 @@
                   </li>
                   <li class="list-group-item d-flex justify-content-between">
                     <div>
+                      <img src="{{asset('image/payment/mandiri.svg')}}" width="50px" class="me-2">
                       MANDIRI
                     </div>
                     <small>
@@ -113,40 +117,57 @@
             </div>
             <div class="card mt-3">
               <div class="card-header">
-                Via E-Money Transfer
+                <i class="fas fa-wallet me-2 text-muted fs-3"></i>
+                <span class="fw-bold">Via E-Money Transfer</span>
+                <small class="d-block" style="font-size: 10px">Gunakan E-wallet untuk transaksi</small>
               </div>
               <div class="card-body p-2">
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item d-flex justify-content-between">
                     <div>
+                      <img src="{{asset('image/payment/gopay.svg')}}" width="30px" class="me-2">
                       GoPay
                     </div>
                     <small>
-                      norek BCA saya
+                      Nomor Gopay saya
                     </small>
                   </li>
                   <li class="list-group-item d-flex justify-content-between">
                     <div>
-                      Link Aja
-                    </div>
-                    <small>
-                      norek MANDIRI saya
-                    </small>
-                  </li>
-                  <li class="list-group-item d-flex justify-content-between">
-                    <div>
+                      <img src="{{asset('image/payment/dana.svg')}}" width="30px" class="me-2">
                       Dana
                     </div>
                     <small>
-                      norek MANDIRI saya
+                      Nomor Dana saya
+                    </small>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between">
+                    <div>
+                      <img src="{{asset('image/payment/link-aja-x.svg')}}" width="30px" class="me-2">
+                      Link Aja
+                    </div>
+                    <small>
+                      Nomor Link Aja saya
+                    </small>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between">
+                    <div>
+                      <img src="{{asset('image/payment/ovo.svg')}}" width="30px" class="me-2">
+                      OVO
+                    </div>
+                    <small>
+                      Nomor OVO saya
                     </small>
                   </li>
                 </ul>
               </div>
             </div>
+            <a href="/" class="btn btn-danger">
+              Kembali
+            </a>
           </div>
           <div class="col-md-7">
-            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdWt5XdjzvJYK97j3PV77cYkiTVgBiDgUZtHKlYTRaoMfe8JQ/viewform?embedded=true" width="100%" height="900" frameborder="0" marginheight="0" marginwidth="0">Memuat…</iframe>
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdkMcMDIty2z9WjnDyoJE4ijW1E0X6s82sVuFbB4tlxot3TPQ/viewform?embedded=true" height="900" width="100%" frameborder="0" marginheight="0" marginwidth="0">Memuat…</iframe>
           </div>
         </div>
       </div>

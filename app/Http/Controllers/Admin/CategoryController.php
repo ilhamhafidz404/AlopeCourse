@@ -15,9 +15,9 @@ class CategoryController extends Controller
 {
   public function index() {
     if (request("status")) {
-      $categories = Category::filter(request(["status"]))->latest()->paginate(10);
+      $categories = Category::filter(request(["status"]))->latest()->paginate(10)->load('tag');
     } else {
-      $categories = Category::latest()->paginate(10);
+      $categories = Category::latest()->paginate(10)->load('tag');
     }
     return view("admin.category.index", compact('categories'));
   }

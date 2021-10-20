@@ -14,9 +14,9 @@ class SerieController extends Controller
     return view('user.more.serie', compact('series'));
   }
   public function show($slug) {
-    $serie = Category::whereSlug($slug)->first();
-    $blogs = Blog::whereCategory_id($serie->id)->get();
-    $videos = Video::whereCategory_id($serie->id)->latest()->get();
+    $serie = Category::whereSlug($slug)->first()->load('tag');
+    $blogs = Blog::with(['user', 'category'])->whereCategory_id($serie->id)->get();
+    $videos = Video::with(['category'])->whereCategory_id($serie->id)->latest()->get();
     return view('user.more.show-serie', compact('serie', 'blogs', 'videos'));
   }
 }

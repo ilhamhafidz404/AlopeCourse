@@ -11,9 +11,9 @@ class TopicController extends Controller
 {
   public function index() {
     if (request('tag')) {
-      $series = Category::filter(request(['tag']))->latest()->paginate(10);
+      $series = Category::filter(request(['tag']))->latest()->paginate(10)->load('tag');
     } else {
-      $series = Category::all();
+      $series = Category::all()->load('tag');
     }
     $tags = Tag::all();
     $tag = Tag::whereSlug(request('tag'))->first();

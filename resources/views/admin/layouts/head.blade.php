@@ -19,9 +19,6 @@
 
   <link rel="stylesheet" href="{{asset('dist/css/prism.css')}}">
   <link rel="stylesheet" href="{{asset('dist/css/dropify.min.css')}}">
-
-  <link rel="stylesheet" href="{{asset('dist/css/trix.css')}}">
-
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/dt-1.11.2/datatables.min.css" />
   <style>
     ul {
@@ -42,6 +39,16 @@
     }
     .tokenList{
       display: none;
+    }
+    .youtubeCard::after{
+      width: 100px;
+      height: 200px;
+      position: absolute;
+      background: linear-gradient(87deg, #f5365c 0, #f56036 100%) !important;
+      content: '';
+      left: -20px;
+      bottom: -100px;
+      transform: rotate(-45deg)
     }
   </style>
 </head>

@@ -3,10 +3,22 @@
 @section('title', 'Dashboard')
 
 @section('breadcrumb')
-<li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+  <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
 @endsection
 
 @section('content')
+@php
+    $curl= curl_init();
+    curl_setopt($curl, CURLOPT_URL, 'https://www.googleapis.com/youtube/v3/channels?part=snippet,statistics&id=UCR0Gz3-3zuqQuuePqNq9-JA&key=AIzaSyBSLmlOfBhdZXTucXCXx17WmcaQWRkX0Tc');
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+    $result= curl_exec($curl);
+    curl_close($curl);
+
+    $result= json_decode($result, true);
+    $ytChannelName= $result['items'][0]['snippet']['title'];
+    $ytProfile= $result['items'][0]['snippet']['thumbnails']['medium']['url'];
+    $subscriberCount= $result['items'][0]['statistics']['subscriberCount'];
+@endphp
 <div class="col-xl-3 col-md-6">
   <div class="card card-stats">
     <!-- Card body -->
@@ -155,11 +167,29 @@
   </div>
 </div>
 <div class="col-md-12">
-  <div class="card p-3">
-    <iframe width="100%" height="350px" src="{{$video->link}}"></iframe>
+  <div class="row align-items-center">
+    <div class="col-md-8">
+      <div class="card p-3">
+        <iframe width="100%" height="350px" src="{{$video->link}}"></iframe>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card youtubeCard overflow-hidden px-3 py-4 text-center position-relative">
+        <h3 class="mb-3 ">{{$ytChannelName}}</h3>
+        <img src="{{$ytProfile}}" alt="" class="rounded-circle mx-auto" width="100px">
+        <div class="mx-auto mt-4">
+          <div class="g-ytsubscribe" data-channelid="UCR0Gz3-3zuqQuuePqNq9-JA" data-layout="default" data-count="default"></div>
+        </div>
+        <h2>
+          {{$subscriberCount}}
+          <small class="fs-6 text-muted">total subscriber</small>
+        </h2>
+      </div>
+    </div>
   </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
+<script src="https://apis.google.com/js/platform.js"></script>
 
 <script>
   var _ydataBlog = JSON.parse('{!! json_encode($blogMonths) !!}');
@@ -212,20 +242,20 @@
         label: 'Grafik Video',
         data: _xdataSerie,
         backgroundColor: [
-          'rgba(255, 99, 132, 0.2)',
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(255, 206, 86, 0.2)',
-          'rgba(75, 192, 192, 0.2)',
+          'rgba(255, 159, 64, 0.2)',
           'rgba(153, 102, 255, 0.2)',
-          'rgba(255, 159, 64, 0.2)'
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 99, 132, 0.2)'
         ],
         borderColor: [
-          'rgba(255, 99, 132, 1)',
-          'rgba(54, 162, 235, 1)',
-          'rgba(255, 206, 86, 1)',
-          'rgba(75, 192, 192, 1)',
+          'rgba(255, 159, 64, 1)',
           'rgba(153, 102, 255, 1)',
-          'rgba(255, 159, 64, 1)'
+          'rgba(75, 192, 192, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 99, 132, 1)',
         ],
         borderWidth: 1
       }]

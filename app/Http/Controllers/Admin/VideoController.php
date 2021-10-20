@@ -13,9 +13,8 @@ use Illuminate\Support\Str;
 class VideoController extends Controller
 {
   public function index() {
-    $videos = Video::latest()->paginate(10);
-    $categories = Category::all();
-    return view('admin.video.index', compact('videos', 'categories'));
+    $videos = Video::with('category')->latest()->paginate(10);
+    return view('admin.video.index', compact('videos'));
   }
 
   public function create() {

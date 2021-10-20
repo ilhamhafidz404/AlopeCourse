@@ -16,15 +16,13 @@ class BlogController extends Controller
 {
   public function index() {
     if (request("serie")) {
-      $blogs = Blog::filter(request(["serie"]))->latest()->paginate(10);
+      $blogs = Blog::with('category')->filter(request(["serie"]))->latest()->paginate(10);
     } elseif (request('status')) {
-      $blogs = Blog::filter(request(["status"]))->latest()->paginate(10);
+      $blogs = Blog::with('category')->filter(request(["status"]))->latest()->paginate(10);
     } else {
-      $blogs = Blog::latest()->paginate(10);
+      $blogs = Blog::with('category')->latest()->paginate(10);
     }
-    $categories = Category::all();
-    $tags = Tag::all();
-    return view('admin.blog.index', compact('blogs', 'categories', 'tags'));
+    return view('admin.blog.index', compact('blogs'));
   }
 
   public function create() {

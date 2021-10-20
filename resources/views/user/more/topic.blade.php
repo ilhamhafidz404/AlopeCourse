@@ -21,9 +21,9 @@
 
 <small class="lead text-white mt-5">
   @if(request()->tag)
-  {{$tag->description}}
+    {{$tag->description}}
   @else
-  Ikuti tutorial dengan topic yang sesuai dengan bahasa pemrogramman/Framework yang sedang ingin anda pelajari. Ini membantu anda supaya anda bisa fokus untuk mempelajari teknologi tertentu secara bertahap.
+    Ikuti tutorial dengan topic yang sesuai dengan bahasa pemrogramman/Framework yang sedang ingin anda pelajari. Ini membantu anda supaya anda bisa fokus untuk mempelajari teknologi tertentu secara bertahap.
   @endif
 </small>
 <form action="" class="mt-5">

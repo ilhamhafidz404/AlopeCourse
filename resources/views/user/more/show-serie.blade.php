@@ -1,26 +1,28 @@
 @extends('user.more.master-serie')
 
 @section('header')
-<div class="py-1 px-3 mt-5 header-tag d-flex justify-content-between align-items-center text-white">
-  <ul class="d-flex">
-    @foreach($serie->tag as $tag)
-    <li class="me-3">
-      <span class="badge" style="background-color: {{$tag->badge}}">
-        <i class="fab fa-{{$tag->icon}}"></i>
-        {{$tag->nama}}
-      </span>
-    </li>
-    @endforeach
-  </ul>
+<a class="py-1 px-3 mt-5 header-hot d-flex justify-content-between align-items-center text-white mb-4 overflow-auto">
+  <div>
+    <ul class="d-flex">
+      @foreach($serie->tag as $tag)
+        <li class="me-3">
+          <span class="badge" style="background-color: {{$tag->badge}}">
+            <i class="fab fa-{{$tag->icon}}"></i>
+            {{$tag->nama}}
+          </span>
+        </li>
+      @endforeach
+    </ul>
+  </div>
   <i class="fas fa-chevron-right"></i>
-</div>
+</a>
 
 <h1 class="fw-light text-uppercase mt-3">
   Explore Serie <span class="fw-bold serie-name position-relative">{{$serie->nama}}</span>
 </h1>
 
 <small class="lead text-white mt-4">
-  {{$serie->description}}
+  {!!$serie->description!!}
 </small>
 
 <ul class="d-flex align-items-center mt-4">
