@@ -3,25 +3,28 @@
 @section('title', 'Alope - Serie')
 
 @section('header')
-<a class="py-1 px-3 mt-5 header-hot d-flex justify-content-between align-items-center text-white">
-  <div>
-    <span class="badge bg-danger me-2">
-      <i class="fas fa-fire me-1"></i> HOT
-    </span>
-    <small>
-      Berbagi Cerita di Alope Journey
-    </small>
-  </div>
-  <i class="fas fa-chevron-right"></i>
-</a>
+  <a class="py-1 px-3 mt-5 header-hot d-flex justify-content-between align-items-center text-white">
+    <div>
+      <span class="badge bg-danger me-2">
+        <i class="fas fa-fire me-1"></i> HOT
+      </span>
+      <small>
+        Berbagi Cerita di Alope Journey
+      </small>
+    </div>
+    <i class="fas fa-chevron-right"></i>
+  </a>
 
-<h1 class="fw-light text-uppercase mt-3">
-  <span class="fw-bold serie-name position-relative">Explore Serie</span>
-</h1>
+  <h1 class="fw-light text-uppercase mt-3">
+    <span class="fw-bold serie-name position-relative">Explore Serie</span>
+  </h1>
 
-<small class="lead text-white mt-5">
-  Ikuti tutorial khusus mengenai suatu serie/pembahasan tertentu.Jika anda kebingungan karena merasa video yang anda tonton serasa kurang nyambung/acak. Ini bisa membuat anda lebih mudah mengikuti alur pengerjaannya secara bertahap.
-</small>
+  <small class="lead text-white mt-5">
+    Ikuti tutorial khusus mengenai suatu serie/pembahasan tertentu.Jika anda kebingungan karena merasa video yang anda tonton serasa kurang nyambung/acak. Ini bisa membuat anda lebih mudah mengikuti alur pengerjaannya secara bertahap.
+  </small>
+@endsection
+@section('premium-card')
+  <x-premium-card-component></x-premium-card-component>
 @endsection
 
 @section('card-content')

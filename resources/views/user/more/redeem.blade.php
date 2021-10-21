@@ -80,25 +80,8 @@
           </p>
         </div>
         <div class="col-md-4">
-          <div class="position-absolute left-0 right-0 reedemPlatinum" style="top: -120px;">
-            <h3 class="text-white text-center">Beli Paket Premium</h3>
-            <div class="card border-0 shadow p-3 text-center platinum mx-auto" style="width: 230px">
-              <h2 class="text-white">PLATINUM</h2>
-              <h3 class=" mt-3 text-white">
-                <sup>Rp.</sup>
-                <span class="fw-bold" style="font-size: 50px">
-                  100
-                </span>
-                <sub class="fw-bold mb-2">
-                  .000
-                </sub>
-              </h3>
-              <a href="{{route('invoice')}}" class="btn btn-neutral mt-4 btn_price">
-                Beli Akses
-              </a>
-            </div>
-          </div>
-          </div>
+          <x-premium-card-component></x-premium-card-component>
+        </div>
       </div>
       <div class="card mt-5">
         <div class="card-body">

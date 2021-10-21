@@ -59,6 +59,10 @@
           <br>
           @yield('header')
         </div>
+        <div class="col-lg-4">
+          <br>
+          @yield('premium-card')
+        </div>
       </div>
     </div>
   </section>
