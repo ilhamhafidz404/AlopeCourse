@@ -63,13 +63,6 @@ class ProfileController extends Controller
     return view('user.more.edit-biodata', compact('user'));
   }
 
-  /**
-  * Update the specified resource in storage.
-  *
-  * @param  \Illuminate\Http\Request  $request
-  * @param  int  $id
-  * @return \Illuminate\Http\Response
-  */
   public function update(Request $request, $id) {
     Biodata::whereUser_id($id)->update([
       'about' => $request->about,
@@ -86,24 +79,23 @@ class ProfileController extends Controller
       'username' => $request->username,
     ]);
 
-    if ($request->profile != auth()->user()->profile) {
-      $request->validate([
-        'profile' => ['image', 'dimensions:max_width=1000,max_height=1000,ratio:1/1']
-      ]);
+    $request->validate([
+      'profileImg' => ['image', 'dimensions:max_width=1000,max_height=1000,ratio:1/1']
+    ]);
 
-      $profile = time().".".$request->profile->extension();
-      $request->file('profile')->storeAs('public/profile', $profile);
-      if (auth()->user()->profile == 'user.jpg') {
-        User::find($id)->update([
-          'profile' => $profile
-        ]);
-      } else {
+    $user= User::find($id);
+    if(!$request->profileImg){
+      $profile= $user->profile;
+    } else{
+      if($user->profile != 'user.jpg'){
         \File::delete('storage/profile/'.auth()->user()->profile);
-        User::find($id)->update([
-          'profile' => $profile
-        ]);
       }
+      $profile = time().".".$request->profileImg->extension();
+      $request->file('profileImg')->storeAs('public/profile', $profile);
     }
+    User::find($id)->update([
+      'profile' => $profile
+    ]);
 
     Alert::toast('Profile telah terupdate', 'success');
     return redirect()->route('profile.edit', $request->username);

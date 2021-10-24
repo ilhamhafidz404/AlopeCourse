@@ -13,9 +13,9 @@ class VideoController extends Controller
     return view('user.more.video', compact('videos'));
   }
   public function stream($slug) {
-    $video = Video::whereSlug($slug)->first();
+    $video = Video::whereSlug($slug)->with('category')->first();
     $videos = Video::whereCategory_id($video->category_id)->get();
-    $category = Category::whereId($video->category_id)->first();
+    $category = Category::whereId($video->category_id)->with('tag')->first();
     $nextVideo = Video::whereId($video->id +1)->pluck('slug')->first();
     $prevVideo = Video::whereId($video->id -1)->pluck('slug')->first();
     $next = Video::whereCategory_id($category->id +1)->pluck('slug')->first();

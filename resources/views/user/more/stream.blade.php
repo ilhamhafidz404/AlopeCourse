@@ -10,7 +10,7 @@
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 
-  <title>Hello, world!</title>
+  <title>Nonton Video</title>
   <style>
     .navbar {
       transition: 0.5s;
@@ -116,11 +116,11 @@
               <h3 class="fw-bold mt-0 mb-1">{{$video->category->nama}}</h3>
               <ul class="d-flex justify-content-center p-0">
                 @foreach($category->tag as $tag)
-                <li>
-                  <button class="btn btn-transparent text-primary px-1 py-1" data-bs-toggle="popover" title="{{$tag->nama}}" data-bs-trigger="focus" data-bs-content="{{$tag->description}}">
-                    #{{$tag->nama}}
-                  </button>
-                </li>
+                  <li>
+                    <button class="btn btn-transparent text-primary px-1 py-1" data-bs-toggle="popover" title="{{$tag->nama}}" data-bs-trigger="focus" data-bs-content="{{$tag->description}}">
+                      #{{$tag->nama}}
+                    </button>
+                  </li>
                 @endforeach
               </ul>
               <div class="d-flex align-items-center justify-content-center rounded py-4 top-50 position-absolute" style="width:25px; height:30px; right:-3px; transform: translateY(-50%); background-color: #36275D">

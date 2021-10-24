@@ -78,11 +78,11 @@
               <div class="row">
                 <div class="col-12 mb-3">
                   <label class="form-control-label" for="profile">Foto Profile</label>
-                  <input type="file" id="profile" class="dropify" data-height="300" accept="image/*" name="profile" />
+                  <input type="file" id="profile" class="dropify" data-height="300" accept="image/*" name="profileImg"/>
                   @error('profile')
-                  <small class="text-danger">
-                    {{$message}}
-                  </small>
+                    <small class="text-danger">
+                      {{$message}}
+                    </small>
                   @enderror
                 </div>
                 <div class="col-md-6 mb-3">

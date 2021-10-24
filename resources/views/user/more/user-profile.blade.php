@@ -77,11 +77,11 @@
             </p>
             <ul class="d-flex">
               @if($user->biodata->twitter)
-              <li>
-                <a href="https://twitter.com/{{$user->biodata->twitter}}" class="btn btn-sm  me-1 text-white" style="background-color:#00acee ">
-                  <i class="fab fa-twitter"></i>
-                </a>
-              </li>
+                <li>
+                  <a href="https://twitter.com/{{$user->biodata->twitter}}" class="btn btn-sm  me-1 text-white" target="_blank" style="background-color:#00acee ">
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                </li>
               @endif
               @if($user->biodata->instagram)
               <li>
