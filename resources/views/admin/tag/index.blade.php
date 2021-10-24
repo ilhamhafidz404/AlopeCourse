@@ -1,6 +1,6 @@
 @extends('admin.master')
 
-@section('title', 'List Blog Tag')
+@section('title', 'Tag')
 
 @section('breadcrumb')
 <li class="breadcrumb-item" aria-current="page">

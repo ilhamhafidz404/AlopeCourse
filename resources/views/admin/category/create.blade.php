@@ -34,23 +34,36 @@
         </div>
       </div>
       <div class="col-md-6">
-        <div class="form-group mb-3">
-          <label for="nama" class="form-control-label">Nama Series</label>
-          <input type="text" class="form-control form-control-alternative @error('nama') is-invalid @enderror" placeholder="Nama series baru" id="nama" name="nama" value='{{old("nama")}}'>
-          @error('nama')
-          <div class="form-text invalid-feedback text-danger">
-            {{ $message }}
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group mb-3">
+              <label for="nama" class="form-control-label">Nama Series</label>
+              <input type="text" class="form-control form-control-alternative @error('nama') is-invalid @enderror" placeholder="Nama series baru" id="nama" name="nama" value='{{old("nama")}}'>
+              @error('nama')
+                <div class="form-text invalid-feedback text-danger">
+                  {{ $message }}
+                </div>
+              @enderror
+            </div>
           </div>
-          @enderror
+          <div class="col-md-12">
+            <div class="form-group mb-3">
+              <label for="level" class="form-control-label">Level</label>
+              <select name="level" id="level" class="form-control-alternative form-select">
+                <option hidden>--pilih level--</option>
+                <option value="beginner">Beginner</option>
+                <option value="intermediate">Intermediate</option>
+              </select>
+            </div>
+          </div>
         </div>
       </div>
-
       <div class="col-md-6">
         <div class="form-group">
           <label for="tag" class="form-control-label">
             Tag Blog
           </label>
-          <select multiple class="form-control" id="tag" name="tags[]">
+          <select multiple class="form-control" id="tag" name="tags[]" style="height: 135px">
             <option hidden selected>Pilih Tag</option>
             @foreach($tags as $tag)
               <option value="{{$tag->id}}">
@@ -82,15 +95,20 @@
       </div>
       <div class="col-md-12">
         <div class="form-group mt-3">
-          <a href="{{route('series.index')}}" class="btn btn-danger">
-            <i class="fas fa-door-open me-2"></i> Kembali
-          </a>
-          <button class="btn btn-primary">
-            <i class="fas fa-save me-2"></i> Tambahkan Serie
-          </button>
+          <div class="row">
+            <div class="col-6">
+              <a href="{{route('series.index')}}" class="btn btn-danger">
+                <i class="fas fa-door-open me-2"></i> Kembali
+              </a>
+            </div>
+            <div class="col-6 text-end">
+              <button class="btn btn-primary px-5">
+                <i class="fas fa-save me-2"></i> Tambahkan Serie
+              </button>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
   </form>
 </div>
 @endsection

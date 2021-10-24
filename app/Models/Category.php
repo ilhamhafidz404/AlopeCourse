@@ -16,6 +16,7 @@ class Category extends Model
     'slug',
     'thumbnail',
     'badge',
+    'level',
     'status',
     'description'];
 

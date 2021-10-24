@@ -97,6 +97,21 @@
           @enderror
         </div>
       </div>
+      <div class="col-md-12">
+        <div class="ps-5">
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="premium" name="premium"
+              @if ($video->isPremium)
+                checked
+              @endif
+              value="true"
+            >
+            <label class="form-check-label" for="premim">
+              Apakah video ini premium?
+            </label>
+          </div>
+        </div>
+      </div>
       <div class="col-md-12 text-end">
         <div class="form-group mt-3">
           <a href="{{route('video.index')}}" class="btn btn-danger">

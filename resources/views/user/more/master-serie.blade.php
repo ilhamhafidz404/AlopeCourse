@@ -98,7 +98,6 @@
     const navbar = document.querySelector('.navbar')
     window.addEventListener('scroll', function() {
       navbar.classList.toggle('sticky', window.scrollY > 0);
-
     });
   </script>
   <script src="{{asset('js/script.js')}}"></script>

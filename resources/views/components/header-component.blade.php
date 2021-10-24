@@ -27,11 +27,13 @@
         <div class="header-path p-3 position-absolute start-0 end-0 mx-5 rounded shadow">
           <ul class="d-flex align-items-center justify-content-center">
             @foreach($tags as $tag)
-              <li class="ms-3">
-                <a href="" class="btn text-white" style="background-color: {{$tag->badge}}">
-                  <i class="fab fa-{{$tag->icon}} d-block" style="font-size: 20px"></i>
-                </a>
-              </li>
+              <form action="{{route('topic')}}">
+                  <li class="ms-3">
+                    <button name="tag" value="{{$tag->slug}}" class="btn text-white" style="background-color: {{$tag->badge}}">
+                      <i class="fab fa-{{$tag->icon}} d-block" style="font-size: 20px"></i>
+                    </button>
+                  </li>
+              </form>
             @endforeach
           </ul>
         </div>

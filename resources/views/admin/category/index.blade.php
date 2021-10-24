@@ -1,6 +1,6 @@
 @extends("admin.master")
 
-@section('title', 'Blog Serie')
+@section('title', 'Serie')
 
 @section('breadcrumb')
 <li class="breadcrumb-item">
@@ -103,30 +103,50 @@
                   {!!$category->description!!}
                 </p>
                 <b class="mb-2 mt-4">Tag</b>
+                @if (!$category->tag->count())
+                   <span class="text-muted d-block">Serie ini tidak memiliki tag</span> 
+                @else
                 <ul class="mt-3 p-0 d-flex">
                   @foreach($category->tag as $tag)
-                  <li class="me-2">
-                    <span class="badge" style="background-color: {{$tag->badge}}">
-                      {{$tag->nama}}
-                    </span>
-                  </li>
+                    <li class="me-2">
+                      <span class="badge" style="background-color: {{$tag->badge}}">
+                        {{$tag->nama}}
+                      </span>
+                    </li>
                   @endforeach
                 </ul>
+                @endif
                 <br>
-                <b>Serie is</b>
-                @if($category->status == 'development')
-                <span class="text-warning">
-                  {{$category->status}}
-                </span>
-                @elseif($category->status == 'complete')
-                <span class="text-success">
-                  {{$category->status}}
-                  @else
-                  <span class="text-danger">
-                    {{$category->status}}
+                <div class="row">
+                  <div class="col-md-6">
+                    <b>Serie is</b>
+                    @if($category->status == 'development')
+                      <span class="text-warning">
+                        {{$category->status}}
+                      </span>
+                    @elseif($category->status == 'complete')
+                      <span class="text-success">
+                        {{$category->status}}
+                      </span>
+                    @else
+                      <span class="text-danger">
+                        {{$category->status}}
+                      </span>
                     @endif
-                  </span>
-                </span>
+                  </div>
+                  <div class="col-md-6 text-end">
+                    <b>Level is</b>
+                    @if($category->level == 'beginner')
+                      <span class="text-primary">
+                        {{$category->level}}
+                      </span>
+                    @else
+                      <span class="text-danger">
+                        {{$category->level}}
+                      </span>
+                    @endif
+                  </div>
+                </div>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -138,7 +158,7 @@
       </div>
       @endforeach
       @if($categories->count() == 0)
-      <h3 class="text-center">Serie dengan status {{request("status")}} tidak tersedia</h3>
+        <h3 class="text-center">Serie dengan status {{request("status")}} tidak tersedia</h3>
       @endif
     </div>
   </form>

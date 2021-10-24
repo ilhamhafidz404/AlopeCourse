@@ -79,9 +79,6 @@
             </span>
           </p>
         </div>
-        <div class="col-md-4">
-          <x-premium-card-component></x-premium-card-component>
-        </div>
       </div>
       <div class="card mt-5">
         <div class="card-body">

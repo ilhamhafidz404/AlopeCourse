@@ -36,6 +36,11 @@
         <a href="{{route('video.stream', $video->slug)}}">
           <div class="card border-0 bg-transparent position-relative m-0 mb-4">
             <div class="rounded video-thumb w-100" style="background-image: url({{asset('storage/thumbnail/video/'.$video->thumbnail)}});"></div>
+            @if ($video->isPremium)
+              <span class="badge bg-white position-absolute end-0 m-3 py-2 px-1 shadow" data-bs-toggle="tooltip" data-bs-placement="top" title="CSS">
+                <i class="fas fa-crown text-warning"></i>
+              </span>
+            @endif
             <div class="card-body">
               <h4 class="card-title my-1 text-dark">
                 {{$video->title}}

@@ -1,8 +1,8 @@
 <div>
     <style>
         .walkthrough {
-          box-shadow: 0 6px 12px rgba(0, 0, 0, 0.23),
-            0 10px 40px rgba(0, 0, 0, 0.19);
+          /* box-shadow: 0 6px 12px rgba(0, 0, 0, 0.23),
+            0 10px 40px rgba(0, 0, 0, 0.19); */
           background: linear-gradient(to right bottom, #9e66c6, #6027e1);
           border-radius: 0;
           display: none;
@@ -16,6 +16,7 @@
             box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
           width: 280px;
           z-index: 1000;
+          border-radius: 20px;
         }
         .walkthrough.show {
           display: flex;
@@ -37,14 +38,13 @@
           align-self: stretch;
           background: none;
           border: 0;
-          margin-top: 40px;
           color: rgba(255, 255, 255, 0.25);
           cursor: pointer;
           flex: 0 0 auto;
           font-size: 24px;
           opacity: 1;
           outline: none;
-          padding: 16px;
+          padding: 0 16px;
           transform: scale(1);
           transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
             color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
@@ -122,7 +122,7 @@
           transform: scale(1);
           transition-delay: 0.4s;
         }
-        .walkthrough .walkthrough-footer {
+        /* .walkthrough .walkthrough-footer {
           display: flex;
           flex: 0 0 auto;
           justify-content: space-around;
@@ -145,8 +145,8 @@
           transition: opacity 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
             background 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
           cursor: pointer;
-        }
-        .walkthrough .walkthrough-footer button:hover {
+        } */
+        /* .walkthrough .walkthrough-footer button:hover {
           background: #6babf3;
         }
         .walkthrough .walkthrough-footer button:active {
@@ -167,8 +167,8 @@
           transition: opacity 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
             background 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
             transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-        }
-        .walkthrough .walkthrough-footer button.finish:hover {
+        } */
+        /* .walkthrough .walkthrough-footer button.finish:hover {
           background: #4d9cf6;
         }
         .walkthrough .walkthrough-footer button.finish:active {
@@ -177,7 +177,7 @@
         .walkthrough .walkthrough-footer button.finish.active {
           transform: scale(1, 1);
           opacity: 1;
-        }
+        } */
         .walkthrough .screens {
           margin: 0;
         }
@@ -321,7 +321,7 @@
           transition-delay: 1.6s;
         }
     </style>
-    <div class="walkthrough show reveal mx-auto mt-3">
+    <div class="walkthrough show reveal mx-auto mt-3 shadow">
       <div class="walkthrough-pagination">
         <a class="dot active"></a>
         <a class="dot"></a>
@@ -357,7 +357,7 @@
               <br />
             </h3>
             <p>
-              Dapatkan ALOPE Premium Access selama 1 Bulan.
+              Dapatkan ALOPE Premium Access selama 3 Bulan.
             </p>
           </li>
           <li class="screen">
@@ -372,7 +372,22 @@
               <br />
             </h3>
             <p>
-              Dapatkan ALOPE Premium Access selama 1 Bulan.
+              Dapatkan ALOPE Premium Access selama 6 Bulan.
+            </p>
+          </li>
+          <li class="screen">
+            <div class="media logo">
+              <img
+                class="logo"
+                src="https://s3.amazonaws.com/jebbles-codepen/icon.png"
+              />
+            </div>
+            <h3>
+              Marathon Access
+              <br />
+            </h3>
+            <p class="mt-1">
+              Dapatkan ALOPE Premium Access selama 7 Hari.
             </p>
           </li>
           <li class="screen">
@@ -387,7 +402,7 @@
               <br />
             </h3>
             <p>
-              Dapatkan ALOPE Premium Access selama 1 Bulan.
+              Dapatkan ALOPE Premium Access selamanya.
             </p>
           </li>
         </ul>
@@ -399,8 +414,11 @@
         </button>
       </div>
       <div class="walkthrough-footer">
-        <button class="button next-screen">Next</button>
-        <button class="button finish close" disabled="true">Finish</button>
+        <a href="" class="btn btn-primary text-white px-5 w-100">
+          Beli Paket Premium
+        </a>
+        {{-- <button class="button next-screen">Next</button>
+        <button class="button finish close" disabled="true">Finish</button> --}}
       </div>
     </div>
 

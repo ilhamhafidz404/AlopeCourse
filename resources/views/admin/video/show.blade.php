@@ -32,9 +32,11 @@
           </a>
         </div>
       </div>
-      <p class="text-dark mt-3 mx-auto" style="width: 90%">
-        {{$video->category->description}}
-      </p>
+      <div class="px-4">
+        <p class="text-dark mt-3 mx-auto" style="width: 90%">
+          {!!$video->category->description!!}
+        </p>
+      </div>
     </div>
     <div class="accordion" id="accordionExample">
       <div class="accordion-item">

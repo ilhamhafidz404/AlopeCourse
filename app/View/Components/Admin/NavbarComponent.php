@@ -22,7 +22,7 @@ class navbarcomponent extends Component
   * @return \Illuminate\Contracts\View\View|\Closure|string
   */
   public function render() {
-    $notifications = Notification::with('user')->get();
+    $notifications = Notification::with('user')->latest()->get();
     return view('components.admin.navbar-component', compact('notifications'));
   }
 }

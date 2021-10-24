@@ -1,21 +1,26 @@
 @extends('user.more.master-serie')
 
 @section('header')
-<a class="py-1 px-3 mt-5 header-hot d-flex justify-content-between align-items-center text-white mb-4 overflow-auto">
-  <div>
-    <ul class="d-flex">
-      @foreach($serie->tag as $tag)
-        <li class="me-3">
-          <span class="badge" style="background-color: {{$tag->badge}}">
-            <i class="fab fa-{{$tag->icon}}"></i>
-            {{$tag->nama}}
-          </span>
-        </li>
-      @endforeach
-    </ul>
-  </div>
-  <i class="fas fa-chevron-right"></i>
-</a>
+
+@if ($serie->tag->count())
+  <a class="py-1 px-3 mt-5 header-hot d-flex justify-content-between align-items-center text-white mb-4 overflow-auto">
+    <div>
+      <ul class="d-flex">
+        @foreach($serie->tag as $tag)
+          <li class="me-3">
+            <span class="badge" style="background-color: {{$tag->badge}}">
+              <i class="fab fa-{{$tag->icon}}"></i>
+              {{$tag->nama}}
+            </span>
+          </li>
+        @endforeach
+      </ul>
+    </div>
+    <i class="fas fa-chevron-right"></i>
+  </a>
+@else
+<br><br>
+@endif
 
 <h1 class="fw-light text-uppercase mt-3">
   Explore Serie <span class="fw-bold serie-name position-relative">{{$serie->nama}}</span>
@@ -33,7 +38,7 @@
   </li>
   <li class="me-4">
     <i class="fas fa-play me-1"></i>
-    {{$blogs->count()}}
+    {{$blogs->count() + $videos->count()}}
     <span class="ms-1">
       Episode
     </span>

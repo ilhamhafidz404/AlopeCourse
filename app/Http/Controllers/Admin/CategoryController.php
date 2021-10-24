@@ -37,6 +37,7 @@ class CategoryController extends Controller
       'nama' => $request->nama,
       'slug' => Str::slug($request->nama),
       'description' => $request->description,
+      'level' => $request->level,
       'thumbnail' => $thumbnail
     ])->tag()->attach($request->tags);
 
@@ -69,6 +70,7 @@ class CategoryController extends Controller
     }
     $category->update([
       "nama" => $request->nama,
+      "level" => $request->level,
       "description" => $request->description,
       "thumbnail" => $thumbnail,
       'status' => $request->status

@@ -75,6 +75,10 @@ class VideoController extends Controller
       $thumbnail = time().".".$request->thumbnail->extension();
       $request->file('thumbnail')->storeAs('public/thumbnail/video', $thumbnail);
     }
+    $isPremium= false;
+    if($request->premium == 'true'){
+      $isPremium= true;
+    }
     $video->update([
       "title" => $request->title,
       'slug' => Str::slug($request->title),
@@ -83,7 +87,8 @@ class VideoController extends Controller
       "link" => $request->link,
       "thumbnail" => $thumbnail,
       "episode" => $request->episode,
-      "duration" => $request->duration
+      "duration" => $request->duration,
+      "isPremium" => $isPremium
     ]);
 
     Alert::success('Vide berhasil Diedit', 'Data video berhasil diubah');

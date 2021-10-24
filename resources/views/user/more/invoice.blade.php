@@ -45,6 +45,39 @@
     .hubungiKami{
       color: #fff !important;
     }
+    @media only screen and (max-width: 1363px) {
+      svg.footer-svg {
+        margin-top: -350px !important;
+      }
+      footer {
+        margin-top: -57px !important;
+      }
+    }
+    @media only screen and (max-width: 1139px) {
+      svg.footer-svg {
+        margin-top: -300px !important;
+      }
+    }
+    @media only screen and (max-width: 917px) {
+      svg.footer-svg {
+        margin-top: -250px !important;
+      }
+    }
+    @media only screen and (max-width: 767px) {
+      .reedemPlatinum {
+        display: none;
+      }
+    }
+    @media only screen and (max-width: 688px) {
+      svg.footer-svg {
+        margin-top: -200px !important; 
+      }
+    }
+    @media only screen and (max-width: 455px) {
+      svg.footer-svg {
+        display: none;
+      }
+    }
   </style>
 </head>
 
