@@ -46,6 +46,12 @@
                 </a>
               </li>
               <li>
+                <a class="dropdown-item" href="{{route('changepassword')}}">
+                  <i class="fas fa-unlock-alt me-4"></i>
+                  Ganti Password
+                </a>
+              </li>
+              <li>
                 <a class="dropdown-item" href="{{route('invoice')}}">
                   <i class="fas fa-rocket me-4"></i>
                   Beli Token

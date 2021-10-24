@@ -21,6 +21,7 @@ use App\Http\Controllers\TokenController as UserTokenController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\MessageController;
+use App\Http\Controllers\Auth\ChangePassword;
 
 
 use App\Models\Notification;
@@ -100,3 +101,5 @@ Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']
 });
 
 Auth::routes(["verify" => true]);
+Route::get('/account/changepassword', [ChangePassword::class, 'edit'])->name('changepassword');
+Route::put('/account/changepassword', [ChangePassword::class, 'update'])->name('password.change');
