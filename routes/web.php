@@ -63,7 +63,7 @@ Route::middleware(['role:active|premium|admin', 'auth'])->group(function () {
   Route::get('/serie/{slug}', [SerieController::class, 'show'])->name('serie.show');
   Route::get('/blog', [UserBlogController::class, 'list'])->name('blog.list');
   Route::get('/video', [UserVideoController::class, 'index'])->name('list.video.tutor');
-  Route::get('/topic', [TopicController::class, 'index'])->name('topic');
+  Route::get('/topic', TopicController::class)->name('topic');
   Route::get('/u/{profile}', [ProfileController::class, 'index'])->name('profile.index');
   Route::get('/u/{profile}/edit', [ProfileController::class, 'edit'])->name('profile.edit');
   Route::put('/u/{profile}', [ProfileController::class, 'update'])->name('profile.update');

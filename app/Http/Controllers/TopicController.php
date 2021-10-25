@@ -9,7 +9,7 @@ use App\Models\Tag;
 
 class TopicController extends Controller
 {
-  public function index() {
+  public function __invoke() {
     if (request('tag')) {
       $series = Category::filter(request(['tag']))->latest()->paginate(10)->load('tag');
     } else {
@@ -17,11 +17,11 @@ class TopicController extends Controller
     }
     $tags = Tag::all();
     $tag = Tag::whereSlug(request('tag'))->first();
-    return view('user.more.topic', compact('series', 'tags', 'tag'));
+    return view('user.pages.topic', compact('series', 'tags', 'tag'));
   }
 
-  public function show($slug) {
-    $series = Category::all();
-    return view('user.more.show', compact('series'));
-  }
+  // public function show($slug) {
+  //   $series = Category::all();
+  //   return view('user.more.show', compact('series'));
+  // }
 }

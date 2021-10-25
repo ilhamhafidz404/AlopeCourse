@@ -1,4 +1,4 @@
-@extends('user.more.master-serie')
+@extends('user.pages-master')
 
 @section('title', 'Alope - Video')
 

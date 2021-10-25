@@ -10,7 +10,7 @@ class VideoController extends Controller
 {
   public function index() {
     $videos = Video::with('category')->paginate(10);
-    return view('user.more.video', compact('videos'));
+    return view('user.pages.video', compact('videos'));
   }
   public function stream($slug) {
     $video = Video::whereSlug($slug)->with('category')->first();
@@ -20,6 +20,6 @@ class VideoController extends Controller
     $prevVideo = Video::whereId($video->id -1)->pluck('slug')->first();
     $next = Video::whereCategory_id($category->id +1)->pluck('slug')->first();
     $prev = Video::whereCategory_id($category->id -1)->pluck('slug')->first();
-    return view('user.more.stream', compact('video', 'videos', 'next', 'prev', 'category', 'prevVideo', 'nextVideo'));
+    return view('user.pages.stream', compact('video', 'videos', 'next', 'prev', 'category', 'prevVideo', 'nextVideo'));
   }
 }

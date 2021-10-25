@@ -11,11 +11,6 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class ProfileController extends Controller
 {
-  /**
-  * Display a listing of the resource.
-  *
-  * @return \Illuminate\Http\Response
-  */
   public function index($username) {
     $user = User::whereUsername($username)->first();
     $biodata = Biodata::whereUser_id($user->id)->first();
@@ -23,41 +18,18 @@ class ProfileController extends Controller
     return view('user.more.user-profile', compact('user', 'biodata', 'like'));
   }
 
-  /**
-  * Show the form for creating a new resource.
-  *
-  * @return \Illuminate\Http\Response
-  */
   public function create() {
     //
   }
 
-  /**
-  * Store a newly created resource in storage.
-  *
-  * @param  \Illuminate\Http\Request  $request
-  * @return \Illuminate\Http\Response
-  */
   public function store(Request $request) {
     //
   }
 
-  /**
-  * Display the specified resource.
-  *
-  * @param  int  $id
-  * @return \Illuminate\Http\Response
-  */
   public function show($id) {
     //
   }
 
-  /**
-  * Show the form for editing the specified resource.
-  *
-  * @param  int  $id
-  * @return \Illuminate\Http\Response
-  */
   public function edit($username) {
     $user = User::whereUsername($username)->first();
     return view('user.more.edit-biodata', compact('user'));
@@ -101,12 +73,6 @@ class ProfileController extends Controller
     return redirect()->route('profile.edit', $request->username);
   }
 
-  /**
-  * Remove the specified resource from storage.
-  *
-  * @param  int  $id
-  * @return \Illuminate\Http\Response
-  */
   public function destroy($id) {
     //
   }

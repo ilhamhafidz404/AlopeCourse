@@ -11,7 +11,7 @@ class BlogController extends Controller
 {
   public function list() {
     $blogs = Blog::with(['user', 'category'])->latest()->paginate(12);
-    return view('user.more.blog', compact('blogs'));
+    return view('user.pages.blog', compact('blogs'));
   }
 
   public function read($slug) {
@@ -22,6 +22,6 @@ class BlogController extends Controller
     $similiar_blogs = Blog::whereCategory_id($serie->id)->get();
     $likes = Like::whereBlog_id($blog->id)->count();
     $ilike = Like::whereBlog_id($blog->id)->whereUser_id(auth()->user()->id)->first();
-    return view('user.more.read-blog', compact('blog', 'serie', 'likes', 'ilike', 'next', 'previous', 'similiar_blogs'));
+    return view('user.pages.read-blog', compact('blog', 'serie', 'likes', 'ilike', 'next', 'previous', 'similiar_blogs'));
   }
 }

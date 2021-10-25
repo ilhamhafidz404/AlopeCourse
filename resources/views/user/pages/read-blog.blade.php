@@ -1,4 +1,138 @@
-<html lang="en">
+@extends('user.pages-master')
+
+@section('title', 'Alope - Read Blog')
+
+@section('header')
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+@endsection
+@section('card-content')
+<div class="container-fluid position-relative" style="width: 90%; margin-top: -270px">
+  <div class="p-4 p-md-5 mb-4 text-white rounded blog-thumb-header" style="background-image:url({{asset('storage/thumbnail/blog/'.$blog->thumbnail)}})">
+  </div>
+  <div class="row g-5 mt-4">
+    <div class="col-md-8">
+      <div class="card shadow-sm border-0 bg-white p-4">
+        <article class="blog-post">
+          <div class="d-flex justify-content-between">
+            <div>
+              <h2 class="blog-post-title">
+                {{$blog->judul}}
+              </h2>
+            </div>
+            <div>
+              <i class="fas fa-share text-muted me-3"></i>
+              @if($ilike)
+              <a href="{{route('like.blog', $blog->id)}}" class="text-danger fs-6">
+                <i class="fas fa-heart"></i>
+                {{$likes}}
+              </a>
+              @else
+              <a href="{{route('like.blog', $blog->id)}}" class="text-danger fs-6">
+                <i class="far fa-heart"></i>
+                {{$likes}}
+              </a>
+              @endif
+            </div>
+          </div>
+          <ul class="p-0 d-flex">
+            @foreach($serie->tag as $tag)
+            <li class="me-2">
+              <span class="badge" style="background-color:{{$tag->badge}}">
+                <i class="fab fa-{{$tag->icon}} me-1"></i>
+                {{$tag->nama}}
+              </span>
+            </li>
+            @endforeach
+          </ul>
+          <hr>
+          {!!$blog->content!!}
+          <br><br>
+          <hr>
+          <div class="article-footer">
+            <div class="row">
+              <div class="col-md-2">
+                <img src="{{asset('storage/profile/'.$blog->user->profile)}}" alt="{{$blog->user->name}} Profile" class="w-100 rounded-circle mt-2">
+              </div>
+              <div class="col-md-10">
+                <h5 class="mb-1">{{$blog->user->name}}</h6>
+                <small class="text-muted">
+                  Tentang penulis Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore sequi similique consectetur pariat
+                </small>
+                <ul class="d-flex mb-0 p-0 mt-3">
+                  <li class="me-3">
+                    <a href="{{route('profile.index', $blog->user->username)}}">
+                      <small>
+                        Profile Penulis
+                      </small>
+                    </a>
+                  </li>
+                  <li class="me-3">
+                    <a href="">
+                      <small>
+                        Karya Lainnya
+                      </small>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </article>
+        <hr>
+        <div id="disqus_thread" class="mt-4"></div>
+        <script>
+          (function() {
+            // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+            s.src = 'https://alope-com.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+          })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="position-sticky" style="top: 2rem;">
+        <div class="p-3 mb-3 shadow-sm rounded text-white serie-blog-info">
+          <h4 class="fst-italic">{{$blog->category->nama}}</h4>
+          <p class="mb-0">
+            {!!$blog->category->description!!}
+          </p>
+        </div>
+  
+        <div class="mt-4">
+          <h4 class="fst-italic">
+            Blog Serupa
+          </h4>
+          <div class="list-group mt-3">
+            @foreach($similiar_blogs as $similiar_blog)
+            @if($similiar_blog->slug == $blog->slug)
+            <a href="#" class="list-group-item list-group-item-action active" style=" background: linear-gradient(-45deg, #821FC8, #23ADD1 );">
+              <h5 class="mb-1">{{Str::limit($similiar_blog->judul, 20)}}</h5>
+            </a>
+            @else
+            <a href="{{route('blog.read', $similiar_blog->slug)}}" class="list-group-item list-group-item-action">
+              <h5 class="mb-1">{{Str::limit($similiar_blog->judul, 20)}}</h5>
+            </a>
+            @endif
+            @endforeach
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+@endsection
+{{-- <html lang="en">
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -134,15 +268,6 @@
           <hr>
           <div id="disqus_thread" class="mt-4"></div>
           <script>
-            /**
-            *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-            *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
-            /*
-    var disqus_config = function () {
-    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-    };
-    */
             (function() {
               // DON'T EDIT BELOW THIS LINE
               var d = document, s = d.createElement('script');
@@ -159,7 +284,7 @@
           <div class="p-3 mb-3 shadow-sm rounded text-white serie-blog-info">
             <h4 class="fst-italic">{{$blog->category->nama}}</h4>
             <p class="mb-0">
-              {{$blog->category->description}}
+              {!!$blog->category->description!!}
             </p>
           </div>
 
@@ -195,4 +320,4 @@
   <script src="/js/script.js"></script>
   @include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
 </body>
-</html>
+</html> --}}
