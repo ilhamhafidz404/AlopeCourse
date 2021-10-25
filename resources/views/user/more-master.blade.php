@@ -18,10 +18,55 @@
 
   <link rel="stylesheet" href="{{asset('dist/css/dropify.min.css')}}">
   <link rel="stylesheet" href="{{asset('template')}}/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
-  <link rel="stylesheet" href="/css/app.css">
   <!-- Argon CSS -->
   <link rel="stylesheet" href="{{asset('template/')}}/assets/css/argon.css?v=1.2.0" type="text/css">
+  <link rel="stylesheet" href="/css/app.css">
   <link rel="stylesheet" href="/css/mystyle.css">
+  <style>
+    .form-control
+{
+    font-size: .875rem;
+    font-weight: 400;
+    line-height: 1.5;
+
+    display: block;
+
+    width: 100%;
+    height: calc(1.5em + 1.25rem + 2px);
+    padding: .625rem .75rem;
+
+    transition: all .15s cubic-bezier(.68, -.55, .265, 1.55); 
+
+    color: #8898aa;
+    border: 1px solid #dee2e6;
+    border-radius: .25rem;
+    background-color: #fff;
+    background-clip: padding-box;
+    box-shadow: 0 3px 2px rgba(233, 236, 239, .05);
+}
+
+.input-group-text
+{
+    font-size: .875rem;
+    font-weight: 400;
+    line-height: 1.5;
+
+    display: flex;
+
+    margin-bottom: 0;
+    padding: .625rem .75rem;
+
+    text-align: center;
+    white-space: nowrap;
+
+    color: #adb5bd;
+    border: 1px solid #dee2e6;
+    border-radius: .25rem; 
+    background-color: #fff;
+
+    align-items: center;
+}
+  </style>
   <style>
     body{
       font-family: 'Poppins', sans-serif;

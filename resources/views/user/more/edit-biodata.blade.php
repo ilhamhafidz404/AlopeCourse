@@ -116,7 +116,7 @@
               <img src="{{asset('storage/profile/'.auth()->user()->profile)}}" width="25px" height="25px" class="rounded-circle mr-3">
               Lihat Profile
             </a>
-            <button class="btn btn-primary px-5">
+            <button class="btn btn-primary text-white px-5">
               <i class="fas fa-save mr-3"></i>
               Update Profile
             </button>

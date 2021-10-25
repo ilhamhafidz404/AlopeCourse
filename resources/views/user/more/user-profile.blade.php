@@ -6,7 +6,7 @@
 @section('content')
   <div class="row my-5">
     <div class="col-lg-7 col-md-8 mt-4">
-      <h1 class="display-2 text-white text-uppercase">
+      <h1 class="display-5 text-white text-uppercase">
         {{$user->name}}
       </h1>
       <p class="text-white mt-0 mb-3" style="white-text: nowrap">
@@ -34,7 +34,7 @@
         @endif
         @if($user->biodata->github)
         <li>
-          <a href="https://github.com/{{$user->biodata->github}}" class="btn btn-sm btn-neutral me-1" target="_blank" style="color: #171515">
+          <a href="https://github.com/{{$user->biodata->github}}" class="btn btn-sm btn-light me-1" target="_blank" style="color: #171515">
             <i class="fab fa-github"></i>
           </a>
         </li>
@@ -47,14 +47,14 @@
         </li>
         @endif
         @if($user->biodata->website)
-        <li>
-          <a href="" class="btn btn-sm btn-primary me-1">
-            <i class="fas fa-link"></i>
-          </a>
-        </li>
+          <li>
+            <a href="" class="btn btn-sm btn-primary me-1">
+              <i class="fas fa-link"></i>
+            </a>
+          </li>
         @endif
       </ul>
-      <p class="text-white mt-0 mb-5">
+      <p class="text-white mb-5 mt-4">
         {{$user->biodata->about}}
       </p>
       <p class="invisible">
@@ -98,16 +98,16 @@
               </div>
             </div>
             <div class="text-center">
-              <h5 class="h3">
+              <h5 class="">
                 {{$user->username}}
                 @if($user->hasRole('premium'))
-                <i class="fas fa-crown text-yellow ms-2"></i>
+                  <i class="fas fa-crown text-yellow ms-2"></i>
                 @endif
               </h5>
-              <div class="h5 font-weight-300">
+              <div class="font-weight-300">
                 Bergabung pada {{$user->created_at->format('M Y')}}
               </div>
-              <div class="h5 mt-4">
+              <div class="mt-4">
                 <i class="ni business_briefcase-24 mr-2"></i>Solution Manager - Creative Tim Officer
               </div>
               <div>

@@ -6,21 +6,22 @@
 @section('content')
   <div class="row mt-5">
     <div class="col-md-8 mt-4">
-      <h1 class="display-2 text-white text-uppercase">
+      <h1 class="display-5 text-white text-uppercase">
         ALOPE PREMIUM
       </h1>
-      <p class="text-white mt-0 mb-3" style="white-text: nowrap">
+      <small class="text-white" style="white-text: nowrap">
         Silahkan isi bukti kalau anda sudah membayar paket pada kami. Setelah mengirim Form, klik button "Hubungi Admin" untuk mendapat notice dari kami lebih cepat lagi.
-      </p>
-      <p class="text-white mt-0 mb-5">
+      </small>
+      <br><br>
+      <small class="text-white">
         Jika kalian sudah mengirim form pembayaran ini, isi juga form bukti pembelian yang akan tergenerate setelah mengirim formulir.
-      </p>
+      </small>
     </div>
   </div>
 @endsection
 
 @section('content2')
-  <div class="container-fluid mt-4">
+  <div class="container-fluid mt-5">
     <div class="card p-3">
       <div class="row">
         <div class="col-md-5">
@@ -107,7 +108,7 @@
               </ul>
             </div>
           </div>
-          <a href="/" class="btn btn-danger">
+          <a href="/" class="btn btn-danger text-white">
             Kembali
           </a>
         </div>

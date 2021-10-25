@@ -9,7 +9,7 @@
       <i class="fas fa-fire me-1"></i> HOT
     </span>
     <small>
-      Berbagi Cerita di Alope Journey
+      Reedem untuk membuka seluruh tutorial
     </small>
   </div>
   <i class="fas fa-chevron-right"></i>
