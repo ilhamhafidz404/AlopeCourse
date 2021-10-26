@@ -20,7 +20,6 @@ use App\Http\Controllers\TopicController;
 use App\Http\Controllers\TokenController as UserTokenController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\LikeController;
-use App\Http\Controllers\MessageController;
 use App\Http\Controllers\Auth\ChangePassword;
 
 
@@ -64,10 +63,9 @@ Route::middleware(['role:active|premium|admin', 'auth'])->group(function () {
   Route::get('/blog', [UserBlogController::class, 'list'])->name('blog.list');
   Route::get('/video', [UserVideoController::class, 'index'])->name('list.video.tutor');
   Route::get('/topic', TopicController::class)->name('topic');
-  Route::get('/u/{profile}', [ProfileController::class, 'index'])->name('profile.index');
-  Route::get('/u/{profile}/edit', [ProfileController::class, 'edit'])->name('profile.edit');
-  Route::put('/u/{profile}', [ProfileController::class, 'update'])->name('profile.update');
-  Route::get('/messages', [MessageController::class, 'index'])->name('message');
+  Route::get('/account/{profile}', [ProfileController::class, 'index'])->name('profile.index');
+  Route::get('/account/{profile}/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+  Route::put('/account/{profile}', [ProfileController::class, 'update'])->name('profile.update');
   Route::get('/iam_out', function() {
     User::whereId(auth()->user()->id)->delete();
     Notification::whereUserId(auth()->user()->id)->delete();

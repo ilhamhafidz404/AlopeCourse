@@ -366,7 +366,7 @@ svg.footer-svg {
 .messageToggler .messageBox .reportLink:hover .row {
   background-color: #eeeef0 !important;
 }
-.messageToggler h6 {
+.messageToggler .messageTogglerTitle {
   display: none;
 }
 .messageToggler:hover {
@@ -374,7 +374,10 @@ svg.footer-svg {
   border-radius: 0;
   justify-content: start !important;
 }
-.messageToggler:hover h6 {
+.messageToggler:hover i {
+  margin-left: 20px;
+}
+.messageToggler:hover .messageTogglerTitle {
   display: block;
 }
 

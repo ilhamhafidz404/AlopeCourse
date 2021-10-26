@@ -1,8 +1,12 @@
 <div class="messageToggler position-fixed bottom-0 end-0 d-flex align-items-center justify-content-center" onclick="showMessageBox()" onmouseleave="hideMessageBox()">
-   <i class="fas ms-3 fa-inbox text-white"></i>
-   <h6 class="mb-0 ms-3 text-white">
-        Message
-   </h6>
+   <i class="fas fa-inbox text-white"></i>
+   <div class="messageTogglerTitle mb-0 ms-3 text-white">
+       <div class="d-flex justify-content-between align-items-center" style="width: 270px">
+           <span>Message</span>
+           <i class="text-white fas fa-chevron-up"></i>
+       </div>
+   </div>
+
 
    <script>
        function hideMessageBox(){

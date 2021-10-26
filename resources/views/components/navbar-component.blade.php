@@ -64,12 +64,6 @@
                 </a>
               </li>
               <li>
-                <a class="dropdown-item" href="{{route('message')}}">
-                  <i class="fas fa-inbox me-4"></i>
-                  Message
-                </a>
-              </li>
-              <li>
                 <a class="dropdown-item" href="{{ route('logout') }}"
                   onclick="event.preventDefault();
                   document.getElementById('logout-form').submit();">

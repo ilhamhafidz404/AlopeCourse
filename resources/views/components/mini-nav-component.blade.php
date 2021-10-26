@@ -11,10 +11,6 @@
       <i class="fas fa-ticket-alt me-3"></i>
       Reedem Token
     </a>
-    <a href="{{route('message')}}" class="list-group-item list-group-item-action text-primary ">
-      <i class="fas fa-inbox me-3"></i>
-      Message
-    </a>
     <a class="list-group-item list-group-item-action text-warning" href="{{ route('logout') }}"
       onclick="event.preventDefault();
       document.getElementById('logout-form').submit();">
