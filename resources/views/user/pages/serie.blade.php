@@ -3,7 +3,7 @@
 @section('title', 'Alope - Serie')
 
 @section('header')
-  <a class="py-1 px-3 mt-5 header-hot d-flex justify-content-between align-items-center text-white">
+  <a class="py-1 px-3 mt-5 header-hot d-flex justify-content-between align-items-center text-white" href="{{route('invoice')}}">
     <div>
       <span class="badge bg-danger me-2">
         <i class="fas fa-fire me-1"></i> HOT

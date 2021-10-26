@@ -35,59 +35,6 @@
             	-->
 
   <title>@yield('title')</title>
-  <style>
-    svg.svgTesti {
-      margin-top: -400px !important;
-    }
-    svg.svgTestiBottom {
-      margin-top: -150px;
-    }
-@media only screen and (max-width: 1486px) {
-      svg.svgTesti {
-        display: none;
-      }
-      #testi {
-        margin-top: 0
-      }
-      svg.svgTestiBottom {
-        margin-top: -70px;
-      }
-      .premium {
-        margin-top: 50px !important;
-        margin-bottom: -300px !important;
-      }
-    }
-
-@media only screen and (max-width: 1000px) {
-      .premium {
-        margin-top: 0px !important;
-        margin-bottom: -230px !important;
-      }
-    }
-
-
-@media only screen and (max-width: 810px) {
-      .premium {
-        margin-top: 0px !important;
-        margin-bottom: -200px !important;
-      }
-    }
-
-
-@media only screen and (max-width: 696px) {
-      .premium {
-        margin-top: 0px !important;
-        margin-bottom: -160px !important;
-      }
-    }
-
-@media only screen and (max-width: 696px) {
-      .premium {
-        margin-top: 0px !important;
-        margin-bottom: -100px !important;
-      }
-    }
-  </style>
 </head>
 @auth
 @if(auth()->user()->hasRole('banned'))

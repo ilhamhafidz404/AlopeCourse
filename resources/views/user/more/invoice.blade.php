@@ -9,13 +9,12 @@
       <h1 class="display-5 text-white text-uppercase">
         ALOPE PREMIUM
       </h1>
-      <small class="text-white" style="white-text: nowrap">
+      <p class="text-white" style="white-text: nowrap">
         Silahkan isi bukti kalau anda sudah membayar paket pada kami. Setelah mengirim Form, klik button "Hubungi Admin" untuk mendapat notice dari kami lebih cepat lagi.
-      </small>
-      <br><br>
-      <small class="text-white">
+      </p>
+      <p class="text-white">
         Jika kalian sudah mengirim form pembayaran ini, isi juga form bukti pembelian yang akan tergenerate setelah mengirim formulir.
-      </small>
+      </p>
     </div>
   </div>
 @endsection

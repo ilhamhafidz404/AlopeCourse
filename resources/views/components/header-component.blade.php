@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-lg-6">
         <br><br>
-        <a class="py-1 px-3 mt-5 header-hot d-flex justify-content-between align-items-center text-white mb-4">
+        <a class="py-1 px-3 mt-5 header-hot d-flex justify-content-between align-items-center text-white mb-4" href="{{route('invoice')}}">
           <div>
             <span class="badge bg-danger me-2">
               <i class="fas fa-fire me-1"></i> HOT

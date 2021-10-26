@@ -9,6 +9,7 @@ use App\Models\Message;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Models\Token;
 use App\Models\User;
+use Illuminate\Support\Facades\Redirect;
 
 class TokenController extends Controller
 {
@@ -44,7 +45,11 @@ class TokenController extends Controller
     if($request->user > 0){
       User::find($request->user)->syncRoles('premium');
     }
-    Alert::success('Berhasil Menambahkan Token', 'Token baru telah ditambahkan');
+    alert()->html('Berhasil menambah Token',
+                "
+                  <a href='mailto: ?subject=Mail from xyz.com'>Hubungi User</a>
+                ",
+                'success');
     return back();
   }
 
