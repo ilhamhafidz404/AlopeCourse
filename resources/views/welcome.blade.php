@@ -413,4 +413,5 @@
     </div>
   </div>
 </main>
+<x-message-component></x-message-component>
 @endsection
