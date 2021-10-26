@@ -28,6 +28,12 @@ class MessageController extends Controller
     $token->update([
       "isOrder" => true
     ]);
+
+    // alert()->html('Berhasil menambah Token',
+    //             "
+    //               <a href='mailto: ?subject=Mail from xyz.com'>Hubungi User</a>
+    //             ",
+    //             'success');
     Alert::success("Berhasil mengirim token");
     return back();
   }

@@ -15,7 +15,7 @@
           <div class="col-12 mb-3">
             <label class="form-control-label" for="profile">Foto Profile</label>
             <input type="file" id="profile" class="dropify" data-height="300" accept="image/*" name="profileImg"/>
-            @error('profile')
+            @error('profileImg')
               <small class="text-danger">
                 {{$message}}
               </small>

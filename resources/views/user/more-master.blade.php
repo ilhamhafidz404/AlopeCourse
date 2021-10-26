@@ -84,6 +84,7 @@
     </div>
     @yield('content2')
   </div>
+  <x-message-component></x-message-component>
   <x-footer-component></x-footer-component>
   <!-- Argon Scripts -->
   <!-- Core -->

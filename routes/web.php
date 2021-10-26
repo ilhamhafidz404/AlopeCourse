@@ -63,9 +63,9 @@ Route::middleware(['role:active|premium|admin', 'auth'])->group(function () {
   Route::get('/blog', [UserBlogController::class, 'list'])->name('blog.list');
   Route::get('/video', [UserVideoController::class, 'index'])->name('list.video.tutor');
   Route::get('/topic', TopicController::class)->name('topic');
-  Route::get('/account/{profile}', [ProfileController::class, 'index'])->name('profile.index');
-  Route::get('/account/{profile}/edit', [ProfileController::class, 'edit'])->name('profile.edit');
-  Route::put('/account/{profile}', [ProfileController::class, 'update'])->name('profile.update');
+  Route::get('/u/{profile}', [ProfileController::class, 'index'])->name('profile.index');
+  Route::get('/u/{profile}/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+  Route::put('/u/{profile}', [ProfileController::class, 'update'])->name('profile.update');
   Route::get('/iam_out', function() {
     User::whereId(auth()->user()->id)->delete();
     Notification::whereUserId(auth()->user()->id)->delete();
@@ -99,5 +99,5 @@ Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']
 });
 
 Auth::routes(["verify" => true]);
-Route::get('/account/changepassword', [ChangePassword::class, 'edit'])->name('changepassword');
-Route::put('/account/changepassword', [ChangePassword::class, 'update'])->name('password.change');
+Route::get('account/changepassword', [ChangePassword::class, 'edit'])->name('changepassword');
+Route::put('account/changepassword', [ChangePassword::class, 'update'])->name('password.change');

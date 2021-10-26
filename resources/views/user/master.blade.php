@@ -37,34 +37,15 @@
   <title>@yield('title')</title>
 </head>
 @auth
-@if(auth()->user()->hasRole('banned'))
-<body class="banned">
-  <x-navbar-component></x-navbar-component>
+  @if(auth()->user()->hasRole('banned'))
+    <body class="banned">
+    <x-navbar-component></x-navbar-component>
   @else
-  <body>
-
+    <body>
     <x-navbar-component> </x-navbar-component>
     <x-header-component></x-header-component>
     @yield('content')
     @if(auth::check() && !auth()->user()->email_verified_at)
-    <div class="alert alert-danger position-fixed bottom-0 w-100 m-0 p-2" style="z-index: 1000">
-      <h6 class="text-center mb-0">
-        Email anda belum di verifikasi
-        <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
-          @csrf
-          <button type="submit" class="btn btn-link p-0 m-0 align-baseline">
-            <h6 class="mb-0">Verifikasi sekarang</h6>
-          </button>.
-        </form>
-      </h6>
-    </div>
-    @endif
-    @endif
-    @else
-    <body>
-      <x-navbar-component></x-navbar-component>
-      <x-header-component></x-header-component>
-      @if(auth::check() && !auth()->user()->email_verified_at)
       <div class="alert alert-danger position-fixed bottom-0 w-100 m-0 p-2" style="z-index: 1000">
         <h6 class="text-center mb-0">
           Email anda belum di verifikasi
@@ -76,25 +57,45 @@
           </form>
         </h6>
       </div>
-      @endif
-      @yield('content')
-      @endauth
-      <x-banner-component></x-banner-component>
-      <x-footer-component></x-footer-component>
+    @endif
+    <x-message-component></x-message-component>
+  @endif
+@else
+  <body>
+  <x-navbar-component></x-navbar-component>
+  <x-header-component></x-header-component>
+  @if(auth::check() && !auth()->user()->email_verified_at)
+    <div class="alert alert-danger position-fixed bottom-0 w-100 m-0 p-2" style="z-index: 1000">
+      <h6 class="text-center mb-0">
+        Email anda belum di verifikasi
+        <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
+          @csrf
+          <button type="submit" class="btn btn-link p-0 m-0 align-baseline">
+            <h6 class="mb-0">Verifikasi sekarang</h6>
+          </button>.
+        </form>
+      </h6>
+    </div>
+  @endif
+  @yield('content')
+  <x-message-component></x-message-component>
+@endauth
+    <x-banner-component></x-banner-component>
+    <x-footer-component></x-footer-component>
 
-      <!-- Option 1: Bootstrap Bundle with Popper -->
-      <script src="/js/app.js"></script>
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="/js/app.js"></script>
 
-      <!-- Prism  -->
-      <script src="{{asset('dist/js/prism.js')}}"></script>
+    <!-- Prism  -->
+    <script src="{{asset('dist/js/prism.js')}}"></script>
 
-      <!-- Font Awesome  -->
-      <script src="https://kit.fontawesome.com/bfdfedea1a.js" crossorigin="anonymous"></script>
+    <!-- Font Awesome  -->
+    <script src="https://kit.fontawesome.com/bfdfedea1a.js" crossorigin="anonymous"></script>
 
-      <!-- Glider  -->
-      <script src="{{asset('dist/js/glider.min.js')}}"></script>
-      <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-      <script src="/js/script.js"></script>
-      @include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
-    </body>
+    <!-- Glider  -->
+    <script src="{{asset('dist/js/glider.min.js')}}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="/js/script.js"></script>
+    @include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
+  </body>
   </html>

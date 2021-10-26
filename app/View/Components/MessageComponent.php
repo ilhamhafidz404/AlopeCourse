@@ -3,6 +3,7 @@
 namespace App\View\Components;
 
 use App\Models\Message;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\Component;
 
 class MessageComponent extends Component
@@ -24,7 +25,10 @@ class MessageComponent extends Component
      */
     public function render()
     {
-        $messages= Message::whereUserId(auth()->user()->id)->get();
+        $messages= 'Login untuk berinteraksi';
+        if(Auth::check()){
+            $messages= Message::whereUserId(auth()->user()->id)->latest()->get();
+        }
         return view('components.message-component', compact('messages'));
     }
 }

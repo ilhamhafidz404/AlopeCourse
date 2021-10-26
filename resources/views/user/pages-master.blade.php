@@ -38,19 +38,20 @@
   </section>
 
   @yield('card-content')
+  <x-message-component></x-message-component>
 
   @if(auth::check() && !auth()->user()->email_verified_at)
-  <div class="alert alert-danger position-fixed bottom-0 w-100 m-0 p-2" style="z-index: 1000">
-    <h5 class="text-center mb-0">
-      Email anda belum di verifikasi
-      <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
-        @csrf
-        <button type="submit" class="btn btn-link p-0 m-0 align-baseline">
-          <h5 class="mb-0">Verifikasi sekarang</h5>
-        </button>.
-      </form>
-    </h5>
-  </div>
+    <div class="alert alert-danger position-fixed bottom-0 w-100 m-0 p-2" style="z-index: 1000">
+      <h5 class="text-center mb-0">
+        Email anda belum di verifikasi
+        <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
+          @csrf
+          <button type="submit" class="btn btn-link p-0 m-0 align-baseline">
+            <h5 class="mb-0">Verifikasi sekarang</h5>
+          </button>.
+        </form>
+      </h5>
+    </div>
   @endif
 
   <x-footer-component></x-footer-component>

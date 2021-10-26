@@ -31,7 +31,7 @@
             </a> 
             untuk proses yang lebih cepat.
           </div>
-          <div class="card mt-4">
+          <div class="card mt-4 shadow-sm border-0">
             <div class="card-header">
               <i class="fas fa-credit-card me-2 text-muted fs-3"></i>
               <span class="fw-bold">Via Rekening Bank</span>
@@ -60,7 +60,7 @@
               </ul>
             </div>
           </div>
-          <div class="card mt-3">
+          <div class="card shadow-sm border-0 mt-3">
             <div class="card-header">
               <i class="fas fa-wallet me-2 text-muted fs-3"></i>
               <span class="fw-bold">Via E-Money Transfer</span>

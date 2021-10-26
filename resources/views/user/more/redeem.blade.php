@@ -5,7 +5,7 @@
 @section('content')
   <div class="row" style="margin-top: -300px">
     <div class="col-md-8 text-white">
-      <h1 class="fs-1 text-white fw-bold">Hello, {{auth()->user()->name}}</h1>
+      <h1 class="display-5 text-white fw-bold text-uppercase">Hello, {{auth()->user()->name}}</h1>
       <p>
         Ayo bergabung dalam ALOPE PREMIUM untuk mendapatkan akses ke semua tutorial dan source code yang ada. <span class="fw-bold text-yellow">
           this is Very Great
@@ -30,7 +30,7 @@
       </form>
     </div>
   </div>
-  <div class="card mt-3 p-md-4">
+  <div class="card mt-3 p-md-4 shadow">
     <h5 class="p-3 text-center text-md-start">Cara Mendapatkan Kode Redeem Premium</h5>
     <div class="mt-3 px-5">
       <div class="d-flex mb-3">
@@ -40,9 +40,9 @@
           </h4>
         </div>
         <div class="d-flex align-items-center">
-          <small>
+          <p style="font-size: 15px">
             Siapkan dan pastikan anda mepunyai akun E-Wallet, baik Go-Pay, OVO ataupun Link Aja. Atau jika kalian tidak punya E-Wallet juga bisa menggunakan Rekening BANK apapun yang bisa transfer ke Rekening BANK saya (Mandiri, BCA dan BRI).
-          </small>
+          </p>
         </div>
       </div>
       <div class="d-flex mb-3">
@@ -52,9 +52,9 @@
           </h4>
         </div>
         <div class="d-flex align-items-center">
-          <small>
+          <p style="font-size: 15px">
             Pilih paket yang bakal anda pilih, untuk sekarang anda bisa memilih paket <a href="" class="linkDesc">Silver</a>, <a href="" class="linkDesc">Gold</a>, <a href="" class="linkDesc">Platinum</a>. Paket ini menentukan seberapa lama anda menjadi user Premium dan seberapa banyak fitur yang bisa anda jelajahi.
-          </small>
+          </p>
         </div>
       </div>
       <div class="d-flex mb-3">
@@ -64,9 +64,9 @@
           </h4>
         </div>
         <div class="d-flex align-items-center">
-          <small>
+          <p style="font-size: 15px">
             Lakukan pembayaran dengan nominal sesuai paket yang anda pilih. Pembayaran bisa melalui transfer Bank atau E-wallet. Jika sudah melakukan pembayaran silahkan <b>foto bukti pembayaran</b>.
-          </small>
+          </p>
         </div>
       </div>
       <div class="d-flex mb-3">
@@ -76,9 +76,9 @@
           </h4>
         </div>
         <div class="d-flex align-items-center">
-          <small>
+          <p style="font-size: 15px">
             Kirimkan foto bukti pembayaran tadi melalui <a href="" class="linkDesc">WhatsApp</a> yang tercantum. Silahkan tunggu beberapa menit untuk mendapatkan voucher token reedemnya dari Customer Service kami.
-          </small>
+          </p>
         </div>
       </div>
       <div class="d-flex mb-3">
@@ -88,9 +88,9 @@
           </h4>
         </div>
         <div class="d-flex align-items-center">
-          <small>
+          <p style="font-size: 15px">
             Masukan kode reedem ke <a href="" class="linkDesc">Reedem Token</a>. Dan selamat anda sekarang sudah menjadi ALOPE PREMIUM MEMBER. <span class="text-warning fw-bold">Have Fun</span>.
-          </small>
+          </p>
         </div>
       </div>
     </div>
