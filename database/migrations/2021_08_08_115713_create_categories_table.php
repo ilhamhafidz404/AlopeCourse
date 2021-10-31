@@ -15,14 +15,14 @@ class CreateCategoriesTable extends Migration
     Schema::create('categories', function (Blueprint $table) {
       $table->id();
       $table->string('thumbnail')->default('default.jpg');
-        $table->string('nama');
-        $table->string('slug')->unique();
-        $table->text('description');
-        $table->enum('status', ['complete', 'development', 'stuck'])->default('development');
-          $table->enum('level', ['beginner', 'intermediate'])->default('beginner');
-            $table->timestamps();
-          });
-      }
+      $table->string('nama');
+      $table->string('slug')->unique();
+      $table->text('description');
+      $table->enum('status', ['complete', 'development', 'stuck'])->default('development');
+      $table->enum('level', ['beginner', 'intermediate'])->default('beginner');
+      $table->timestamps();
+    });
+  }
 
       /**
       * Reverse the migrations.
