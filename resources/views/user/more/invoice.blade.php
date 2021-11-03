@@ -6,14 +6,11 @@
 @section('content')
   <div class="row mt-5">
     <div class="col-md-8 mt-4">
-      <h1 class="display-5 text-white text-uppercase">
-        ALOPE PREMIUM
+      <h1 class="fw-bold display-5 text-white text-uppercase">
+        ALOPE PREMIUM ACCESS
       </h1>
-      <p class="text-white" style="white-text: nowrap">
+      <p class="text-white" style="white-text: nowrap; font-size: 15px">
         Silahkan isi bukti kalau anda sudah membayar paket pada kami. Setelah mengirim Form, klik button "Hubungi Admin" untuk mendapat notice dari kami lebih cepat lagi.
-      </p>
-      <p class="text-white">
-        Jika kalian sudah mengirim form pembayaran ini, isi juga form bukti pembelian yang akan tergenerate setelah mengirim formulir.
       </p>
     </div>
   </div>
@@ -23,7 +20,7 @@
   <div class="container-fluid mt-5">
     <div class="card p-3">
       <div class="row">
-        <div class="col-md-5">
+        <div class="col-md-5 mb-4">
           <div class="alert bg-gradient-success text-white">
             Silahkan 
             <a href="{{route('touch-admin')}}" target="_blank" class="fw-bold hubungiKami position-relative">
@@ -111,8 +108,78 @@
             Kembali
           </a>
         </div>
-        <div class="col-md-7">
-          <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdkMcMDIty2z9WjnDyoJE4ijW1E0X6s82sVuFbB4tlxot3TPQ/viewform?embedded=true" height="900" width="100%" frameborder="0" marginheight="0" marginwidth="0">Memuat…</iframe>
+        <div class="col-md-7 px-5">
+            <h3 class="mb-4 mt-3">Kirim Bukti Pembayaran</h3>
+            <hr>
+            <form action="">
+                <div class="form-group">
+                    <label for="username" class="form-control-label">Username ALOPE anda</label>
+                    <input type="text" class="form-control" placeholder="cx: xxhamz_">
+                </div>
+                <div class="form-group">
+                    <label for="username" class="form-control-label">Nama BANK anda</label>
+                    <input type="text" class="form-control" placeholder="cx: Ilham Hafidz">
+                </div>
+                <div class="form-group">
+                    <label for="username" class="form-control-label">BANK Anda</label>
+                    <input type="text" class="form-control" placeholder="cx: BANK MANDIRI/Go-Pay">
+                </div>
+                <div class="form-group">
+                    <div class="form-control-label">Bank Tujuan</div>
+                    <select name="" id="" class="form-select">
+                        <option value="" selected hidden>- BANK TUJUAN -</option>
+                        <option value="">MANDIRI</option>
+                        <option value="">BCA</option>
+                        <option value="">OVO</option>
+                        <option value="">Go-Pay</option>
+                        <option value="">DANA</option>
+                        <option value="">LINK AJA</option>
+                    </select>
+                </div>
+                <fieldset>
+                    <legend>
+                        <small class="form-control-label">Paket mana yang anda pilih?</small>
+                    </legend>
+                    <br>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group ms-5">
+                                <input type="radio" id="silver" class="form-check-input" name="paket" placeholder="cx: BANK MANDIRI">
+                                <label for="silver" class="form-check-label">Silver</label>
+                            </div>
+                            <div class="form-group ms-5">
+                                <input type="radio" id="gold" class="form-check-input" name="paket" placeholder="cx: BANK MANDIRI">
+                                <label for="gold" class="form-check-label">Gold</label>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group ms-5">
+                                <input type="radio" id="platinum" class="form-check-input" name="paket" placeholder="cx: BANK MANDIRI">
+                                <label for="platinum" class="form-check-label">Platinum</label>
+                            </div>
+                            <div class="form-group ms-5">
+                                <input type="radio" id="hemat" class="form-check-input" name="paket" placeholder="cx: BANK MANDIRI">
+                                <label for="hemat" class="form-check-label">HEMAT</label>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <div class="form-group">
+                    <label for="" class="form-control-label">Tanggal Transfer</label>
+                    <input type="date" class="form-control">
+                </div>
+                <div class="form-group mt-3">
+                    <label class="form-control-label" for="profile">Bukti Pembayaran</label>
+                    <input type="file" id="profile" class="dropify" data-height="200" accept="image/*" name="profileImg"/>
+                </div>
+                <div class="form-group text-end">
+                    <button class="btn text-white btn-primary px-5">
+                        <i class="fas fa-rocket me-3"></i>
+                        Kirim
+                    </button>
+                </div>
+            </form>
+          {{-- <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdkMcMDIty2z9WjnDyoJE4ijW1E0X6s82sVuFbB4tlxot3TPQ/viewform?embedded=true" height="900" width="100%" frameborder="0" marginheight="0" marginwidth="0">Memuat…</iframe> --}}
         </div>
       </div>
     </div>

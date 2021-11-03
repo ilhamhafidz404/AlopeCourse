@@ -21,11 +21,11 @@
         <label for="token" class="form-label">
           Redeem Token
         </label>
-        <div class="col-8">
+        <div class="col-10">
           <input type="text" class="form-control me-3" name="token" id="token" placeholder="Redeem disini...">
         </div>
-        <div class="col-4">
-          <button class="btn btn-primary text-white">Redeem</button>
+        <div class="col-2">
+          <button class="btn w-100 btn-primary text-white">Redeem</button>
         </div>
       </form>
     </div>

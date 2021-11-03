@@ -29,8 +29,8 @@
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <li>
                 <a class="dropdown-item" href="{{route('profile.index', auth()->user()->username)}}">
-                  <img src="{{asset('storage/profile/'.auth()->user()->profile)}}" alt="foto-profile" class="rounded-circle me-3" width="30px">
-                  Profil
+                  <img src="{{asset('storage/profile/'.auth()->user()->profile)}}" alt="foto-profile" class="rounded-circle me-3 shadow-sm" width="30px" height="30px">
+                  Profil Saya
                 </a>
               </li>
               @if(auth()->user()->hasRole('admin'))

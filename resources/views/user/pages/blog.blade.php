@@ -30,7 +30,7 @@
       </div> --}}
       <div class="row mt-4">
         @foreach($blogs as $blog)
-        <div class="col-md-4 mb-4">
+        <div class="col-md-3 mb-4">
           <a href="{{route('blog.read', $blog->slug)}}">
             <div class="card shadow-sm">
               <div class="blog-serie w-100" style="background-image: url({{asset('storage/thumbnail/blog/'.$blog->thumbnail)}})"></div>
