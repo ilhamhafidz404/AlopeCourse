@@ -23,7 +23,7 @@
               @method('PUT')
               <div class="form-group">
                   <label for="old_password" class="form-control-label">Password Lama</label>
-                  <input type="password" name="old_password" id="old_password" class="form-control @error('old_password') is-invalid @enderror">
+                  <input type="password" name="old_password" id="old_password" class="form-control @error('old_password') is-invalid @enderror" placeholder="Masukan Password Lama...">
                   @error('old_password')
                       <div class="invalid-feedback">
                           {{$message}}
@@ -32,7 +32,7 @@
               </div>
               <div class="form-group">
                   <label for="password" class="form-control-label">Password Baru</label>
-                  <input type="password" name="password" id="password" class="form-control @error('password') is-invalid @enderror">
+                  <input type="password" name="password" id="password" class="form-control @error('password') is-invalid @enderror" placeholder="Masukan Password Baru...">
                   @error('password')
                       <div class="invalid-feedback">
                           {{$message}}
@@ -41,7 +41,7 @@
               </div>
               <div class="form-group">
                   <label for="password_confirmation" class="form-control-label">Konfirmasi Password Baru</label>
-                  <input type="password" name="password_confirmation" id="password_confirmation" class="form-control">
+                  <input type="password" name="password_confirmation" id="password_confirmation" class="form-control" placeholder="Masukan Password Baru(lagi)...">
                   @error('password_confirmation')
                       <div class="invalid-feedback">
                           {{$message}}

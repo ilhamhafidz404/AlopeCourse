@@ -19,6 +19,11 @@
   <link rel="stylesheet" href="{{asset('dist/css/glider.min.css')}}">
   <link rel="stylesheet" href="{{asset('css/mystyle.css')}}">
   <title>@yield('title')</title>
+  <style>
+    ul.pagination{
+      float: right !important;
+    }
+  </style>
 </head>
 <body class="bg-light">
   <x-navbar-component></x-navbar-component>

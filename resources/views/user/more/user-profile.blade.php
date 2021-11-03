@@ -61,15 +61,35 @@
         Kita tidak tau banyak tentang {{$user->name}}, tpi percayalah dia pasti orang yang luar biasa.
       </p>
     </div>
+    <div class="col-md-4 col-lg-3">
+      <img src="{{asset('storage/profile/'.$user->profile)}}" alt="Profile {{$user->username}}" width="100%" class="img-thumbnail d-md-block d-none" style="max-height: 280px">
+    </div>
+    <div class="col-md-1"></div>
   </div>
   <!-- Page content -->
-  <div class="container-fluid mt--5">
+  <div class="container-fluid mt--4">
     <div class="row">
       <div class="col-xl-5">
         <x-user-card-component></x-user-card-component>
       </div>
       <div class="col-xl-7">
-        <x-mini-nav-component></x-mini-nav-component>
+        {{-- <x-mini-nav-component></x-mini-nav-component> --}}
+        <div class="card p-3" style="height: calc(100% - 30px)">
+          <h3>Reedem Token</h3>
+          <form action="" class="mt-4">
+            <div class="form-group">
+              <label for="" class="form-control-label">Kode Redeem</label>
+              <input type="text" class="form-control">
+            </div>
+            <div class="text-center">
+              <button class="btn btn-primary px-5 text-white">
+                <i class="fas fa-rocket me-3"></i>
+                Submit
+              </button>
+            </div>
+            <a href="" class="text-center d-block mt-3">Bara cara mendapatkan kode redeem</a>
+          </form>
+        </div>
       </div>
     </div>
   </div>

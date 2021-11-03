@@ -4,7 +4,7 @@
         <div class="card-profile-image">
           <a href="#">
             {{-- <img src="{{asset('storage/profile/'.$user->profile)}}" class="rounded-circle"> --}}
-            <div class="rounded-circle position-absolute shadow-sm" style="width: 100px; height: 100px; background-image: url({{asset('storage/profile/'.$user->profile)}}); top: -30px; background-size: cover; background-position: center"></div>
+            <div class="rounded-circle position-absolute shadow-sm" style="width: 100px; height: 100px; background-image: url({{asset('storage/profile/'.$user->profile)}}); top: -30px; left: 50%; background-size: cover; background-position: center; transform: translateX(-50%)"></div>
           </a>
         </div>
       </div>
@@ -40,11 +40,11 @@
         <div class="font-weight-300">
           Bergabung pada {{$user->created_at->format('M Y')}}
         </div>
-        <div class="mt-4">
-          <i class="ni business_briefcase-24 mr-2"></i>Solution Manager - Creative Tim Officer
+        <div class="mt-4 text-muted">
+          <i class="ni business_briefcase-24 mr-2"></i>{{$user->biodata->job}} - {{$user->biodata->from}}
         </div>
         <div>
-          <i class="ni education_hat mr-2"></i>University of Computer Science
+          {{-- <i class="ni education_hat mr-2"></i>University of Computer Science --}}
         </div>
       </div>
     </div>

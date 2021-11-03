@@ -116,7 +116,7 @@
           <div class="accordion-body">
             <div class="row">
               @foreach($blogs as $blog)
-              <div class="col-md-4 mb-4">
+              <div class="col-md-3 mb-4">
                 <a href="{{route('blog.read', $blog->slug)}}">
                   <div class="position-relative card shadow-sm">
                     <span class="badge bg-warning text-dark position-absolute" style="top-0">
