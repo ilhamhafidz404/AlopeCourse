@@ -21,8 +21,7 @@ use App\Http\Controllers\TokenController as UserTokenController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\Auth\ChangePassword;
-
-
+use App\Http\Controllers\InvoiceController;
 use App\Models\Notification;
 use App\Models\User;
 
@@ -82,6 +81,7 @@ Route::middleware(['role:active|premium|admin', 'auth'])->group(function () {
     Route::get('/invoice', function() {
       return view('user.more.invoice');
     })->name('invoice');
+    Route::post('/invoice', InvoiceController::class)->name('invoice.sent');
 
     Route::get('/touch-admin', function() {
       Notification::create([

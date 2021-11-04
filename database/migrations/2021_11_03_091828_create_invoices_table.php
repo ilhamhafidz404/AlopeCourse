@@ -15,6 +15,14 @@ class CreateInvoicesTable extends Migration
     {
         Schema::create('invoices', function (Blueprint $table) {
             $table->id();
+            $table->string('proof');
+            $table->string('invoice');
+            $table->foreignId('User_id');
+            $table->string('bank_name');
+            $table->string('from');
+            $table->string('to');
+            $table->enum('access_type', ['silver', 'gold', 'platinum', 'flash']);
+            $table->date('sent_at');
             $table->timestamps();
         });
     }

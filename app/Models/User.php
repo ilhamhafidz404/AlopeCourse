@@ -7,11 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
-use \App\Models\Blog;
-use \App\Models\Post;
-use \App\Models\Token;
-use \App\Models\Biodata;
-use \App\Models\Notification;
+use \App\Models\{Blog, Post, Token, Biodata, Notification};
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -74,5 +70,9 @@ class User extends Authenticatable implements MustVerifyEmail
 
   public function Biodata() {
     return $this->hasOne(Biodata::class);
+  }
+
+  public function Invoice(){
+    return $this->belongsTo(Invoice::class);
   }
 }

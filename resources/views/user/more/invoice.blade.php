@@ -111,29 +111,29 @@
         <div class="col-md-7 px-5">
             <h3 class="mb-4 mt-3">Kirim Bukti Pembayaran</h3>
             <hr>
-            <form action="">
+            <form action="{{route('invoice.sent')}}" method="POST">
+              @csrf
                 <div class="form-group">
-                    <label for="username" class="form-control-label">Username ALOPE anda</label>
-                    <input type="text" class="form-control" placeholder="cx: xxhamz_">
+                    <input type="hidden" class="form-control" name="user_id" value="{{auth()->user()->id}}">
                 </div>
                 <div class="form-group">
-                    <label for="username" class="form-control-label">Nama BANK anda</label>
-                    <input type="text" class="form-control" placeholder="cx: Ilham Hafidz">
+                    <label for="bank_name" class="form-control-label">Nama BANK anda</label>
+                    <input type="text" id="bank_name" class="form-control" placeholder="cx: Ilham Hafidz" name="bank_name">
                 </div>
                 <div class="form-group">
-                    <label for="username" class="form-control-label">BANK Anda</label>
-                    <input type="text" class="form-control" placeholder="cx: BANK MANDIRI/Go-Pay">
+                    <label for="from" class="form-control-label">BANK Anda</label>
+                    <input type="text" id="from" class="form-control" placeholder="cx: BANK MANDIRI/Go-Pay" name="from">
                 </div>
                 <div class="form-group">
-                    <div class="form-control-label">Bank Tujuan</div>
-                    <select name="" id="" class="form-select">
+                    <div class="form-control-label" for="to">Bank Tujuan</div>
+                    <select name="to" id="to" class="form-select">
                         <option value="" selected hidden>- BANK TUJUAN -</option>
-                        <option value="">MANDIRI</option>
-                        <option value="">BCA</option>
-                        <option value="">OVO</option>
-                        <option value="">Go-Pay</option>
-                        <option value="">DANA</option>
-                        <option value="">LINK AJA</option>
+                        <option value="mandiri">MANDIRI</option>
+                        <option value="bca">BCA</option>
+                        <option value="ovo">OVO</option>
+                        <option value="gopay">Go-Pay</option>
+                        <option value="dana">DANA</option>
+                        <option value="linkaja">LINK AJA</option>
                     </select>
                 </div>
                 <fieldset>
@@ -144,33 +144,33 @@
                     <div class="row">
                         <div class="col-6">
                             <div class="form-group ms-5">
-                                <input type="radio" id="silver" class="form-check-input" name="paket" placeholder="cx: BANK MANDIRI">
+                                <input type="radio" id="silver" class="form-check-input" name="paket" placeholder="cx: BANK MANDIRI" value="silver">
                                 <label for="silver" class="form-check-label">Silver</label>
                             </div>
                             <div class="form-group ms-5">
-                                <input type="radio" id="gold" class="form-check-input" name="paket" placeholder="cx: BANK MANDIRI">
+                                <input type="radio" id="gold" class="form-check-input" name="paket" placeholder="cx: BANK MANDIRI" value="gold">
                                 <label for="gold" class="form-check-label">Gold</label>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="form-group ms-5">
-                                <input type="radio" id="platinum" class="form-check-input" name="paket" placeholder="cx: BANK MANDIRI">
+                                <input type="radio" id="platinum" class="form-check-input" name="paket" placeholder="cx: BANK MANDIRI" value="platinum">
                                 <label for="platinum" class="form-check-label">Platinum</label>
                             </div>
                             <div class="form-group ms-5">
-                                <input type="radio" id="hemat" class="form-check-input" name="paket" placeholder="cx: BANK MANDIRI">
-                                <label for="hemat" class="form-check-label">HEMAT</label>
+                                <input type="radio" id="hemat" class="form-check-input" name="paket" placeholder="cx: BANK MANDIRI" value="flash">
+                                <label for="hemat" class="form-check-label">Flash</label>
                             </div>
                         </div>
                     </div>
                 </fieldset>
                 <div class="form-group">
-                    <label for="" class="form-control-label">Tanggal Transfer</label>
-                    <input type="date" class="form-control">
+                    <label for="" class="form-control-label" for="tanggal">Tanggal Transfer</label>
+                    <input type="date" class="form-control" id="tanggal" name="address">
                 </div>
                 <div class="form-group mt-3">
-                    <label class="form-control-label" for="profile">Bukti Pembayaran</label>
-                    <input type="file" id="profile" class="dropify" data-height="200" accept="image/*" name="profileImg"/>
+                    <label class="form-control-label" for="proof">Bukti Pembayaran</label>
+                    <input type="file" id="proof" class="dropify" data-height="200" accept="image/*" name="proof"/>
                 </div>
                 <div class="form-group text-end">
                     <button class="btn text-white btn-primary px-5">
