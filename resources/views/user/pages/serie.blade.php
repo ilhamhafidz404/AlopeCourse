@@ -23,7 +23,7 @@
     Ikuti tutorial khusus mengenai suatu serie/pembahasan tertentu.Jika anda kebingungan karena merasa video yang anda tonton serasa kurang nyambung/acak. Ini bisa membuat anda lebih mudah mengikuti alur pengerjaannya secara bertahap.
   </small>
 @endsection
-@section('premium-card')
+@section('header-card')
   <x-premium-card-component></x-premium-card-component>
 @endsection
 

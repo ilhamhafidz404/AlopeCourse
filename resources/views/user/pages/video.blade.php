@@ -24,6 +24,10 @@
 </small>
 @endsection
 
+@section('header-card')
+    <x-youtube-card-component></x-youtube-card-component>
+@endsection
+
 @section('card-content')
 <div class="container-fluid series-content">
   <div class="card p-4 shadow position-relative">

@@ -36,7 +36,7 @@
         </div>
         <div class="col-lg-4">
           <br>
-          @yield('premium-card')
+          @yield('header-card')
         </div>
       </div>
     </div>

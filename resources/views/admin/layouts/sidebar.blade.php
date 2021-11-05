@@ -29,6 +29,14 @@
               </span>
             </a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link {{request()->is('admin/invoice*')?'active':''}}" href="{{route('admin.invoice')}}">
+              <i class="ni ni-diamond text-info"></i>
+              <span class="nav-link-text">
+                Invoice
+              </span>
+            </a>
+          </li>
         </ul>
         <hr class="my-3">
         <h6 class="navbar-heading p-0 text-muted">

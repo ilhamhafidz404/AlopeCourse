@@ -41,6 +41,7 @@ route::get('/', BerandaController::class)->name('beranda');
 // Khusus untuk admin
 Route::middleware(['role:admin', 'auth'])->group(function () {
   Route::get('/admin/dashboard', DashboardController::class)->name('dashboard.admin');
+  Route::get('/admin/invoice', DashboardController::class)->name('dashboard.admin');
   Route::resource('/admin/series', CategoryController::class);
   Route::resource('/admin/users', UserController::class);
   Route::resource('/admin/tag', TagController::class);
