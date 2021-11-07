@@ -17,7 +17,7 @@ class CreateInvoicesTable extends Migration
             $table->id();
             $table->string('proof');
             $table->string('invoice');
-            $table->foreignId('User_id');
+            $table->foreignId('user_id');
             $table->string('bank_name');
             $table->string('from');
             $table->string('to');

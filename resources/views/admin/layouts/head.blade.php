@@ -17,6 +17,8 @@
   <!-- Argon CSS -->
   <link rel="stylesheet" href="{{asset('template')}}/assets/css/argon.css?v=1.2.0" type="text/css">
 
+  @yield('style')
+
   <link rel="stylesheet" href="{{asset('dist/css/prism.css')}}">
   <link rel="stylesheet" href="{{asset('dist/css/dropify.min.css')}}">
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/dt-1.11.2/datatables.min.css" />

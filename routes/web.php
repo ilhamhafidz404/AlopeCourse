@@ -1,16 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Admin\BlogController;
-use App\Http\Controllers\Admin\CategoryController;
-use App\Http\Controllers\Admin\TagController;
-use App\Http\Controllers\Admin\UserController;
-use App\Http\Controllers\Admin\VideoController;
-use App\Http\Controllers\Admin\BlogSyntaxController;
-use App\Http\Controllers\Admin\BannedBlogController;
+// ------------------------------- ADMIN CONTROLLER
+use App\Http\Controllers\Admin\{DashboardController, BlogController, BlogSyntaxController, BannedBlogController, CategoryController, TagController, VideoController, UserController};
 use App\Http\Controllers\Admin\TokenController as AdminTokenController;
 use App\Http\Controllers\Admin\MessageController as AdminMessageController;
+use App\Http\Controllers\Admin\more\InvoiceController as AdminInvoiceController;
 
 use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\BlogController as UserBlogController;
@@ -25,6 +20,10 @@ use App\Http\Controllers\InvoiceController;
 use App\Models\Notification;
 use App\Models\User;
 
+// Livewire
+use App\Http\Livewire\View\BerandaLivewire;
+use App\Http\Livewire\View\SerieLivewire;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,11 +36,14 @@ use App\Models\User;
 */
 
 route::get('/', BerandaController::class)->name('beranda');
+// Route::livewire('/', BerandaLivewire::class)->name('beranda');
+// Route::livewire('/serie', SerieLivewire::class)->name('serie.index');
 
-// Khusus untuk admin
+
+// ------------------------------ Khusus untuk admin
 Route::middleware(['role:admin', 'auth'])->group(function () {
   Route::get('/admin/dashboard', DashboardController::class)->name('dashboard.admin');
-  Route::get('/admin/invoice', DashboardController::class)->name('dashboard.admin');
+  Route::get('/admin/invoice', [AdminInvoiceController::class, 'index'])->name('admin.invoice');
   Route::resource('/admin/series', CategoryController::class);
   Route::resource('/admin/users', UserController::class);
   Route::resource('/admin/tag', TagController::class);

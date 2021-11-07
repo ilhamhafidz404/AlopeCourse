@@ -19,6 +19,9 @@
   <!-- glider -->
   <link rel="stylesheet" href="{{asset('dist/css/glider.min.css')}}">
   <link rel="stylesheet" href="{{asset('css/mystyle.css')}}">
+  
+  <livewire:scripts/>
+</body>
 
 
   <!--
@@ -83,8 +86,11 @@
     <x-banner-component></x-banner-component>
     <x-footer-component></x-footer-component>
 
+    <livewire:styles/>
+    <script src="https://cdn.jsdelivr.net/gh/livewire/turbolinks@v0.1.x/dist/livewire-turbolinks.js" data-turbolinks-eval="false" data-turbo-eval="false"></script>
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="/js/app.js"></script>
+
 
     <!-- Prism  -->
     <script src="{{asset('dist/js/prism.js')}}"></script>

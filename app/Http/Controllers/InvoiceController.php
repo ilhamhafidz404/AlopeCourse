@@ -11,8 +11,10 @@ class InvoiceController extends Controller
 {
     public function __invoke(Request $request){
         $invoice= 'INV/'.date('Ymd', time()).'-'.\Str::random(5);
+        $fileName= "CAMERA_".time().'.jpg';
+        $request->file('proof')->storeAs('public/proof', $fileName,);
         Invoice::create([
-            'proof' => $request->proof,
+            'proof' => $fileName,
             'invoice' => $invoice,
             'user_id' => auth()->user()->id,
             'bank_name' => $request->bank_name,

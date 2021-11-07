@@ -13,6 +13,6 @@ class Invoice extends Model
     protected $fillable= ['proof', 'user_id', 'invoice', 'bank_name', 'from', 'to', 'access_type', 'sent_at'];
 
     public function User(){
-        return $this->hasMany(User::class);
+        return $this->belongsTo(User::class);
     }
 }

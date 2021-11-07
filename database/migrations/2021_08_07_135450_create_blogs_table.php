@@ -18,12 +18,12 @@ class CreateBlogsTable extends Migration
       $table->string('judul');
       $table->foreignId('category_id');
       $table->foreignId('user_id')->default(1);
-        $table->longText('content');
-        $table->string("status")->default("upload");
-          $table->enum("access", ["active", "premium"])->default("active");
-            $table->timestamps();
-          });
-      }
+      $table->longText('content');
+      $table->string("status")->default("upload");
+      $table->enum("access", ["active", "premium"])->default("active");
+      $table->timestamps();
+    });
+  }
 
       /**
       * Reverse the migrations.

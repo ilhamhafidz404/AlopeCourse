@@ -111,7 +111,7 @@
         <div class="col-md-7 px-5">
             <h3 class="mb-4 mt-3">Kirim Bukti Pembayaran</h3>
             <hr>
-            <form action="{{route('invoice.sent')}}" method="POST">
+            <form action="{{route('invoice.sent')}}" method="POST" enctype="multipart/form-data">
               @csrf
                 <div class="form-group">
                     <input type="hidden" class="form-control" name="user_id" value="{{auth()->user()->id}}">

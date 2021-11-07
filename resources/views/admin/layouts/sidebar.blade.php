@@ -31,7 +31,7 @@
           </li>
           <li class="nav-item">
             <a class="nav-link {{request()->is('admin/invoice*')?'active':''}}" href="{{route('admin.invoice')}}">
-              <i class="ni ni-diamond text-info"></i>
+              <i class="fas fa-receipt text-purple"></i>
               <span class="nav-link-text">
                 Invoice
               </span>
