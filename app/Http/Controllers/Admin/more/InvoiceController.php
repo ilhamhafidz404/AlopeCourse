@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class InvoiceController extends Controller
 {
     public function index(){
-        $invoices= Invoice::all();
+        $invoices= Invoice::latest()->get();
         return view('admin.more.invoice.index', compact('invoices'));
     }
 }
