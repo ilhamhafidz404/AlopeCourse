@@ -7,18 +7,6 @@
 @endsection
 
 @section('content')
-@php
-    $curl= curl_init();
-    curl_setopt($curl, CURLOPT_URL, 'https://www.googleapis.com/youtube/v3/channels?part=snippet,statistics&id=UCR0Gz3-3zuqQuuePqNq9-JA&key=AIzaSyBSLmlOfBhdZXTucXCXx17WmcaQWRkX0Tc');
-    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-    $result= curl_exec($curl);
-    curl_close($curl);
-
-    $result= json_decode($result, true);
-    $ytChannelName= $result['items'][0]['snippet']['title'];
-    $ytProfile= $result['items'][0]['snippet']['thumbnails']['medium']['url'];
-    $subscriberCount= $result['items'][0]['statistics']['subscriberCount'];
-@endphp
 <div class="col-xl-3 col-md-6">
   <div class="card card-stats">
     <!-- Card body -->
@@ -166,11 +154,39 @@
     <canvas id="videoChart" height="330"></canvas>
   </div>
 </div>
+
+
+@php
+    $curl= curl_init();
+    curl_setopt($curl, CURLOPT_URL, 'https://www.googleapis.com/youtube/v3/channels?part=snippet,statistics&id=UCR0Gz3-3zuqQuuePqNq9-JA&key=AIzaSyBSLmlOfBhdZXTucXCXx17WmcaQWRkX0Tc');
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+    $result= curl_exec($curl);
+    // curl_close($curl);
+
+    $result= json_decode($result, true);
+    $ytChannelName= $result['items'][0]['snippet']['title'];
+    $ytProfile= $result['items'][0]['snippet']['thumbnails']['medium']['url'];
+    $subscriberCount= $result['items'][0]['statistics']['subscriberCount'];
+
+
+    curl_setopt($curl, CURLOPT_URL, 'https://www.googleapis.com/youtube/v3/search?key=AIzaSyBSLmlOfBhdZXTucXCXx17WmcaQWRkX0Tc&channelId=UCR0Gz3-3zuqQuuePqNq9-JA&part=snippet&order=date&maxResults=1');
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+    $searchResult= curl_exec($curl);
+    curl_close($curl);
+
+    $searchResult= json_decode($searchResult, true);
+    $searchResult= $searchResult['items'][0]['id']['videoId'];
+@endphp
+
+
 <div class="col-md-12">
   <div class="row align-items-center">
     <div class="col-md-8">
       <div class="card p-3">
-        <iframe width="100%" height="350px" src="{{$video->link}}"></iframe>
+        {{-- <iframe width="100%" height="350px" src={{ "https://www.youtube.com/embed/".$searchResult }}></iframe> --}}
+        <iframe width="100%" height="315"
+        src="https://www.youtube.com/embed/{{$searchResult}}">
+        </iframe> 
       </div>
     </div>
     <div class="col-md-4">

@@ -7,16 +7,15 @@ use App\Http\Controllers\Admin\TokenController as AdminTokenController;
 use App\Http\Controllers\Admin\MessageController as AdminMessageController;
 use App\Http\Controllers\Admin\more\InvoiceController as AdminInvoiceController;
 
+
+// ------------------------------- USER CONTROLLER
 use App\Http\Controllers\BerandaController;
-use App\Http\Controllers\BlogController as UserBlogController;
-use App\Http\Controllers\VideoController as UserVideoController;
-use App\Http\Controllers\SerieController;
-use App\Http\Controllers\TopicController;
-use App\Http\Controllers\TokenController as UserTokenController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\LikeController;
+// pages controller
+use App\Http\Controllers\{BlogController as UserBlogController, VideoController as UserVideoController, SerieController, TopicController};
+// more controller
+use App\Http\Controllers\{TokenController as UserTokenController, ProfileController, LikeController, InvoiceController};
+
 use App\Http\Controllers\Auth\ChangePassword;
-use App\Http\Controllers\InvoiceController;
 use App\Models\Notification;
 use App\Models\User;
 
@@ -44,7 +43,7 @@ route::get('/', BerandaController::class)->name('beranda');
 Route::middleware(['role:admin', 'auth'])->group(function () {
   Route::get('/admin/dashboard', DashboardController::class)->name('dashboard.admin');
   Route::get('/admin/invoice', [AdminInvoiceController::class, 'index'])->name('admin.invoice');
-  // Route::delete('/admin/invoice/{invoice}', [AdminInvoiceController::class, 'format'])->name('invoice.format');
+  // Route::delete('/admin/invoice', [AdminInvoiceController::class, 'format'])->name('invoice.format');
   Route::resource('/admin/series', CategoryController::class);
   Route::resource('/admin/users', UserController::class);
   Route::resource('/admin/tag', TagController::class);

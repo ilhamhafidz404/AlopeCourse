@@ -1,4 +1,16 @@
 <div>
+    @php
+        $curl= curl_init();
+        curl_setopt($curl, CURLOPT_URL, 'https://www.googleapis.com/youtube/v3/search?key=AIzaSyBSLmlOfBhdZXTucXCXx17WmcaQWRkX0Tc&channelId=UCR0Gz3-3zuqQuuePqNq9-JA&part=snippet');
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        $result= curl_exec($curl);
+        curl_close($curl);
+
+        $result= json_decode($result, true);
+        $videoCount= $result["pageInfo"]['totalResults'];
+        $items= $result['items']
+    @endphp
+    {{-- {{ dd($items) }} --}}
     <style>
         .text-gradient{
             background: linear-gradient(-45deg, #821FC8, #23ADD1 );
@@ -24,7 +36,7 @@
     <div class="card text-center p-3 text-dark mx-5 mb-0 mt-4 position-relative" style="background: rgba(18, 27, 104, 0.7); border-radius: 20px; overflow: hidden">
         <img src="{{asset('image/yt-ribbon.png')}}" width="70px" class="position-absolute" style="left: -3px; top: -12px; opacity: 0.7">
         <h6 style="color: #ebebeb" class="mb-1">ALOPE Programming</h6>
-        <h4 class="display-4 text-gradient mb-0 fw-bold">60</h4>
+        <h4 class="display-4 text-gradient mb-0 fw-bold">{{ $videoCount -1 }}</h4>
         <div class="d-flex justify-content-center">
             <span class="text-gradient me-2">video tutorial on</span>
             <span class="youtube-text fw-bold text-uppercase">youtube</span>

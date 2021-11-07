@@ -66,6 +66,65 @@
       </div>
       @endforeach
     </div>
+
+    @php
+      $curl= curl_init();
+      curl_setopt($curl, CURLOPT_URL, 'https://www.googleapis.com/youtube/v3/playlists?key=AIzaSyBSLmlOfBhdZXTucXCXx17WmcaQWRkX0Tc&channelId=UCR0Gz3-3zuqQuuePqNq9-JA&part=snippet&order=date');
+      curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+      $result= curl_exec($curl);
+      curl_close($curl);
+
+      $result= json_decode($result, true);
+      $items= $result['items']
+    @endphp
+    <div class="accordion">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headerYoutube">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#youtube">
+            Youtube
+          </button>
+        </h2>
+        <div id="youtube" class="accordion-collapse collapse">
+          <div class="accordion-body">
+            <div class="row">
+              @foreach ($items as $item)
+              {{-- {{dd($items)}} --}}
+                <div class="col-sm-12 col-md-6 col-lg-4">
+                  <a href={{ "https://www.youtube.com/playlist?list=".$item['id'] }} target="_blank">
+                    <div class="card border-0 bg-transparent position-relative m-auto mb-4" style="width: 90% !important;">
+                      <div class="rounded video-thumb w-100" style="background-image: url({{ $item['snippet']['thumbnails']['high']['url'] }})"></div>
+                      <div class="card-body">
+                        <h5 class="card-title my-1 text-dark">
+                          {{ $item['snippet']['title'] }}
+                          {{-- {{ dd($item) }} --}}
+                        </h5>
+                        <div class="d-flex justify-content-between">
+                          <div>
+                            <small href="">
+                              #category
+                            </small>
+                          </div>
+                          <div>
+                            <span class="badge bg-secondary">
+                              Episode
+                            </span>
+                            <span class="badge bg-secondary">
+                              min
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                  {{-- @if ($item['id']['kind'] == 'youtube#video')
+                  @endif --}}
+              @endforeach
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 @endsection
