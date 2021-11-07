@@ -32,7 +32,7 @@
         <small class="mt-4" style="color: #d4d4d4">
             Kunjungi Patreon Channel dengan klik tombol dibawah
         </small>
-        <a href="" class="btn btn-primary text-white btn-header-card mt-3 mb-2">
+        <a href="https://www.youtube.com/channel/UCR0Gz3-3zuqQuuePqNq9-JA" target="_blank" class="btn btn-primary text-white btn-header-card mt-3 mb-2">
             berlangganan
         </a>
     </div>

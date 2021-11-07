@@ -44,6 +44,7 @@ route::get('/', BerandaController::class)->name('beranda');
 Route::middleware(['role:admin', 'auth'])->group(function () {
   Route::get('/admin/dashboard', DashboardController::class)->name('dashboard.admin');
   Route::get('/admin/invoice', [AdminInvoiceController::class, 'index'])->name('admin.invoice');
+  // Route::delete('/admin/invoice/{invoice}', [AdminInvoiceController::class, 'format'])->name('invoice.format');
   Route::resource('/admin/series', CategoryController::class);
   Route::resource('/admin/users', UserController::class);
   Route::resource('/admin/tag', TagController::class);
