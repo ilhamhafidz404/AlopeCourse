@@ -9,7 +9,7 @@ use Database\Seeders\RoleSeeder;
 use Database\Seeders\UserSeeder;
 use Database\Seeders\TokenSeeder;
 use Database\Seeders\NotificationSeeder;
-use Database\Seeders\MessageSeeder;
+// use Database\Seeders\MessageSeeder;
 use App\Models\Blog;
 use App\Models\Video;
 
@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
     $this->call(RoleSeeder::class);
     $this->call(UserSeeder::class);
     $this->call(NotificationSeeder::class);
-    $this->call(MessageSeeder::class);
+    // $this->call(MessageSeeder::class);
 
     Blog::factory()->count(10)->create();
     Video::factory()->count(10)->create();

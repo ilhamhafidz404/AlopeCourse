@@ -81,7 +81,8 @@
               <h5 class="modal-title" id="exampleModalLabel">Give Token {{$token->token}}</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="{{route('token.message')}}">
+            <form action="{{route('token.give')}}" method="POST">
+              @csrf
               <div class="modal-body">
                 <div class="form-group mb-3">
                   <label for="token" class="form-label">
@@ -180,7 +181,8 @@
                 <h5 class="modal-title" id="exampleModalLabel">Give Token {{$token->token}}</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
-              <form action="{{route('token.message')}}">
+              <form action="{{route('token.give')}}" method="POST">
+                @csrf
                 <div class="modal-body">
                   <div class="form-group mb-3">
                     <label for="token" class="form-label">

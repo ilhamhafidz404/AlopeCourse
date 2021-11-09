@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-transparent fixed-top p-3">
+<nav class="navbar navbar-expand-sm navbar-dark bg-transparent fixed-top p-3">
   <div class="container">
     <a class="navbar-brand" href="/">ALOPE</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">

@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Route;
 // ------------------------------- ADMIN CONTROLLER
 use App\Http\Controllers\Admin\{DashboardController, BlogController, BlogSyntaxController, BannedBlogController, CategoryController, TagController, VideoController, UserController};
 use App\Http\Controllers\Admin\TokenController as AdminTokenController;
-use App\Http\Controllers\Admin\MessageController as AdminMessageController;
 use App\Http\Controllers\Admin\more\InvoiceController as AdminInvoiceController;
 
 
@@ -49,7 +48,8 @@ Route::middleware(['role:admin', 'auth'])->group(function () {
   Route::resource('/admin/tag', TagController::class);
   Route::resource('/admin/video', VideoController::class);
   Route::resource('/admin/token', AdminTokenController::class);
-  Route::get('/admin/messagetoken', AdminMessageController::class)->name('token.message');
+  Route::post('/admin/token/givetoken', [AdminTokenController::class, 'give'])->name('token.give');
+  // Route::get('  ', AdminMessageController::class)->name('token.message');
 
   // Route Khusus Blog
   Route::resource('/admin/blog', BlogController::class);
@@ -59,6 +59,9 @@ Route::middleware(['role:admin', 'auth'])->group(function () {
   Route::put('/admin/banblog/{id}', BannedBlogController::class)->name('blog.banned');
 });
 
+
+
+// ------------------------------ ALL USER
 Route::middleware(['role:active|premium|admin', 'auth'])->group(function () {
   Route::get('/serie', [SerieController::class, 'index'])->name('serie.index');
   Route::get('/serie/{slug}', [SerieController::class, 'show'])->name('serie.show');
@@ -81,6 +84,8 @@ Route::middleware(['role:active|premium|admin', 'auth'])->group(function () {
     Route::get('/like/{blog_id}', LikeController::class)->name('like.blog');
     Route::get('/reedem-token', [UserTokenController::class, 'redeem'])->name('redeem');
     Route::post('/token', [UserTokenController::class, 'getPremium'])->name('getPremium');
+    Route::get('account/changepassword', [ChangePassword::class, 'edit'])->name('changepassword');
+    Route::put('account/changepassword', [ChangePassword::class, 'update'])->name('password.change');
     Route::get('/invoice', function() {
       return view('user.more.invoice');
     })->name('invoice');
@@ -102,5 +107,3 @@ Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']
 });
 
 Auth::routes(["verify" => true]);
-Route::get('account/changepassword', [ChangePassword::class, 'edit'])->name('changepassword');
-Route::put('account/changepassword', [ChangePassword::class, 'update'])->name('password.change');
