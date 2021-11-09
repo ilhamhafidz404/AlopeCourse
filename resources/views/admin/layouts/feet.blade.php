@@ -15,7 +15,6 @@
 <!--<script src="https://cdn.ckeditor.com/ckeditor5/29.1.0/classic/ckeditor.js"></script>-->
 <script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
 
-{{-- LightBox --}}
 @yield('script')
 
 

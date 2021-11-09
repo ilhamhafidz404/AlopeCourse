@@ -61,7 +61,7 @@
         </h6>
       </div>
     @endif
-    <x-message-component></x-message-component>
+    <x-tawk-component></x-tawk-component>
   @endif
 @else
   <body>

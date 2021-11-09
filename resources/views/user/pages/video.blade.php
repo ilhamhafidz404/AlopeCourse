@@ -105,15 +105,13 @@
                             <div class="d-flex justify-content-between">
                               <div>
                                 <small href="">
-                                  #category
+                                  #Youtube Video
                                 </small>
                               </div>
                               <div>
-                                <span class="badge bg-secondary">
-                                  Episode
-                                </span>
-                                <span class="badge bg-secondary">
-                                  min
+                                <span class="badge bg-danger">
+                                  <i class="fab fa-youtube me-2"></i>
+                                  Tonton di Youtube
                                 </span>
                               </div>
                             </div>

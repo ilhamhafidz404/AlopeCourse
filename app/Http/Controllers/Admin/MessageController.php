@@ -20,21 +20,20 @@ class MessageController extends Controller
       Alert::warning("Token ini sudah di Order");
       return back();
     }
-    Message::create([
-      "user_id" => $user->id,
-      "subject" => "Terimakasih telah membeli pake Premium kami",
-      "message" => "Silahkan Reedem tokennya segera dan dapatkan palet premium agar proses belajarmu semakin menyenangkan. Kode tokenmu adalah ".$token->token
-    ]);
+    // Message::create([
+    //   "user_id" => $user->id,
+    //   "subject" => "Terimakasih telah membeli pake Premium kami",
+    //   "message" => "Silahkan Reedem tokennya segera dan dapatkan palet premium agar proses belajarmu semakin menyenangkan. Kode tokenmu adalah ".$token->token
+    // ]);
     $token->update([
       "isOrder" => true
     ]);
 
-    // alert()->html('Berhasil menambah Token',
-    //             "
-    //               <a href='mailto: ?subject=Mail from xyz.com'>Hubungi User</a>
-    //             ",
-    //             'success');
-    Alert::success("Berhasil mengirim token");
+    alert()->html('Token berhasil diorder',
+                "
+                  <a href='mailto:".$user->email."?subject= ALOPE REDEEM ACCESS&body=Halo ". $user->username." Terimakasih sudah membeli Acces Premium dari ALOPE, Kami sangat senang sekarang kamu menjadi bagian dari kami. Tetap dukung kami untuk lebih berkembang lagi yak :) Ini adalah reedem code untuk Premium Acces kamu : ". $token->token.". Semoga harimu menyenangkan:)'>Hubungi User</a>
+                ",
+                'success');
     return back();
   }
 }

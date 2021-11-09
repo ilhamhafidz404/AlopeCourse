@@ -43,7 +43,8 @@
   </section>
 
   @yield('card-content')
-  <x-message-component></x-message-component>
+  {{-- <x-message-component></x-message-component> --}}
+  <x-tawk-component></x-tawk-component>
 
   @if(auth::check() && !auth()->user()->email_verified_at)
     <div class="alert alert-danger position-fixed bottom-0 w-100 m-0 p-2" style="z-index: 1000">

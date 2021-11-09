@@ -10,7 +10,6 @@
         $videoCount= $result["pageInfo"]['totalResults'];
         $items= $result['items']
     @endphp
-    {{-- {{ dd($items) }} --}}
     <style>
         .text-gradient{
             background: linear-gradient(-45deg, #821FC8, #23ADD1 );
@@ -42,7 +41,7 @@
             <span class="youtube-text fw-bold text-uppercase">youtube</span>
         </div>
         <small class="mt-4" style="color: #d4d4d4">
-            Kunjungi Patreon Channel dengan klik tombol dibawah
+            Kunjungi Youtube Channel dengan klik tombol dibawah
         </small>
         <a href="https://www.youtube.com/channel/UCR0Gz3-3zuqQuuePqNq9-JA" target="_blank" class="btn btn-primary text-white btn-header-card mt-3 mb-2">
             berlangganan
