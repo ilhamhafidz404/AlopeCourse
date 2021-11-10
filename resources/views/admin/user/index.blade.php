@@ -11,7 +11,7 @@
 
 @section('header-button')
 <div class="btn-group">
-  <a href="{{route('users.create')}}" class="btn btn-sm btn-neutral me-2">Tambah User</a>
+  <a href="" class="btn btn-sm btn-neutral me-2">Tambah User</a>
   <button type="button" class="btn btn-neutral btn-sm dropdown-toggle" data-bs-toggle="dropdown">
     Filter Blog
   </button>
@@ -110,7 +110,7 @@
                         <span aria-hidden="true">&times;</span>
                       </button>
                     </div>
-                    <form action="{{route('token.message')}}">
+                    <form action="{{route('token.give')}}">
                       <div class="modal-body">
                         <div class="form-group mb-3">
                           <label for="user" class="form-label">

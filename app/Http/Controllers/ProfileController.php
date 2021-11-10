@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Biodata;
 use App\Models\Like;
-use App\Models\Message;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class ProfileController extends Controller
@@ -16,18 +15,6 @@ class ProfileController extends Controller
     $biodata = Biodata::whereUser_id($user->id)->first();
     $like = Like::whereUser_id($user->id)->count();
     return view('user.more.user-profile', compact('user', 'biodata', 'like'));
-  }
-
-  public function create() {
-    //
-  }
-
-  public function store(Request $request) {
-    //
-  }
-
-  public function show($id) {
-    //
   }
 
   public function edit($username) {
@@ -71,9 +58,5 @@ class ProfileController extends Controller
 
     Alert::toast('Profile telah terupdate', 'success');
     return redirect()->route('profile.edit', $request->username);
-  }
-
-  public function destroy($id) {
-    //
   }
 }

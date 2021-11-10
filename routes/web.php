@@ -44,12 +44,20 @@ Route::middleware(['role:admin', 'auth'])->group(function () {
   Route::get('/admin/invoice', [AdminInvoiceController::class, 'index'])->name('admin.invoice');
   // Route::delete('/admin/invoice', [AdminInvoiceController::class, 'format'])->name('invoice.format');
   Route::resource('/admin/series', CategoryController::class);
-  Route::resource('/admin/users', UserController::class);
   Route::resource('/admin/tag', TagController::class);
   Route::resource('/admin/video', VideoController::class);
-  Route::resource('/admin/token', AdminTokenController::class);
+
+  // Route Khusus User
+  Route::get('/admin/users', [UserController::class, 'index'])->name('users.index');
+  Route::put('/admin/users/{id}', [UserController::class, 'update'])->name('users.update');
+
+  
+  // Route Khusus Token
+  // Route::resource('/admin/token', AdminTokenController::class);
+  Route::get('/admin/token', [AdminTokenController::class, 'index'])->name('token.index');
+  Route::post('/admin/token', [AdminTokenController::class, 'store'])->name('token.store');
+  Route::delete('/admin/token/{id}', [AdminTokenController::class, 'destroy'])->name('token.destroy');
   Route::post('/admin/token/givetoken', [AdminTokenController::class, 'give'])->name('token.give');
-  // Route::get('  ', AdminMessageController::class)->name('token.message');
 
   // Route Khusus Blog
   Route::resource('/admin/blog', BlogController::class);
@@ -68,6 +76,8 @@ Route::middleware(['role:active|premium|admin', 'auth'])->group(function () {
   Route::get('/blog', [UserBlogController::class, 'list'])->name('blog.list');
   Route::get('/video', [UserVideoController::class, 'index'])->name('list.video.tutor');
   Route::get('/topic', TopicController::class)->name('topic');
+
+  // User Profile
   Route::get('/u/{profile}', [ProfileController::class, 'index'])->name('profile.index');
   Route::get('/u/{profile}/edit', [ProfileController::class, 'edit'])->name('profile.edit');
   Route::put('/u/{profile}', [ProfileController::class, 'update'])->name('profile.update');
