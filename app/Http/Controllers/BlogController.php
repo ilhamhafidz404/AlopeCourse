@@ -10,7 +10,7 @@ use App\Models\Like;
 class BlogController extends Controller
 {
   public function list() {
-    $blogs = Blog::with(['user', 'category'])->latest()->paginate(12);
+    $blogs = Blog::with(['user', 'category'])->whereStatus('upload')->latest()->paginate(12);
     return view('user.pages.blog', compact('blogs'));
   }
 

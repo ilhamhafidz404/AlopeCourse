@@ -17,6 +17,7 @@ class UserSeeder extends Seeder
       'name' => "admin",
       'username' => "adggvvmin",
       'email' => 'admin@admin.com',
+      'email_verified_at' => now(),
       'password' => bcrypt('admin')
     ]);
 
@@ -35,6 +36,7 @@ class UserSeeder extends Seeder
       'name' => "premium",
       'username' => "preggghmium",
       'email' => 'premium@user.com',
+      'email_verified_at' => now(),
       'password' => bcrypt('premium')
     ]);
 

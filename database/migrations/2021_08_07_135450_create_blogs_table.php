@@ -14,8 +14,8 @@ class CreateBlogsTable extends Migration
   public function up() {
     Schema::create('blogs', function (Blueprint $table) {
       $table->id();
-      $table->string('thumbnail');
       $table->string('judul');
+      $table->string('thumbnail');
       $table->foreignId('category_id');
       $table->foreignId('user_id')->default(1);
       $table->longText('content');

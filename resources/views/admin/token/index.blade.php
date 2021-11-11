@@ -223,7 +223,7 @@
 <div class="modal fade" id="exampleModal">
   <div class="modal-dialog">
     <div class="modal-content">
-      <form action="{{route('token.store')}}" method="POST">
+      <form action="{{route('token.give')}}" method="POST">
         @csrf
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Tambah Redeem Code</h5>

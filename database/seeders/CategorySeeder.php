@@ -13,9 +13,9 @@ class CategorySeeder extends Seeder
   */
   public function run() {
     \App\Models\Category::insert([
-      ['nama' => 'HTML Dasar', "slug" => "html-dasar", 'description' => "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, voluptate sapiente amet accusamus,", 'thumbnail' => 'default.jpg', 'created_at' => now()],
-      ['nama' => 'CSS Dasar', "slug" => "css-dasar", 'description' => "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, voluptate sapiente amet accusamus,", 'thumbnail' => 'default.jpg', 'created_at' => now()],
-      ['nama' => 'CSS Layouting', "slug" => "css-layouting", 'description' => "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, voluptate sapiente amet accusamus,", 'thumbnail' => 'default.jpg', 'created_at' => now()],
+      ['nama' => 'HTML Dasar', "slug" => "html-dasar", 'description' => "Hypertext Markup Language adalah bahasa markah standar untuk dokumen yang dirancang untuk ditampilkan di peramban internet.", 'thumbnail' => 'default.jpg', 'created_at' => now()],
+      ['nama' => 'CSS Dasar', "slug" => "css-dasar", 'description' => "Cascading Style Sheet merupakan aturan untuk mengatur komponen dalam sebuah web agar lebih terstruktur dan seragam.", 'thumbnail' => 'default.jpg', 'created_at' => now()],
+      ['nama' => 'CSS Layouting', "slug" => "css-layouting", 'description' => "CSS layouting adalah tehnik untuk mengatur tata letak sebuah halaman web dengan menggunakan kode CSS.", 'thumbnail' => 'default.jpg', 'created_at' => now()],
     ]);
   }
 }

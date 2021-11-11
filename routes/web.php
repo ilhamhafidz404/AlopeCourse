@@ -55,7 +55,7 @@ Route::middleware(['role:admin', 'auth'])->group(function () {
   // Route Khusus Token
   // Route::resource('/admin/token', AdminTokenController::class);
   Route::get('/admin/token', [AdminTokenController::class, 'index'])->name('token.index');
-  Route::post('/admin/token', [AdminTokenController::class, 'store'])->name('token.store');
+  // Route::post('/admin/token', [AdminTokenController::class, 'store'])->name('token.store');
   Route::delete('/admin/token/{id}', [AdminTokenController::class, 'destroy'])->name('token.destroy');
   Route::post('/admin/token/givetoken', [AdminTokenController::class, 'give'])->name('token.give');
 
@@ -117,3 +117,10 @@ Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']
 });
 
 Auth::routes(["verify" => true]);
+// Auth::routes();
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::any('{any}', function () {
+  return view('home');
+})->where('any', '.*');

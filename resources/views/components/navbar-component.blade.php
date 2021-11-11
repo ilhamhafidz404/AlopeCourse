@@ -27,16 +27,20 @@
               {{auth()->user()->name}}
             </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              @if(auth()->user()->hasRole('admin'))
+              <li>
+                <a class="dropdown-item" href="{{route('dashboard.admin', auth()->user()->username)}}">
+                  <img src="{{asset('storage/profile/'.auth()->user()->profile)}}" alt="foto-profile" class="rounded-circle me-3 shadow-sm" width="30px" height="30px">
+                  Dashboard
+                </a>
+              </li>
+              @else
               <li>
                 <a class="dropdown-item" href="{{route('profile.index', auth()->user()->username)}}">
                   <img src="{{asset('storage/profile/'.auth()->user()->profile)}}" alt="foto-profile" class="rounded-circle me-3 shadow-sm" width="30px" height="30px">
                   Profil Saya
                 </a>
               </li>
-              @if(auth()->user()->hasRole('admin'))
-                <li>
-                  <a class="dropdown-item" href="{{route('dashboard.admin')}}">Dashboard</a>
-                </li>
               @endif
               <li><hr class="dropdown-divider"></li>
               <li>
