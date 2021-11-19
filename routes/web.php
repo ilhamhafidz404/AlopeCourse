@@ -33,7 +33,7 @@ use App\Http\Livewire\View\SerieLivewire;
 |
 */
 
-route::get('/', BerandaController::class)->name('beranda');
+Route::get('/', BerandaController::class)->name('beranda');
 // Route::livewire('/', BerandaLivewire::class)->name('beranda');
 // Route::livewire('/serie', SerieLivewire::class)->name('serie.index');
 

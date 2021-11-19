@@ -27,7 +27,7 @@
             Video ini termasuk dalam list premium, <br>
             Anda harus berlangganan jika ingin tonton video ini.
           </p>
-          <a href="https://api.whatsapp.com/send?phone=6283871352030&text=Hai%20saya%20ingin%20berlangganan%20di%20ALOPE" class="btn btn-primary px-5 mt-4">
+          <a href="https://api.whatsapp.com/send?phone=6283871352030&text=Hai%20saya%20ingin%20berlangganan%20di%20ALOPE" class="btn btn-primary px-5 mt-4 text-white">
             <i class="fas fa-rocket me-2"></i>
             Mulai Berlangganan
           </a>
