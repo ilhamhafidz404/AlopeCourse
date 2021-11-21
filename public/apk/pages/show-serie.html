@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <!-- Bootstrap CSS -->
+        <link
+            href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+            rel="stylesheet"
+        />
+
+        <script
+            src="https://kit.fontawesome.com/bfdfedea1a.js"
+            crossorigin="anonymous"
+        ></script>
+
+        <title>ALOPE APK</title>
+
+        <style>
+            .active::after {
+                content: "";
+                width: 12px;
+                height: 5px;
+                background-color: white;
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                bottom: -5px;
+                border-radius: 20px;
+            }
+        </style>
+    </head>
+    <body class="bg-gray-100">
+        <div
+            style="
+                background-image: url(https://images.unsplash.com/photo-1517852058149-07c7a2e65cc6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);
+                height: 280px;
+                border-radius: 0 0 40px 40px;
+            "
+            class="w-full bg-cover bg-center"
+        >
+            <div class="flex px-5 pt-4 justify-between">
+                <a
+                    href="serie.html"
+                    class="
+                        bg-white
+                        rounded-full
+                        flex
+                        items-center
+                        justify-center
+                    "
+                    style="width: 25px; height: 25px"
+                >
+                    <i class="fas fa-chevron-left text-gray-700"></i>
+                </a>
+
+                <div
+                    class="
+                        bg-white
+                        rounded-full
+                        flex
+                        items-center
+                        justify-center
+                    "
+                    style="width: 25px; height: 25px"
+                >
+                    <i class="fas fa-heart text-red-500"></i>
+                </div>
+            </div>
+        </div>
+        <div class="px-5">
+            <header class="mt-5 flex justify-between">
+                <div>
+                    <h1 class="text-xl font-semibold tracking-wider">
+                        HTML DASAR
+                    </h1>
+                    <div class="flex">
+                        <p class="text-xs text-gray-500 mt-3 mr-5">
+                            <i class="fas fa-code mr-1"></i>
+                            <span class="font-bold">Beginner</span>
+                        </p>
+                        <p class="text-xs text-green-500 mt-3">
+                            <i class="fas fa-check-circle mr-1"></i>
+                            <span class="font-bold">Complete</span>
+                        </p>
+                    </div>
+                    <div class="rating">
+                        <i class="fas fa-star text-yellow-500 text-xs"></i>
+                        <i class="fas fa-star text-yellow-500 text-xs"></i>
+                        <i class="fas fa-star text-yellow-500 text-xs"></i>
+                        <i class="fas fa-star text-yellow-500 text-xs"></i>
+                        <i class="far fa-star text-yellow-500 text-xs"></i>
+                    </div>
+                </div>
+                <div>
+                    <p class="text-right">
+                        <span
+                            class="
+                                flex
+                                items-center
+                                justify-center
+                                rounded-xl
+                                bg-red-500
+                                text-white
+                                mr-1
+                            "
+                            style="width: 20px; height: 20px"
+                        >
+                            <i class="fab fa-html5 p-1"></i>
+                        </span>
+                    </p>
+                </div>
+            </header>
+            <div class="mt-8 text-xs">
+                <h4 class="font-semibold">Tentang HTML DASAR</h4>
+                <p class="text-gray-500 mt-2">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut
+                    vero rerum officiis dicta illo atque! Libero dolorem
+                    dignissimos eveniet cupiditate. Minus adipisci aperiam ipsum
+                    repudiandae rem rerum quibusdam modi amet?
+                </p>
+            </div>
+            <main class="mt-8">
+                <a
+                    href="stream.html"
+                    class="
+                        card
+                        shadow
+                        mb-3
+                        py-2
+                        px-3
+                        rounded-md
+                        flex
+                        items-center
+                        bg-white
+                    "
+                >
+                    <div class="mr-5">
+                        <div
+                            class="
+                                rounded-full
+                                flex
+                                items-center
+                                justify-center
+                            "
+                            style="
+                                width: 30px;
+                                height: 30px;
+                                background: linear-gradient(
+                                    -45deg,
+                                    #821fc8,
+                                    #23add1
+                                );
+                            "
+                        >
+                            <span class="font-bold text-white"> 1 </span>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-sm">Apa Itu HTML</h4>
+                        <small class="text-gray-500">5 Menit</small>
+                    </div>
+                </a>
+                <a
+                    href="stream.html"
+                    class="
+                        card
+                        shadow
+                        mb-3
+                        py-2
+                        px-3
+                        rounded-md
+                        flex
+                        items-center
+                        bg-white
+                    "
+                >
+                    <div class="mr-5">
+                        <div
+                            class="
+                                rounded-full
+                                flex
+                                items-center
+                                justify-center
+                            "
+                            style="
+                                width: 30px;
+                                height: 30px;
+                                background: linear-gradient(
+                                    -45deg,
+                                    #821fc8,
+                                    #23add1
+                                );
+                            "
+                        >
+                            <span class="font-bold text-white"> 2 </span>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-sm">Paragraf Pada HTML</h4>
+                        <small class="text-gray-500">5 Menit</small>
+                    </div>
+                </a>
+                <a
+                    href="stream.html"
+                    class="
+                        card
+                        shadow
+                        mb-3
+                        py-2
+                        px-3
+                        rounded-md
+                        flex
+                        items-center
+                        bg-white
+                    "
+                >
+                    <div class="mr-5">
+                        <div
+                            class="
+                                rounded-full
+                                flex
+                                items-center
+                                justify-center
+                            "
+                            style="
+                                width: 30px;
+                                height: 30px;
+                                background: linear-gradient(
+                                    -45deg,
+                                    #821fc8,
+                                    #23add1
+                                );
+                            "
+                        >
+                            <span class="font-bold text-white"> 3 </span>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-sm">Text Styling</h4>
+                        <small class="text-gray-500">5 Menit</small>
+                    </div>
+                </a>
+                <a
+                    href="stream.html"
+                    class="
+                        card
+                        shadow
+                        mb-3
+                        py-2
+                        px-3
+                        rounded-md
+                        flex
+                        items-center
+                        bg-white
+                    "
+                >
+                    <div class="mr-5">
+                        <div
+                            class="
+                                rounded-full
+                                flex
+                                items-center
+                                justify-center
+                            "
+                            style="
+                                width: 30px;
+                                height: 30px;
+                                background: linear-gradient(
+                                    -45deg,
+                                    #821fc8,
+                                    #23add1
+                                );
+                            "
+                        >
+                            <span class="font-bold text-white"> 4 </span>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-sm">Table</h4>
+                        <small class="text-gray-500">5 Menit</small>
+                    </div>
+                </a>
+            </main>
+        </div>
+
+        <hr class="m-10" />
+
+        <header class="w-full px-5">
+            <div class="relative overflow-hidden rounded" style="height: 150px">
+                <div
+                    style="
+                        background-image: url(https://images.unsplash.com/photo-1633114128174-2f8aa49759b0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);
+                    "
+                    class="w-full h-full bg-cover bg-center"
+                ></div>
+                <div
+                    class="w-full h-full bg-black absolute top-0 opacity-50"
+                ></div>
+                <div class="absolute top-0 text-white w-full mt-5 text-center">
+                    <h4 class="text-base uppercase font-semibold mb-0">
+                        Youtube Livestream
+                    </h4>
+                    <div
+                        class="
+                            time
+                            flex
+                            px-5
+                            mt-5
+                            text-xl
+                            font-semibold
+                            justify-center
+                        "
+                    >
+                        <div class="day">
+                            <div class="flex">
+                                <div class="bg-white rounded px-2 mr-1">
+                                    <h6 class="text-black">0</h6>
+                                </div>
+                                <div class="bg-white rounded px-2 mr-1">
+                                    <h6 class="text-black">7</h6>
+                                </div>
+                                <div class="px-1 mr-1">
+                                    <h6 class="text-white">:</h6>
+                                </div>
+                            </div>
+                            <h6 class="text-sm text-left pl-3">Hari</h6>
+                        </div>
+                        <div class="hour">
+                            <div class="flex">
+                                <div class="bg-white rounded px-2 mr-1">
+                                    <h6 class="text-black">1</h6>
+                                </div>
+                                <div class="bg-white rounded px-2 mr-1">
+                                    <h6 class="text-black">0</h6>
+                                </div>
+                                <div class="px-1 mr-1">
+                                    <h6 class="text-white">:</h6>
+                                </div>
+                            </div>
+                            <h6 class="text-sm text-left pl-3">Jam</h6>
+                        </div>
+                        <div class="minute">
+                            <div class="flex">
+                                <div class="bg-white rounded px-2 mr-1">
+                                    <h6 class="text-black">1</h6>
+                                </div>
+                                <div class="bg-white rounded px-2 mr-1">
+                                    <h6 class="text-black">7</h6>
+                                </div>
+                            </div>
+                            <h6 class="text-sm text-center">Menit</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <br /><br /><br />
+        <!-- footer -->
+        <footer
+            class="fixed bottom-0 right-0 left-0 px-5 py-3 shadow-inner"
+            style="background: linear-gradient(45deg, #594dd4, #7749cb)"
+        >
+            <ul class="grid grid-cols-3">
+                <li class="text-center">
+                    <a href="../index.html">
+                        <i class="fas text-white fa-home"></i>
+                    </a>
+                </li>
+                <li class="text-center relative">
+                    <a href="serie.html" class="active">
+                        <i class="fas text-white fa-laptop-code"></i>
+                    </a>
+                </li>
+                <li class="text-center">
+                    <a href="pages/profile.html" class="active">
+                        <i class="fas text-white fa-user"></i>
+                    </a>
+                </li>
+            </ul>
+        </footer>
+    </body>
+</html>
